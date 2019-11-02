@@ -1,0 +1,82 @@
+@mixin generator($classname, $max) {
+
+    @for $classname from 1 through $max {
+
+        .#{$classname} {
+            @content;
+        }
+
+    }
+
+}
+
+@mixin respond($breakpoint) {
+
+    @if $breakpoint=='desktop' {
+        @media all and (min-width: $large) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint=='medium' {
+        @media all and (min-width: $medium) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint=='small' {
+        @media all and (max-width: $small) {
+            @content;
+        }
+    }
+}
+
+@mixin flexalign {
+    display: flex;
+    align-items: center;
+    @content;
+}
+
+//動畫
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+
+    ;
+
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+
+    ;
+
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+
+    ;
+
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+
+    ;
+
+    @keyframes #{$animation-name} {
+        @content;
+    }
+
+    ;
+}
+
+
+//grid
+@mixin grid($num) {
+    @for $i from 1 through $num {
+
+        .col-#{$i} {
+            width: ($i / $num) * 100%;
+        }
+    }
+}
