@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="./js/customize.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="phone">
+            <input type="checkbox" name="" id="ham">
+            <label for="ham">
+
+                <span class="ham-1"></span>
+                <span class="ham-2"></span>
+                <span class="ham-3"></span>
+                <span class="ham-4"></span>
+            </label>
+
+            <div class="logo ham"><a href="./index.html"><img src="./images/logo.png" alt=""></a></div>
+
+            <ul class="nav-icon ham">
+                <li class="icon-1"></li>
+                <li class="icon-2"></li>
+                <li class="icon-3"></li>
+            </ul>
+
+            <nav class="pc">
+
+                <ul class=" nav-list">
+                    <li><a href="./customize.html">專屬騎行</a></li>
+                    <li><a href="./CYShop.html">CY嚴選</a></li>
+                    <li><a href="#">活動專區</a></li>
+                    <li class="logo"><a href="./index.html"><img src="./images/logo.png" alt=""></a></li>
+                    <li><a href="#">不可不知</a></li>
+                    <li><a href="#">關於CY</a></li>
+                </ul>
+
+                <ul class="nav-icon">
+                    <li class="icon-1"></li>
+                    <li class="icon-2"></li>
+                    <li class="icon-3"></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+
+        <div class="customize-area">
+
+            <div class="bike-background">
+
+                <div class="picture-area">
+                    <div class="wheel"><img src="./images/wheels.png" alt=""></div>
+                    <div class="frame"><img src="./images/mountain-frame1-color1.png" alt=""></div>
+                    <div class="handle"><img src="./images/mountain-frame1-handle1.png" alt=""></div>
+                </div>
+
+                <div class="picture-area-fake"><img src="./images/mountain-frame1-handle1.png" alt=""></div>
+
+                <div class="bgselector">
+                    <label>更換背景:</label>
+                    <span class="place place-1 active" data-place="1"></span>
+                    <span class="place place-2" data-place="2"></span>
+                    <span class="place place-3" data-place="3"></span>
+                    <span class="place place-4" data-place="4"></span>
+                </div>
+            </div>
+
+            <div class="bike-selector">
+                <div class="option-head">
+                    <h3>打造您的專屬騎行</h3>
+                </div>
+                <div class="option active">
+                    <div class="option-part option-part-1 active" data-option="1">
+                        <div class="icon">
+                            <div class="icon-1"><img src="./images/bikeicon0.png" alt=""></div>
+                        </div>
+                        <div class="title">
+                            車款
+                        </div>
+                        <div class="more">
+                            <div class="arrow">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-extend active">
+                        <div class="showbox active" data-type="1"><img src="./images/type1.png" alt=""></div>
+                        <div class="showbox active" data-type="2"><img src="./images/type2.png" alt=""></div>
+                        <div class="showbox active" data-type="3"><img src="./images/type3.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="option-part option-part-2" data-option="2">
+                        <div class="icon">
+                            <div class="icon-2"><img src="./images/frame0.png" alt=""></div>
+                        </div>
+                        <div class="title">
+                            車架
+                        </div>
+                        <div class="more">
+                            <div class="arrow">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-extend option-content">
+                        <div class="mountain active">
+                            <div class="showbox" data-frame="1" data-type="mountain"><img
+                                    src="./images/m-frame1-color1.png" alt=""></div>
+                            <div class="showbox" data-frame="2" data-type="mountain"><img
+                                    src="./images/m-frame2-color1.png" alt=""></div>
+                        </div>
+                        <div class="road">
+                            <div class="showbox" data-frame="1" data-type="road"><img src="./images/r-frame1-color1.png"
+                                    alt=""></div>
+                            <div class="showbox" data-frame="2" data-type="road"><img
+                                    src="./images/roadbikeB-frame1.png" alt=""></div>
+
+                        </div>
+                        <div class="city">
+                            <div class="showbox" data-frame="1" data-type="city"><img
+                                    src="./images/citybike-frame1-color1.png" alt=""></div>
+                            <div class="showbox" data-frame="2" data-type="city"><img
+                                    src="./images/citybike-frame2-color1.png" alt=""></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="option-part option-part-3" data-option="3">
+                        <div class="icon">
+                            <div class="icon-3"><img src="./images/handle0.png" alt=""></div>
+                        </div>
+                        <div class="title">
+                            把手
+                        </div>
+                        <div class="more">
+                            <div class="arrow">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-extend option-content">
+                        <div class="mountain active">
+                            <div class="frame1 active" data-frame="mountain1">
+                                <div class="showbox" data-handle="1" data-type="mountain"><img
+                                        src="./images/m-handle1.png" alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="mountain"><img
+                                        src="./images/m-handle2.png" alt=""></div>
+                            </div>
+                            <div class="frame2" data-frame="mountain2">
+                                <div class="showbox" data-handle="1" data-type="mountain"><img
+                                        src="./images/m-handle1.png" alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="mountain"><img
+                                        src="./images/m-handle2.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="road">
+                            <div class="frame1 active" data-frame="road1">
+                                <div class="showbox" data-handle="1" data-type="road"><img src="./images/r-handle1.png"
+                                        alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="road"><img src="./images/m-handle2.png"
+                                        alt=""></div>
+                            </div>
+                            <div class="frame2" data-frame="road2">
+                                <div class="showbox" data-handle="1" data-type="road"><img src="./images/r-handle1.png"
+                                        alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="road"><img src="./images/m-handle2.png"
+                                        alt=""></div>
+                            </div>
+                        </div>
+                        <div class="city">
+                            <div class="frame1 active" data-frame="city1">
+                                <div class="showbox" data-handle="1" data-type="city"><img src="./images/c-handle1.png"
+                                        alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="city"><img src="./images/m-handle2.png"
+                                        alt=""></div>
+                            </div>
+                            <div class="frame2" data-frame="city2">
+                                <div class="showbox" data-handle="1" data-type="city"><img src="./images/m-handle1.png"
+                                        alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="city"><img src="./images/m-handle2.png"
+                                        alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="option-part option-part-4" data-option="4">
+                        <div class="icon">
+                            <div class="icon-4"><img src="./images/brush0.png" alt=""></div>
+                        </div>
+                        <div class="title">
+                            顏色
+                        </div>
+                        <div class="more">
+                            <div class="arrow">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-extend option-content">
+                        <div class="mountain active">
+                            <div class="frame1 active" data-frame="mountain1">
+                                <div class="showbox" data-color="1" data-type="mountain"><img
+                                        src="./images/m-frame1-color1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="mountain"><img
+                                        src="./images/m-frame1-color2.png" alt=""></div>
+                            </div>
+
+                            <div class="frame2" data-frame="mountain2">
+                                <div class="showbox" data-color="1" data-type="mountain"><img
+                                        src="./images/m-frame2-color1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="mountain"><img
+                                        src="./images/m-frame2-color2.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="road">
+                            <div class="frame1 active" data-frame="road1">
+                                <div class="showbox" data-color="1" data-type="road"><img
+                                        src="./images/r-frame1-color1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="road"><img
+                                        src="./images/r-frame1-color2.png" alt=""></div>
+                            </div>
+                            <div class="frame2" data-frame="road2">
+                                <div class="showbox" data-color="1" data-type="road"><img
+                                        src="./images/roadbikeB-frame1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="road"><img
+                                        src="./images/roadbikeB-frame2.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="city">
+                            <div class="frame1 active" data-frame="city1">
+                                <div class="showbox" data-color="1" data-type="city"><img
+                                        src="./images/citybike-frame1-color1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="city"><img
+                                        src="./images/citybike-frame1-color2.png" alt=""></div>
+                            </div>
+
+                            <div class="frame2" data-frame="city2">
+                                <div class="showbox" data-color="1" data-type="city"><img
+                                        src="./images/citybike-frame2-color1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="city"><img
+                                        src="./images/c-frame2-color2.png" alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile">
+                    <div class="mobile-extend mobile1 active">
+                        <div class="showbox active" data-type="1"><img src="./images/type1.png" alt=""></div>
+                        <div class="showbox active" data-type="2"><img src="./images/type2.png" alt=""></div>
+                        <div class="showbox active" data-type="3"><img src="./images/type3.png" alt=""></div>
+                    </div>
+
+                    <!-- 車架 -->
+                    <div class="mobile-extend mobile2 option-content">
+                        <div class="mountain active">
+                            <div class="showbox" data-frame="1" data-type="mountain"><img
+                                    src="./images/m-frame1-color1.png" alt=""></div>
+                            <div class="showbox" data-frame="2" data-type="mountain"><img
+                                    src="./images/m-frame2-color1.png" alt=""></div>
+                        </div>
+                        <div class="road">
+                            <div class="showbox" data-frame="1" data-type="road"><img src="./images/r-frame1-color1.png"
+                                    alt=""></div>
+                            <div class="showbox" data-frame="2" data-type="road"><img
+                                    src="./images/roadbikeB-frame1.png" alt=""></div>
+                        </div>
+                        <div class="city">
+                            <div class="showbox" data-frame="1" data-type="city"><img
+                                    src="./images/citybike-frame1-color1.png" alt=""></div>
+                            <div class="showbox" data-frame="2" data-type="city"><img
+                                    src="./images/citybike-frame2-color1.png" alt=""></div>
+
+                        </div>
+                    </div>
+                    <!-- 把手 -->
+                    <div class="mobile-extend mobile3 option-content">
+                        <div class="mountain active">
+                            <div class="frame1 active" data-frame="mountain1">
+                                <div class="showbox" data-handle="1" data-type="mountain"><img
+                                        src="./images/m-handle1.png" alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="mountain"><img
+                                        src="./images/m-handle2.png" alt=""></div>
+                            </div>
+                            <div class="frame2" data-frame="mountain2">
+                                <div class="showbox" data-handle="1" data-type="mountain"><img
+                                        src="./images/m-handle1.png" alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="mountain"><img
+                                        src="./images/m-handle2.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="road">
+                            <div class="frame1 active" data-frame="road1">
+                                <div class="showbox" data-handle="1" data-type="road"><img src="./images/r-handle1.png"
+                                        alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="road"><img src="./images/m-handle2.png"
+                                        alt=""></div>
+                            </div>
+                            <div class="frame2" data-frame="road2">
+                                <div class="showbox" data-handle="1" data-type="road"><img src="./images/r-handle1.png"
+                                        alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="road"><img src="./images/m-handle2.png"
+                                        alt=""></div>
+                            </div>
+                        </div>
+                        <div class="city">
+                            <div class="frame1 active" data-frame="city1">
+                                <div class="showbox" data-handle="1" data-type="city"><img src="./images/c-handle1.png"
+                                        alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="city"><img src="./images/m-handle2.png"
+                                        alt=""></div>
+                            </div>
+                            <div class="frame2" data-frame="city2">
+                                <div class="showbox" data-handle="1" data-type="city"><img src="./images/m-handle1.png"
+                                        alt=""></div>
+                                <div class="showbox" data-handle="2" data-type="city"><img src="./images/m-handle2.png"
+                                        alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 顏色 -->
+                    <div class="mobile-extend mobile4 option-content">
+                        <div class="mountain active">
+                            <div class="frame1 active" data-frame="mountain1">
+                                <div class="showbox" data-color="1" data-type="mountain"><img
+                                        src="./images/m-frame1-color1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="mountain"><img
+                                        src="./images/m-frame1-color2.png" alt=""></div>
+                            </div>
+                            <div class="frame2 " data-frame="mountain2">
+                                <div class="showbox" data-color="1" data-type="mountain"><img
+                                        src="./images/m-frame2-color1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="mountain"><img
+                                        src="./images/m-frame2-color2.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="road">
+                            <div class="frame1 active" data-frame="road1">
+                                <div class="showbox" data-color="1" data-type="road"><img
+                                        src="./images/r-frame1-color1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="road"><img
+                                        src="./images/r-frame1-color2.png" alt=""></div>
+                            </div>
+                            <div class="frame2" data-frame="road2">
+                                <div class="showbox" data-color="1" data-type="road"><img
+                                        src="./images/roadbikeB-frame1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="road"><img
+                                        src="./images/roadbikeB-frame2.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="city">
+                            <div class="frame1 active" data-frame="city1">
+                                <div class="showbox" data-color="1" data-type="city"><img
+                                        src="./images/citybike-frame1-color1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="city"><img
+                                        src="./images/citybike-frame1-color2.png" alt=""></div>
+                            </div>
+                            <div class="frame2" data-frame="city2">
+                                <div class="showbox" data-color="1" data-type="city"><img
+                                        src="./images/citybike-frame2-color1.png" alt=""></div>
+                                <div class="showbox" data-color="2" data-type="city"><img
+                                        src="./images/c-frame2-color2.png" alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-end">
+
+
+                    <div class="option-btn">
+                        <h3>加入收藏</h3>
+                    </div>
+                    <div class="option-btn">
+                        <h3>加入購物車</h3>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div width="100%" height="500"></div>
+
+    </div>
+
+    <footer class="section">
+        <ul>
+            <li><img src="./images/facebook.png"></li>
+            <li><img src="./images/ig.png"></li>
+            <li><img src="./images/tw.png"></li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>

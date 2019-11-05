@@ -1,0 +1,321 @@
+.bikeexp {
+    height: 540px;
+    top: 100px;
+    position: relative;
+    overflow: hidden; }
+    .bikeexp #canvas {
+      display: block;
+      height: 540px; }
+    .bikeexp .status {
+      position: absolute;
+      top: 10px;
+      left: 10px; }
+      .bikeexp .status .intro {
+        width: 200px;
+        height: 40px;
+        color: #efe8cb;
+        background-color: #647c94;
+        position: absolute;
+        top: 50px;
+        left: 87px; }
+        .bikeexp .status .intro:before {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: 100%;
+          width: 170px;
+          border-right: 30px solid transparent;
+          border-bottom: 20px solid #647c94; }
+        .bikeexp .status .intro:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 100%;
+          width: 170px;
+          border-right: 30px solid transparent;
+          border-top: 20px solid #647c94;
+          z-index: 1; }
+        .bikeexp .status .intro .intro-name {
+          position: absolute;
+          margin: -12px 0 2px 10px; }
+          .bikeexp .status .intro .intro-name .intro-style {
+            padding-left: 10px;
+            font-size: 12px; }
+        .bikeexp .status .intro .intro-text {
+          margin-top: 8px;
+          margin-left: 20px;
+          font-size: 13px; }
+        .bikeexp .status .intro .intro-adv {
+          margin-top: 3px;
+          font-size: 13px;
+          margin-left: 20px; }
+        .bikeexp .status .intro .intro-buy {
+          width: 100px;
+          height: 20px;
+          background-color: #d26338;
+          position: absolute;
+          top: 100%;
+          right: 30px;
+          color: white;
+          font-size: 12px;
+          text-align: center;
+          line-height: 20px;
+          z-index: 2;
+          cursor: pointer; }
+          .bikeexp .status .intro .intro-buy:before, .bikeexp .status .intro .intro-buy:after {
+            content: '';
+            display: block;
+            position: absolute; }
+          .bikeexp .status .intro .intro-buy:before {
+            right: 100%;
+            border-left: 30px solid transparent;
+            border-bottom: 20px solid #d26338; }
+          .bikeexp .status .intro .intro-buy:after {
+            top: 0;
+            left: 100%;
+            border-right: 30px solid transparent;
+            border-top: 20px solid #d26338; }
+          .bikeexp .status .intro .intro-buy:hover {
+            background-color: #db8462; }
+            .bikeexp .status .intro .intro-buy:hover:before {
+              border-bottom: 20px solid #db8462; }
+            .bikeexp .status .intro .intro-buy:hover:after {
+              border-top: 20px solid #db8462; }
+      .bikeexp .status .chart, .bikeexp .status .speed {
+        width: 87px;
+        height: 50px;
+        position: absolute;
+        z-index: 20; }
+        .bikeexp .status .chart:before, .bikeexp .status .chart:after, .bikeexp .status .speed:before, .bikeexp .status .speed:after {
+          content: '';
+          display: block;
+          position: absolute;
+          border-left: 43.5px solid transparent;
+          border-right: 43.5px solid transparent; }
+        .bikeexp .status .chart:before, .bikeexp .status .speed:before {
+          bottom: 100%; }
+        .bikeexp .status .chart:after, .bikeexp .status .speed:after {
+          top: 100%; }
+      .bikeexp .status .chart {
+        top: 30px;
+        background-color: #919cb0;
+        display: flex;
+        flex-flow: row nowrap; }
+        .bikeexp .status .chart:before {
+          border-bottom: 30px solid #919cb0; }
+        .bikeexp .status .chart:after {
+          border-top: 30px solid #919cb0; }
+        .bikeexp .status .chart h3 {
+          font-size: 12px;
+          flex-basis: 50%;
+          text-align: center;
+          color: #fff;
+          line-height: 50px;
+          transition: .3s; }
+          .bikeexp .status .chart h3:first-child {
+            background-color: #4e708e; }
+          .bikeexp .status .chart h3:last-child {
+            background-color: #2a3c4c; }
+          .bikeexp .status .chart h3:hover {
+            flex-basis: 100%; }
+      .bikeexp .status .speed {
+        top: 110px;
+        left: 43.5px;
+        background-color: #3c566d;
+        color: #efe8cb; }
+        .bikeexp .status .speed:before {
+          border-bottom: 30px solid #3c566d; }
+        .bikeexp .status .speed:after {
+          border-top: 30px solid #3c566d; }
+        .bikeexp .status .speed h5 {
+          text-align: center;
+          padding-top: 5px; }
+          .bikeexp .status .speed h5 span {
+            font-size: 30px;
+            padding-right: 4px; }
+        .bikeexp .status .speed h6 {
+          text-align: center;
+          font-size: 12px;
+          padding-top: 2px; }
+    .bikeexp .btns {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 920px;
+      height: 43.5px;
+      display: flex;
+      flex-flow: row nowrap; }
+      .bikeexp .btns .eviBtns, .bikeexp .btns .ctgBtns {
+        width: 35%;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        flex-flow: row nowrap;
+        cursor: pointer; }
+        .bikeexp .btns .eviBtns .Btn, .bikeexp .btns .ctgBtns .Btn {
+          width: 30%;
+          height: 100%;
+          background-color: #647c94;
+          flex-basis: 33.333333%;
+          transition: .3s; }
+          .bikeexp .btns .eviBtns .Btn:hover, .bikeexp .btns .ctgBtns .Btn:hover {
+            transform-origin: bottom;
+            flex-basis: 60%;
+            box-shadow: 0 0 10px 0 #fff,
+   0 0 0 1px #ccc; }
+            .bikeexp .btns .eviBtns .Btn:hover .eviSkew, .bikeexp .btns .ctgBtns .Btn:hover .eviSkew {
+              transform: scaleY(0.8);
+              transform-origin: top center;
+              transition: .3s;
+              background-color: #3c6791; }
+          .bikeexp .btns .eviBtns .Btn .eviSkew, .bikeexp .btns .ctgBtns .Btn .eviSkew {
+            background-color: #1e3449;
+            z-index: 10; }
+            .bikeexp .btns .eviBtns .Btn .eviSkew h6, .bikeexp .btns .ctgBtns .Btn .eviSkew h6 {
+              color: #efe8cb;
+              line-height: 1.4;
+              text-align: center;
+              font-size: 12px; }
+      .bikeexp .btns .eviBtns .Btn {
+        transform: skew(-20deg);
+        position: relative;
+        z-index: 10;
+        overflow: hidden; }
+        .bikeexp .btns .eviBtns .Btn h6 {
+          transform: skew(20deg); }
+        .bikeexp .btns .eviBtns .Btn:hover {
+          transform: skew(-20deg) scaleY(1.5); }
+        .bikeexp .btns .eviBtns .Btn:before {
+          transform: skew(20deg) scale(1.3);
+          display: block;
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          z-index: -1; }
+      .bikeexp .btns .eviBtns .Btn:nth-child(1):before {
+        background-image: url(../images/evi1.jpg);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 150%; }
+      .bikeexp .btns .eviBtns .Btn:nth-child(2):before {
+        background-image: url(../images/evi2.jpg);
+        background-repeat: no-repeat;
+        background-position: 50% 20%;
+        background-size: 150%; }
+      .bikeexp .btns .eviBtns .Btn:nth-child(3):before {
+        background-image: url(../images/evi3.jpg);
+        background-repeat: no-repeat;
+        background-position: 50% 20%;
+        background-size: 150%; }
+      .bikeexp .btns .ctgBtns .Btn {
+        transform: skew(20deg);
+        overflow: hidden; }
+        .bikeexp .btns .ctgBtns .Btn:hover {
+          transform: skew(20deg) scaleY(1.5); }
+        .bikeexp .btns .ctgBtns .Btn h6 {
+          transform: skew(-20deg); }
+        .bikeexp .btns .ctgBtns .Btn:before {
+          transform: skew(-20deg) scale(1.3);
+          display: block;
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          z-index: -1; }
+      .bikeexp .btns .ctgBtns .Btn:nth-child(1):before {
+        background-image: url(../images/evi1.jpg);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 150%; }
+      .bikeexp .btns .ctgBtns .Btn:nth-child(2):before {
+        background-image: url(../images/evi2.jpg);
+        background-repeat: no-repeat;
+        background-position: 50% 20%;
+        background-size: 150%; }
+      .bikeexp .btns .ctgBtns .Btn:nth-child(3):before {
+        background-image: url(../images/evi3.jpg);
+        background-repeat: no-repeat;
+        background-position: 50% 20%;
+        background-size: 150%; }
+      .bikeexp .btns .msBtns {
+        width: 30%;
+        height: 100%;
+        background-color: #3c566d;
+        position: relative;
+        z-index: 0; }
+        .bikeexp .btns .msBtns:before, .bikeexp .btns .msBtns:after {
+          display: block;
+          content: '';
+          position: absolute;
+          top: 0;
+          z-index: -1; }
+        .bikeexp .btns .msBtns:before {
+          right: 100%;
+          border-bottom: 43.5px solid #3c566d;
+          border-left: 30px solid transparent; }
+        .bikeexp .btns .msBtns:after {
+          left: 100%;
+          border-top: 43.5px solid transparent;
+          border-left: 30px solid #3c566d; }
+        .bikeexp .btns .msBtns .add {
+          margin-left: 10%; }
+        .bikeexp .btns .msBtns .add, .bikeexp .btns .msBtns .break {
+          width: 20%;
+          color: #fff;
+          float: left;
+          text-align: center;
+          line-height: 50px;
+          position: relative; }
+          .bikeexp .btns .msBtns .add:after, .bikeexp .btns .msBtns .break:after {
+            content: '';
+            display: block;
+            width: 42px;
+            height: 42px;
+            box-shadow: 0 0 0 1px #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 50%; }
+          .bikeexp .btns .msBtns .add:hover:after, .bikeexp .btns .msBtns .break:hover:after {
+            opacity: .5;
+            background-color: #fff; }
+        .bikeexp .btns .msBtns .ms {
+          width: 40%;
+          height: 100%;
+          float: left;
+          overflow: hidden;
+          position: relative; }
+          .bikeexp .btns .msBtns .ms .msl, .bikeexp .btns .msBtns .ms .msr {
+            width: 50%;
+            height: 40px;
+            margin-top: 10px;
+            background-color: #ccc;
+            float: left; }
+            .bikeexp .btns .msBtns .ms .msl:hover, .bikeexp .btns .msBtns .ms .msr:hover {
+              background-color: #aaa; }
+          .bikeexp .btns .msBtns .ms .msl {
+            border-radius: 30px 0 0 0; }
+          .bikeexp .btns .msBtns .ms .msr {
+            border-radius: 0 30px 0 0; }
+          .bikeexp .btns .msBtns .ms .mss {
+            width: 10%;
+            height: 30px;
+            background-color: #999;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 5px 5px 0 0; }
