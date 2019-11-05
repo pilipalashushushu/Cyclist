@@ -103,6 +103,6 @@ gulp.task('default', async()=>{
     gulp.watch('./dev/img/*', gulp.series('copyImg'));
     gulp.watch('./dev/model/*', gulp.series('copyModel'));
     gulp.watch('./dev/sass/*.scss', gulp.series('sass'));
-    gulp.watch('./dev/js/*.js', gulp.series('minify'));
+    gulp.watch('./dev/js/*.js', gulp.series('minifyJS'));
     gulp.watch('./dev/*.html', gulp.series('template'));
 });
