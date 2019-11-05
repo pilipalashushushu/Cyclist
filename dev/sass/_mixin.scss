@@ -85,19 +85,21 @@
 
 //border
 
-@mixin border($dir, $width, $style, $color){
+@mixin border($dir, $width, $style, $color) {
     border-#{$dir}: $width $style $color;
 }
 
-@mixin img($a, $b, $c, $d){
+@mixin img($a, $b, $c, $d) {
     background-image: $a;
     background-repeat: $b;
     background-position: $c;
     background-size: $d;
 }
 
-@mixin cross($color){
-    &:before, &:after{
+@mixin cross($color) {
+
+    &:before,
+    &:after {
         content: '';
         display: block;
         position: absolute;
@@ -110,27 +112,32 @@
         height: 2px;
         background-color: $color;
     }
-    &:before{
+
+    &:before {
         transform: rotateZ(45deg);
     }
-    &:after{
+
+    &:after {
         transform: rotateZ(-45deg);
     }
-    &:hover:before{
+
+    &:hover:before {
         transform: rotateZ(135deg);
         transition: .3s;
     }
-    &:hover:after{
+
+    &:hover:after {
         transform: rotateZ(45deg);
         transition: .3s;
     }
 }
 
-@mixin arrow($bgc, $a){
+@mixin arrow($bgc, $a) {
     background-color: $bgc;
     cursor: pointer;
     position: relative;
-    &:after{
+
+    &:after {
         content: '';
         display: block;
         position: absolute;
@@ -145,10 +152,11 @@
     }
 }
 
-@mixin hover($i, $bgc){
-    &:nth-child(#{$i}){
+@mixin hover($i, $bgc) {
+    &:nth-child(#{$i}) {
         background-color: $bgc;
-        &:hover{
+
+        &:hover {
             background-color: lighten($bgc, 10%);
         }
     }
@@ -178,11 +186,11 @@
 
 // control
 
-.center{
+.center {
     margin: 0 auto;
 }
 
-.addToCart{
+.addToCart {
     background: #ccc;
 }
 

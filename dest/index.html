@@ -9,16 +9,18 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/col.css">
     <link rel="stylesheet" href="css/bikeExp.css">
-    <link rel="stylesheet" href="css/prodList.css">
+    <link rel="stylesheet" href="./css/fullpage.css">
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/fullpage.js"></script>
-    <script src="js/jquery.mousewheel.min.js"></script>
     <script src="./js/customize.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/109/three.js"></script>
     <script src="./js/OBJLoader.js"></script>
     <script src="./js/OrbitControls.js"></script>
     <script src="./js/MTLLoader.js"></script>
     <script src="./js/tadashiScript.js"></script>
+    <script src="./js/fullpage.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/jquery.easings.min.jss"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/scrolloverflow.min.js"></script> -->
 
 </head>
 
@@ -50,7 +52,7 @@
                     <li><a href="#">活動專區</a></li>
                     <li class="logo"><a href="./index.html"><img src="./images/logo.png" alt=""></a></li>
                     <li><a href="./question.html">不可不知</a></li>
-                    <li><a href="#">關於CY</a></li>
+                    <li><a href="./aboutCY.html">關於CY</a></li>
                 </ul>
 
                 <ul class="nav-icon">
@@ -63,7 +65,7 @@
     </header>
 
     <!-- 側邊麵包屑  side_nav-selected-->
-    <ul class="side_nav-container">
+    <!-- <ul class="side_nav-container">
         <li class="side_nav-item">
             <div class="side_nav-tab"></div>
             <a class="side_nav-label">CYCLIST</a>
@@ -92,9 +94,9 @@
             <div class="side_nav-tab"></div>
             <div class="side_nav-label">關於CY</div>
         </li>
-    </ul>
+    </ul> -->
 
-    <div class="fullpage">
+    <div class="fullpage" id="full">
         <!-- 首屏 -->
         <section class="section" id="banner">
             <div id="three" class="col-12" style="margin-left: -15px;"></div>
@@ -449,7 +451,7 @@
         </section>
         <!-- 單車體驗 -->
         <section class="section" id="cycling">
-            <section class="bikeexp center col-10">
+            <section class="bikeexp center col-12">
                 <canvas id="canvas" class="col-12" width="960" height="540" oncontextmenu="return false"></canvas>
                 <div class="status">
                     <div class="intro">
@@ -519,46 +521,7 @@
         <!-- 最新活動 -->
         <section class="section" id="activity"></section>
         <!-- 熱門商品 -->
-        <section class="section" id="product">
-            <ul class="prod-list col-12">
-                <li class="prod col-3">
-                    <div class="prod-shell">
-                        <div class="prod-pic">
-                            <img src=./images/TCR-TCR-SLR.jpg>
-                        </div>
-                        <h3 class="prod-title">TCR SL 2</h3>
-                        <p class="prod-context">TCR 爬坡型公路競賽用車</p>
-                        <p class="prod-money">$28,000</p>
-                        <p class="prod-buy-directly">直接購買</p>
-                    </div>
-                </li>
-                <li class="prod col-3">
-                    <div class="prod-shell">
-                        <div class="prod-pic">
-                            <img src=./images/TCR-TCR-SLR.jpg>
-                        </div>
-                        <h3 class="prod-title">TCR SL 2</h3>
-                        <p class="prod-context">TCR 爬坡型公路競賽用車</p>
-                        <p class="prod-money">$28,000</p>
-                        <p class="prod-buy-directly">直接購買</p>
-                    </div>
-                </li>
-                <li class="prod col-3">
-                    <div class="prod-shell">
-                        <div class="prod-pic">
-                            <img src=./images/TCR-TCR-SLR.jpg>
-                        </div>
-                        <h3 class="prod-title">TCR SL 2</h3>
-                        <p class="prod-context">TCR 爬坡型公路競賽用車</p>
-                        <p class="prod-money">$28,000</p>
-                        <p class="prod-buy-directly">直接購買</p>
-                    </div>
-                </li>
-            </ul>
-            <div class="prod-view col-12">
-                <h2>瀏覽CY嚴選</h2>
-            </div>
-        </section>
+        <section class="section" id="product"></section>
         <!-- 不可不知 -->
         <section class="section" id="mustKnow">
             <main>
@@ -645,14 +608,7 @@
     <script src="js/charming.min.js"></script>
     <script src="js/TweenMax.min.js"></script>
     <script src="js/demo.js"></script>
-    <script src="./js/header.js"></script>
-    <script>
-        $(function () {
-            $(window).scroll(function () {
-                alert("header")
-            })
-        })
-    </script>
+
 
 </body>
 
