@@ -1,10 +1,9 @@
 .prod-list{
-    max-width: 1000px;
     margin: 0 auto;
     padding-top: 200px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: row nowrap;
+    justify-content: space-around;
     clear: both;
 }
 
@@ -19,8 +18,12 @@
 .prod:nth-child(even){
     background-color: #647d94;
 }
-    .prod:hover {
-      background-color: #e6e6e6; }
+.prod:nth-child(odd):hover{
+  background-color: #f8f4e4;
+}
+.prod:nth-child(even):hover{
+  background-color: #8098af;
+}
     .prod .prod-shell {
       margin: 30px 0;
       padding: 5px 5px 85px;
