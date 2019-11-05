@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>CYCLIST_BS</title>
+  <!-- Icons-->
+  <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+  <link href="node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+  <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <!-- Main styles for this application-->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+ <!-- top_header -->
+ <header class="app-header navbar">
+    <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+      <img class="navbar-brand-full" src="img/brand/LOGO.png" width="55" height="42" alt="CoreUI Logo">
+      <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+    </a>
+    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <img class="img-avatar" src="img/avatars/9.jpg" alt="admin@bootstrapmaster.com">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <div class="dropdown-header text-center">
+            <strong>admin您好</strong>
+          </div>
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-lock"></i> Logout</a>
+        </div>
+      </li>
+    </ul>
+    <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+  <div class="app-body">
+    <div class="sidebar">
+      <!-- sidebar menu-->
+      <nav class="sidebar-nav">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">
+        <i class="nav-icon icon-drop"></i> 管理員管理</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="accountManage.html">
+        <i class="nav-icon icon-pencil"></i> 會員管理</a>
+    </li>
+    <li class="nav-item nav-dropdown">
+      <a class="nav-link nav-dropdown-toggle" href="#">
+        <i class="nav-icon icon-puzzle"></i> 訂單管理</a>
+      <ul class="nav-dropdown-items">
+        <li class="nav-item">
+          <a class="nav-link" href="base/breadcrumb.html">
+            <i class="nav-icon icon-puzzle"></i> 修改訂單</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="base/cards.html">
+            <i class="nav-icon icon-puzzle"></i> 註銷訂單</a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item nav-dropdown">
+      <a class="nav-link nav-dropdown-toggle" href="#">
+        <i class="nav-icon icon-cursor"></i> 客製管理</a>
+      <ul class="nav-dropdown-items">
+        <li class="nav-item">
+          <a class="nav-link" href="buttons/buttons.html">
+            <i class="nav-icon icon-cursor"></i> 主要零件管理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="buttons/button-group.html">
+            <i class="nav-icon icon-cursor"></i> 配件管理 </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="buttons/dropdowns.html">
+            <i class="nav-icon icon-cursor"></i> 單車知識管理</a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item nav-dropdown">
+      <a class="nav-link nav-dropdown-toggle" href="#">
+        <i class="nav-icon icon-star"></i> 商品管理</a>
+      <ul class="nav-dropdown-items">
+        <li class="nav-item">
+          <a class="nav-link" href="icons/coreui-icons.html">
+            <i class="nav-icon icon-star"></i> 商品上下架管理
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="icons/flags.html">
+            <i class="nav-icon icon-star"></i> 商品資訊管理</a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item nav-dropdown">
+      <a class="nav-link nav-dropdown-toggle" href="#">
+        <i class="nav-icon icon-bell"></i> 活動管理</a>
+      <ul class="nav-dropdown-items">
+        <li class="nav-item">
+          <a class="nav-link" href="notifications/alerts.html">
+            <i class="nav-icon icon-bell"></i> 活動管理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="notifications/badge.html">
+            <i class="nav-icon icon-bell"></i> 活動檢舉管理</a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="widgets.html">
+        <i class="nav-icon icon-calculator"></i> 機器人管理
+      </a>
+    </li>
+  </ul>
+</nav>
+      <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    </div>
+    <main class="main">
+      <!-- Breadcrumb-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">CYCLIST</li>
+        <li class="breadcrumb-item">
+          <a href="#">會員管理</a>
+        </li>
+      </ol>
+      <div class="container-fluid">
+   
+       <!-- 中間內容 -->
+       <div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+
+      </div>
+      <div class="card-body">
+        <table class="table table-responsive-sm table-sm">
+          <thead>
+            <tr>
+              <th>會員編號</th>
+              <th>會員名稱</th>
+              <th>會員帳號</th>
+              <th>購物金</th>
+              <th>會員信箱</th>
+              <th>會員電話</th>
+              <th>會員狀態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="memNo">1</td>
+              <td class="memName">賽克莉絲特</td>
+              <td class="memId">cyclist2019</td>
+              <td class="memGolds">100</td>
+              <td class="memEmail">cyclist2019@gmail.com</td>
+              <td class="memPhone">0912345678</td>
+              <td>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                  <label class="custom-control-label" for="customSwitch1"></label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+       <!-- end -->
+      </div>
+    </main>
+  </div>
+  <footer class="app-footer">
+        <div>
+          <a href="https://coreui.io">CYCLIST</a>
+          <span>&copy; 2019 copyright</span>
+        </div>
+      </footer>
+  <!-- CoreUI and necessary plugins-->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/pace-progress/pace.min.js"></script>
+  <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+  <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+</body>
+</html>
