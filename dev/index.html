@@ -12,48 +12,16 @@
     <script src="js/fullpage.js"></script>
     <script src="js/jquery.mousewheel.min.js"></script>
     <script src="./js/customize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/109/three.js"></script>
+    <script src="./js/OBJLoader.js"></script>
+    <script src="./js/OrbitControls.js"></script>
+    <script src="./js/MTLLoader.js"></script>
+    <script src="./js/tadashiScript.js"></script>
 
 </head>
 
 <body>
-    <header>
-        <nav class="phone">
-            <input type="checkbox" name="" id="ham">
-            <label for="ham">
-
-                <span class="ham-1"></span>
-                <span class="ham-2"></span>
-                <span class="ham-3"></span>
-                <span class="ham-4"></span>
-            </label>
-
-            <div class="logo ham"><a href="./index.html"><img src="./images/logo.png" alt=""></a></div>
-
-            <ul class="nav-icon ham">
-                <li class="icon-1"></li>
-                <li class="icon-2"></li>
-                <li class="icon-3"></li>
-            </ul>
-
-            <nav class="pc">
-
-                <ul class=" nav-list">
-                    <li><a href="customize.html">專屬騎行</a></li>
-                    <li><a href="#">CY嚴選</a></li>
-                    <li><a href="#">活動專區</a></li>
-                    <li class="logo"><a href="./index.html"><img src="./images/logo.png" alt=""></a></li>
-                    <li><a href="#">不可不知</a></li>
-                    <li><a href="#">關於CY</a></li>
-                </ul>
-
-                <ul class="nav-icon">
-                    <li class="icon-1"></li>
-                    <li class="icon-2"></li>
-                    <li class="icon-3"></li>
-                </ul>
-            </nav>
-        </nav>
-    </header>
+    @@include('./template/header.html')
 
     <!-- 側邊麵包屑  side_nav-selected-->
     <ul class="side_nav-container">
@@ -89,7 +57,15 @@
 
     <div class="fullpage">
         <!-- 首屏 -->
-        <section class="section" id="banner"></section>
+        <section class="section" id="banner">
+            <div class="wrap">
+                <div class="container">
+                    <div class="row">
+                        <div id="three" class="col-12"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- 客製化 -->
         <section class="section" id="customizer">
 
@@ -513,13 +489,7 @@
             </div>
         </section>
         <!-- footer -->
-        <footer class="section">
-            <ul>
-                <li><img src="./images/facebook.png"></li>
-                <li><img src="./images/ig.png"></li>
-                <li><img src="./images/tw.png"></li>
-            </ul>
-        </footer>
+        @@include('./template/footer.html')
     </div>
 
 
