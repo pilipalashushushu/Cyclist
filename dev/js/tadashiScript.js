@@ -313,6 +313,7 @@ function three(Id){
     var objLoader = new THREE.OBJLoader().setPath('./model/');
     mtlLoader.load('./11717_bicycle_v2_L1.mtl', (materials)=>{
         materials.preload();
+        console.log('pnginside');
         objLoader.setMaterials(materials);
         objLoader.load('./11717_bicycle_v2_L1.obj',function(obj){
             obj.position.set(0, -20, 0);
@@ -324,20 +325,30 @@ function three(Id){
 
     //background
     var textureLoader = new THREE.TextureLoader().setPath('./images/');
-    textureLoader.load('./evi1.jpg', function(texture){
-        scene.background = texture;
+    textureLoader.load('./becyclist.jpg', function(jpg){
+        scene.background = jpg;
     });
 
     //render
-    var renderer = new THREE.WebGLRenderer();
+    var renderer = new THREE.WebGLRenderer({
+        alpha: true
+    });
     renderer.setSize(parseInt(width), parseInt(height));
-    renderer.setClearColor(0xaaaaaa);
+    renderer.setClearColor("#a3ddce");
     document.getElementById('three').appendChild(renderer.domElement);
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.minDistance = 50;
     controls.maxDistance = 90;
     controls.autoRotate = true;
     controls.autoRotateSpeed = 5.0;
+
+    //text
+    // var canvas = document.querySelector('#three canvas');
+    // var context = canvas.getContext('2d');
+    // context.font = "Bold 200px Arial";
+    // context.fillStyle = "#fff";
+    // context.fillText('CYCLIST', 100, 100);
+    // console.log(canvas);
 
     function animate(){
         requestAnimationFrame(animate);
