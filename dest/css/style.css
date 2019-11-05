@@ -153,9 +153,6 @@ table {
   .col-12 {
     width: 100%; } }
 
-* {
-  outline: red 1px solid; }
-
 body {
   font-family: "微軟正黑體"; }
   body a {
@@ -207,21 +204,21 @@ header {
   .nav-icon li {
     background-image: url(../images/icon.png);
     background-repeat: no-repeat;
-    width: 40px;
-    height: 40px;
+    width: 22px;
+    height: 22px;
     margin: 10px; }
   .nav-icon .icon-1 {
     background-position: 0 0; }
   .nav-icon .icon-2 {
-    background-position: -39px 0; }
+    background-position: -22px 0; }
   .nav-icon .icon-3 {
-    background-position: -79px 0; }
+    background-position: -44px 0; }
   .nav-icon .icon-1:hover {
-    background-position: 2px -42px; }
+    background-position: 0px -22px; }
   .nav-icon .icon-2:hover {
-    background-position: -37px -42px; }
+    background-position: -22px -22px; }
   .nav-icon .icon-3:hover {
-    background-position: -77px -42px; }
+    background-position: -44px -22px; }
 
 @media all and (max-width: 768px) {
   header .phone {
@@ -266,6 +263,7 @@ header {
       position: absolute;
       top: 0;
       right: 100%;
+      height: 100vh;
       width: 100%;
       flex-flow: column;
       transition: all 1s; }
@@ -312,7 +310,6 @@ footer {
 
 .wrapper {
   width: 100%;
-  max-width: 1440px;
   margin: auto;
   margin-top: 60px; }
   .wrapper .customize-area {
@@ -320,15 +317,32 @@ footer {
     align-items: center;
     align-items: stretch;
     width: 100%; }
+  .wrapper .picture-area-fake {
+    width: 80%;
+    opacity: 0; }
+  .wrapper .picture-area {
+    width: 80%;
+    margin: auto;
+    position: relative; }
+    .wrapper .picture-area .handle {
+      position: absolute;
+      top: 0; }
+    .wrapper .picture-area .frame {
+      position: absolute;
+      top: 0; }
+    .wrapper .picture-area .wheel {
+      position: absolute;
+      top: 0; }
   .wrapper .bike-background {
     width: 70%;
     background-image: url(../images/bg.jpg);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
     box-sizing: border-box; }
     .wrapper .bike-background .bgselector {
       display: flex;
-      align-items: center; }
+      align-items: center;
+      margin-bottom: 5%; }
     .wrapper .bike-background label {
       margin-left: 10px;
       color: #333; }
@@ -562,10 +576,46 @@ footer {
     .wrapper .bike-selector .option-extend.active,
     .wrapper .bike-selector .option.active {
       height: 100%; }
+    .wrapper .bike-selector .showbox {
+      display: none; }
+    .wrapper .bike-selector .showbox.active {
+      display: block;
+      cursor: pointer; }
     .wrapper .bike-selector .mobile {
       display: none; }
     .wrapper .bike-selector .mobile-extend {
       display: none; }
+    .wrapper .bike-selector .showbox {
+      width: 40%; }
+    .wrapper .bike-selector .mobile1,
+    .wrapper .bike-selector .option-extend {
+      display: flex;
+      justify-content: space-around; }
+    .wrapper .bike-selector .option-extend:nth-child(1).active {
+      justify-content: normal;
+      flex-wrap: wrap; }
+    .wrapper .bike-selector [data-type="road"] {
+      display: none; }
+    .wrapper .bike-selector .mountain,
+    .wrapper .bike-selector .road,
+    .wrapper .bike-selector .city {
+      display: none; }
+    .wrapper .bike-selector .mountain.active,
+    .wrapper .bike-selector .road.active,
+    .wrapper .bike-selector .city.active {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      align-items: center; }
+    .wrapper .bike-selector .frame1,
+    .wrapper .bike-selector .frame2 {
+      display: none; }
+    .wrapper .bike-selector .frame1.active,
+    .wrapper .bike-selector .frame2.active {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center; }
 
 @media all and (max-width: 768px) {
   .wrapper .customize-area {
@@ -598,7 +648,6 @@ footer {
     align-items: center; }
   .bike-selector .mobile-extend.active {
     height: 100%;
-    display: block; }
-  .bike-selector .box {
-    width: 200px;
-    height: 200px; } }
+    display: flex; }
+  .bike-selector .mobile-extend.inactive {
+    display: block; } }

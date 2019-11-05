@@ -3,9 +3,9 @@
 @import "./_mixin.scss";
 @import "./grid.scss";
 
-* {
-    outline: red 1px solid;
-}
+// * {
+//     outline: red 1px solid;
+// }
 
 body {
 
@@ -88,36 +88,35 @@ header {
     li {
         background-image: url(../images/icon.png);
         background-repeat: no-repeat;
-        width: 40px;
-        height: 40px;
+        width: 22px;
+        height: 22px;
         margin: 10px;
     }
-
-
 
     .icon-1 {
         background-position: 0 0;
     }
 
     .icon-2 {
-        background-position: -39px 0;
+        background-position: -22px 0;
     }
 
     .icon-3 {
-        background-position: -79px 0;
+        background-position: -44px 0;
     }
 
     .icon-1:hover {
-        background-position: 2px -42px;
+        background-position: 0px -22px;
     }
 
     .icon-2:hover {
-        background-position: -37px -42px;
+        background-position: -22px -22px;
     }
 
     .icon-3:hover {
-        background-position: -77px -42px;
+        background-position: -44px -22px;
     }
+
 }
 
 
@@ -189,6 +188,7 @@ header {
                 position: absolute;
                 top: 0;
                 right: 100%;
+                height: 100vh;
                 width: 100%;
                 flex-flow: column;
                 transition: all 1s;
@@ -275,7 +275,6 @@ footer {
 .wrapper {
 
     width: 100%;
-    max-width: 1440px;
     margin: auto;
     margin-top: 60px;
 
@@ -285,17 +284,49 @@ footer {
         }
 
         width: 100%;
+
     }
+
+    .picture-area-fake {
+        width: 80%;
+        opacity: 0;
+    }
+
+    .picture-area {
+        width: 80%;
+        margin: auto;
+        position: relative;
+
+        .handle {
+            position: absolute;
+            top: 0;
+        }
+
+        .frame {
+            position: absolute;
+            top: 0;
+        }
+
+        .wheel {
+            position: absolute;
+            top: 0;
+        }
+    }
+
+
 
     .bike-background {
         width: 70%;
         background-image: url(../images/bg.jpg);
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: 100% 100%;
         box-sizing: border-box;
+
 
         .bgselector {
             @include flexalign() {}
+
+            margin-bottom:5%;
         }
 
 
@@ -510,6 +541,17 @@ footer {
             height: 100%;
         }
 
+
+
+        .showbox {
+            display: none;
+        }
+
+        .showbox.active {
+            display: block;
+            cursor: pointer;
+        }
+
         .mobile {
             display: none;
         }
@@ -517,6 +559,57 @@ footer {
 
         .mobile-extend {
             display: none;
+        }
+
+        .showbox {
+            width: 40%;
+        }
+
+        .mobile1,
+        .option-extend {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .option-extend:nth-child(1).active {
+            justify-content: normal;
+            flex-wrap: wrap;
+        }
+
+
+
+        [data-type="road"] {
+            display: none;
+        }
+
+        .mountain,
+        .road,
+        .city {
+            display: none;
+
+        }
+
+        .mountain.active,
+        .road.active,
+        .city.active {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .frame1,
+        .frame2 {
+            display: none;
+
+        }
+
+        .frame1.active,
+        .frame2.active {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
         }
     }
 
@@ -527,7 +620,6 @@ footer {
     .wrapper {
 
         .customize-area {
-
 
             flex-flow: column;
 
@@ -588,17 +680,16 @@ footer {
             align-items: center;
         }
 
-
-
         .mobile-extend.active {
             height: 100%;
+            display: flex;
+        }
+
+        .mobile-extend.inactive {
             display: block;
         }
 
-        .box {
-            width: 200px;
-            height: 200px;
-        }
+
 
     }
 
