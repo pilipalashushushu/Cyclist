@@ -2,7 +2,13 @@ function init(){
     switch(document.title){
         case "CYCLIST":
             console.log('首頁');
-            three("three", 1000, 700);
+            three("three");
+            bikeExpSetting();
+            requestAnimationFrame( bikeExp );
+            //wite data to html
+            document.getElementById('canvasSpeed').innerHTML = canvasRecord.SpeedRender();
+            //submit
+            document.getElementById('canvasToBuy').onclick = () => window.open('./CYProd.html', '_self');
             break;
         case "CY嚴選":
             store();
@@ -279,15 +285,15 @@ function bikeExp(){
 }
 
 //3D Model
-function three(Id, width, height){
-    //settinf
-    var target = document.getElementById(Id);
-    target.style.width = `${width}px`;
-    target.style.height = `${height}px`;
-
+function three(Id){
+    //setting
+    let width = $(`#${Id}`).parent().css("width");
+    let height = $(`#${Id}`).parent().css("height");
+    $(Id).attr("width", width);
+    $(Id).attr("height", height);
     //scene&camera
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, width/height, 0.1, 1000);
+    var camera = new THREE.PerspectiveCamera(75, parseInt(width)/parseInt(height), 0.1, 1000);
     camera.position.set(10, 0, 0);
 
     //Light
@@ -317,7 +323,7 @@ function three(Id, width, height){
 
     //render
     var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(width, height);
+    renderer.setSize(parseInt(width), parseInt(height));
     renderer.setClearColor(0xaaaaaa);
     document.getElementById('three').appendChild(renderer.domElement);
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
