@@ -1,11 +1,11 @@
 .bikeexp {
-    height: 540px;
-    top: 100px;
+    height: 700px;
+    top: 60px;
     position: relative;
     overflow: hidden; }
     .bikeexp #canvas {
       display: block;
-      height: 540px; }
+      height: 700px; }
     .bikeexp .status {
       position: absolute;
       top: 10px;

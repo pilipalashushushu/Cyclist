@@ -9,6 +9,7 @@ function init(){
             document.getElementById('canvasSpeed').innerHTML = canvasRecord.SpeedRender();
             //submit
             document.getElementById('canvasToBuy').onclick = () => window.open('./CYProd.html', '_self');
+            $('.prod').click(()=>{ window.open('./CYProd.html', '_self'); });
             break;
         case "CY嚴選":
             store();
