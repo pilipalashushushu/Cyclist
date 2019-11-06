@@ -10,6 +10,7 @@ function init(){
             //submit
             document.getElementById('canvasToBuy').onclick = () => window.open('./CYProd.html', '_self');
             $('.prod').click(()=>{ window.open('./CYProd.html', '_self'); });
+            prodFly();
             break;
         case "CY嚴選":
             store();
@@ -83,6 +84,31 @@ function setBar(){
 function openProdInfo(){
     $('.prod').click(function(){
         window.open('./CYProd.html', '_self');
+    });
+}
+
+//prod fly to cart
+function prodFly(){
+    $('.prod-buy-directly').click(function(e){
+        e.stopPropagation();
+        let tmp = $(this).parent().parent().clone();
+        let axis = $(this).parent().parent().offset();
+        $('body').append(tmp);
+        tmp.offset(axis);
+        tmp.css({
+            width: $(this).parent().parent().css('width')
+        });
+        tmp.addClass('addToCart');
+        console.log($(window).width());
+        TweenMax.to('.addToCart', .5, {
+            x: $(window).width()-$(tmp).offset().left-300,
+            y: -$(tmp).offset().top + $(window).scrollTop() - 130,
+            scale: 0,
+            onComplete: ()=>{
+                $('.addToCart').remove();
+            },
+            ease: Power2.easeIn
+        });
     });
 }
 
