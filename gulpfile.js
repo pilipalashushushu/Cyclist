@@ -1,5 +1,7 @@
 /**
- * ***************//**使用須知**//***************
+ * ***************/
+/**使用須知**/
+/***************
  * 
  * step 1: 初始化npm
  * (抓取package.json的所有套件"dependencies"&"devDependencies")
@@ -29,7 +31,9 @@
  * (watch -> 偵測dev的所有資料夾，有更動就會執行step2的指令)
  * 
  * 
- * ***************//**資料夾結構**//***************
+ * ***************/
+/**資料夾結構**/
+/***************
  * cyclist/
  * |
  * |- package.json      (紀錄已使用的套件)
@@ -46,7 +50,9 @@
  *      |- template/                (html模板資料夾)
  *      |- *.html                   (主要輸出html檔案)
  * 
- * ***************//**dest資料夾結構**//***************
+ * ***************/
+/**dest資料夾結構**/
+/***************
  * dest/
  * |
  * |- admin_template-master/   (後端資料夾)
@@ -56,7 +62,7 @@
  * |- model/   (3D Model資料夾)
  * |- *.html   (主要輸出html檔案)
  * 
-*/
+ */
 
 const gulp = require('gulp');
 const copy = require('gulp-copy');
@@ -67,34 +73,36 @@ const watch = require('gulp-watch');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
-gulp.task('copyImg', async()=>{
+gulp.task('copyImg', async () => {
     return gulp.src('./dev/images/*')
         .pipe(gulp.dest('./dest/images'))
 });
 
-gulp.task('copyModel', async()=>{
+gulp.task('copyModel', async () => {
     return gulp.src('./dev/model/*')
         .pipe(gulp.dest('./dest/model'))
 });
 
-gulp.task('copyBackEnd', async()=>{
+gulp.task('copyBackEnd', async () => {
     return gulp.src(['./dev/admin_template-master/*', './dev/admin_template-master/**/*', './dev/admin_template-master/**/**/*', './dev/admin_template-master/**/**/**/*'])
         .pipe(gulp.dest('./dest/admin_template-master'))
 });
 
-gulp.task('minifyJS', async()=>{
+gulp.task('minifyJS', async () => {
     return gulp.src('./dev/js/*.js')
         .pipe(minify())
         .pipe(gulp.dest('./dest/js'))
 });
 
-gulp.task('sass', async()=>{
+gulp.task('sass', async () => {
     return gulp.src('./dev/sass/*.scss')
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }).on('error', sass.logError))
         .pipe(gulp.dest('./dest/css'))
 });
 
-gulp.task('template', async()=>{
+gulp.task('template', async () => {
     return gulp.src('./dev/*.html')
         .pipe(fileinclude({
             prefix: '@@',
@@ -104,7 +112,7 @@ gulp.task('template', async()=>{
         .pipe(gulp.dest('./dest'))
 });
 
-gulp.task('default', async()=>{
+gulp.task('default', function () {
     browserSync.init({
         server: {
             baseDir: "./dest",
