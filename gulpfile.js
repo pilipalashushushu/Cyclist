@@ -11,6 +11,7 @@
  * 執行指令
  * gulp copyImg     (images資料夾搬移)
  * gulp copyModel   (model資料夾搬移)
+ * gulp copyBackEnd   (後端資料夾搬移)
  * gulp minifyJS    (js資料夾搬移&壓縮)
  * gulp sass        (sass編譯&壓縮&建立css資料夾並傳送)
  * gulp template    (html模板編譯&編譯後html搬移)
@@ -34,16 +35,18 @@
  * |
  * |- dev/
  *      |
- *      |- images/  (圖片檔資料夾)
- *      |- js/      (JavaScript資料夾)
- *      |- model/   (3D Model資料夾)
- *      |- sass/    (scss資料夾)
- *      |- template/(html模板資料夾)
- *      |- *.html   (主要輸出html檔案)
+ *      |- admin_template-master/   (後端資料夾)
+ *      |- images/                  (圖片檔資料夾)
+ *      |- js/                      (JavaScript資料夾)
+ *      |- model/                   (3D Model資料夾)
+ *      |- sass/                    (scss資料夾)
+ *      |- template/                (html模板資料夾)
+ *      |- *.html                   (主要輸出html檔案)
  * 
  * ***************//**dest資料夾結構**//***************
  * dest/
  * |
+ * |- admin_template-master/   (後端資料夾)
  * |- css/     (css資料夾)
  * |- images/  (圖片檔資料夾)
  * |- js/      (JavaScript資料夾)
@@ -69,6 +72,11 @@ gulp.task('copyImg', async()=>{
 gulp.task('copyModel', async()=>{
     return gulp.src('./dev/model/*')
         .pipe(gulp.dest('./dest/model'))
+});
+
+gulp.task('copyBackEnd', async()=>{
+    return gulp.src(['./dev/admin_template-master/*', './dev/admin_template-master/**/*', './dev/admin_template-master/**/**/*', './dev/admin_template-master/**/**/**/*'])
+        .pipe(gulp.dest('./dest/admin_template-master'))
 });
 
 gulp.task('minifyJS', async()=>{
@@ -102,6 +110,7 @@ gulp.task('default', async()=>{
     });
     gulp.watch('./dev/img/*', gulp.series('copyImg'));
     gulp.watch('./dev/model/*', gulp.series('copyModel'));
+    gulp.watch('./dev/admin_template-master/*', gulp.series('copyBackEnd'));
     gulp.watch('./dev/sass/*.scss', gulp.series('sass'));
     gulp.watch('./dev/js/*.js', gulp.series('minifyJS'));
     gulp.watch('./dev/*.html', gulp.series('template'));
