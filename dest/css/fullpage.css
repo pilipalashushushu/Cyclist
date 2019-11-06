@@ -197,11 +197,11 @@ html.fp-enabled,
 .fp-slidesNav ul li a.active span,
 #fp-nav ul li:hover a.active span,
 .fp-slidesNav ul li:hover a.active span {
-    height: 15px;
-    width: 5px;
-    margin: -6px 0 0 -6px;
+    height: 20px;
+    width: 4px;
+    margin: -2px 0 0 -3px;
     border-radius: 0%;
-    background: #333;
+    background: #647d94;
 }
 
 #fp-nav ul li a span,
@@ -209,10 +209,10 @@ html.fp-enabled,
     border-radius: 0%;
     position: absolute;
     z-index: 1;
-    height: 15px;
-    width: 4px;
+    height: 20px;
+    width: 2px;
     border: 0;
-    background: #888;
+    background: #647d94;
     left: 50%;
     top: 50%;
     margin: -2px 0 0 -2px;
@@ -224,15 +224,21 @@ html.fp-enabled,
 
 #fp-nav ul li:hover a span,
 .fp-slidesNav ul li:hover a span {
-    width: 5px;
-    height: 15px;
-    margin: -5px 0px 0px -5px;
+    width: 4px;
+    height: 20px;
+    margin: -2px 0px 0px -3px;
+    background: #647d94;
+}
+
+#fp-nav ul li:nth-child(4):hover a span,
+#fp-nav ul li:nth-child(5):hover a span,
+#fp-nav ul li:nth-child(6):hover a span {
     background: #333;
 }
 
 #fp-nav ul li .fp-tooltip {
     position: absolute;
-    top: 0px;
+    top: 9px;
     color: #fff;
     font-size: 14px;
     white-space: nowrap;
@@ -253,6 +259,13 @@ html.fp-enabled,
     opacity: 1;
 }
 
+#fp-nav ul li:nth-child(4) a.active span,
+#fp-nav ul li:nth-child(5) a.active span,
+#fp-nav ul li:nth-child(6) a.active span {
+    background-color: #333;
+}
+
+#fp-nav.fp-show-active li:nth-child(4) .fp-tooltip,
 #fp-nav.fp-show-active li:nth-child(5) .fp-tooltip,
 #fp-nav.fp-show-active li:nth-child(6) .fp-tooltip {
     color: #333;
