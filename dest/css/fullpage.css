@@ -128,6 +128,12 @@ html.fp-enabled,
     -webkit-transform: translate3d(0, 0, 0);
 }
 
+@media screen and (max-width: 768px) {
+    #fp-nav {
+        opacity: 0;
+    }
+}
+
 #fp-nav.fp-right {
     right: 17px;
 }

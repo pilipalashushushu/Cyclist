@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="./css/act_inner_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">    
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 </head>
 
@@ -89,13 +90,13 @@
                         </ul>
                     </div> -->
                 </div>
-                
+
                 <div class="act-info col-xl-6 col-md-6 col-sm-12">
                     <div class="organizer">
-                            <div class="avatar">
-                                    <img src="./images/act_inner_image/avatar.PNG" alt="">
-                            </div>
-                             <div class="name">Meiching Chiang</div>
+                        <div class="avatar">
+                            <img src="./images/act_inner_image/avatar.PNG" alt="">
+                        </div>
+                        <div class="name">Meiching Chiang</div>
                         <!-- <i class="el el-photo"></!-->
                     </div>
                     <h2 class="title">金龍湖自行車漫遊</h2>
@@ -122,7 +123,7 @@
                         </div>
                     </div>
                 </div>
-<!-- ==============================參加成員================================ -->
+                <!-- ==============================參加成員================================ -->
             </div>
             <div class="row">
                 <div class="group col-12">
@@ -162,10 +163,10 @@
                     <p class="title">留下意見</p>
                     <!-- cols="30" rows="10" -->
                     <!-- <div class="input"> -->
-                        <textarea name="" id="" aria-label="" placeholder="有任何疑問嗎"></textarea>
+                    <textarea name="" id="" aria-label="" placeholder="有任何疑問嗎"></textarea>
                     <!-- </div> -->
 
-                    
+
                     <!-- <input type="" class="input">框框留言滿版</input> -->
                     <div class="input-group">
                         <span class="errMeg"></span>
@@ -196,54 +197,54 @@
         </ul>
     </footer>
 </body>
-<script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>    
+<script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
 <script>
- $(document).ready(function(){
-
-   
-//   var galleryThumbs = new Swiper('.gallery-thumbs',{
-//       spaceBetween:5,
-//       slidesPerView:3,
-//       loop:true,
-//       freeMode:true,
-//       loopedSlides:3,
-//       watchSlidesVisibility: true,
-//       watchSlidesProgress: true,
-
-//       navigation:{
-//           nextEl:'.swiper-button-next',
-//           prevEl:'.swiper-button-prev'
-//       }
-
-//   })
-
-  var galleryTop = new Swiper ('.gallery-top', {
-    // direction: 'vertical', // 垂直切换选项
-    spaceBetween:5,
-    loop: true, // 循环模式选项
-    loopedSlides:1,
-    // thumbs:{
-    //     swiper:galleryThumbs,
-    // },
-    thumbs: {
-        swiper: {
-        el: '.gallery-thumbs',
-        slidesPerView: 4,
-        loop:true,
-        freeMode:true,
-        loopedSlides:3,
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
-            
-        },
-        // slideThumbActiveClass: 'my-slide-thumb-active',
-  }
-    
-    
-  }) 
+    $(document).ready(function () {
 
 
- })
+        //   var galleryThumbs = new Swiper('.gallery-thumbs',{
+        //       spaceBetween:5,
+        //       slidesPerView:3,
+        //       loop:true,
+        //       freeMode:true,
+        //       loopedSlides:3,
+        //       watchSlidesVisibility: true,
+        //       watchSlidesProgress: true,
+
+        //       navigation:{
+        //           nextEl:'.swiper-button-next',
+        //           prevEl:'.swiper-button-prev'
+        //       }
+
+        //   })
+
+        var galleryTop = new Swiper('.gallery-top', {
+            // direction: 'vertical', // 垂直切换选项
+            spaceBetween: 5,
+            loop: true, // 循环模式选项
+            loopedSlides: 1,
+            // thumbs:{
+            //     swiper:galleryThumbs,
+            // },
+            thumbs: {
+                swiper: {
+                    el: '.gallery-thumbs',
+                    slidesPerView: 4,
+                    loop: true,
+                    freeMode: true,
+                    loopedSlides: 3,
+                    watchSlidesVisibility: true,
+                    watchSlidesProgress: true,
+
+                },
+                // slideThumbActiveClass: 'my-slide-thumb-active',
+            }
+
+
+        })
+
+
+    })
 </script>
 
 </html>
