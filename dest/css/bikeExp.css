@@ -1,14 +1,15 @@
 .bikeexp {
-    top: 120px;
+  padding-top: 200px;
+    width: 960px;
     height: 500px;
     position: relative;
     overflow: hidden; }
     .bikeexp #canvas {
       display: block;
-      height: 500px; }
+       }
     .bikeexp .status {
       position: absolute;
-      top: 10px;
+      top: 210px;
       left: 30px; }
       .bikeexp .status .intro {
         width: 200px;
@@ -143,7 +144,7 @@
       right: 0;
       bottom: 0;
       margin: auto;
-      width: 90%;
+      width: 920px;
       height: 43.5px;
       display: flex;
       flex-flow: row nowrap; }
