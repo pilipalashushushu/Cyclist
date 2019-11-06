@@ -5,6 +5,9 @@
  * (抓取package.json的所有套件"dependencies"&"devDependencies")
  * 執行指令
  * npm install
+ * !安全版本(F5即時更新)
+ * !gulp: 3.9.1
+ * !browser-sync: 2.26.5
  * 
  * step 2: 初始化dest
  * (製作dest資料夾並將dev所有檔案搬移&壓縮&編譯)
@@ -108,10 +111,10 @@ gulp.task('default', async()=>{
             index: "index.html"
         }
     });
-    gulp.watch('./dev/img/*', gulp.series('copyImg'));
-    gulp.watch('./dev/model/*', gulp.series('copyModel'));
-    gulp.watch('./dev/admin_template-master/*', gulp.series('copyBackEnd'));
-    gulp.watch('./dev/sass/*.scss', gulp.series('sass'));
-    gulp.watch('./dev/js/*.js', gulp.series('minifyJS'));
-    gulp.watch('./dev/*.html', gulp.series('template'));
+    gulp.watch('./dev/img/*', ['copyImg']).on('change', reload);
+    gulp.watch('./dev/model/*', ['copyModel']).on('change', reload);
+    gulp.watch('./dev/admin_template-master/*', ['copyBackEnd']).on('change', reload);
+    gulp.watch('./dev/sass/*.scss', ['sass']).on('change', reload);
+    gulp.watch('./dev/js/*.js', ['minifyJS']).on('change', reload);
+    gulp.watch('./dev/*.html', ['template']).on('change', reload);
 });
