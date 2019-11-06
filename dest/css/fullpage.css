@@ -229,7 +229,6 @@ html.fp-enabled,
     top: 0px;
     color: #fff;
     font-size: 14px;
-    font-family: arial, helvetica, sans-serif;
     white-space: nowrap;
     max-width: 220px;
     overflow: hidden;
@@ -246,6 +245,11 @@ html.fp-enabled,
     transition: opacity 0.2s ease-in;
     width: auto;
     opacity: 1;
+}
+
+#fp-nav.fp-show-active li:nth-child(5) .fp-tooltip,
+#fp-nav.fp-show-active li:nth-child(6) .fp-tooltip {
+    color: #333;
 }
 
 #fp-nav ul li .fp-tooltip.fp-right {
