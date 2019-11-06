@@ -193,13 +193,13 @@ function bikeExpSetting(){
     }
     //load img
     background = new Image();
-    background.src = '../images/canvas-bg.jpg';
+    background.src = './images/canvas-bg.jpg';
     road = new Image();
-    road.src = '../images/canvas-road.jpg';
+    road.src = './images/canvas-road.jpg';
     bikeTire = new Image();
-    bikeTire.src= '../images/bike01-tire.png';
+    bikeTire.src= './images/bike01-tire.png';
     bikeBody = new Image();
-    bikeBody.src= '../images/bike01-body.png';
+    bikeBody.src= './images/bike01-body.png';
 }
 
 // canvas
