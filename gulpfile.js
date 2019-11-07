@@ -73,28 +73,28 @@ const watch = require('gulp-watch');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
-gulp.task('copyImg', async () => {
+gulp.task('copyImg', () => {
     return gulp.src('./dev/images/*')
         .pipe(gulp.dest('./dest/images'))
 });
 
-gulp.task('copyModel', async () => {
+gulp.task('copyModel', () => {
     return gulp.src('./dev/model/*')
         .pipe(gulp.dest('./dest/model'))
 });
 
-gulp.task('copyBackEnd', async () => {
+gulp.task('copyBackEnd', () => {
     return gulp.src(['./dev/admin_template-master/*', './dev/admin_template-master/**/*', './dev/admin_template-master/**/**/*', './dev/admin_template-master/**/**/**/*'])
         .pipe(gulp.dest('./dest/admin_template-master'))
 });
 
-gulp.task('minifyJS', async () => {
+gulp.task('minifyJS', () => {
     return gulp.src('./dev/js/*.js')
         .pipe(minify())
         .pipe(gulp.dest('./dest/js'))
 });
 
-gulp.task('sass', async () => {
+gulp.task('sass', () => {
     return gulp.src('./dev/sass/*.scss')
         .pipe(sass({
             outputStyle: 'compressed'
@@ -102,7 +102,7 @@ gulp.task('sass', async () => {
         .pipe(gulp.dest('./dest/css'))
 });
 
-gulp.task('template', async () => {
+gulp.task('template', () => {
     return gulp.src('./dev/*.html')
         .pipe(fileinclude({
             prefix: '@@',
