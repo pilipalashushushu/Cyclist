@@ -1,5 +1,22 @@
 $(function () {
 
+    //滾動收起nav-bar
+    $(window).scroll(function (e) {
+
+        console.log(1)
+
+    })
+    //滑鼠移動到原本nav-bar位置時  nav-bar出現
+
+    $(window).mousemove(function (e) {
+        // values: e.clientX, e.clientY, e.pageX, e.pageY
+        if (e.clientY < 60) {
+            $("header").animate({
+                "top": "0px"
+            }, 500)
+        }
+    });
+
     //客製選單展開
     $(".option-part").click(function () {
         //改變底色
@@ -117,6 +134,11 @@ $(function () {
 
     $(".showbox").click(function () {
 
+        //點選狀態附加
+
+        $(this).find("h4").css("color", "#647d94");
+        $(".showbox").not(this).find("h4").css("color", "#d16237");
+
 
         //點選車種更換選單內容
         switch ($(this).data("type")) {
@@ -145,7 +167,7 @@ $(function () {
                 $(".road").removeClass("active");
                 $(".city").find(".frame1").addClass("active");
                 $(".picture-area").find(".frame").find("img").attr("src", "./images/city-frame1-color1.png")
-                $(".picture-area").find(".handle").find("img").attr("src", "./images/citybikeA-handle1.png")
+                $(".picture-area").find(".handle").find("img").attr("src", "./images/city-frame1-handle1.png")
                 $(".picture-area").find(".wheel").find("img").attr("src", "./images/wheels.png")
                 break;
         }

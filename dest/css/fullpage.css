@@ -249,14 +249,35 @@ html.fp-enabled,
     width: 0;
     cursor: pointer;
     left: 21px;
+    font-weight: bold;
 }
 
-#fp-nav ul li:hover .fp-tooltip,
-#fp-nav.fp-show-active a.active+.fp-tooltip {
+#fp-nav ul li:hover .fp-tooltip {
     -webkit-transition: opacity 0.2s ease-in;
     transition: opacity 0.2s ease-in;
     width: auto;
     opacity: 1;
+}
+
+#fp-nav.fp-show-active a.active+.fp-tooltip {
+    animation: show 3s;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        width: auto;
+    }
+
+    75% {
+        opacity: 1;
+        width: auto;
+    }
+
+    100% {
+        opacity: 0;
+        width: auto;
+    }
 }
 
 #fp-nav ul li:nth-child(4) a.active span,
