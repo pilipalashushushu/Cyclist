@@ -10,8 +10,10 @@
     <title>不可不知</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="images/favicon02.ico" type="image/x-icon" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <link rel="stylesheet" href="/css/question.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="js/question.js"></script>
 </head>
 
 <body>
@@ -53,93 +55,113 @@
             </nav>
         </nav>
     </header>
-    <div class="wrapper">
-        <div class="bicycle" id="bicycle">
-            <div class="qa" style="opacity:0;">
-                <h2 id="question">
-                    1.請問腳踏車的日常保養要使用什麼油?
-                </h2>
-            </div>
+   
+    <div class="qawrap">
 
-            <div class="bike">
-                <div class="bm"><img src="images/bicycleMan.png" alt=""></div>
-                <div class="fw"><img src="images/frontWheel.png" alt=""></div>
-                <div class="bw"><img src="images/backWheel.png" alt=""></div>
-            </div>
-
-            <div class="answerBox" id="answerBox">
-                <div class="box ans1" style="opacity:0;" id="ans1">
-                    <div class="img"><img src="images/ChainOil.png"></div>
-                    <div class="text">
-                        <p>鍊條油</p>
-                    </div>
-                </div>
-                <div class="box ans2" style="opacity:0;" id="ans2">
-                    <div class="img"><img src="images/ChainOil.png"></div>
-                    <div class="text">
-                        <p>汽油</p>
-                    </div>
-                </div>
-                <div class="box ans3" style="opacity:0;" id="ans3">
-                    <div class="img"><img src="images/ChainOil.png"></div>
-                    <div class="text">
-                        <p>橄欖油</p>
-                    </div>
-                </div>
-            </div>
-
+        <!-- qa -->
+        <div class="qa" style="opacity:0;">
+            <h2 id="question">
+                1.請問腳踏車的日常保養要使用什麼油?
+            </h2>
         </div>
+        <!-- qa end -->
+
+        <!-- answerBox -->
+        <div class="answerBox" id="answerBox" >
+            <div class="box ans1" id="ans1" style="opacity:0;">
+                <img src="images/ChainOil.png">
+                <p>鍊條油</p>
+            </div>
+            <div class="box ans2" id="ans2" style="opacity:0;">
+                <div class="img"><img src="images/gasoline.png"></div>
+                <div class="text">
+                    <p>汽油</p>
+                </div>
+            </div>
+            <div class="box ans3" id="ans3" style="opacity:0;">
+                <div class="img"><img src="images/oliveOil.png"></div>
+                <div class="text">
+                    <p>橄欖油</p>
+                </div>
+            </div>
+        </div>
+        <!-- answerBox end -->
+
+        <!-- bike -->
+        <div class="bike">
+            <div class="bw"><img src="images/backWheel.png" alt=""></div>
+            <div class="fw"><img src="images/frontWheel.png" alt=""></div>
+            <div class="bm"><img src="images/bicycleMan.png" alt=""></div>
+        </div>
+        <!-- bike end -->
+
+    
         <div class="rightBox" style="opacity:0">
-            <img src="./images/rightIcon.png">
             <h2>恭喜答對了!</h2>
+            <img src="./images/rightIcon.png">
         </div>
         <div class="wrongBox" style="opacity:0">
-            <img src="./images/wrongIcon.png" alt="">
             <h2>抱歉答錯了!</h2>
-            <h3 id="rightAnswer"></h3>
-
+            <img src="./images/wrongIcon.png" alt="">
         </div>
-
+    
+    <!-- scoreWindow -->
         <div class="scoreWindow" style="opacity: 0;">
             <h2>得分:100</h2>
+
             <div class="levelBox">
-                <a href="#">
-                    <div class="levelItem">
-                        <div class="img1"><img src="./images/item1.png""></div>
-                            <p>CTB101</p>
-                            <p>NT.5500</p>
+                <div class="levelItem">
+                    <a href="#">
+                        <div class="img">
+                            <img src="./images/item1.png">
                         </div>
+                        <p>CTB101</p>
+                        <p>NT.5500</p>
                     </a>
+                </div> 
+
+                <div class="levelItem">
                     <a href=" #">
-                            <div class="levelItem">
-                                <div class="img2"><img src="./images/item2.png""></div>
-                            <p>公路車專用安全帽</p>
-                            <p>NT.1500</p>
+                        <div class="img">
+                            <img src="./images/item2.png">
                         </div>
-                    </a>
-                    <a href=" #">
-                                    <div class="levelItem">
-                                        <div class="img3"><img src="./images/item3.png""></div>
-                                <p>去污除鏽劑</p>
-                                <p>NT.700</p>
-                        </div>
+                        <p>公路車專用安全帽</p>
+                        <p>NT.1500</p>
                     </a>
                 </div>
+
+                <div class="levelItem">
+                    <a href=" #">
+                        <img src="./images/item2.png">
+                        <p>去污除鏽劑</p>
+                        <p>NT.700</p>
+                    </a>
+                </div>
+
+            </div> 
+            <!-- levelBox end -->
+
+                <!-- linkButton -->
                 <div class=" linkButton">
-                                            <a href="#">
-                                                登入或註冊，領取購物金
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <footer class="section">
-                                    <ul>
-                                        <li><img src="./images/facebook.png"></li>
-                                        <li><img src="./images/ig.png"></li>
-                                        <li><img src="./images/tw.png"></li>
-                                    </ul>
-                                </footer>
-                                <script src="js/question.js"></script>
+                    <a href="#">
+                        登入或註冊，領取購物金
+                    </a>
+                </div> 
+                <!-- linkButton end -->
+
+        </div> 
+        <!-- scoreWindow end -->
+
+    </div> 
+<!-- qawrap end -->
+
+    <footer class="section">
+        <ul>
+            <li><img src="./images/facebook.png"></li>
+            <li><img src="./images/ig.png"></li>
+            <li><img src="./images/tw.png"></li>
+        </ul>
+    </footer>
 </body>
 
 </html>
