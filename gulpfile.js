@@ -112,7 +112,7 @@ gulp.task('template', () => {
         .pipe(gulp.dest('./dest'))
 });
 
-gulp.task('default', function () {
+gulp.task('default', () => {
     browserSync.init({
         server: {
             baseDir: "./dest",

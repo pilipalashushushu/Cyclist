@@ -1,21 +1,20 @@
 $(function () {
 
-    //滾動收起nav-bar
-    $(window).scroll(function (e) {
+    // $(window).scroll(function (direction) {
+    //     console.log(direction)
+    // });
 
-        console.log(1)
-
-    })
-    //滑鼠移動到原本nav-bar位置時  nav-bar出現
-
-    $(window).mousemove(function (e) {
-        // values: e.clientX, e.clientY, e.pageX, e.pageY
-        if (e.clientY < 60) {
-            $("header").animate({
-                "top": "0px"
-            }, 500)
-        }
-    });
+    // function scroll(fn) {
+    //     var beforeScrollTop = document.body.scrollTop,
+    //         fn = fn || function () {};
+    //     window.addEventListener("scroll", function () {
+    //         var afterScrollTop = document.body.scrollTop,
+    //             delta = afterScrollTop - beforeScrollTop;
+    //         if (delta === 0) return false;
+    //         fn(delta > 0 ? "down" : "up");
+    //         beforeScrollTop = afterScrollTop;
+    //     }, false);
+    // }
 
     //客製選單展開
     $(".option-part").click(function () {
@@ -97,9 +96,6 @@ $(function () {
                 $(".mobile4").find(".showbox").addClass("active");
                 break;
         }
-
-
-
 
     });
 
@@ -313,11 +309,9 @@ $(function () {
 
                     case 1:
                         $(".picture-area").find(".handle").find("img").attr("src", "./images/city-frame2-handle1.png")
-                        console.log(2)
                         break;
                     case 2:
                         $(".picture-area").find(".handle").find("img").attr("src", "./images/city-frame2-handle2.png")
-                        console.log(2)
                         break;
                 }
                 break;

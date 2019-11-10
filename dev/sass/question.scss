@@ -1,5 +1,4 @@
 @import "var";
-@import "rest";
 @import "mixin";
 @import "grid";
 
@@ -14,124 +13,152 @@ $ff: "微軟正黑體";
 // 	outline:2px dashed red;
 // }
 //電腦版開始
-body{
+body {
 	font-family: $ff;
 	font-weight: 700;
 }
- .qawrap{
+
+.qawrap {
 	position: relative;
 	background-image: $bgi;
 	// max-width: 1440px;
 	width: 100%;
-	background-size:cover;
-	background-position:0 -25px;
+	background-size: cover;
+	background-position: 0 -25px;
 	background-repeat: no-repeat;
 	overflow: hidden;
 	margin-top: 60px;
 
-	.qa{ //問題
-		margin:1% 0;
+	.qa {
+		//問題
+		margin: 1% 0;
 		padding-left: 25%;
-		h2{
-		//  outline: 5px solid blue;
-		width: 500px;
-		font-size: 28px;
-		font-family: $ff;
-		font-weight: 700;
+
+		h2 {
+			//  outline: 5px solid blue;
+			width: 500px;
+			font-size: 28px;
+			font-family: $ff;
+			font-weight: 700;
 		}
-	}//qa end
-	.answerBox{ //選項
+	}
+
+	//qa end
+	.answerBox {
+		//選項
 		// outline: 10px solid royalblue;
 		display: flex;
 		width: 1000px;
 		justify-content: space-evenly;
-		margin:2% 15% 1%;
-		
-		.ans1,.ans2,.ans3{
-			&:hover{
-				background-color:$main;
-				p{
+		margin: 2% 15% 1%;
+
+		.ans1,
+		.ans2,
+		.ans3 {
+			&:hover {
+				background-color: $main;
+
+				p {
 					color: aliceblue;
 				}
 			}
+
 			background-color: $ansWerBgc;
 			width: 200px;
 			height: 200px;
 			border-radius: 50%;
-			box-shadow:   0px   0px   0px   5px  $ansWerCircle;
+			box-shadow: 0px 0px 0px 5px $ansWerCircle;
 			cursor: pointer;
 			text-align: center;
-			img{
+
+			img {
 				width: 55%;
 				// padding-left: 23%;
 				margin: 25px 0;
 			}
-			p{
+
+			p {
 				font-size: 28px;
 				font-family: $ff;
 				font-weight: bolder;
 			}
 		}
-	}//answerBox end
-	.bike{
+	}
+
+	//answerBox end
+	.bike {
 		margin-left: -55%;
-		position: relative;	
+		position: relative;
 		// outline: 10px solid deeppink;
-		display:flex;
-		width:800px;
+		display: flex;
+		width: 800px;
 		height: 600px;
-		img{
+
+		img {
 			width: 100%;
 		}
-		.bm{ //車身
+
+		.bm {
+			//車身
 			position: absolute;
-			top:0;
+			top: 0;
 			left: 25%;
 			width: 400px;
 			height: 400px;
 		}
-		.fw{ //前輪
+
+		.fw {
+			//前輪
 			position: absolute;
-			top:58%;
-			left:59%;
+			top: 58%;
+			left: 59%;
 			width: 200px;
 			height: 200px;
 		}
-		.bw{ //後輪
+
+		.bw {
+			//後輪
 			position: absolute;
-			top:58%;
+			top: 58%;
 			left: 12%;
 			width: 200px;
 			height: 200px;
 		}
-	}//bike end
+	}
 
-	.rightBox, .wrongBox{
-	outline: 1px solid #fff;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 700px;
-	height: 700px;
-	text-align: center;
-	background-color:rgba(255,255,255,0.9);
-	margin-left: 35%;
-	position: absolute;
-	top:5%;
-	left:0;
-	pointer-events: none;
-	h2{
-		font-size: 62px;
-		font-family: $ff;
-		font-weight: 700;
-		margin-bottom: 10%;
+	//bike end
+
+	.rightBox,
+	.wrongBox {
+		outline: 1px solid #fff;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 700px;
+		height: 700px;
+		text-align: center;
+		background-color: rgba(255, 255, 255, 0.9);
+		margin-left: 35%;
+		position: absolute;
+		top: 5%;
+		left: 0;
+		pointer-events: none;
+
+		h2 {
+			font-size: 62px;
+			font-family: $ff;
+			font-weight: 700;
+			margin-bottom: 10%;
+		}
+
+		img {
+			width: 30%;
+			height: 30%;
+			padding-left: 32%;
+		}
 	}
-	img{
-		width: 30%;
-		height: 30%;
-		padding-left: 32%;
-	}
-	} //rightBox end
+
+	//rightBox end
 	// .wrongBox{
 	// outline: 1px solid #fff;
 	// display: flex;
@@ -157,185 +184,229 @@ body{
 	// 	padding-left: 32%;
 	// }
 	// } //wrongBox end
-	.scoreWindow{
-	width: 100%;
-	height:600px;
-	outline: 1px solid #ccc;
-	background-color: rgba(255,255,255,0.9);
-	position: absolute;
-	top:5%;
-	left:0;
-	pointer-events: none;
-		h2{
-			padding-top:2%;
+	.scoreWindow {
+		width: 100%;
+		height: 600px;
+		outline: 1px solid #ccc;
+		background-color: rgba(255, 255, 255, 0.9);
+		position: absolute;
+		top: 5%;
+		left: 0;
+		pointer-events: none;
+
+		h2 {
+			padding-top: 2%;
 			text-align: center;
-		//  outline: 10px solid purple;
+			//  outline: 10px solid purple;
 			font-size: 36px;
 			font-family: $ff;
-			font-weight:700;
-			
+			font-weight: 700;
+
 		}
-		.levelBox{
-		margin: 3% 0;
-		display: flex;
-		justify-content: space-evenly;
-		text-align: center;
+
+		.levelBox {
+			margin: 3% 0;
+			display: flex;
+			justify-content: space-evenly;
+			text-align: center;
 		}
-		.levelItem{
-		outline: 2px solid #ccc;
-		width: 400px;
-		height: 300px;
-		a{
-			display: block;
+
+		.levelItem {
+			outline: 2px solid #ccc;
 			width: 400px;
 			height: 300px;
-			text-align: center;
-			&:hover{
-				color: aliceblue;
-				background-color: $main;
+
+			a {
+				display: block;
+				width: 400px;
+				height: 300px;
+				text-align: center;
+
+				&:hover {
+					color: aliceblue;
+					background-color: $main;
+				}
+
+				text-decoration: none;
+				font-size: 28px;
+				font-family: $ff;
+				color:#000;
+
+				img {
+					width: 200px;
+					height: 200px;
+					padding-left: 4%;
+					margin-bottom: 5%;
+				}
+
 			}
-			text-decoration: none;
-			font-size: 28px;
-			font-family: $ff;
-			color:#000;
-			img{
-				width: 200px;
-				height: 200px;
-				padding-left: 4%;
-				margin-bottom: 5%;
-			}
-			
 		}
-		}//levelItem end
 
-		.linkButton{
-		//  outline: 5px solid orangered;
-			a{
-			&:hover{
-				background-color:$main;
-				color: aliceblue;
+		//levelItem end
+
+		.linkButton {
+
+			//  outline: 5px solid orangered;
+			a {
+				&:hover {
+					background-color: $main;
+					color: aliceblue;
+				}
+
+				cursor: pointer;
+				margin:auto;
+				display: block;
+				width: 500px;
+				height: 50px;
+				border-radius: 5px;
+				border:1px solid $main;
+				box-shadow: 0 3px 3px 3px $main;
+				background-color: $ansWerBgc;
+				font-size: 28px;
+				padding-top: 20px;
+				text-align: center;
+				font-family: $ff;
+				font-weight: 700;
+				color:#000;
+
 			}
-			cursor: pointer;
-			margin:auto;
-			display: block;
-			width: 500px;
-			height: 50px;
-			border-radius: 5px;
-			border:1px solid $main;
-			box-shadow: 0 3px 3px 3px $main;
-			background-color: $ansWerBgc;
-			font-size: 28px;
-			padding-top: 20px;	
-			text-align: center;
-			font-family: $ff;
-			font-weight: 700;
-			color:#000;
-				
-			}
-		}//linkButton end
-	} //scoreWindow end
+		}
 
- }//qawrapper end
+		//linkButton end
+	}
+
+	//scoreWindow end
+
+}
+
+//qawrapper end
 
 
- ////////////////////RWD760以下開始////////////////////
+////////////////////RWD760以下開始////////////////////
 
- @include respond(small) {
+@include respond(small) {
 
-	.qawrap{
+	.qawrap {
 		max-width: 767px;
 		background-image: $bgi;
-		background-size:cover;
+		background-size: cover;
 		background-position: 70% 0;
 		background-repeat: no-repeat;
 		overflow: hidden;
 
-		.qa{ //問題
-			margin:10% 0;
+		.qa {
+			//問題
+			margin: 10% 0;
 			padding-left: 5%;
-			h2{
-			//  outline: 5px solid blue;
-			width: 350px;
-			font-size: 18px;
-			font-family: $ff;
-			font-weight: 700;
-			}
-		}//qa end
 
-		.answerBox{//選項
+			h2 {
+				//  outline: 5px solid blue;
+				width: 350px;
+				font-size: 18px;
+				font-family: $ff;
+				font-weight: 700;
+			}
+		}
+
+		//qa end
+
+		.answerBox {
+			//選項
 			// outline: 10px solid royalblue;
 			display: flex;
 			width: 350px;
 			justify-content: space-around;
 			margin: 8% 10px 10%;
 
-			.ans1,.ans2,.ans3{
-				&:hover{
-					background-color:$main;
-					p{
+			.ans1,
+			.ans2,
+			.ans3 {
+				&:hover {
+					background-color: $main;
+
+					p {
 						color: aliceblue;
 					}
 				}
+
 				background-color: $ansWerBgc;
 				width: 100px;
 				height: 100px;
 				border-radius: 50%;
-				box-shadow:   0px   0px   0px   5px  $ansWerCircle;
+				box-shadow: 0px 0px 0px 5px $ansWerCircle;
 				cursor: pointer;
 				text-align: center;
 				margin-left: 3%;
-				img{
+
+				img {
 					width: 50%;
 					margin: 5% 3% 15%;
 				}
-				p{
+
+				p {
 					font-size: 20px;
 					font-family: $ff;
 					font-weight: bolder;
-				}				
-			} //ans1,2,3 end
-		}//answerBox end
-		.bike{
+				}
+			}
+
+			//ans1,2,3 end
+		}
+
+		//answerBox end
+		.bike {
 			margin-left: -700px;
-			position: relative;	
+			position: relative;
 			// outline: 10px solid deeppink;
-			display:flex;
-			width:400px;
+			display: flex;
+			width: 400px;
 			height: 300px;
-			img{
+
+			img {
 				width: 45%;
 			}
-			.bm{ //車身
+
+			.bm {
+				//車身
 				position: absolute;
-				top:0%;
+				top: 0%;
 				left: 55%;
 				width: 400px;
 				height: 400px;
 			}
-			.fw{ //前輪
+
+			.fw {
+				//前輪
 				// outline: 2px solid #d15187;
 				position: absolute;
-				top:51%;
-				left:85%;
-				width:90px;
+				top: 51%;
+				left: 85%;
+				width: 90px;
 				height: 90px;
-				img{
+
+				img {
 					width: 100%;
 				}
 			}
-			.bw{ //後輪
+
+			.bw {
+				//後輪
 				// outline: 2px solid #d16237;
 				position: absolute;
-				top:52%;
+				top: 52%;
 				left: 44%;
-				width:90px;
+				width: 90px;
 				height: 90px;
-				img{
+
+				img {
 					width: 100%;
 				}
 			}
-		}//bike end
-		.rightBox, .wrongBox{
+		}
+
+		//bike end
+		.rightBox,
+		.wrongBox {
 			outline: 1px solid #fff;
 			display: flex;
 			flex-direction: column;
@@ -343,88 +414,104 @@ body{
 			width: 300px;
 			height: 300px;
 			text-align: center;
-			background-color:rgba(255,255,255,0.9);
+			background-color: rgba(255, 255, 255, 0.9);
 			margin-left: 10%;
 			position: absolute;
-			top:5%;
-			left:0;
+			top: 5%;
+			left: 0;
 			pointer-events: none;
-			h2{
+
+			h2 {
 				font-size: 36px;
 				font-family: $ff;
 				font-weight: 700;
 				margin-bottom: 10%;
 			}
-			img{
+
+			img {
 				width: 30%;
 				height: 30%;
 				padding-left: 32%;
 			}
-		} //rightBox, wrongBox end
+		}
 
-		.scoreWindow{
+		//rightBox, wrongBox end
+
+		.scoreWindow {
 			width: 100%;
 			// height:400px;
 			outline: 1px solid #ccc;
-			background-color: rgba(255,255,255,0.9);
+			background-color: rgba(255, 255, 255, 0.9);
 			position: absolute;
-			top:2%;
-			left:0;
+			top: 2%;
+			left: 0;
 			pointer-events: none;
-				h2{
-					padding-top:2%;
-					text-align: center;
+
+			h2 {
+				padding-top: 2%;
+				text-align: center;
 				//  outline: 10px solid purple;
-					font-size: 32px;
-					font-family: $ff;
-					font-weight:700;
-					
-				}
-				.levelBox{
+				font-size: 32px;
+				font-family: $ff;
+				font-weight: 700;
+
+			}
+
+			.levelBox {
 				margin: 3% 10%;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-evenly;
 				text-align: center;
-				}
-				.levelItem{
+			}
+
+			.levelItem {
 				outline: 2px solid #ccc;
 				width: 300px;
 				height: 300px;
 				margin-bottom: 5%;
-				a{
+
+				a {
 					display: block;
 					width: 300px;
 					height: 300px;
+
 					// text-align: center;
-					&:hover{
+					&:hover {
 						color: aliceblue;
 						background-color: $main;
 					}
+
 					text-decoration: none;
 					font-size: 28px;
 					font-family: $ff;
 					color:#000;
-					img{
+
+					img {
 						width: 200px;
 						height: 200px;
 						padding-left: 20%;
-						
+
 					}
-					p{
+
+					p {
 						// padding-left: 25%;
 					}
-					
+
 				}
-				}//levelItem end
-		
-				.linkButton{
+			}
+
+			//levelItem end
+
+			.linkButton {
+
 				//  outline: 5px solid orangered;
-					a{
-					&:hover{
-						background-color:$main;
+				a {
+					&:hover {
+						background-color: $main;
 						color: aliceblue;
 					}
+
 					cursor: pointer;
 					margin:auto;
 					display: block;
@@ -435,31 +522,21 @@ body{
 					box-shadow: 0 3px 3px 3px $main;
 					background-color: $ansWerBgc;
 					font-size: 28px;
-					padding-top: 20px;	
+					padding-top: 20px;
 					text-align: center;
 					font-family: $ff;
 					font-weight: 700;
 					color:#000;
-						
-					}
-				}//linkButton end
-			} //scoreWindow end
+
+				}
+			}
+
+			//linkButton end
+		}
+
+		//scoreWindow end
 
 
 	}
 
 }
-
-
-
- 
-
- 
-
-
-
-
-
-
-
-

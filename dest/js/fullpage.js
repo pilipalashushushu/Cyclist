@@ -1201,10 +1201,6 @@
         function scrollHandler() {
             var currentSection;
 
-            $("header").animate({
-                transform: "translateY(-100)"
-            });
-
             if (!options.autoScrolling || options.scrollBar) {
                 var currentScroll = getScrollTop();
                 var scrollDirection = getScrollDirection(currentScroll);

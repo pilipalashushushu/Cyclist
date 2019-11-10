@@ -6,8 +6,12 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/header.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js"></script>
 </head>
 
 <body>
@@ -25,9 +29,9 @@
             <div class="logo ham"><a href="./index.html"><img src="./images/logo.png" alt=""></a></div>
 
             <ul class="nav-icon ham">
-                <li class="icon-1"></li>
-                <li class="icon-2"></li>
-                <li class="icon-3"></li>
+                <li class="icon-1"><a href="#"></a></li>
+                <li class="icon-2"><a href="../shoppingCart.html"></a></li>
+                <li class="icon-3"><a href="#"></a></li>
             </ul>
 
             <nav class="pc">
@@ -50,6 +54,121 @@
         </nav>
     </header>
 
+    <div id="shoppingcart">
+        <div class="header">
+            <div class="showbox">
+                <div class="logo"><img src="./images/logo.png" alt=""></div>
+                <div class="title">
+                    <h2>Cy嚴選商城</h2>
+                </div>
+            </div>
+        </div>
+        <div class="cartitem">
+
+            <div class="productlist">
+                <div class="item">
+                    <div class="product">
+                        <h3>一般商品</h3>
+                    </div>
+                    <div class="proinfo">
+                        <div class="subtotal">
+                            <h3>小計</h3>
+                        </div>
+                        <div class="amount">
+                            <h3>數量</h3>
+                        </div>
+                        <div class="option">
+                            <h3>操作</h3>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="detail detail1">
+
+                    <div class="cus">
+                        <h3>客製1</h3>
+                    </div>
+                    <div class="subtotal">
+                        <h3>9000</h3>
+                    </div>
+                    <div class="amount">
+                        <button>-</button>
+                        <input type="number" min="1">
+                        <button>+</button>
+                    </div>
+                    <div class="option">
+                        <h3>刪除</h3>
+                    </div>
+
+                </div>
+            </div>
+            <!-- productlist -->
+
+            <div class="customizelist">
+                <div class="item">
+                    <div class="product">
+                        <h3>客製商品</h3>
+                    </div>
+                    <div class="proinfo">
+                        <div class="subtotal">
+                            <h3>小計</h3>
+                        </div>
+                        <div class="amount">
+                            <h3>數量</h3>
+                        </div>
+                        <div class="option">
+                            <h3>操作</h3>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="detail detail1">
+
+                    <div class="cus">
+                        <h3>客製1</h3>
+                    </div>
+                    <div class="subtotal">
+                        <h3>9000</h3>
+                    </div>
+                    <div class="amount">
+                        <button>-</button>
+                        <input type="number" min="1">
+                        <button>+</button>
+                    </div>
+                    <div class="option">
+                        <h3>刪除</h3>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- customizelist -->
+
+
+            <div class="notice">
+                <span><img src="./images/alerticon.png" alt=""></span>
+                <h4>購物金使用說明:</h4>
+                <span>請於結帳時選用購物金選項</span>
+            </div>
+
+
+            <div class="total">
+
+                <div class="finalamount">
+                    <h3>$</h3>
+                </div>
+                <div class="btn">
+                    <h3>結帳</h3>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- cartitem -->
+
+    </div>
+
     <footer class="section">
         <ul>
             <li><img src="./images/facebook.png"></li>
@@ -57,6 +176,7 @@
             <li><img src="./images/tw.png"></li>
         </ul>
     </footer>
+
 
 </body>
 
