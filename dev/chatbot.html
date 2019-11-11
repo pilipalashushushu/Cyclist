@@ -3,13 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>聊天機器人</title>
     <link rel="stylesheet" href="./sass/chatbot.css">
 
 
+    
+
+</head>
+<body>
+    @@include('./template/header.html')
     <div class="chat-bot-btn">
         <a href="#">
             <div class="pic">
@@ -84,7 +88,14 @@
 
     </div>
 
-</head>
+
+
+    @@include('./template/footer.html')
+</body>
+
+
+
+
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>

@@ -1,7 +1,11 @@
 @import "rwd";
 @import "rest";
 @import "var";
+@import "style";
 @import "mixin";
+
+
+
 
 * {
     padding: 0;
@@ -21,25 +25,25 @@ body {
     font-weight: 600;
 }
 
-// =================banner====================
+
 
 .active {}
 
 .banner {
-    // 測試
-    // FIX 不要蓋過去
+    
+    
     position: relative;
-    margin-top: 3px;
+    nmargin-top: 3px;
     width: 100%;
-    // TODO:背景圖片
-    // height: 350px;
+    
+    
     padding-top: 30%;
-    // display: flex;
-    // flex-direction: column;
+    
+    
 
-    // background-size: cover;
+    
     ul {
-        // flex:1;
+        
         position: absolute;
         top: 0;
         left: 0;
@@ -53,15 +57,15 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        // height: 500px;
+        
 
-        // background-image: url(../images/act_image/banner-1.jpg);
+        
         background-size: 100% auto;
         background-position: center center;
         opacity: .8;
         background-repeat: no-repeat;
 
-        // https://picsum.photos/1520/638?random=10
+        
         &:nth-child(1) {
             background-image: url('../images/act_image/banner-1.jpg');
         }
@@ -73,11 +77,11 @@ body {
         }
 
         &:nth-child(3) {
-            background-image: url('https://picsum.photos/1520/638?random=2');
+            background-image: url('https:
         }
     }
 
-    // transform: skewY(-6deg);
+    
     &::after {
         content: "";
         display: block;
@@ -88,19 +92,19 @@ body {
         height: 0;
         border-bottom: 90px solid #f4f5f7;
         border-left: 1905px solid transparent;
-        // ??border-left沒辦法100%滿版
+        
 
 
     }
 }
 
-// ====================布局==============================
+
 
 .activity {
 
     .filter {
         background-color: rgb(204, 162, 162);
-        // height: 600px;
+        
 
 
     }
@@ -116,7 +120,7 @@ body {
 }
 
 
-// ================頁籤========================
+
 
 
 .banner {
@@ -133,7 +137,7 @@ body {
     left: 21%;
     bottom: -50px;
     z-index: 10;
-    // TODO:em&calc
+    
 
     @include phone() {
         left: 10%;
@@ -141,23 +145,23 @@ body {
 
 
     .type {
-        // overflow: hidden;
+        
         position: relative;
-        // z-index: 20;
+        
         writing-mode: vertical-lr;
         display: inline-block;
         margin-right: 15px;
         padding: 10px;
         letter-spacing: 10px;
         color: $main;
-        // TODO:fontweght
+        
         font-size: 17px;
         font-weight: 800;
         background-color: $main;
-        // border: 3px solid $main;
+        
         clip-path: polygon(50% 0%, 100% 0, 100% 75%, 50% 100%, 0% 75%, 0 0);
         cursor: pointer;
-        // transition: color .2s;
+        
 
         @include phone() {
             padding: 5px;
@@ -185,7 +189,7 @@ body {
         }
 
         &::after {
-            // transform: translateY(200);
+            
             z-index: -1;
             top: 0;
             left: 0;
@@ -202,7 +206,7 @@ body {
         color: #fff;
         top: 15px;
 
-        // TODO:
+        
         &::after {
 
             height: 140%;
@@ -213,10 +217,10 @@ body {
 
 
 .act-action {
-    // position: absolute;
-    // right: 0;
-    // bottom: 0;
-    // z-index: 20;
+    
+    
+    
+    
     float: right;
     margin-right: 8%;
 
@@ -224,8 +228,8 @@ body {
 
     .my-act,
     .create-act {
-        // width: 60px;
-        // height: 30px;
+        
+        
         padding: 12px 25px;
 
         border: 0;
@@ -248,16 +252,16 @@ body {
 
             margin-right: 18%;
             margin-top: 10%;
-            // TODO:??失效
+            
         }
 
         .m-filter {
             border: none;
             width: 30px;
             height: 30px;
-            // width: 4vw;
-            // height: 4vw;
-            // ??vw
+            
+            
+            
             opacity: .8;
             background: transparent url('../images/act_image/m-filter\(1\).svg') no-repeat;
             cursor: pointer;
@@ -266,79 +270,105 @@ body {
 }
 
 .activity {
-    // clear: both;
+    
 }
 
-// ==================條件篩選=======================
+
 
 
 .condition {
-    padding-top: 60px;
+     padding: 70px 15px 0;
 
-    @media screen and (max-width:768px) and (min-width: 0) {
-        .condition.col-sm-12.m-open {
-            transform: translateY(0) !important;
-        }
-    }
+
+    
+    
+    
+    
+    
 
 
     @include phone {
 
+        position: relative;
 
-
-        width: 100%;
-        // height: 60%;
+        padding: 0;
+        box-sizing: border-box;
+        max-width: 100%;
+        
         position: fixed;
         z-index: 100;
         left: 0;
+        right: 0;
         bottom: 0;
         z-index: 30;
         transform: translateY(100%);
-        // !!fixed+transform
         transition: all .5s;
+        
 
-        // .condition.col-sm-12.m-open{
-        //     transform: translateY(0) !important; 
-        //  }
-
+        .condition.m-open {
+            transform: translateY(0) !important;
+        }
 
         background-color: $blue-deep;
 
-        .keyword {
-            // display: none;
+        
+
+      
+
+    }
+
+    @include phone(){
+
+        .m-close-filter{
+            position: absolute;
+            display: block;
+            top: 10px;
+            right: 10%;
+            width: 30px;
+            height: 30px;
+
+            &::before,&::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 50%;
+                width: 2px;
+                height: 25px;
+                background: lighten($main,10%);
+            }
+            &::before{
+                transform: rotate(45deg);
+    
+            }
+    
+            &::after{
+                transform: rotate(-45deg);
+            }
         }
+    }
 
-        [class*=col-] {
-            // padding: 0 0;
-        }
-
-        .col-sm-12 {
-            // padding: 0 0;
-        }
-
-        .condition {
-            padding: 0 1px;
-        }
-
-
-
-
-        // zone-list,time-area
-
+    @include break(375px,767px){
+        
+        
+        
+        
+        
     }
 
 
 }
 
 .keyword {
+    padding-top: 50px;
     margin-bottom: 40px;
 
     input[type="text"] {
-        // display: inline-block;
+        
         display: block;
         padding: 0 10px;
         box-sizing: border-box;
-        height: 30px;
+        border-radius: 2px;
+        height: 35px;
         width: 90%;
         margin: 0 auto;
         border: 1px solid $main;
@@ -350,8 +380,9 @@ body {
 .filter {
 
     @include phone() {
-        margin-right: -25px;
-        margin-left: -25px;
+        
+        
+        width: 100%;
 
     }
 
@@ -360,8 +391,8 @@ body {
         color: #fff;
         font-weight: 600;
         font-size: 1.8rem;
-        // background-color: #D69485;
-        // text-align: center;
+        
+        
     }
 
     .time .title {
@@ -382,9 +413,22 @@ body {
         background-color: #fff;
     }
 
+    @include break(375px,767px){
+    .time-area,
+    .zone-list,
+    .hard-list {
+        
+        
+
+    
+    
+    
+    }
+    }
+
     label {
         display: block;
-        // padding-left: 14px;
+        
         padding: 6px 0 6px 14px;
 
         @include phone() {
@@ -399,8 +443,8 @@ body {
     .time {
 
         .time-area {
-            // display: flex;
-            // flex-direction: column;
+            
+            
             padding: 20px 0;
 
             @include phone() {
@@ -411,7 +455,7 @@ body {
 
             .month-picker,
             .month-picker-end {
-                // flex-grow: 1;
+                
                 width: 75%;
                 min-width: 120px;
                 margin: 0 auto;
@@ -435,11 +479,18 @@ body {
             }
 
 
+            .ui-datepicker .ui-datepicker-title{
+                color: brown !important;
+                background-color: bisque !important;
+                
+            }
+
+
         }
 
         input[type="text"] {
             display: inline-block;
-            // display: block;
+            
             width: 100%;
             height: 30px;
             padding: 0 10px;
@@ -455,11 +506,11 @@ body {
 
     .zone-list,
     .hard-list {
-        padding: 10px 0;
+        padding: 10px 0px 10px 15px;
     }
 
     .time-area {
-        // color: #D69485;
+        
     }
 
     .zone-list {
@@ -472,7 +523,7 @@ body {
 
     input[type="checkbox"] {
         display: inline-block;
-        // display: block;
+        
         height: 30px;
         box-sizing: border-box;
         vertical-align: middle;
@@ -481,12 +532,12 @@ body {
     }
 
     .hard {
-        // img{
-        //     display: block;
-        //     width: 36px;
-        //     height: 36px;
+        
+        
+        
+        
 
-        // }
+        
         span {
             display: inline-block;
             vertical-align: text-top;
@@ -500,7 +551,7 @@ body {
 
 
 
-// ============================活動區============================
+
 
 
 .main-content {
@@ -523,20 +574,21 @@ body {
         width: 20px;
         height: 20px;
         margin: 3px 3px 5px;
-        // line-height: 20px;
-        // padding: 10px 0;
+        
+        
         cursor: pointer;
         background: url("../images/act_image/add.svg") no-repeat;
     }
 }
 
 .post-detail {
+    padding: 0 30px;
     position: relative;
 
     &::after {
         display: none;
         content: '';
-        // display: block;
+        
         position: absolute;
         top: 0%;
         left: 0%;
@@ -551,13 +603,13 @@ body {
     .detail.open {
         opacity: 1;
         visibility: visible;
-        // z-index: 30;
+        
         transition: opacity .5s;
-        // transition:opacity 2s, visibility 0s ;
-        // transition: visibility 2s;
-        // transition: z-index 0 2s;
-        // transition: z-index 0 3s;
-        // transition: none;
+        
+        
+        
+        
+        
 
         li {
             transform: translate(0);
@@ -581,19 +633,19 @@ body {
         z-index: 10;
         position: absolute;
         bottom: 11%;
-        left: 0;
+        left: 2%;
         right: 0;
         width: 95%;
         height: 96%;
         box-sizing:border-box;
         border: 2px solid #C86036;
-        // padding: 10% 10% 0;
+        
         background-color: rgb(255, 255, 255);
         transition:opacity .5s,
         visibility 0s .5s;
-        // transition:opacity 2s, visibility 0s 2s,z-index 0 3s ;
-        // transition: z-index 0 3s;
-        // transition: z-index 0s 3s;
+        
+        
+        
 
 
         .close-detail {
@@ -604,12 +656,12 @@ body {
             width: 30px;
             height: 30px;
             cursor: pointer;
-            // background-color: rgb(182, 245, 215);
+            
 
             &:before {
                 content: '';
                 position: absolute;
-                // z-index: 30;
+                
                 top: 0;
                 left: 50%;
                 width: 2px;
@@ -623,7 +675,7 @@ body {
                 position: absolute;
                 top: 0;
                 left: 50%;
-                //  z-index: 30;
+                
                 width: 2px;
                 height: 100%;
                 background: #333;
@@ -635,8 +687,13 @@ body {
 
 
         ul {
+            height: calc(100% - 56px);
+            display: flex;
+            flex-direction: column;
             padding: 15px;
-            // last
+            box-sizing: border-box;
+            
+            
 
             li {
                 transform: translateX(30%);
@@ -645,22 +702,32 @@ body {
             li:not(:nth-last-of-type(1)) {
                 line-height: 1.2rem;
                 letter-spacing: .2rem;
-                // padding: 5px 0;
-                // text-align: center;
+                
+                
                 padding: 5px 0 5px 40px;
                 color: #C86036;
 
             }
 
-
             li:nth-last-of-type(1) {
-                padding: 35px 20px 0 20px;
+                padding: 35px 15px 0 25px;
                 color: #D6A67F;
-                line-height: 2.5rem;
+                line-height: 2rem;
                 letter-spacing: .2rem;
+
+                
+                display: -webkit-box;
+                
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                
+
+                
+                @include phone() {}
             }
 
-            // !!nth-of-type 沒有nth跟:差很多
+            
 
 
             li:nth-child(1) {
@@ -679,7 +746,7 @@ body {
                 transition: transform .55s
             }
 
-            // li:nth-child(5){transition:transform .6s}
+            
 
 
         }
@@ -691,29 +758,29 @@ body {
     min-height: 350px;
     min-width: 275.7px;
     ;
-    // min改成max比較對??
-    // min-height: 350px;
+    
+    
     margin-bottom: 20%;
     color: $sub;
     font-size: 1.5rem;
     border: 1px solid rgba(245, 230, 230, 0.3);
-    // border: 2px solid $main;
+    
     background-color: #F4F5F7;
     position: relative;
 
-    // &::after{
-    //     content: '';
-    //     // display: block;
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     width: 100%;
-    //     height: 100%;
-    //     background: #ccc;
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    // }
+    
     .avatar {
-        // display: inline-block;
+        
         position: absolute;
         top: -27px;
         left: 22px;
@@ -741,14 +808,14 @@ body {
 
 
     .post-img {
-        // height: 200px;
+        
         width: 100%;
         padding-top: 62.5%;
         position: relative;
     }
 
     img {
-        // margin: 0 auto;
+        
         position: absolute;
         top: 0;
         left: 0;
@@ -758,16 +825,16 @@ body {
 
     }
 
-    // ??QA .txt要吃到高度百分比 intro txt寬度
+    
     .post-intro {
         padding: 10px;
-        // height: 150px;
+        
         background-color: #fff;
-        // position: relative;
+        
 
 
-        // width: 100%;
-        // height: 60%;
+        
+        
     }
 
     .title {
@@ -781,12 +848,12 @@ body {
         justify-content: space-between;
         height: 100%;
         font-size: 1.7rem;
-        // font-weight: 800;
+        
 
 
     }
 
-    //  fix meta-top pb寫死px缺點 縮放超出??
+    
     .meta-top {
         padding: 6px 0;
         padding-bottom: 40px;
@@ -803,9 +870,9 @@ body {
     }
 
     .meta-bottom {
-        // position: absolute;
-        // bottom: 3px;
-        // left: 0;
+        
+        
+        
 
         span {
             display: inline-block;
@@ -828,13 +895,13 @@ body {
 
 
         .social {
-            margin-right: 30px;
+            margin-right: 18px;
 
             .people {
                 padding-left: 20px;
                 margin-right: 5px;
                 background: url("../images/act_image/people.svg") no-repeat 8% 0;
-                // background-size: 100% auto;
+                
             }
 
             .msg {
@@ -845,5 +912,26 @@ body {
         }
 
 
+    }
+}
+
+
+
+.act-pages{
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 50px;
+    li{
+        display: inline-block;
+        padding: 10px 15px;
+        margin: 0 5px;
+        background-color: #fff;
+        border: 1px solid $blue-light;
+        cursor: pointer;
+
+        &:hover{
+            color: #fff;
+            background-color: $main;
+        }
     }
 }

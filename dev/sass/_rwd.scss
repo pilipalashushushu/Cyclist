@@ -17,7 +17,7 @@
 
 // ==================格線====================
 
-// ???外面wraper 還是body 中間container
+// ??外面wraper 還是body 中間container
 
 
 
@@ -119,7 +119,7 @@
     .col-sm-9{ width: 75%;}
     .col-sm-10{ width: 83.333333%;}
     .col-sm-11{ width: 91.666666%;}
-    .col-sm-12{ width: 100%;}
+    .col-sm-12{ max-width: 100%;}
     .m-none{
         display: none;
     }

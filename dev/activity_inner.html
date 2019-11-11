@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/act_inner_style.css">
+    <title>活動內頁</title>
+    <link rel="stylesheet" href="./sass/act_inner_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
@@ -15,7 +14,6 @@
 
 <body>
     @@include('./template/header.html')
-
     <main class="wrapper act-inner">
         <div class="container">
             <div class="row">
@@ -28,7 +26,9 @@
                             <li></li>
                         </ul>
                     </div> -->
-                    <div class="swiper-container gallery-top">
+
+
+                    <!-- <div class="swiper-container gallery-top">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><img src="https://picsum.photos/500/400?random=1" alt=""></div>
                             <div class="swiper-slide"><img src="https://picsum.photos/500/400?random=2" alt=""></div>
@@ -43,21 +43,29 @@
                             <div class="swiper-slide"></div>
                             <div class="swiper-slide"></div>
                         </div>
-                    </div>
-                    <!-- <div class="bg-change">
-                        <ul>
-                            <li class="small-change"></li>
-                            <li class="small-change"></li>
-                            <li class="small-change"></li>
-                            <li class="small-change"></li>                        
-                        </ul>
                     </div> -->
+                    <div class="slider-top">
+                        <img src="https://picsum.photos/500/400?random=1" alt="">
+                    </div>
+                    <div class="slider-bottom">
+                        <div class="btn" data-pic="left"></div>
+                        <ul class="pics">
+                            <li class="pic-item"><img src="https://picsum.photos/500/400?random=1" alt=""></li>
+                            <li class="pic-item"><img src="https://picsum.photos/500/400?random=2" alt=""></li>
+                            <li class="pic-item"><img src="https://picsum.photos/500/400?random=3" alt=""></li>
+                            <li class="pic-item"><img src="https://picsum.photos/500/400?random=4" alt=""></li>
+                            <li class="pic-item"><img src="https://picsum.photos/500/400?random=5" alt=""></li>
+                            <li class="pic-item"><img src="https://picsum.photos/500/400?random=6" alt=""></li>
+                        </ul>
+                        <div class="btn" data-pic="right"></div>
+                    </div>
+
                 </div>
 
                 <div class="act-info col-xl-6 col-md-6 col-sm-12">
                     <div class="organizer">
                         <div class="avatar">
-                            <img src="./images/act_inner_image/avatar.PNG" alt="">
+                            <img src="../dev/images/act_inner_image/avatar.PNG" alt="">
                         </div>
                         <div class="name">Meiching Chiang</div>
                         <!-- <i class="el el-photo"></!-->
@@ -107,7 +115,7 @@
             <div class="row">
                 <div class="act-desc col-12">
                     <!-- <h2 class="title">活動說明</h2> -->
-                    <div class="txt">
+                    <div class="desc-txt">
                         每逢十月下旬，夏熱的天氣開始漸漸轉為舒適宜人的秋涼，除了是楓葉染紅的好時節外，也是芒花盛開之際。芒花不如玫瑰擁有艷麗的外衣，然而在秋冬之交這片開滿山的芒花勾畫出的雪白世界，容易讓人沉醉於其中的浪漫氛圍。
                         「不厭亭」取自李白的詩句「相看兩不厭」，有人稱天堂路、寂寞公路等等，不難想其所擁有的高人氣。雖然他的海拔只有531公尺，從不厭亭往下看來時路，其線條頗為壯觀，與合歡山有幾分神似，因此也才有「小武嶺」之稱。在秋芒隨風搖曳起舞下，除了能夠以360度無死角眺望雙溪的風景，還可以一睹瑞芳和基隆之美。
                         五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
@@ -118,6 +126,25 @@
                         起點：暖暖運動公園，大概上午七點出發。
                         　終點：暖暖運動公園，下午前回到終點。
                         　自行補給、沒有支援車！五分山最高，只有700公尺多一點，沿途有多家便利超商與市集飲食店。
+                    </div>
+                    <div class="report">
+                        <!-- <div class="report-word"> -->
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span id="report-btn">檢舉活動</span>
+                        <!-- </div> -->
+
+                    </div>
+                    <div id="report-box-wrap">
+                        <div class="report-box">
+                            <h3>檢舉活動</h3>
+                            <select name="reportMessage" id="">
+                                <option value="">請選擇原因</option>
+                                <option value="1">1.非相關自行車活動</option>
+                                <option value="2">2.外部商品廣告</option>
+                                <option value="3">3.活動內文不當</option>
+                            </select>
+                            <button id="report-send-btn">確認</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -135,14 +162,28 @@
                         <span class="errMeg"></span>
                         <span class="counter">0/100</span>
                     </div>
-                    <button class="send">留言</button>
+                    <div>
+                        <button class="send">留言</button>
+                    </div>
                     <div class="comment-list">
                         <div class="comment-item">
-                            <div class="avatar"></div>
+                            <div class="avatar">
+                                <img src="https://picsum.photos/60/60?random=10" alt="">
+                            </div>
                             <div class="content">
-                                <div class="comment-name"></div>
-                                <div class="comment-date"></div>
-                                <div class="comment-content"></div>
+                                <div class="comment-name">clair</div>
+                                <div class="comment-txt">發現新大陸好棒</div>
+                                <div class="comment-date">2019-11-09</div>
+                            </div>
+                        </div>
+                        <div class="comment-item">
+                            <div class="avatar">
+                                <img src="https://picsum.photos/60/60?random=10" alt="">
+                            </div>
+                            <div class="content">
+                                <div class="comment-name">小安</div>
+                                <div class="comment-txt">竟然有這條自行車道！😱 改天也來騎騎看</div>
+                                <div class="comment-date">2019-11-09</div>
                             </div>
                         </div>
                     </div>
@@ -152,11 +193,65 @@
         </div>
 
     </main>
+
     @@include('./template/footer.html')
+
+
+
 </body>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
 <script>
     $(document).ready(function () {
+
+        $(".pic-item").click(function () {
+
+            //抓到小圖路徑
+            let picSrc = $(this).find("img").attr("src");
+            //塞進大圖顯示區
+            $(".slider-top").find("img").attr("src", picSrc);
+        })
+
+        // let divWidth = $('#sliderBoard').width();   //div的寬度
+
+        let imgCount = $('.pics li').length;
+        $('.pic-item').width($('.act-img').width() / 4);
+        let divWidth = $('.pic-item').width(); //25%
+        $('.pics').width(divWidth * imgCount); //ul的寬度
+        // $('#content li').width(divWidth);           //li的寬度
+
+        let i = 0;
+        $(".btn").click(function () {
+
+            let length = $(".pics").find(".pic-item").width();
+
+            switch ($(this).data("pic")) {
+
+                case "left":
+
+                    $(".pics").animate({
+                        // "left": `${-36*i}%`
+                        "left": `${length}px`
+                    })
+                    // console.log(`${-36*i}%`)
+                    console.log(`${length*i}px`)
+                    i++;
+
+                    break;
+
+                case "right":
+                    // i--;
+                    $(".pics").animate({
+                        "left": `-${length*i}px`
+
+                    })
+                    i++;
+                    console.log(`-${length}px`);
+                    break;
+
+            }
+
+        });
+
 
 
         //   var galleryThumbs = new Swiper('.gallery-thumbs',{
@@ -174,6 +269,8 @@
         //       }
 
         //   })
+
+
 
         var galleryTop = new Swiper('.gallery-top', {
             // direction: 'vertical', // 垂直切换选项
@@ -194,10 +291,15 @@
                     watchSlidesProgress: true,
 
                 },
-                // slideThumbActiveClass: 'my-slide-thumb-active',
+                slideThumbActiveClass: 'my-slide-thumb-active',
             }
 
 
+        })
+
+        $('#report-btn').click(function(){
+              $('#report-box-wrap').show();
+             
         })
 
 
