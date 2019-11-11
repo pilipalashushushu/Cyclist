@@ -15,22 +15,26 @@ html {
 }
 
 body {
-    min-height: 100vh;
+    font-family: "微軟正黑體"; 
+}
+
+.act-bg{
     background-color: #F4F5F7;
-    font-family: "微軟正黑體";
+    // font-size: 62.5%;
+}
+
+.wrapper.activity,.out{
+    
     font-size: 1.6rem;
     font-weight: 600;
 }
 
 
-
-.active {}
-
 .banner {
     
     
     position: relative;
-    nmargin-top: 3px;
+    margin-top: 60px;
     width: 100%;
     
     
@@ -276,8 +280,11 @@ body {
 
     
     
-    
-    
+    @include phone(){
+        &.m-open{
+            transform: translateY(0); 
+        }
+    }
     
 
 

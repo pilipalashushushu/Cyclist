@@ -9,23 +9,31 @@
 }
 
 
-body{
-    min-height: 100vh;
+body,html{
     font-family: "微軟正黑體";
-    font-size: 1.4rem;
-    
-    
-    
-    background-color: #F4F5F7;
-    letter-spacing: .3px;
+    // font-size: 1.6rem;
+    // font-weight: 600;
+    // letter-spacing: .3px;
     
 }
 
+.act-inner-bg{
+    // background-color: #F0D5B7;
+    background-color: #F4F5F7;
+   
+}
+
 .wrapper.act-inner{
-    padding-top: 50px;
+
+    padding-top: 100px;
     width: 100%;
     max-width: 980px;
     background-color: #fff;
+    // background-color: #F4F5F7;
+    font-family: "微軟正黑體";
+    font-size: 1.4rem;
+    letter-spacing: .3px;
+    
 }
 
 
