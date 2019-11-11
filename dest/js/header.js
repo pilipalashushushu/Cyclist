@@ -1,37 +1,41 @@
- //滾動收起nav-bar
- $(window).scroll(function (e) {
+$(function () {
 
-     var before = parseInt($(window).scrollTop());
+    //滾動收起nav-bar
+    $(window).scroll(function (e) {
 
-     $(window).scroll((e) => {
+        var before = parseInt($(window).scrollTop());
 
-         var after = parseInt($(window).scrollTop());
+        $(window).scroll((e) => {
 
-         let direction = (after - before > 0) ? "down" : "up"
+            var after = parseInt($(window).scrollTop());
 
-         if (direction == "down") {
-             $("header").animate({
-                 "top": "-60px"
-             }, 500)
-         }
+            let direction = (after - before > 0) ? "down" : "up"
 
-         before = after;
-         if (direction == "up") {
-             $("header").animate({
-                 "top": "0px"
-             }, 500)
-         }
+            if (direction == "down") {
+                $("header").animate({
+                    "top": "-60px"
+                }, 500)
+            }
 
-         before = after;
+            before = after;
+            if (direction == "up") {
+                $("header").animate({
+                    "top": "0px"
+                }, 500)
+            }
 
-         console.log(direction)
+            before = after;
 
-     })
+            console.log(direction)
 
- })
- //滑鼠移動到原本nav-bar位置時  nav-bar出現
+        })
 
- $(window).mousemove(function (e) {
-     // values: e.clientX, e.clientY, e.pageX, e.pageY
+    })
+    //滑鼠移動到原本nav-bar位置時  nav-bar出現
 
- });
+    $(window).mousemove(function (e) {
+        // values: e.clientX, e.clientY, e.pageX, e.pageY
+
+    });
+
+})

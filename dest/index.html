@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/col.css">
     <link rel="stylesheet" href="css/bikeExp.css">
-    <link rel="stylesheet" href="css/prodList.css">
     <link rel="stylesheet" href="./css/fullpage.css">
+    <link rel="stylesheet" href="./css/jquery.flipster.css">
     <link rel="shortcut icon" href="images/favicon02.ico" type="image/x-icon" />
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/109/three.js"></script>
@@ -21,6 +21,7 @@
     <script src="./js/tadashiScript.js"></script>
     <script src="./js/fullpage.js"></script>
     <script src="./js/customize.js"></script>
+    <script src="./js/jquery.flipster.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/jquery.easings.min.jss"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/scrolloverflow.min.js"></script> -->
@@ -652,256 +653,400 @@
         </section>
         <!-- 最新活動 -->
         <section class="section" id="activity">
-            <section class="activity-ind">
-
-                <!-- <a href="#"><img src="http://placehold.it/80x160?text=A"></a>
-                <a href="#"><img src="http://placehold.it/80x160?text=B"></a>
-                <a href="#"><img src="http://placehold.it/80x160?text=C"></a> -->
-                <!-- <img src="https://picsum.photos/350/200?random=10" alt=""> -->
-                <img class="ind-act-bg1" src="images/ind-act-bg1.png" alt="">
-
-                <div class="act-card">
-                    <div class="row">
-                        <div class="post-detail">
-                            <div class="post-item">
-                                <figure class="post-img">
-                                    <img src="https://picsum.photos/350/200?random=10" alt="">
-                                </figure>
-                                <div class="post-intro">
-                                    <a href="#">
-                                        <h3 class="title">七夕自行車go</h3>
-                                    </a>
-                                    <div class="txt">
-                                        <div class="meta-top">
-                                            <div class="date">週六 10月30日</div>
-                                            <div class="location">新北市汐止</div>
-                                            <span class="open-detail"></span>
-                                        </div>
-
-                                        <div class="meta-bottom">
-                                            <span class="hard">運動級<span class="circle"></span><span
-                                                    class="circle"></span></span>
-                                            <div class="social">
-                                                <span class="people">5/6</span>
-                                                <span class="msg">5</span>
-                                            </div>
-
-                                        </div>
+            <span class="addAct"><a href="#"></a></span>
+            <div id="coverflow">
+                <ul class="flip-items">
+                    <li class="post-detail">
+                        <div class="post-item">
+                            <div class="avatar"><img src="images/act_image/avatar.PNG" alt=""></div>
+                            <figure class="post-img">
+                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                            </figure>
+                            <div class="post-intro">
+                                <a href="./activity_inner.html">
+                                    <h3 class="hm_title">七夕自行車go</h3>
+                                </a>
+                                <div class="hm_txt">
+                                    <div class="meta-top">
+                                        <div class="date">週六 10月30日</div>
+                                        <div class="location">新北市汐止</div>
+                                        <span class="open-detail"></span>
                                     </div>
 
+                                    <div class="meta-bottom">
+                                        <span class="hard">運動級<span class="circle"></span><span
+                                                class="circle"></span></span>
+                                        <div class="social">
+                                            <span class="people">5/6</span>
+                                            <span class="msg">5</span>
+                                        </div>
+
+                                    </div>
                                 </div>
+
                             </div>
-
                         </div>
-                        <div class="post-detail">
-                            <div class="post-item">
-                                <figure class="post-img">
-                                    <img src="https://picsum.photos/350/200?random=10" alt="">
-                                </figure>
-                                <div class="post-intro">
-                                    <a href="#">
-                                        <h3 class="title">七夕自行車go</h3>
-                                    </a>
-                                    <div class="txt">
-                                        <div class="meta-top">
-                                            <div class="date">週六 10月30日</div>
-                                            <div class="location">新北市汐止</div>
-                                            <span class="open-detail"></span>
-                                        </div>
-
-                                        <div class="meta-bottom">
-                                            <span class="hard">運動級<span class="circle"></span><span
-                                                    class="circle"></span></span>
-                                            <div class="social">
-                                                <span class="people">5/6</span>
-                                                <span class="msg">5</span>
-                                            </div>
-
-                                        </div>
+                        <div class="detail">
+                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                            <ul>
+                                <li>集合地點-金山區金山路336號</li>
+                                <li>出發日期-2019-11-31(六)</li>
+                                <li>報名截止-2019-11-31(六)</li>
+                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                <span class="close-detail"></span>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="post-detail">
+                        <div class="post-item">
+                            <div class="avatar"><img src="images/act_image/avatar.PNG" alt=""></div>
+                            <figure class="post-img">
+                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                            </figure>
+                            <div class="post-intro">
+                                <a href="./activity_inner.html">
+                                    <h3 class="hm_title">七夕自行車go</h3>
+                                </a>
+                                <div class="hm_txt">
+                                    <div class="meta-top">
+                                        <div class="date">週六 10月30日</div>
+                                        <div class="location">新北市汐止</div>
+                                        <span class="open-detail"></span>
                                     </div>
 
+                                    <div class="meta-bottom">
+                                        <span class="hard">運動級<span class="circle"></span><span
+                                                class="circle"></span></span>
+                                        <div class="social">
+                                            <span class="people">5/6</span>
+                                            <span class="msg">5</span>
+                                        </div>
+
+                                    </div>
                                 </div>
+
                             </div>
-
                         </div>
-
-                        <div class="post-detail">
-                            <div class="post-item">
-                                <figure class="post-img">
-                                    <img src="https://picsum.photos/350/200?random=10" alt="">
-                                </figure>
-                                <div class="post-intro">
-                                    <a href="#">
-                                        <h3 class="title">七夕自行車go</h3>
-                                    </a>
-                                    <div class="txt">
-                                        <div class="meta-top">
-                                            <div class="date">週六 10月30日</div>
-                                            <div class="location">新北市汐止</div>
-                                            <span class="open-detail"></span>
-                                        </div>
-
-                                        <div class="meta-bottom">
-                                            <span class="hard">運動級<span class="circle"></span><span
-                                                    class="circle"></span></span>
-                                            <div class="social">
-                                                <span class="people">5/6</span>
-                                                <span class="msg">5</span>
-                                            </div>
-
-                                        </div>
+                        <div class="detail">
+                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                            <ul>
+                                <li>集合地點-金山區金山路336號</li>
+                                <li>出發日期-2019-11-31(六)</li>
+                                <li>報名截止-2019-11-31(六)</li>
+                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                <span class="close-detail"></span>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="post-detail">
+                        <div class="post-item">
+                            <div class="avatar"><img src="images/act_image/avatar.PNG" alt=""></div>
+                            <figure class="post-img">
+                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                            </figure>
+                            <div class="post-intro">
+                                <a href="./activity_inner.html">
+                                    <h3 class="hm_title">七夕自行車go</h3>
+                                </a>
+                                <div class="hm_txt">
+                                    <div class="meta-top">
+                                        <div class="date">週六 10月30日</div>
+                                        <div class="location">新北市汐止</div>
+                                        <span class="open-detail"></span>
                                     </div>
 
+                                    <div class="meta-bottom">
+                                        <span class="hard">運動級<span class="circle"></span><span
+                                                class="circle"></span></span>
+                                        <div class="social">
+                                            <span class="people">5/6</span>
+                                            <span class="msg">5</span>
+                                        </div>
+
+                                    </div>
                                 </div>
+
                             </div>
-
                         </div>
+                        <div class="detail">
+                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                            <ul>
+                                <li>集合地點-金山區金山路336號</li>
+                                <li>出發日期-2019-11-31(六)</li>
+                                <li>報名截止-2019-11-31(六)</li>
+                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                <span class="close-detail"></span>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="post-detail">
+                        <div class="post-item">
+                            <div class="avatar"><img src="images/act_image/avatar.PNG" alt=""></div>
+                            <figure class="post-img">
+                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                            </figure>
+                            <div class="post-intro">
+                                <a href="./activity_inner.html">
+                                    <h3 class="hm_title">七夕自行車go</h3>
+                                </a>
+                                <div class="hm_txt">
+                                    <div class="meta-top">
+                                        <div class="date">週六 10月30日</div>
+                                        <div class="location">新北市汐止</div>
+                                        <span class="open-detail"></span>
+                                    </div>
 
+                                    <div class="meta-bottom">
+                                        <span class="hard">運動級<span class="circle"></span><span
+                                                class="circle"></span></span>
+                                        <div class="social">
+                                            <span class="people">5/6</span>
+                                            <span class="msg">5</span>
+                                        </div>
 
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                            <ul>
+                                <li>集合地點-金山區金山路336號</li>
+                                <li>出發日期-2019-11-31(六)</li>
+                                <li>報名截止-2019-11-31(六)</li>
+                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                <span class="close-detail"></span>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="post-detail">
+                        <div class="post-item">
+                            <div class="avatar"><img src="images/act_image/avatar.PNG" alt=""></div>
+                            <figure class="post-img">
+                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                            </figure>
+                            <div class="post-intro">
+                                <a href="./activity_inner.html">
+                                    <h3 class="hm_title">七夕自行車go</h3>
+                                </a>
+                                <div class="hm_txt">
+                                    <div class="meta-top">
+                                        <div class="date">週六 10月30日</div>
+                                        <div class="location">新北市汐止</div>
+                                        <span class="open-detail"></span>
+                                    </div>
 
-                    </div>
+                                    <div class="meta-bottom">
+                                        <span class="hard">運動級<span class="circle"></span><span
+                                                class="circle"></span></span>
+                                        <div class="social">
+                                            <span class="people">5/6</span>
+                                            <span class="msg">5</span>
+                                        </div>
 
-                </div>
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                            <ul>
+                                <li>集合地點-金山區金山路336號</li>
+                                <li>出發日期-2019-11-31(六)</li>
+                                <li>報名截止-2019-11-31(六)</li>
+                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                <span class="close-detail"></span>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="post-detail">
+                        <div class="post-item">
+                            <div class="avatar"><img src="images/act_image/avatar.PNG" alt=""></div>
+                            <figure class="post-img">
+                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                            </figure>
+                            <div class="post-intro">
+                                <a href="./activity_inner.html">
+                                    <h3 class="hm_title">七夕自行車go</h3>
+                                </a>
+                                <div class="hm_txt">
+                                    <div class="meta-top">
+                                        <div class="date">週六 10月30日</div>
+                                        <div class="location">新北市汐止</div>
+                                        <span class="open-detail"></span>
+                                    </div>
 
+                                    <div class="meta-bottom">
+                                        <span class="hard">運動級<span class="circle"></span><span
+                                                class="circle"></span></span>
+                                        <div class="social">
+                                            <span class="people">5/6</span>
+                                            <span class="msg">5</span>
+                                        </div>
 
-                <!-- <div class="variable slider col-7">
-                <div>
-                  <a href="#">
-                      <div class="act-card">
-                          <div class="row">
-                              <div class="post-detail col-xl-4 col-md-6 col-sm-12">
-                                  <div class="post-item">
-                                      <figure class="post-img">
-                                          <img src="https://picsum.photos/350/200?random=10" alt="">
-                                      </figure>
-                                      <div class="post-intro">
-                                          <a href="#">
-                                              <h3 class="title">七夕自行車go</h3>
-                                          </a>
-                                          <div class="txt">
-                                              <div class="meta-top">
-                                                  <div class="date">週六 10月30日</div>
-                                                  <div class="location">新北市汐止</div>
-                                                  <span class="open-detail"></span>
-                                              </div>
-                          
-                                              <div class="meta-bottom">
-                                                  <span class="hard">運動級<span class="circle"></span><span class="circle"></span></span>
-                                                  <div class="social">
-                                                      <span class="people">5/6</span>
-                                                      <span class="msg">5</span>
-                                                  </div>
-                          
-                                              </div>
-                                          </div>
-                          
-                                      </div>
-                                  </div>
-              
-                              </div>
-                          </div>
-                      
-                         </div>
-                  </a>
-                </div>
-                <div>
-                  <a href="#"><img src="http://placehold.it/200x300?text=2"></a>
-                </div>
-                <div>
-                  <a href="#"><img src="http://placehold.it/200x300?text=3"></a>
-                </div>
-                <div>
-                  <a href="#"><img src="http://placehold.it/200x300?text=4"></a>
-                </div>
-                <div>
-                  <a href="#"><img src="http://placehold.it/200x300?text=5"></a>
-                </div>
-                <div>
-                  <a href="#"><img src="http://placehold.it/200x300?text=6"></a>
-                </div>
-            
-              </div> -->
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                            <ul>
+                                <li>集合地點-金山區金山路336號</li>
+                                <li>出發日期-2019-11-31(六)</li>
+                                <li>報名截止-2019-11-31(六)</li>
+                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                <span class="close-detail"></span>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="post-detail">
+                        <div class="post-item">
+                            <div class="avatar"><img src="images/act_image/avatar.PNG" alt=""></div>
+                            <figure class="post-img">
+                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                            </figure>
+                            <div class="post-intro">
+                                <a href="./activity_inner.html">
+                                    <h3 class="hm_title">七夕自行車go</h3>
+                                </a>
+                                <div class="hm_txt">
+                                    <div class="meta-top">
+                                        <div class="date">週六 10月30日</div>
+                                        <div class="location">新北市汐止</div>
+                                        <span class="open-detail"></span>
+                                    </div>
 
+                                    <div class="meta-bottom">
+                                        <span class="hard">運動級<span class="circle"></span><span
+                                                class="circle"></span></span>
+                                        <div class="social">
+                                            <span class="people">5/6</span>
+                                            <span class="msg">5</span>
+                                        </div>
 
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                            <ul>
+                                <li>集合地點-金山區金山路336號</li>
+                                <li>出發日期-2019-11-31(六)</li>
+                                <li>報名截止-2019-11-31(六)</li>
+                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                <span class="close-detail"></span>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="post-detail">
+                        <div class="post-item">
+                            <div class="avatar"><img src="images/act_image/avatar.PNG" alt=""></div>
+                            <figure class="post-img">
+                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                            </figure>
+                            <div class="post-intro">
+                                <a href="./activity_inner.html">
+                                    <h3 class="hm_title">七夕自行車go</h3>
+                                </a>
+                                <div class="hm_txt">
+                                    <div class="meta-top">
+                                        <div class="date">週六 10月30日</div>
+                                        <div class="location">新北市汐止</div>
+                                        <span class="open-detail"></span>
+                                    </div>
 
-                <!-- <div class="ind-actbox">
-                <div class="ind-act1">
-                    <a href="#"><img src="http://placehold.it/80x160?text=A"></a>
-                  </div>
-                  <div class="ind-act2">
-                      <a href="#"><img src="http://placehold.it/80x160?text=B"></a>
-                  </div>
-                  <div class="ind-act3">
-                      <a href="#"><img src="http://placehold.it/80x160?text=C"></a>
-                  </div>
-            </div>  -->
+                                    <div class="meta-bottom">
+                                        <span class="hard">運動級<span class="circle"></span><span
+                                                class="circle"></span></span>
+                                        <div class="social">
+                                            <span class="people">5/6</span>
+                                            <span class="msg">5</span>
+                                        </div>
 
-                <!-- <img class="ind-act-bg1" src="img/ind-act-bg1.png" alt=""> -->
+                                    </div>
+                                </div>
 
-                <div class="index-actbox">
-                    <h1>加入活動</h1>
-                    <div class="actbox1">
-                        日期:<input type="date">
-                        <input type="date">
-                    </div>
-                    <div class="actbox1">
-                        區域:<input type="checkbox">北區
-                        <input type="checkbox">中區
-                        <input type="checkbox">南區
-                    </div>
-                    <div class="actbox1">
-                        騎乘強度:<input type="checkbox">X
-                        <input type="checkbox">XX
-                        <input type="checkbox">XXX
-                    </div>
-                    <a class="ind-act-btn2" href="">搜尋</a>
-                    <img class="ind-act-bg2" src="images/ind-act-bg2.png" alt="">
-                </div>
-
-                <div class="clearfix ind-act-he"><a class="ind-act-btn" href="./activity.html">更多活動</a></div>
-
-
-                <div class="idx-actbg"></div>
-            </section>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                            <ul class="hm_deatilText">
+                                <li>集合地點-金山區金山路336號</li>
+                                <li>出發日期-2019-11-31(六)</li>
+                                <li>報名截止-2019-11-31(六)</li>
+                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                <span class="close-detail"></span>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button class="more">瀏覽更多活動</button>
         </section>
+
+        <script>
+            var coverflow = $("#coverflow").flipster();
+        </script>
         <!-- 熱門商品 -->
         <section class="section" id="product">
             <ul class="prod-list col-12">
-                <li class="prod col-3">
+                <li class="prodContent">
                     <div class="prod-shell">
+                        <div class="prod-bag"></div>
                         <div class="prod-pic">
-                            <img src=./images/TCR_SLR.png> </div> <h3 class="prod-title">TCR SL 2</h3>
-                            <p class="prod-context">TCR 爬坡型公路競賽用車</p>
+                            <img class="proBike_img" src=./images/TCR_SLR.png> <h3 class="prod-title">TCR_SL2 公路車</h3>
                             <p class="prod-money">$28,000</p>
-                            <p class="prod-buy-directly">直接購買</p>
+                            <div class="prod-icon">
+                                <a href="#"><img src="images/prod_like.png" alt=""></a>
+                                <a href="#"><img src="images/prod-cart.png" alt=""></a>
+                            </div>
                         </div>
+                    </div>
                 </li>
-                <li class="prod col-3">
+                <li class="prodContent">
                     <div class="prod-shell">
+                        <div class="prod-bag"></div>
                         <div class="prod-pic">
-                            <img src=./images/TCR_SLR02.png> </div> <h3 class="prod-title">TCR SL 2</h3>
-                            <p class="prod-context">TCR 爬坡型公路競賽用車</p>
+                            <img class="proBike_img" src=./images/TCR_SLR02.png> <h3 class="prod-title">TCR_SL 5 城市車
+                            </h3>
                             <p class="prod-money">$28,000</p>
-                            <p class="prod-buy-directly">直接購買</p>
+                            <div class="prod-icon">
+                                <a href="#"><img src="images/prod_like.png" alt=""></a>
+                                <a href="#"><img src="images/prod-cart.png" alt=""></a>
+                            </div>
                         </div>
+                    </div>
                 </li>
-                <li class="prod col-3">
+                <li class="prodContent">
                     <div class="prod-shell">
+                        <div class="prod-bag"></div>
                         <div class="prod-pic">
-                            <img src=./images/TCR_SLR03.png> </div> <h3 class="prod-title">TCR SL 2</h3>
-                            <p class="prod-context">TCR 爬坡型公路競賽用車</p>
+                            <img class="proBike_img" src=./images/TCR_SLR03.png> <h3 class="prod-title">TCR_SL 6 越野車
+                            </h3>
                             <p class="prod-money">$28,000</p>
-                            <p class="prod-buy-directly">直接購買</p>
+                            <div class="prod-icon">
+                                <a class="a1" href="#"><img src="images/prod_like.png" alt=""></a>
+                                <a class="a2" href="#"><img src="images/prod-cart.png" alt=""></a>
+                            </div>
                         </div>
+                    </div>
                 </li>
             </ul>
-            <div class="prod-view col-12">
-                <h2>瀏覽CY嚴選</h2>
-            </div>
+            <ul class="num"></ul>
+            <button class="more">瀏覽更多商品</button>
         </section>
         <!-- 不可不知 -->
         <section class="section" id="mustKnow">
