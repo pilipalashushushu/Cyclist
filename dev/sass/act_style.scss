@@ -1,7 +1,6 @@
 @import "rwd";
 @import "rest";
 @import "var";
-@import "style";
 @import "mixin";
 
 
@@ -77,8 +76,9 @@ body {
         }
 
         &:nth-child(3) {
-            background-image: url('https:
+            // background-image: url('https:);
         }
+        
     }
 
     
@@ -260,18 +260,14 @@ body {
             width: 30px;
             height: 30px;
             
-            
-            
             opacity: .8;
-            background: transparent url('../images/act_image/m-filter\(1\).svg') no-repeat;
+            background: url(../images/act_image/m-filter-1.svg) no-repeat;
             cursor: pointer;
         }
     }
 }
 
-.activity {
-    
-}
+
 
 
 
@@ -670,8 +666,8 @@ body {
                 transform: rotate(45deg);
             }
 
-            &:after {
-                content: '';
+            &::after {
+                content:'';
                 position: absolute;
                 top: 0;
                 left: 50%;
