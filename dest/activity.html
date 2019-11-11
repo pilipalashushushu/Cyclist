@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="./css/body&header&footer.css">
-    <link rel="stylesheet" href="css/act_style.css">
+    <link rel="stylesheet" href="./css/act_style.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/css/docs.css'/> -->
 
@@ -93,477 +93,479 @@
     </div> -->
 
     <main>
-        <div class="wrapper activity">
-
-            <div class="act-action">
-                <button type="button" class="my-act m-none">我的活動</button>
-                <button type="button" class="create-act m-none">建立活動</button>
-                <button type="button" class="m-filter"></button>
-            </div>
-
-            <div class="container">
-                <div class="row">
-
-                    <!-- FIX QA側邊攔 要分開-->
-                    <!-- <aside class="search" col->
-                         <input type="text" value="輸入關鍵字">
-                    </aside> -->
-
-                    <!-- FIX??側邊欄是要做伸縮-->
-
-                    <aside class="condition col-xl-2 col-md-3 ">
-                        <span class="m-close-filter"></span>
-                        <div class="keyword">
-                            <input type="text" value="" placeholder="搜尋關鍵字">
-                        </div>
-                        <!-- QA FIX label -->
-                        <fieldset class="filter">
-                            <div class="time">
-                                <legend class="title">時間</legend>
-                                <!-- QA -->
-                                <div class="time-area">
-                                    <div class="month-picker">
-                                        <input type="text" placeholder="結束年月" id="date-picker-start">
-                                    </div>
-                                    <div class="month-picker-end">
-                                        <input type="text" placeholder="結束年月" id="date-picker-end">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="zone">
-                                <legend class="title">區域</legend>
-                                <div class="zone-list">
-                                    <label><input type="checkbox" value="" name="" id="">北部</label>
-                                    <label><input type="checkbox" value="" name="" id="">中部</label>
-                                    <label><input type="checkbox" value="" name="" id="">南部</label>
-                                    <label><input type="checkbox" value="" name="" id="">東部</label>
-                                </div>
-                            </div>
-                            <div class="hard">
-                                <legend class="title">騎乘強度</legend>
-                                <div class="hard-list">
-                                    <!-- QA FIX -->
-                                    <label><input type="checkbox" value="" name="" id="">休閒級<span></span></label>
-                                    <label><input type="checkbox" value="" name=""
-                                            id="">運動級<span></span><span></span></label>
-                                    <label><input type="checkbox" value="" name=""
-                                            id="">挑戰級<span></span><span></span><span></span></label>
-
-                                </div>
-                            </div>
-                        </>
-                    </aside>
-                    <!-- todo dl dt dd               -->
-
-
-                    <div class="main-content col-xl-10 col-md-9 col-sm-12">
-                        <div class="container">
-                            <div class="row">
-                                <div class="post-detail col-xl-4 col-md-6 col-sm-12">
-                                    <div class="post-item">
-                                        <div class="avatar"><img src="../dev/images/act_image/avatar.PNG" alt=""></div>
-                                        <figure class="post-img">
-                                            <img src="https://picsum.photos/350/200?random=10" alt="">
-                                        </figure>
-                                        <div class="post-intro">
-                                            <a href="./activity_inner.html">
-                                                <h3 class="title">七夕自行車go</h3>
-                                            </a>
-                                            <div class="txt">
-                                                <div class="meta-top">
-                                                    <div class="date">週六 10月30日</div>
-                                                    <div class="location">新北市汐止</div>
-                                                    <span class="open-detail"></span>
-                                                </div>
-
-                                                <div class="meta-bottom">
-                                                    <span class="hard">運動級<span class="circle"></span><span
-                                                            class="circle"></span></span>
-                                                    <div class="social">
-                                                        <span class="people">5/6</span>
-                                                        <span class="msg">5</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="detail">
-                                        <div class="title">浪漫雙重奏-五分不厭征風遊</div>
-                                        <ul>
-                                            <li>集合地點-金山區金山路336號</li>
-                                            <li>出發日期-2019-11-31(六)</li>
-                                            <li>報名截止-2019-11-31(六)</li>
-                                            <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
-                                                這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
-                                            <span class="close-detail"></span>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="post-detail col-xl-4 col-md-6 col-sm-12">
-                                    <div class="post-item">
-                                        <figure class="post-img">
-                                            <div class="avatar"><img src="../dev/images/act_image/avatar.PNG" alt="">
-                                            </div>
-                                            <img src="https://picsum.photos/350/200?random=10" alt="">
-                                        </figure>
-                                        <div class="post-intro">
-                                            <a href="#">
-                                                <h3 class="title">七夕自行車go</h3>
-                                            </a>
-                                            <div class="txt">
-                                                <div class="meta-top">
-                                                    <div class="date">週六 10月30日</div>
-                                                    <div class="location">新北市汐止</div>
-                                                    <span class="open-detail"></span>
-                                                </div>
-
-                                                <div class="meta-bottom">
-                                                    <span class="hard">運動級<span class="circle"></span><span
-                                                            class="circle"></span></span>
-                                                    <div class="social">
-                                                        <span class="people">5/6</span>
-                                                        <span class="msg">5</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="detail">
-                                        <div class="title">浪漫雙重奏-五分不厭征風遊</div>
-                                        <ul>
-                                            <li>集合地點-金山區金山路336號</li>
-                                            <li>出發日期-2019-11-31(六)</li>
-                                            <li>報名截止-2019-11-31(六)</li>
-                                            <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
-                                                這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
-                                            <span class="close-detail"></span>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="post-detail col-xl-4 col-md-6 col-sm-12">
-                                    <div class="post-item">
-                                        <figure class="post-img">
-                                            <div class="avatar"><img src="../dev/images/act_image/avatar.PNG" alt="">
-                                            </div>
-                                            <img src="https://picsum.photos/350/200?random=10" alt="">
-                                        </figure>
-                                        <div class="post-intro">
-                                            <a href="#">
-                                                <h3 class="title">七夕自行車go</h3>
-                                            </a>
-                                            <div class="txt">
-                                                <div class="meta-top">
-                                                    <div class="date">週六 10月30日</div>
-                                                    <div class="location">新北市汐止</div>
-                                                    <span class="open-detail"></span>
-                                                </div>
-
-                                                <div class="meta-bottom">
-                                                    <span class="hard">運動級<span class="circle"></span><span
-                                                            class="circle"></span></span>
-                                                    <div class="social">
-                                                        <span class="people">5/6</span>
-                                                        <span class="msg">5</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="detail">
-                                        <div class="title">浪漫雙重奏-五分不厭征風遊</div>
-                                        <ul>
-                                            <li>集合地點-金山區金山路336號</li>
-                                            <li>出發日期-2019-11-31(六)</li>
-                                            <li>報名截止-2019-11-31(六)</li>
-                                            <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
-                                                這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
-                                            <span class="close-detail"></span>
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="post-detail col-xl-4 col-md-6 col-sm-12">
-                                    <div class="post-item">
-                                        <div class="avatar"><img src="../dev/images/act_image/avatar.PNG" alt=""></div>
-                                        <figure class="post-img">
-                                            <img src="https://picsum.photos/350/200?random=10" alt="">
-                                        </figure>
-                                        <div class="post-intro">
-                                            <a href="#">
-                                                <h3 class="title">七夕自行車go</h3>
-                                            </a>
-                                            <div class="txt">
-                                                <div class="meta-top">
-                                                    <div class="date">週六 10月30日</div>
-                                                    <div class="location">新北市汐止</div>
-                                                    <span class="open-detail"></span>
-                                                </div>
-
-                                                <div class="meta-bottom">
-                                                    <span class="hard">運動級<span class="circle"></span><span
-                                                            class="circle"></span></span>
-                                                    <div class="social">
-                                                        <span class="people">5/6</span>
-                                                        <span class="msg">5</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="detail">
-                                        <div class="title">浪漫雙重奏-五分不厭征風遊</div>
-                                        <ul>
-                                            <li>集合地點-金山區金山路336號</li>
-                                            <li>出發日期-2019-11-31(六)</li>
-                                            <li>報名截止-2019-11-31(六)</li>
-                                            <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
-                                                這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
-                                            <span class="close-detail"></span>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="post-detail col-xl-4 col-md-6 col-sm-12">
-                                    <div class="post-item">
-                                        <div class="avatar"><img src="../dev/images/act_image/avatar.PNG" alt=""></div>
-                                        <figure class="post-img">
-                                            <img src="https://picsum.photos/350/200?random=10" alt="">
-                                        </figure>
-                                        <div class="post-intro">
-                                            <a href="#">
-                                                <h3 class="title">七夕自行車go</h3>
-                                            </a>
-                                            <div class="txt">
-                                                <div class="meta-top">
-                                                    <div class="date">週六 10月30日</div>
-                                                    <div class="location">新北市汐止</div>
-                                                    <span class="open-detail"></span>
-                                                </div>
-
-                                                <div class="meta-bottom">
-                                                    <span class="hard">運動級<span class="circle"></span><span
-                                                            class="circle"></span></span>
-                                                    <div class="social">
-                                                        <span class="people">5/6</span>
-                                                        <span class="msg">5</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="detail">
-                                        <div class="title">浪漫雙重奏-五分不厭征風遊</div>
-                                        <ul>
-                                            <li>集合地點-金山區金山路336號</li>
-                                            <li>出發日期-2019-11-31(六)</li>
-                                            <li>報名截止-2019-11-31(六)</li>
-                                            <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
-                                                這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
-                                            <span class="close-detail"></span>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="post-detail col-xl-4 col-md-6 col-sm-12">
-                                    <div class="post-item">
-                                        <div class="avatar"><img src="../dev/images/act_image/avatar.PNG" alt=""></div>
-                                        <figure class="post-img">
-                                            <img src="https://picsum.photos/350/200?random=10" alt="">
-                                        </figure>
-                                        <div class="post-intro">
-                                            <a href="#">
-                                                <h3 class="title">七夕自行車go</h3>
-                                            </a>
-                                            <div class="txt">
-                                                <div class="meta-top">
-                                                    <div class="date">週六 10月30日</div>
-                                                    <div class="location">新北市汐止</div>
-                                                    <span class="open-detail"></span>
-                                                </div>
-
-                                                <div class="meta-bottom">
-                                                    <span class="hard">運動級<span class="circle"></span><span
-                                                            class="circle"></span></span>
-                                                    <div class="social">
-                                                        <span class="people">5/6</span>
-                                                        <span class="msg">5</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="detail">
-                                        <div class="title">浪漫雙重奏-五分不厭征風遊</div>
-                                        <ul>
-                                            <li>集合地點-金山區金山路336號</li>
-                                            <li>出發日期-2019-11-31(六)</li>
-                                            <li>報名截止-2019-11-31(六)</li>
-                                            <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
-                                                這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
-                                            <span class="close-detail"></span>
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="post-detail col-xl-4 col-md-6 col-sm-12">
-                                    <div class="post-item">
-                                        <div class="avatar"><img src="../dev/images/act_image/avatar.PNG" alt=""></div>
-                                        <figure class="post-img">
-                                            <img src="https://picsum.photos/350/200?random=10" alt="">
-                                        </figure>
-                                        <div class="post-intro">
-                                            <a href="#">
-                                                <h3 class="title">七夕自行車go</h3>
-                                            </a>
-                                            <div class="txt">
-                                                <div class="meta-top">
-                                                    <div class="date">週六 10月30日</div>
-                                                    <div class="location">新北市汐止</div>
-                                                    <span class="open-detail"></span>
-                                                </div>
-
-                                                <div class="meta-bottom">
-                                                    <span class="hard">運動級<span class="circle"></span><span
-                                                            class="circle"></span></span>
-                                                    <div class="social">
-                                                        <span class="people">5/6</span>
-                                                        <span class="msg">5</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="detail">
-                                        <div class="title">浪漫雙重奏-五分不厭征風遊</div>
-                                        <ul>
-                                            <li>集合地點-金山區金山路336號</li>
-                                            <li>出發日期-2019-11-31(六)</li>
-                                            <li>報名截止-2019-11-31(六)</li>
-                                            <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
-                                                這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
-                                            <span class="close-detail"></span>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="post-detail col-xl-4 col-md-6 col-sm-12">
-                                    <div class="post-item">
-                                        <div class="avatar"><img src="../dev/images/act_image/avatar.PNG" alt=""></div>
-                                        <figure class="post-img">
-                                            <img src="https://picsum.photos/350/200?random=10" alt="">
-                                        </figure>
-                                        <div class="post-intro">
-                                            <a href="#">
-                                                <h3 class="title">七夕自行車go</h3>
-                                            </a>
-                                            <div class="txt">
-                                                <div class="meta-top">
-                                                    <div class="date">週六 10月30日</div>
-                                                    <div class="location">新北市汐止</div>
-                                                    <span class="open-detail"></span>
-                                                </div>
-
-                                                <div class="meta-bottom">
-                                                    <span class="hard">運動級<span class="circle"></span><span
-                                                            class="circle"></span></span>
-                                                    <div class="social">
-                                                        <span class="people">5/6</span>
-                                                        <span class="msg">5</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="detail">
-                                        <div class="title">浪漫雙重奏-五分不厭征風遊</div>
-                                        <ul>
-                                            <li>集合地點-金山區金山路336號</li>
-                                            <li>出發日期-2019-11-31(六)</li>
-                                            <li>報名截止-2019-11-31(六)</li>
-                                            <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
-                                                這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
-                                            <span class="close-detail"></span>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="post-detail col-xl-4 col-md-6 col-sm-12">
-                                    <div class="post-item">
-                                        <div class="avatar"><img src="../dev/images/act_image/avatar.PNG" alt=""></div>
-                                        <figure class="post-img">
-                                            <img src="https://picsum.photos/350/200?random=10" alt="">
-                                        </figure>
-                                        <div class="post-intro">
-                                            <a href="#">
-                                                <h3 class="title">七夕自行車go</h3>
-                                            </a>
-                                            <div class="txt">
-                                                <div class="meta-top">
-                                                    <div class="date">週六 10月30日</div>
-                                                    <div class="location">新北市汐止</div>
-                                                    <span class="open-detail"></span>
-                                                </div>
-
-                                                <div class="meta-bottom">
-                                                    <span class="hard">運動級<span class="circle"></span><span
-                                                            class="circle"></span></span>
-                                                    <div class="social">
-                                                        <span class="people">5/6</span>
-                                                        <span class="msg">5</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="detail">
-                                        <div class="title">浪漫雙重奏-五分不厭征風遊</div>
-                                        <ul>
-                                            <li>集合地點-金山區金山路336號</li>
-                                            <li>出發日期-2019-11-31(六)</li>
-                                            <li>報名截止-2019-11-31(六)</li>
-                                            <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
-                                                這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
-                                            <span class="close-detail"></span>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <ul class="act-pages">
-                                    <li>上一頁</li> 
-                                    <li>2</li> 
-                                    <li>3</li> 
-                                    <li>4</li> 
-                                    <li>5</li> 
-                                    <li>下一頁</li> 
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
+        <div class="act-bg">
+            <div class="wrapper activity">
+    
+                <div class="act-action">
+                    <button type="button" class="my-act m-none">我的活動</button>
+                    <button type="button" class="create-act m-none">建立活動</button>
+                    <button type="button" class="m-filter"></button>
                 </div>
-
+    
+                <div class="container">
+                    <div class="row">
+    
+                        <!-- FIX QA側邊攔 要分開-->
+                        <!-- <aside class="search" col->
+                             <input type="text" value="輸入關鍵字">
+                        </aside> -->
+    
+                        <!-- FIX??側邊欄是要做伸縮-->
+    
+                        <aside class="condition col-xl-2 col-md-3 ">
+                            <span class="m-close-filter"></span>
+                            <div class="keyword">
+                                <input type="text" value="" placeholder="搜尋關鍵字">
+                            </div>
+                            <!-- QA FIX label -->
+                            <fieldset class="filter">
+                                <div class="time">
+                                    <legend class="title">時間</legend>
+                                    <!-- QA -->
+                                    <div class="time-area">
+                                        <div class="month-picker">
+                                            <input type="text" placeholder="結束年月" id="date-picker-start">
+                                        </div>
+                                        <div class="month-picker-end">
+                                            <input type="text" placeholder="結束年月" id="date-picker-end">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="zone">
+                                    <legend class="title">區域</legend>
+                                    <div class="zone-list">
+                                        <label><input type="checkbox" value="" name="" id="">北部</label>
+                                        <label><input type="checkbox" value="" name="" id="">中部</label>
+                                        <label><input type="checkbox" value="" name="" id="">南部</label>
+                                        <label><input type="checkbox" value="" name="" id="">東部</label>
+                                    </div>
+                                </div>
+                                <div class="hard">
+                                    <legend class="title">騎乘強度</legend>
+                                    <div class="hard-list">
+                                        <!-- QA FIX -->
+                                        <label><input type="checkbox" value="" name="" id="">休閒級<span></span></label>
+                                        <label><input type="checkbox" value="" name=""
+                                                id="">運動級<span></span><span></span></label>
+                                        <label><input type="checkbox" value="" name=""
+                                                id="">挑戰級<span></span><span></span><span></span></label>
+    
+                                    </div>
+                                </div>
+                            </>
+                        </aside>
+                        <!-- todo dl dt dd               -->
+    
+    
+                        <div class="main-content col-xl-10 col-md-9 col-sm-12">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="post-detail col-xl-4 col-md-6 col-sm-12">
+                                        <div class="post-item">
+                                            <div class="avatar"><img src="./images/act_image/avatar.PNG" alt=""></div>
+                                            <figure class="post-img">
+                                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                                            </figure>
+                                            <div class="post-intro">
+                                                <a href="./activity_inner.html">
+                                                    <h3 class="title">七夕自行車go</h3>
+                                                </a>
+                                                <div class="txt">
+                                                    <div class="meta-top">
+                                                        <div class="date">週六 10月30日</div>
+                                                        <div class="location">新北市汐止</div>
+                                                        <span class="open-detail"></span>
+                                                    </div>
+    
+                                                    <div class="meta-bottom">
+                                                        <span class="hard">運動級<span class="circle"></span><span
+                                                                class="circle"></span></span>
+                                                        <div class="social">
+                                                            <span class="people">5/6</span>
+                                                            <span class="msg">5</span>
+                                                        </div>
+    
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                                            <ul>
+                                                <li>集合地點-金山區金山路336號</li>
+                                                <li>出發日期-2019-11-31(六)</li>
+                                                <li>報名截止-2019-11-31(六)</li>
+                                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                                <span class="close-detail"></span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="post-detail col-xl-4 col-md-6 col-sm-12">
+                                        <div class="post-item">
+                                            <figure class="post-img">
+                                                <div class="avatar"><img src="./images/act_image/avatar.PNG" alt="">
+                                                </div>
+                                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                                            </figure>
+                                            <div class="post-intro">
+                                                <a href="#">
+                                                    <h3 class="title">七夕自行車go</h3>
+                                                </a>
+                                                <div class="txt">
+                                                    <div class="meta-top">
+                                                        <div class="date">週六 10月30日</div>
+                                                        <div class="location">新北市汐止</div>
+                                                        <span class="open-detail"></span>
+                                                    </div>
+    
+                                                    <div class="meta-bottom">
+                                                        <span class="hard">運動級<span class="circle"></span><span
+                                                                class="circle"></span></span>
+                                                        <div class="social">
+                                                            <span class="people">5/6</span>
+                                                            <span class="msg">5</span>
+                                                        </div>
+    
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                                            <ul>
+                                                <li>集合地點-金山區金山路336號</li>
+                                                <li>出發日期-2019-11-31(六)</li>
+                                                <li>報名截止-2019-11-31(六)</li>
+                                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                                <span class="close-detail"></span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="post-detail col-xl-4 col-md-6 col-sm-12">
+                                        <div class="post-item">
+                                            <figure class="post-img">
+                                                <div class="avatar"><img src="./images/act_image/avatar.PNG" alt="">
+                                                </div>
+                                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                                            </figure>
+                                            <div class="post-intro">
+                                                <a href="#">
+                                                    <h3 class="title">七夕自行車go</h3>
+                                                </a>
+                                                <div class="txt">
+                                                    <div class="meta-top">
+                                                        <div class="date">週六 10月30日</div>
+                                                        <div class="location">新北市汐止</div>
+                                                        <span class="open-detail"></span>
+                                                    </div>
+    
+                                                    <div class="meta-bottom">
+                                                        <span class="hard">運動級<span class="circle"></span><span
+                                                                class="circle"></span></span>
+                                                        <div class="social">
+                                                            <span class="people">5/6</span>
+                                                            <span class="msg">5</span>
+                                                        </div>
+    
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                                            <ul>
+                                                <li>集合地點-金山區金山路336號</li>
+                                                <li>出發日期-2019-11-31(六)</li>
+                                                <li>報名截止-2019-11-31(六)</li>
+                                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                                <span class="close-detail"></span>
+                                            </ul>
+                                        </div>
+                                    </div>
+    
+    
+    
+                                    <div class="post-detail col-xl-4 col-md-6 col-sm-12">
+                                        <div class="post-item">
+                                            <div class="avatar"><img src="./images/act_image/avatar.PNG" alt=""></div>
+                                            <figure class="post-img">
+                                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                                            </figure>
+                                            <div class="post-intro">
+                                                <a href="#">
+                                                    <h3 class="title">七夕自行車go</h3>
+                                                </a>
+                                                <div class="txt">
+                                                    <div class="meta-top">
+                                                        <div class="date">週六 10月30日</div>
+                                                        <div class="location">新北市汐止</div>
+                                                        <span class="open-detail"></span>
+                                                    </div>
+    
+                                                    <div class="meta-bottom">
+                                                        <span class="hard">運動級<span class="circle"></span><span
+                                                                class="circle"></span></span>
+                                                        <div class="social">
+                                                            <span class="people">5/6</span>
+                                                            <span class="msg">5</span>
+                                                        </div>
+    
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                                            <ul>
+                                                <li>集合地點-金山區金山路336號</li>
+                                                <li>出發日期-2019-11-31(六)</li>
+                                                <li>報名截止-2019-11-31(六)</li>
+                                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                                <span class="close-detail"></span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="post-detail col-xl-4 col-md-6 col-sm-12">
+                                        <div class="post-item">
+                                            <div class="avatar"><img src="./images/act_image/avatar.PNG" alt=""></div>
+                                            <figure class="post-img">
+                                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                                            </figure>
+                                            <div class="post-intro">
+                                                <a href="#">
+                                                    <h3 class="title">七夕自行車go</h3>
+                                                </a>
+                                                <div class="txt">
+                                                    <div class="meta-top">
+                                                        <div class="date">週六 10月30日</div>
+                                                        <div class="location">新北市汐止</div>
+                                                        <span class="open-detail"></span>
+                                                    </div>
+    
+                                                    <div class="meta-bottom">
+                                                        <span class="hard">運動級<span class="circle"></span><span
+                                                                class="circle"></span></span>
+                                                        <div class="social">
+                                                            <span class="people">5/6</span>
+                                                            <span class="msg">5</span>
+                                                        </div>
+    
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                                            <ul>
+                                                <li>集合地點-金山區金山路336號</li>
+                                                <li>出發日期-2019-11-31(六)</li>
+                                                <li>報名截止-2019-11-31(六)</li>
+                                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                                <span class="close-detail"></span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="post-detail col-xl-4 col-md-6 col-sm-12">
+                                        <div class="post-item">
+                                            <div class="avatar"><img src="./images/act_image/avatar.PNG" alt=""></div>
+                                            <figure class="post-img">
+                                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                                            </figure>
+                                            <div class="post-intro">
+                                                <a href="#">
+                                                    <h3 class="title">七夕自行車go</h3>
+                                                </a>
+                                                <div class="txt">
+                                                    <div class="meta-top">
+                                                        <div class="date">週六 10月30日</div>
+                                                        <div class="location">新北市汐止</div>
+                                                        <span class="open-detail"></span>
+                                                    </div>
+    
+                                                    <div class="meta-bottom">
+                                                        <span class="hard">運動級<span class="circle"></span><span
+                                                                class="circle"></span></span>
+                                                        <div class="social">
+                                                            <span class="people">5/6</span>
+                                                            <span class="msg">5</span>
+                                                        </div>
+    
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                                            <ul>
+                                                <li>集合地點-金山區金山路336號</li>
+                                                <li>出發日期-2019-11-31(六)</li>
+                                                <li>報名截止-2019-11-31(六)</li>
+                                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                                <span class="close-detail"></span>
+                                            </ul>
+                                        </div>
+                                    </div>
+    
+    
+    
+                                    <div class="post-detail col-xl-4 col-md-6 col-sm-12">
+                                        <div class="post-item">
+                                            <div class="avatar"><img src="./images/act_image/avatar.PNG" alt=""></div>
+                                            <figure class="post-img">
+                                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                                            </figure>
+                                            <div class="post-intro">
+                                                <a href="#">
+                                                    <h3 class="title">七夕自行車go</h3>
+                                                </a>
+                                                <div class="txt">
+                                                    <div class="meta-top">
+                                                        <div class="date">週六 10月30日</div>
+                                                        <div class="location">新北市汐止</div>
+                                                        <span class="open-detail"></span>
+                                                    </div>
+    
+                                                    <div class="meta-bottom">
+                                                        <span class="hard">運動級<span class="circle"></span><span
+                                                                class="circle"></span></span>
+                                                        <div class="social">
+                                                            <span class="people">5/6</span>
+                                                            <span class="msg">5</span>
+                                                        </div>
+    
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                                            <ul>
+                                                <li>集合地點-金山區金山路336號</li>
+                                                <li>出發日期-2019-11-31(六)</li>
+                                                <li>報名截止-2019-11-31(六)</li>
+                                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                                <span class="close-detail"></span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="post-detail col-xl-4 col-md-6 col-sm-12">
+                                        <div class="post-item">
+                                            <div class="avatar"><img src="./images/act_image/avatar.PNG" alt=""></div>
+                                            <figure class="post-img">
+                                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                                            </figure>
+                                            <div class="post-intro">
+                                                <a href="#">
+                                                    <h3 class="title">七夕自行車go</h3>
+                                                </a>
+                                                <div class="txt">
+                                                    <div class="meta-top">
+                                                        <div class="date">週六 10月30日</div>
+                                                        <div class="location">新北市汐止</div>
+                                                        <span class="open-detail"></span>
+                                                    </div>
+    
+                                                    <div class="meta-bottom">
+                                                        <span class="hard">運動級<span class="circle"></span><span
+                                                                class="circle"></span></span>
+                                                        <div class="social">
+                                                            <span class="people">5/6</span>
+                                                            <span class="msg">5</span>
+                                                        </div>
+    
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                                            <ul>
+                                                <li>集合地點-金山區金山路336號</li>
+                                                <li>出發日期-2019-11-31(六)</li>
+                                                <li>報名截止-2019-11-31(六)</li>
+                                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                                <span class="close-detail"></span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="post-detail col-xl-4 col-md-6 col-sm-12">
+                                        <div class="post-item">
+                                            <div class="avatar"><img src="./images/act_image/avatar.PNG" alt=""></div>
+                                            <figure class="post-img">
+                                                <img src="https://picsum.photos/350/200?random=10" alt="">
+                                            </figure>
+                                            <div class="post-intro">
+                                                <a href="#">
+                                                    <h3 class="title">七夕自行車go</h3>
+                                                </a>
+                                                <div class="txt">
+                                                    <div class="meta-top">
+                                                        <div class="date">週六 10月30日</div>
+                                                        <div class="location">新北市汐止</div>
+                                                        <span class="open-detail"></span>
+                                                    </div>
+    
+                                                    <div class="meta-bottom">
+                                                        <span class="hard">運動級<span class="circle"></span><span
+                                                                class="circle"></span></span>
+                                                        <div class="social">
+                                                            <span class="people">5/6</span>
+                                                            <span class="msg">5</span>
+                                                        </div>
+    
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <div class="title">浪漫雙重奏-五分不厭征風遊</div>
+                                            <ul>
+                                                <li>集合地點-金山區金山路336號</li>
+                                                <li>出發日期-2019-11-31(六)</li>
+                                                <li>報名截止-2019-11-31(六)</li>
+                                                <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
+                                                    這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                                <span class="close-detail"></span>
+                                            </ul>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <ul class="act-pages">
+                                        <li>上一頁</li> 
+                                        <li>2</li> 
+                                        <li>3</li> 
+                                        <li>4</li> 
+                                        <li>5</li> 
+                                        <li>下一頁</li> 
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                </div>
             </div>
         </div>
 
@@ -636,16 +638,16 @@
                 //  e.preventDefault();
                 if ($('.condition').hasClass('m-open') == false) {
                     $('.condition').addClass('m-open');
-                    $('.m-open').css('transform', 'translateY(0)');
+                    // $('.m-open').css('transform', 'translateY(0)');
                 } else {
-                    $('.m-open').css('transform', 'translateY(100%)');
+                    // $('.m-open').css('transform', 'translateY(100%)');
                     $('.condition').removeClass('m-open');
                 }
 
             })
 
             $('.m-close-filter').click(function(){
-                $('.m-open').css('transform', 'translateY(100%)');
+                $('.condition').removeClass('m-open');
             })
 
         })

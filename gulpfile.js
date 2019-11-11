@@ -73,6 +73,8 @@ const watch = require('gulp-watch');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
+
+
 gulp.task('copyImg', () => {
     return gulp.src('./dev/images/*')
         .pipe(gulp.dest('./dest/images'))
@@ -119,6 +121,7 @@ gulp.task('default', () => {
             index: "index.html"
         }
     });
+    
     gulp.watch('./dev/img/*', ['copyImg']).on('change', reload);
     gulp.watch('./dev/model/*', ['copyModel']).on('change', reload);
     gulp.watch('./dev/admin_template-master/*', ['copyBackEnd']).on('change', reload);
