@@ -3,6 +3,11 @@
 @import "grid";
 
 
+// * {
+//     outline: solid 1px red;
+// }
+
+
 #shoppingcart {
     width: 100%;
     margin: auto;
@@ -53,7 +58,7 @@
         width: 100%;
     }
 
-    background-color: #F3F3F3;
+    background-color: #a3a3a3a3;
 
     .header {
         width: 100%;
@@ -92,10 +97,13 @@
     .customizelist,
     .productlist,
     .notice,
-    .total {
+    .total,
+    .receive,
+    .payment {
         width: 80%;
         margin-top: 5vh;
         display: column;
+        box-sizing: border-box;
 
         .item {
             display: flex;
@@ -119,6 +127,7 @@
         border-radius: 5px;
         margin-top: 15px;
         padding: 5px;
+        box-sizing: border-box;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -131,6 +140,7 @@
         .subtotal,
         .option {
             flex-grow: 1;
+            width: 20%;
         }
 
         .amount {
@@ -142,6 +152,17 @@
     .detail {
         .subtotal {
             color: $main;
+        }
+
+        .option {
+            cursor: pointer;
+            text-align: center;
+
+            span {
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+            }
         }
     }
 
@@ -208,6 +229,138 @@
         }
     }
 
+    .receive,
+    .payment {
+        height: 0;
+        border-radius: 5px;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: all 1s;
+        margin-bottom: 0;
+
+        .recipient,
+        .cashflow {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            flex-flow: wrap;
+
+            .memName,
+            .tel {
+                width: 47%;
+            }
+
+            .addr {
+                width: 100%;
+            }
+
+            .memName,
+            .tel,
+            .addr {
+                padding: 10px;
+                display: flex;
+                align-items: center;
+
+                input {
+                    text-align: left;
+
+                    &:focus {
+                        outline: 1px solid $main;
+                    }
+                }
+            }
+
+            #memName,
+            #tel {
+                width: 60%;
+            }
+
+            #addr {
+                width: 80%;
+            }
+
+            #memName,
+            #tel,
+            #addr {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    //自製checckbox
+    .payment {
+        .cashflow {
+            padding: 5px;
+            justify-content: flex-start;
+
+            .pay {
+                display: flex;
+                align-items: center;
+                margin-left: 10px;
+                cursor: pointer;
+                position: relative;
+
+                &:hover .checkmark {
+                    background-color: #bbb;
+                }
+
+                input:checked~.checkmark {
+                    background-color: $main;
+                }
+
+                input:checked~.checkmark::after {
+                    display: block;
+                }
+            }
+
+            .checkmark {
+                position: absolute;
+                width: 29px;
+                height: 29px;
+                right: 16px;
+                background-color: #8d717134;
+                border: 1px solid $main;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    display: none;
+                }
+            }
+
+            .checkmark {
+                &::after {
+                    left: 9px;
+                    top: 5px;
+                    width: 5px;
+                    height: 10px;
+                    border: solid white;
+                    border-width: 0 3px 3px 0;
+                    -webkit-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                }
+            }
+
+
+
+            input {
+                opacity: 0;
+            }
+
+
+        }
+
+    }
+
+    .receive.active,
+    .payment.active {
+        height: initial;
+        transform: scaleY(1);
+    }
+
     .total {
         justify-content: flex-end;
         margin-bottom: 5vh;
@@ -243,6 +396,12 @@
                 flex-grow: 0;
             }
 
+            .amount,
+            .subtotal {
+                width: 40%;
+                margin-top: 10px;
+            }
+
             .subtotal {
                 order: 2;
             }
@@ -257,6 +416,20 @@
 
             .option {
                 width: 30%;
+            }
+        }
+
+
+        .receive,
+        .payment {
+            width: 100%;
+
+            .recipient {
+
+                .memName,
+                .tel {
+                    width: 100%;
+                }
             }
         }
 

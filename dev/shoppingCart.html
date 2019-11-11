@@ -6,12 +6,13 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/header.js"></script>
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="shortcut icon" href="images/favicon02.ico" type="image/x-icon" />
+    <title>CY購物車</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js"></script>
+    <script src="./js/header.js"></script>
 </head>
 
 <body>
@@ -26,113 +27,186 @@
                 </div>
             </div>
         </div>
-        <div class="cartitem">
+        <form action="">
+            <div class="cartitem">
 
-            <div class="productlist">
-                <div class="item">
-                    <div class="product">
-                        <h3>一般商品</h3>
+                <div class="productlist">
+                    <div class="item">
+                        <div class="product">
+                            <h3>一般商品</h3>
+                        </div>
+                        <div class="proinfo">
+                            <div class="subtotal">
+                                <h3>單價</h3>
+                            </div>
+                            <div class="amount">
+                                <h3>數量</h3>
+                            </div>
+                            <div class="option">
+                                <h3>操作</h3>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="proinfo">
+                    <div class="detail detail1">
+
+                        <div class="cus">
+                            <h3>客製1</h3>
+                        </div>
                         <div class="subtotal">
-                            <h3>小計</h3>
+                            <h3>9000</h3>
                         </div>
                         <div class="amount">
-                            <h3>數量</h3>
+                            <button>-</button>
+                            <input type="number" min="1">
+                            <button>+</button>
                         </div>
                         <div class="option">
-                            <h3>操作</h3>
+                            <span><img src="./images/trash1.png" alt=""></span>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-                <div class="detail detail1">
+                <!-- productlist -->
 
-                    <div class="cus">
-                        <h3>客製1</h3>
-                    </div>
-                    <div class="subtotal">
-                        <h3>9000</h3>
-                    </div>
-                    <div class="amount">
-                        <button>-</button>
-                        <input type="number" min="1">
-                        <button>+</button>
-                    </div>
-                    <div class="option">
-                        <h3>刪除</h3>
+                <div class="customizelist">
+                    <div class="item">
+                        <div class="product">
+                            <h3>客製商品</h3>
+                        </div>
+                        <div class="proinfo">
+                            <div class="subtotal">
+                                <h3>單價</h3>
+                            </div>
+                            <div class="amount">
+                                <h3>數量</h3>
+                            </div>
+                            <div class="option">
+                                <h3>操作</h3>
+                            </div>
+                        </div>
+
                     </div>
 
-                </div>
-            </div>
-            <!-- productlist -->
+                    <div class="detail detail1">
 
-            <div class="customizelist">
-                <div class="item">
-                    <div class="product">
-                        <h3>客製商品</h3>
-                    </div>
-                    <div class="proinfo">
+                        <div class="cus">
+                            <h3>客製1</h3>
+                        </div>
                         <div class="subtotal">
-                            <h3>小計</h3>
+                            <h3>9000</h3>
                         </div>
                         <div class="amount">
-                            <h3>數量</h3>
+                            <button>-</button>
+                            <input type="number" min="1">
+                            <button>+</button>
                         </div>
                         <div class="option">
-                            <h3>操作</h3>
+                            <span><img src="./images/trash2.png" alt=""></span>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- customizelist -->
+
+
+                <div class="notice">
+                    <span><img src="./images/alerticon.png" alt=""></span>
+                    <h4>購物金使用說明:</h4>
+                    <span>請於結帳時選用購物金選項</span>
+                </div>
+
+
+                <div class="receive">
+
+                    <div class="recipient">
+                        <div class="memName">
+                            <h4>收件人:</h4><input type="text" name="" id="memName">
+                        </div>
+                        <div class="tel">
+                            <h4>電話:</h4><input type="text" id="tel">
+                        </div>
+                        <div class="addr">
+                            <h4>地址:</h4><input type="text" id="addr">
                         </div>
                     </div>
 
                 </div>
+                <div class="payment">
+                    <div class="cashflow">
+                        <div class="title">
+                            <h4>請選擇付款方式:</h4>
+                        </div>
+                        <label class="pay">
+                            <h4>信用卡</h4><input type="checkbox"><span class="checkmark"></span>
+                        </label>
+                        <label class="pay">
+                            <h4>購物金</h4><input type="checkbox"><span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
 
-                <div class="detail detail1">
 
-                    <div class="cus">
-                        <h3>客製1</h3>
+                <div class="total">
+
+                    <div class="finalamount">
+                        <h3>$</h3>
                     </div>
-                    <div class="subtotal">
-                        <h3>9000</h3>
-                    </div>
-                    <div class="amount">
-                        <button>-</button>
-                        <input type="number" min="1">
-                        <button>+</button>
-                    </div>
-                    <div class="option">
-                        <h3>刪除</h3>
+                    <div class="btn" data-status="1">
+                        <h3>下一步</h3>
                     </div>
 
                 </div>
 
             </div>
-            <!-- customizelist -->
+            <!-- cartitem -->
+        </form>
 
 
-            <div class="notice">
-                <span><img src="./images/alerticon.png" alt=""></span>
-                <h4>購物金使用說明:</h4>
-                <span>請於結帳時選用購物金選項</span>
-            </div>
-
-
-            <div class="total">
-
-                <div class="finalamount">
-                    <h3>$</h3>
-                </div>
-                <div class="btn">
-                    <h3>結帳</h3>
-                </div>
-
-            </div>
-
-        </div>
-        <!-- cartitem -->
 
     </div>
 
     @@include('./template/footer.html')
+
+    <script>
+        $(function () {
+
+            //下一步展開地址 
+            //下一步展開付款方式
+            //確認金額
+            $(".btn").click(function () {
+                switch ($(this).data("status")) {
+                    case 1:
+                        $(".receive").addClass("active");
+                        $(this).data("status", 2);
+                        break;
+                    case 2:
+                        $(".payment").addClass("active");
+                        $(this).find("h3").text("確認金額");
+                        $(this).data("status", 3);
+                        break;
+                    case 3:
+                        break;
+                }
+            })
+
+            //checkbox單選
+            $(".pay input").click(function () {
+                if ($(this).prop("checked")) {
+                    $(".pay input:checkbox").prop("checked", false);
+                    $(this).prop("checked", true);
+                }
+            });
+
+            //刪除購物單項目
+            $(".option").click(function () {
+                $(this).parent().remove();
+            })
+
+
+        });
+    </script>
 
 
 </body>

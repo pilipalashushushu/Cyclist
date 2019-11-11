@@ -1,16 +1,8 @@
 function init(){
     switch(document.title){
-        case "CYCLIST":
+        case "首頁":
             console.log('首頁');
-            three("three");
-            bikeExpSetting();
-            requestAnimationFrame( bikeExp );
-            //wite data to html
-            document.getElementById('canvasSpeed').innerHTML = canvasRecord.SpeedRender();
-            //submit
-            document.getElementById('canvasToBuy').onclick = () => window.open('./CYProd.html', '_self');
-            $('.prod').click(()=>{ window.open('./CYProd.html', '_self'); });
-            prodFly();
+            three("three", 1000, 500);
             break;
         case "CY嚴選":
             store();
@@ -84,31 +76,6 @@ function setBar(){
 function openProdInfo(){
     $('.prod').click(function(){
         window.open('./CYProd.html', '_self');
-    });
-}
-
-//prod fly to cart
-function prodFly(){
-    $('.prod-buy-directly').click(function(e){
-        e.stopPropagation();
-        let tmp = $(this).parent().parent().clone();
-        let axis = $(this).parent().parent().offset();
-        $('body').append(tmp);
-        tmp.offset(axis);
-        tmp.css({
-            width: $(this).parent().parent().css('width')
-        });
-        tmp.addClass('addToCart');
-        console.log($(window).width());
-        TweenMax.to('.addToCart', .5, {
-            x: $(window).width()-$(tmp).offset().left-300,
-            y: -$(tmp).offset().top + $(window).scrollTop() - 130,
-            scale: 0,
-            onComplete: ()=>{
-                $('.addToCart').remove();
-            },
-            ease: Power2.easeIn
-        });
     });
 }
 
@@ -193,13 +160,13 @@ function bikeExpSetting(){
     }
     //load img
     background = new Image();
-    background.src = './images/canvas-bg.jpg';
+    background.src = '../images/canvas-bg.jpg';
     road = new Image();
-    road.src = './images/canvas-road.jpg';
+    road.src = '../images/canvas-road.jpg';
     bikeTire = new Image();
-    bikeTire.src= './images/bike01-tire.png';
+    bikeTire.src= '../images/bike01-tire.png';
     bikeBody = new Image();
-    bikeBody.src= './images/bike01-body.png';
+    bikeBody.src= '../images/bike01-body.png';
 }
 
 // canvas
@@ -312,15 +279,15 @@ function bikeExp(){
 }
 
 //3D Model
-function three(Id){
-    //setting
-    let width = $(`#${Id}`).parent().css("width");
-    let height = $(`#${Id}`).parent().css("height");
-    $(Id).attr("width", width);
-    $(Id).attr("height", height);
+function three(Id, width, height){
+    //settinf
+    var target = document.getElementById(Id);
+    target.style.width = `${width}px`;
+    target.style.height = `${height}px`;
+
     //scene&camera
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, parseInt(width)/parseInt(height), 0.1, 1000);
+    var camera = new THREE.PerspectiveCamera(75, width/height, 0.1, 1000);
     camera.position.set(10, 0, 0);
 
     //Light
@@ -333,7 +300,6 @@ function three(Id){
     var objLoader = new THREE.OBJLoader().setPath('./model/');
     mtlLoader.load('./11717_bicycle_v2_L1.mtl', (materials)=>{
         materials.preload();
-        console.log('pnginside');
         objLoader.setMaterials(materials);
         objLoader.load('./11717_bicycle_v2_L1.obj',function(obj){
             obj.position.set(0, -20, 0);
@@ -344,31 +310,21 @@ function three(Id){
     });
 
     //background
-    var textureLoader = new THREE.TextureLoader().setPath('./images/');
-    textureLoader.load('./becyclist.jpg', function(jpg){
-        scene.background = jpg;
+    var textureLoader = new THREE.TextureLoader().setPath('./img/');
+    textureLoader.load('./evi1.jpg', function(texture){
+        scene.background = texture;
     });
 
     //render
-    var renderer = new THREE.WebGLRenderer({
-        alpha: true
-    });
-    renderer.setSize(parseInt(width), parseInt(height));
-    renderer.setClearColor("#a3ddce");
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(width, height);
+    renderer.setClearColor(0xaaaaaa);
     document.getElementById('three').appendChild(renderer.domElement);
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.minDistance = 50;
     controls.maxDistance = 90;
     controls.autoRotate = true;
     controls.autoRotateSpeed = 5.0;
-
-    //text
-    // var canvas = document.querySelector('#three canvas');
-    // var context = canvas.getContext('2d');
-    // context.font = "Bold 200px Arial";
-    // context.fillStyle = "#fff";
-    // context.fillText('CYCLIST', 100, 100);
-    // console.log(canvas);
 
     function animate(){
         requestAnimationFrame(animate);

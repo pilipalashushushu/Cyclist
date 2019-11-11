@@ -1,4 +1,3 @@
-@import "rest";
 @import "var";
 @import "mixin";
 @import "grid";
@@ -8,6 +7,7 @@
         width: 100%;
         padding: 0 20px;
         box-sizing: border-box;
+
         .row {
             margin: 0 -20px;
         }
@@ -16,7 +16,7 @@
 
 //單車體驗
 #cycling {
-    width: 100% !important; 
+    width: 100% !important;
     position: relative;
     overflow: hidden;
 
@@ -429,12 +429,12 @@
                     background-color: #fff;
                 }
             }
-            
-            .add{
+
+            .add {
                 left: 0;
             }
 
-            .break{
+            .break {
                 left: 75%;
             }
 
@@ -484,29 +484,37 @@
     }
 }
 
-@media screen and (max-width: 768px){
-    .msBtns{
+@media screen and (max-width: 768px) {
+    .msBtns {
         display: none;
     }
-    .eviBtns, .ctgBtns{
+
+    .eviBtns,
+    .ctgBtns {
         width: 50% !important;
-        .Btn{
+
+        .Btn {
             transform: none !important;
-            h6{
+
+            h6 {
                 transform: none !important;
             }
         }
     }
 }
 
-@media screen and (min-width: 992px){
-    #cycling .btns .eviBtns .Btn .eviSkew h6, #cycling .btns .ctgBtns .Btn .eviSkew h6{
+@media screen and (min-width: 992px) {
+
+    #cycling .btns .eviBtns .Btn .eviSkew h6,
+    #cycling .btns .ctgBtns .Btn .eviSkew h6 {
         font-size: 26px;
     }
 }
 
-@media screen and (min-width: 1200px){
-    #cycling .btns .eviBtns .Btn .eviSkew h6, #cycling .btns .ctgBtns .Btn .eviSkew h6{
+@media screen and (min-width: 1200px) {
+
+    #cycling .btns .eviBtns .Btn .eviSkew h6,
+    #cycling .btns .ctgBtns .Btn .eviSkew h6 {
         font-size: 30px;
     }
 }

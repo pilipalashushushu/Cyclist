@@ -16,7 +16,6 @@
          }
 
          before = after;
-
          if (direction == "up") {
              $("header").animate({
                  "top": "0px"
