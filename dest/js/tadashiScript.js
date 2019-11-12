@@ -6,10 +6,17 @@ function init(){
             bikeExpSetting();
             requestAnimationFrame( bikeExp );
             //wite data to html
-            document.getElementById('canvasSpeed').innerHTML = canvasRecord.SpeedRender();
+            $('#canvasSpeed').html(canvasRecord.SpeedRender());
             //submit
-            document.getElementById('canvasToBuy').onclick = () => window.open('./CYProd.html', '_self');
-            $('.prod').click(()=>{ window.open('./CYProd.html', '_self'); });
+            $('#canvasToBuy').click(() => window.open('./CYProd.html', '_self'));
+            $('.prod').click(()=> window.open('./CYProd.html', '_self'));
+            //update
+            originImgUpdate();
+            // $(target).click(function(){
+            //     bikeBody.src = body;
+            //     bikeTire.src = tire;
+            // });
+            //prod
             prodFly();
             break;
         case "CY嚴選":
@@ -53,7 +60,7 @@ function init(){
             //callback 30~40 rounds = 1 second
             requestAnimationFrame( bikeExp );
             //wite data to html
-            document.getElementById('canvasSpeed').innerHTML = canvasRecord.SpeedRender();
+            $('#canvasSpeed').html(canvasRecord.SpeedRender());
             //submit
             document.getElementById('canvasToBuy').onclick = () => window.open('./CYProd.html', '_self');
             break;
@@ -162,19 +169,30 @@ function prodFly(){
 
 //canvas setting
 function bikeExpSetting(){
+    canvasSetting = {
+        width: window.innerWidth,
+        height: window.innerHeight,
+    };
+    $('#canvas').attr({
+        width: canvasSetting.width,
+        height: canvasSetting.height,
+    });
+    // console.log($('#canvas').css('width'));
     //global
     bikeExpSetting = {
         isstart: 0, //是否開始
         round: 0, //重複幾次
         part: 0, //移動幾個畫面
         xSpeed: 0 //x軸位移
-    }
-    word = {
-        isstartAdd: 0, //是否加速
-        isstartBreak: 0, //是否減速
-        time: 0, //經過時間
-        delay: 30 //文字存在時間
-    }
+    };
+    // word = {
+    //     isstartAdd: 0, //是否加速
+    //     isstartBreak: 0, //是否減速
+    //     time: 0, //經過時間
+    //     delay: 30, //文字存在時間
+    //     mouseX: null,
+    //     mouseY: null
+    // };
     canvasRecord = {
         Speed: 10, //讀取速度
         SpeedRender: () => canvasRecord.Speed, //速度render
@@ -190,7 +208,7 @@ function bikeExpSetting(){
             let final = `${timeTrans.getMinutes()}:${timeTrans.getSeconds()}:${Math.floor(timeTrans.getMilliseconds()/10)}ms`;
                         document.getElementById('canvasTime').innerHTML = final;
             }
-    }
+    };
     //load img
     background = new Image();
     background.src = './images/canvas-bg.jpg';
@@ -204,16 +222,31 @@ function bikeExpSetting(){
 
 // canvas
 function bikeExp(){
-
     //timeRecord
     canvasRecord.buildStart();
+
+    // resize
+    $(window).resize(function(){
+        canvasSetting.width = window.innerWidth;
+        canvasSetting.height = window.innerHeight;
+        $('#canvas').attr({
+            width: canvasSetting.width,
+            height: canvasSetting.height,
+        });
+    });
 
     //declare
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
+    wordArr = []; //若有文字產生將塞在這裡
+
+    //set canvas width & height
+    let canvasWidth = canvasSetting.width;
+    let canvasHeight = canvasSetting.height;
+
 
     //reset canvas
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.clearRect(0, 0, canvasWidth, canvasHeight);
 
     //repeat condition
     if(bikeExpSetting.xSpeed % canvas.width === 0 && bikeExpSetting.isstart !== 0){
@@ -231,33 +264,45 @@ function bikeExp(){
 
     //draw background
     context.drawImage(background, bikeExpSetting.xSpeed, 0, canvas.width*10, canvas.height);
-    context.drawImage(road, bikeExpSetting.xSpeed + canvas.width * bikeExpSetting.part, canvas.height-150, canvas.width, 150);
-    context.drawImage(road, bikeExpSetting.xSpeed + canvas.width * (bikeExpSetting.part+1), canvas.height-150, canvas.width, 150);        
+    let roadHeight = 200;
+    context.drawImage(road, bikeExpSetting.xSpeed + canvasWidth * bikeExpSetting.part, canvasHeight - roadHeight, canvasWidth, roadHeight);
+    context.drawImage(road, bikeExpSetting.xSpeed + canvasWidth * (bikeExpSetting.part+1), canvasHeight - roadHeight, canvasWidth, roadHeight);        
 
     //draw bycicle
     context.save();
-    context.translate(canvas.width/2 + 65 + 75, 380);
+    context.translate(0, canvasHeight);
+    context.translate(canvasWidth/2 + 65 + 75, -180);
     context.rotate(-Math.PI * (bikeExpSetting.xSpeed)/ 180);
     context.drawImage(bikeTire, -75, -75, 150, 150);
     context.restore();
     context.save();
-    context.translate(canvas.width/2 - 135, 380);
+    context.translate(0, canvasHeight);
+    context.translate(canvasWidth/2 - 135, -180);
     context.rotate(-Math.PI * (bikeExpSetting.xSpeed)/ 180);
     context.drawImage(bikeTire, -75, -75, 150, 150);
     context.restore();
     context.save();
-    context.translate(canvas.width/2 - 150, 220);
+    context.translate(0, canvasHeight);
+    context.translate(canvasWidth/2 - 150, -340);
     context.drawImage(bikeBody, 0, 0, 300, 200);
     context.restore();
 
     //feedback
+    $('#canvas').click(function(e){
+        if(wordArr.length < 3){
+            // wordArr.push( new wordAdd('加速', e.pageX, e.pageY - $('#canvas').offset().top) );
+            // wordArr.push(1);
+            // context.fillRect(0, 0, 100, 100);
+            // console.log(wordArr);
+        }
+    });
+
     canvas.addEventListener('mousedown', function(e){
         e.preventDefault();        
         if(e.button === 0){
-            document.getElementById('msl').style.backgroundColor = "#aaa";
-            word.isstartAdd = 1;
+            $('#msl').css('backgroundColor', "#aaa");
         }else{
-            document.getElementById('msr').style.backgroundColor = "#aaa";
+            $('#msr').css('backgroundColor', "#aaa");
             word.isstartBreak = 1;
         }
     }, false);
@@ -265,34 +310,38 @@ function bikeExp(){
     canvas.addEventListener('mouseup', function(e){
         e.preventDefault();        
         if(e.button === 0){
-            document.getElementById('msl').style.backgroundColor = "#ccc";
+            $('#msl').css('backgroundColor', "#ccc");
         }else{
-            document.getElementById('msr').style.backgroundColor = "#ccc";
+            $('#msr').css('backgroundColor', "#ccc");
         }
     }, false);
 
-    if(word.isstartAdd === 1){
-        if(word.time < word.delay){
-            wordAdd("加速", 300);
-            word.time++;
-        }else{
-            word.isstartAdd = 0;
-            word.time = 0;
-        }
-    }
+    //wordArr有東西就會印
+    // if(wordArr.length > 0){
+    //     console.log(`wordArr has something`);
+    //     wordArr.map(item => {
+    //         if(item.time < item.delay){
+    //             context.textBaseline = 'default';
+    //             context.fillStyle = "#fff";
+    //             context.font = "bold 100px Arial";
+    //             context.fillText(item.text, item.mouseX, item.mouseY);
+    //             item.time++;
+    //         }else{
+    //             wordArr.unshift();
+    //         }
+    //     });
+    // }
 
-    if(word.isstartBreak === 1){
-        if(word.time < word.delay){
-            wordAdd("減速", 500);
-            word.time++;
-        }else{
-            word.isstartBreak = 0;
-            word.time = 0;
-        }
+    if(wordArr.length > 0){
+        console.log(`wordArr has something`);
+        context.textBaseline = 'default';
+        context.fillStyle = "#fff";
+        context.font = "bold 100px Arial";
+        context.fillText(wordArr[0].text, wordArr[0].mouseX, wordArr[0].mouseY);
     }
 
     //variable count
-    bikeExpSetting.xSpeed -= 10;
+    bikeExpSetting.xSpeed -= 1;
     if(bikeExpSetting.xSpeed < -canvas.width*9){
         bikeExpSetting.xSpeed = -canvas.width*9;
     }
@@ -303,12 +352,76 @@ function bikeExp(){
     requestAnimationFrame( bikeExp );
 
     //closure
-    function wordAdd(text, x){
-        context.textBaseline = 'default';
-        context.fillStyle = "#fff";
-        context.font = "bold 50px Arial";
-        context.fillText(`${text}`, x, 300);
-    }
+    // function wordAdd(text, x, y){
+    //     context.textBaseline = 'default';
+    //     context.fillStyle = "#fff";
+    //     context.font = "bold 50px Arial";
+    //     context.fillText(`${text}`,x, y);
+    //     console.log('textin');
+    // }
+}
+
+//word instance
+function wordAdd(text, x, y){
+    this.isstartAdd = 0;
+    this.isstartBreak = 0;
+    this.text = text;
+    this.time = 0;
+    this.delay = 30;
+    this.mouseX = x;
+    this.mouseY = y;
+    // this.count = function(){
+    //     this.time++;
+    //     console.log(this.time);
+    //     if(this.time < this.delay){
+    //         this.count();
+    //     }
+    // };
+    // this.write = function(){
+    //     this.time++;
+    //     if(this.time < this.delay){
+    //         this.context.textBaseline = 'default';
+    //         this.context.fillStyle = "#fff";
+    //         this.context.font = "bold 100px Arial";
+    //         this.context.fillText(this.text, this.mouseX, this.mouseY);
+    //         console.log(`${this.context}|${this.text}|${this.mouseX}|${this.mouseY}`);
+    //         requestAnimationFrame( this.write );
+    //     }
+    // };
+}
+
+function originImgUpdate(){
+    $('.Btn').click(function(){
+        $('.Btn div').css({
+            backgroundColor: '#1e3449',
+        });
+        $(this).find('div').css({
+            backgroundColor: '#919cb0',
+        });
+        switch($(this).find('h6').text()){
+            case "公路車":
+                bikeBody.src = './images/bike01-body.png';
+                bikeTire.src = './images/bike01-tire.png';
+                break;
+            case "登山車":
+                bikeBody.src = './images/canvas-bg.jpg';
+                bikeTire.src = './images/canvas-bg.jpg';
+                break;
+            case "城市車":
+                bikeBody.src = './images/canvas-bg.jpg';
+                bikeTire.src = './images/canvas-bg.jpg';
+                break;
+            case "公路":
+                background.src = './images/canvas-bg.jpg';
+                break;
+            case "山地":
+                background.src = './images/canvas-bg.jpg';
+                break;
+            case "城市":
+                background.src = './images/canvas-bg.jpg';
+                break;
+        }
+    });
 }
 
 //3D Model
@@ -362,18 +475,18 @@ function three(Id){
     controls.autoRotate = true;
     controls.autoRotateSpeed = 5.0;
 
-    //text
-    // var canvas = document.querySelector('#three canvas');
-    // var context = canvas.getContext('2d');
-    // context.font = "Bold 200px Arial";
-    // context.fillStyle = "#fff";
-    // context.fillText('CYCLIST', 100, 100);
-    // console.log(canvas);
+    $(window).resize(onWindowResize);
 
     function animate(){
         requestAnimationFrame(animate);
         controls.update();
         renderer.render(scene, camera);
+    }
+
+    function onWindowResize(){
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
     }
 }
 
