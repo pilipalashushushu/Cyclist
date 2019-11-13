@@ -15,6 +15,7 @@
     "pixi.js": "^5.1.5"
   },
   "devDependencies": {
+    "gulp-connect-php": "^1.0.3",
     "gulp-copy": "^4.0.1"
   },
   "scripts": {
