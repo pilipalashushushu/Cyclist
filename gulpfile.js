@@ -22,7 +22,15 @@
  * gulp sass        (sass編譯&壓縮&建立css資料夾並傳送)
  * gulp template    (html模板編譯&編譯後html搬移)
  * 
- * step 3: 開始Coding
+ * step 3: 匯入/更新資料庫
+ *  3-1. 進入 http://140.115.236.71/phpmyadmin/
+ *  3-2. 匯出sql檔
+ *  3-3. 使用自己電腦的phpmyadmin匯入(若有舊的資料庫可drop掉在匯入)
+ * 
+ * step 4: 調整connect.php
+ *  4-1. 更改 $user 跟 $pw 成自己電腦的資料庫帳號密碼
+ * 
+ * step 5: 開始Coding
  * (使用gulp指令打開瀏覽器，並且watch資料夾有變更就及時執行指令)
  * 執行指令
  * gulp
