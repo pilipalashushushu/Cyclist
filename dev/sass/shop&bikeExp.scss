@@ -3,7 +3,6 @@
 @import "grid";
 
 ////////////////////正start//////////////////////
-
 @for $i from 1 through 12 {
     .col-#{$i} {
         width: $i / 12 * 100%;
@@ -34,8 +33,13 @@
     }
 }
 
-input:focus { outline: none;}
-select:focus { outline: none;}
+input:focus {
+    outline: none;
+}
+
+select:focus {
+    outline: none;
+}
 
 .wrap {
     .container {
@@ -48,6 +52,15 @@ select:focus { outline: none;}
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .wrap {
+        .container {
+            padding: 0 0;
+        }
+    }
+}
+
 
 .search {
     margin: 10px auto;
@@ -246,7 +259,7 @@ select:focus { outline: none;}
 
             .fa {
                 width: 100%;
-                line-height: 300px;
+                line-height: 400px;
                 text-align: center;
             }
         }
@@ -346,9 +359,8 @@ select:focus { outline: none;}
     list-style: none;
     color: #555;
 
-    &:hover {
-        transform: scale(1.1);
-        transition: all .6s ease-out;
+    &:hover .prod-shell {
+        background-color: rgba($color: #EED0AF, $alpha: .3);
     }
 
     .prod-shell {
@@ -413,7 +425,7 @@ select:focus { outline: none;}
             background-repeat: no-repeat;
             width: 21px;
             height: 18px;
-            background-position: -21px 0 ;
+            background-position: -21px 0;
 
             &:hover {
                 background-position: -42px 0;
@@ -425,7 +437,7 @@ select:focus { outline: none;}
             background-repeat: no-repeat;
             width: 21px;
             height: 18px;
-            background-position: -21px 0 ;
+            background-position: -21px 0;
 
             &:hover {
                 background-position: -42px 0;
@@ -434,10 +446,55 @@ select:focus { outline: none;}
     }
 }
 
-.search-wrap {
-    padding-top: 80px;
-    padding-bottom: 10px;
-    background-color: $mainMedium;
+@media screen and (max-width: 768px) {
+    .prod {
+        .prod-shell {
+            margin: 30px 0;
+            padding: 10px 10px 10px;
+
+            .prod-pic {
+                height: 100px;
+                img {
+                    margin: 10px 0px;
+                }
+            }
+
+
+            .prod-title {
+                font-size: $p;
+                padding-top: 0px;
+            }
+
+            .prod-context {
+                font-size: $h6;
+                text-align: center;
+                margin-top: -10px;
+            }
+
+            .prod-money {
+                font-size: $h4;
+                padding: 5px 0;
+                text-align: center;
+                clear: both;
+            }
+
+            .prodIcon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                p {
+                    margin: 15px 15px 0;
+                }
+            }
+
+            .search-wrap {
+                padding-top: 80px;
+                padding-bottom: 10px;
+                background-color: $mainMedium;
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -518,17 +575,7 @@ select:focus { outline: none;}
     }
 
     .banner-wrap {
-        margin-top: 60px;
-    }
-
-    .prodInfo-wrap {
-        width: 80%;
-        float: right;
-        padding-bottom: 20px;
-
-        &:nth-of-type(3) {
-            background-color: darken($mainMedium, 10%);
-        }
+        margin-top: 10px;
     }
 
     .bannerTag-row {
@@ -550,34 +597,63 @@ select:focus { outline: none;}
 
 //商城內頁
 .prod-bread {
-    padding-top: 10px;
+    padding-top: 80px;
     padding-bottom: 10px;
 
     div {
-        color: #fff;
+        color: #555;
         padding-left: 20px;
 
         a {
             color: inherit;
 
             &:hover {
-                text-shadow: 0 0 1px #fff;
+                text-shadow: 0 0 1px $sub;
             }
         }
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
     .prod-bread {
-        padding-top: 70px;
-        padding-bottom: 0;
+        font-size: $p;
+        padding-top: 20px;
+
+        div {
+            padding-left: 35px;
+        }
     }
 }
+
+.prodInfo-wrap {
+    width: 80%;
+    float: right;
+    color: #555;
+
+    .prod-cont {
+        margin: 20px 0;
+
+        h2 {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .prodInfo-wrap {
+        width: 100%;
+    }
+}
+
 
 .prod-info {
     padding-top: 30px;
     padding-bottom: 30px;
-    background-color: #aaa;
 
     .prod-info-m {
         margin: 0 auto;
@@ -591,10 +667,10 @@ select:focus { outline: none;}
         float: left;
 
         .prod-pic-main {
-            height: 360px;
+            height: 400px;
             padding: 20px 0;
             position: relative;
-            background-color: #fff;
+            box-shadow: 0 0 3px $mainMedium;
 
             .prod-pic-show {
                 position: absolute;
@@ -613,9 +689,9 @@ select:focus { outline: none;}
 
         .prod-pic-slider {
             padding: 40px 0;
+            display: flex;
 
             .prod-pic-arrow {
-                float: left;
                 height: 100px;
                 @include arrow(darken($mainMedium, 10%), 10px);
 
@@ -633,12 +709,11 @@ select:focus { outline: none;}
             }
 
             .prod-pic-innerslider {
-                float: left;
+                width: 100%;
                 overflow: hidden;
 
                 &>div {
                     width: 100%;
-                    float: left;
                     font-size: 0;
                     text-align: center;
                     background-color: $mainMedium;
@@ -672,42 +747,59 @@ select:focus { outline: none;}
     }
 
     .prod-intro {
-        padding-top: 20px;
-        float: left;
+        color: #555;
+        margin-bottom: 50px;
+
+        .center {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+        }
+
+        .prod-intro-text {
+            display: inline-flex;
+            flex-direction: column;
+        }
 
         p {
-            font-size: 14px;
+            font-size: 12px;
             line-height: 1.8;
         }
 
         .prod-title {
             text-align: left;
             line-height: 1.6;
-            font-size: 16px;
+            font-size: 18px;
+            padding: 20px;
         }
 
         .prod-name {
             line-height: 2;
-            font-size: 40px;
+            font-size: 28px;
         }
 
         .prod-introCont {
-            font-size: 16px;
+            font-size: 14px;
             line-height: 1.6;
-        }
-
-        .prod-money {
-            font-size: 40px;
-            float: right;
+            padding: 20px;
         }
 
         .prod-intro-btns {
             font-size: 0;
-            clear: both;
+            display: flex;
+            flex-direction: column;
+
+            .prod-money {
+                font-size: 22px;
+            }
 
             ul {
+                width: 100%;
                 font-size: 0;
                 text-align: center;
+                display: flex;
+                margin-top: 20px;
 
                 li {
                     display: inline-block;
@@ -715,64 +807,76 @@ select:focus { outline: none;}
                 }
 
                 .prod-amount-arrow {
-                    font-size: 50px;
-                    width: 50px;
-                    height: 50px;
-                    color: #222;
+                    font-size: 20px;
+                    width: 10%;
+                    height: 40px;
+                    line-height: 40px;
+                    box-shadow: 0 0 1px $mainDark;
+                    color: $blue-deep;
                     cursor: pointer;
 
                     &:hover {
-                        color: lighten(#222, 10%);
+                        background-color: lighten($blue-light, 35%);
                     }
                 }
 
                 .prod-amount-show {
                     font-size: $h2;
-                    line-height: 45px;
+                    width: 80%;
+                    line-height: 40px;
                     background-color: #fff;
-                    border-radius: 10px;
+                    box-shadow: 0 0 1px #666;
+                    margin: 0 10px;
                 }
 
                 input {
                     display: inline-block;
                     vertical-align: middle;
                     border: none;
-                    height: 45px;
-                    line-height: 45px;
-                    font-size: $h3;
-                    border-radius: 10px;
+                    height: 40px;
+                    line-height: 40px;
                     margin-left: 20px;
                     color: #fff;
-                    background-color: $colorStatusBuy;
+                    background-color: $main;
                     cursor: pointer;
-
-                    &:hover {
-                        background-color: lighten($colorStatusBuy, 10%);
-                    }
                 }
+            }
+
+            .prod-buy-join:hover {
+                background-color: lighten($main, 5%);
+            }
+
+            .prod-save:hover {
+                background-color: lighten($blue-light, 35%);
             }
 
             >div {
                 padding: 20px 0;
                 display: flex;
-                flex-flow: row wrap;
+                flex-flow: column;
                 justify-content: space-evenly;
 
-                input {
-                    display: block;
-                    border: none;
-                    margin: 0 auto;
-                    height: 45px;
-                    line-height: 45px;
-                    font-size: $h3;
-                    cursor: pointer;
-                    color: #fff;
-                    background-color: $sub;
-                    border-radius: 10px;
+            }
 
-                    &:hover {
-                        background-color: lighten($sub, 10%);
-                    }
+            input {
+                display: block;
+                border: none;
+                margin: 0 auto;
+                width: 100%;
+                height: 45px;
+                line-height: 45px;
+                font-size: $h3;
+                cursor: pointer;
+
+                &:first-child {
+                    color: #fff;
+                    margin-bottom: 10px;
+                    background-color: $main;
+                }
+
+                &:last-child {
+                    color: $mainDark;
+                    border: 1px solid $blue-light;
                 }
             }
         }
@@ -783,26 +887,27 @@ select:focus { outline: none;}
         display: block;
         clear: both;
     }
+
+
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 768px) {
     .prod-info {
         .prod-intro {
-            padding: 0 20px;
-            box-sizing: border-box;
+            .center {
+                flex-direction: column-reverse;
+            }
+
+            .prod-title {
+                padding: 1px;
+            }
+
+            .prod-introCont {
+                padding: 1px;
+            }
 
             .prod-intro-btns {
-                &>div {
-                    input {
-                        font-size: $h4;
-                    }
-                }
-
-                ul {
-                    input {
-                        margin-left: 0;
-                    }
-                }
+                margin-bottom: 30px;
             }
         }
     }
@@ -819,10 +924,16 @@ select:focus { outline: none;}
 }
 
 .prod-spec {
+    color: #555;
+
+    h2 {
+        font-size: 20px;
+    }
+
     ul {
         width: 80%;
         margin: 10px auto 0;
-        font-size: $h3;
+        font-size: $h5;
         line-height: 3;
         text-align: left;
 
@@ -832,7 +943,7 @@ select:focus { outline: none;}
 
             div {
                 display: inline-block;
-                font-size: $h4;
+                font-size: $p;
                 line-height: 2;
                 text-align: left;
                 padding-left: 20px;
@@ -841,12 +952,12 @@ select:focus { outline: none;}
 
                 &:first-child {
                     width: 30%;
-                    background-color: #ccc;
+                    background-color: #ddd;
                 }
 
                 &:last-child {
                     width: 70%;
-                    background-color: #eee;
+                    background-color: rgb(245, 244, 244);
                 }
             }
 
@@ -863,7 +974,37 @@ select:focus { outline: none;}
     .prod-spec-remind {
         font-size: $h6;
         line-height: 2;
-        padding-top: 20px;
+        padding: 30px 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .prod-spec {
+
+        ul {
+            width: 98%;
+
+            li {
+                div {
+                    font-size: $h6;
+                }
+            }
+
+        }
+
+        .prod-spec-remind {
+            padding: 30px 15px 50px;
+        }
+    }
+
+}
+
+.prod-reco,
+.prod-event {
+    color: #555;
+
+    h2 {
+        font-size: 20px;
     }
 }
 
@@ -890,6 +1031,7 @@ select:focus { outline: none;}
                 background-color: lighten($sub, 30%);
             }
         }
+
         .pages_active {
             background-color: #54728f;
             color: #fff;
@@ -898,467 +1040,467 @@ select:focus { outline: none;}
 }
 
 //單車體驗
-#cycling {
-    width: 960px;
-    position: relative;
-    overflow: hidden;
-
-    #canvas {
-        display: block;
-        background-color: #aaa;
-    }
-
-    .status {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-
-        .intro {
-            width: 200px;
-            height: 40px;
-            color: #efe8cb;
-            background-color: $colorStatus3;
-            position: absolute;
-            top: 50px;
-            left: 87px;
-
-            &:before {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: 100%;
-                width: 170px;
-                @include border(right, 30px, solid, transparent);
-                @include border(bottom, 20px, solid, $colorStatus3);
-            }
-
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 100%;
-                width: 170px;
-                @include border(right, 30px, solid, transparent);
-                @include border(top, 20px, solid, $colorStatus3);
-                z-index: 1;
-            }
-
-            .intro-name {
-                position: absolute;
-                margin: -12px 0 2px 10px;
-
-                .intro-style {
-                    padding-left: 10px;
-                    font-size: 12px;
-                }
-            }
-
-            .intro-text {
-                margin-top: 8px;
-                margin-left: 20px;
-                font-size: 13px;
-            }
-
-            .intro-adv {
-                margin-top: 3px;
-                font-size: 13px;
-                margin-left: 20px;
-            }
-
-            .intro-buy {
-                width: 100px;
-                height: 20px;
-                background-color: $colorStatusBuy;
-                position: absolute;
-                top: 100%;
-                right: 30px;
-                color: white;
-                font-size: 12px;
-                text-align: center;
-                line-height: 20px;
-                z-index: 2;
-                cursor: pointer;
-
-                &:before,
-                &:after {
-                    content: '';
-                    display: block;
-                    position: absolute;
-                }
-
-                &:before {
-                    right: 100%;
-                    @include border(left, 30px, solid, transparent);
-                    @include border(bottom, 20px, solid, $colorStatusBuy);
-                }
-
-                &:after {
-                    top: 0;
-                    left: 100%;
-                    @include border(right, 30px, solid, transparent);
-                    @include border(top, 20px, solid, $colorStatusBuy);
-                }
-
-                &:hover {
-                    background-color: lighten($colorStatusBuy, 10%);
-
-                    &:before {
-                        @include border(bottom, 20px, solid, lighten($colorStatusBuy, 10%));
-                    }
-
-                    &:after {
-                        @include border(top, 20px, solid, lighten($colorStatusBuy, 10%));
-                    }
-                }
-            }
-        }
-
-        .chart,
-        .speed {
-            width: 87px;
-            height: 50px;
-            position: absolute;
-            z-index: 20;
-
-            &:before,
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                border-left: 43.5px solid transparent;
-                border-right: 43.5px solid transparent;
-            }
-
-            &:before {
-                bottom: 100%;
-            }
-
-            &:after {
-                top: 100%;
-            }
-        }
-
-        .chart {
-            top: 30px;
-            background-color: $colorStatus1;
-            display: flex;
-            flex-flow: row nowrap;
-
-            &:before {
-                @include border(bottom, 30px, solid, $colorStatus1);
-            }
-
-            &:after {
-                @include border(top, 30px, solid, $colorStatus1);
-            }
-
-            h3 {
-                font-size: $h6;
-                flex-basis: 50%;
-                text-align: center;
-                color: #fff;
-                line-height: 50px;
-                transition: .3s;
-
-                &:first-child {
-                    background-color: lighten($mainMedium, 10%);
-                }
-
-                &:last-child {
-                    background-color: darken($mainMedium, 10%);
-                }
-
-                &:hover {
-                    flex-basis: 100%;
-                }
-            }
-        }
-
-        .speed {
-            top: 110px;
-            left: 43.5px;
-            background-color: $colorStatus2;
-            color: $colorStatusText;
-
-            &:before {
-                @include border(bottom, 30px, solid, $colorStatus2);
-            }
-
-            &:after {
-                @include border(top, 30px, solid, $colorStatus2);
-            }
-
-            h5 {
-                text-align: center;
-                padding-top: 5px;
-
-                span {
-                    font-size: 30px;
-                    padding-right: 4px;
-                }
-            }
-
-            h6 {
-                text-align: center;
-                font-size: 12px;
-                padding-top: 2px;
-            }
-        }
-    }
-
-    .btns {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        width: 920px;
-        height: 43.5px;
-        // overflow: hidden;
-        display: flex;
-        flex-flow: row nowrap;
-
-        .eviBtns,
-        .ctgBtns {
-            width: 35%;
-            height: 100%;
-            text-align: center;
-            display: flex;
-            flex-flow: row nowrap;
-            cursor: pointer;
-
-            .Btn {
-                width: 30%;
-                height: 100%;
-                background-color: $sub;
-                flex-basis: 33.333333%;
-                transition: .3s;
-
-                &:hover {
-                    transform-origin: bottom;
-                    flex-basis: 60%;
-                    box-shadow: 0 0 10px 0 #fff,
-                        0 0 0 1px #ccc;
-
-                    .eviSkew {
-                        transform: scaleY(.8);
-                        transform-origin: top center;
-                        transition: .3s;
-                        background-color: lighten($colorTitle, 20%);
-                    }
-                }
-
-                .eviSkew {
-                    background-color: $colorTitle;
-                    z-index: 10;
-
-                    h6 {
-                        color: $colorStatusText;
-                        line-height: 1.4;
-                        text-align: center;
-                        font-size: 12px;
-                    }
-                }
-            }
-        }
-
-        .eviBtns {
-
-            // left: 20px;
-            .Btn {
-                transform: skew(-20deg);
-                position: relative;
-                z-index: 10;
-                overflow: hidden;
-
-                h6 {
-                    transform: skew(20deg);
-                }
-
-                ;
-
-                &:hover {
-                    transform: skew(-20deg) scaleY(1.5);
-                }
-
-                &:before {
-                    transform: skew(20deg) scale(1.3);
-                    display: block;
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    z-index: -1;
-                }
-            }
-
-            .Btn:nth-child(1):before {
-                @include img(url(../images/evi1.jpg), no-repeat, 50%, 150%)
-            }
-
-            .Btn:nth-child(2):before {
-                @include img(url(../images/evi2.jpg), no-repeat, 50% 20%, 150%)
-            }
-
-            .Btn:nth-child(3):before {
-                @include img(url(../images/evi3.jpg), no-repeat, 50% 20%, 150%)
-            }
-        }
-
-        .ctgBtns {
-
-            // right: -10px;
-            .Btn {
-                transform: skew(20deg);
-                overflow: hidden;
-
-                &:hover {
-                    transform: skew(20deg) scaleY(1.5);
-                }
-
-                h6 {
-                    transform: skew(-20deg);
-                }
-
-                ;
-
-                &:before {
-                    transform: skew(-20deg) scale(1.3);
-                    display: block;
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    z-index: -1;
-                }
-            }
-
-            .Btn:nth-child(1):before {
-                @include img(url(../images/evi1.jpg), no-repeat, 50%, 150%)
-            }
-
-            .Btn:nth-child(2):before {
-                @include img(url(../images/evi2.jpg), no-repeat, 50% 20%, 150%)
-            }
-
-            .Btn:nth-child(3):before {
-                @include img(url(../images/evi3.jpg), no-repeat, 50% 20%, 150%)
-            }
-        }
-
-        .msBtns {
-            width: 30%;
-            height: 100%;
-            background-color: $mainMedium;
-            position: relative;
-            z-index: 0;
-
-            &:before,
-            &:after {
-                display: block;
-                content: '';
-                position: absolute;
-                top: 0;
-                z-index: -1;
-            }
-
-            &:before {
-                right: 100%;
-                @include border(bottom, 43.5px, solid, $mainMedium);
-                @include border(left, 30px, solid, transparent);
-            }
-
-            &:after {
-                left: 100%;
-                @include border(top, 43.5px, solid, transparent);
-                @include border(left, 30px, solid, $mainMedium);
-            }
-
-            .add {
-                margin-left: 10%;
-            }
-
-            .add,
-            .break {
-                width: 20%;
-                color: #fff;
-                float: left;
-                text-align: center;
-                line-height: 50px;
-                position: relative;
-
-                &:after {
-                    content: '';
-                    display: block;
-                    width: 42px;
-                    height: 42px;
-                    box-shadow: 0 0 0 1px #fff;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    border-radius: 50%;
-                }
-
-                &:hover:after {
-                    opacity: .5;
-                    background-color: #fff;
-                }
-            }
-
-            .ms {
-                width: 40%;
-                height: 100%;
-                float: left;
-                overflow: hidden;
-                position: relative;
-
-                .msl,
-                .msr {
-                    width: 50%;
-                    height: 40px;
-                    margin-top: 10px;
-                    background-color: #ccc;
-                    float: left;
-
-                    &:hover {
-                        background-color: #aaa;
-                    }
-                }
-
-                .msl {
-                    border-radius: 30px 0 0 0;
-                }
-
-                .msr {
-                    border-radius: 0 30px 0 0;
-                }
-
-                .mss {
-                    width: 10%;
-                    height: 30px;
-                    background-color: #999;
-                    position: absolute;
-                    top: 20px;
-                    left: 0;
-                    right: 0;
-                    margin: auto;
-                    border-radius: 5px 5px 0 0;
-                }
-            }
-        }
-
-
-    }
-}
+// #cycling {
+//     width: 960px;
+//     position: relative;
+//     overflow: hidden;
+
+//     #canvas {
+//         display: block;
+//         background-color: #aaa;
+//     }
+
+//     .status {
+//         position: absolute;
+//         top: 10px;
+//         left: 10px;
+
+//         .intro {
+//             width: 200px;
+//             height: 40px;
+//             color: #efe8cb;
+//             background-color: $colorStatus3;
+//             position: absolute;
+//             top: 50px;
+//             left: 87px;
+
+//             &:before {
+//                 content: '';
+//                 display: block;
+//                 position: absolute;
+//                 bottom: 100%;
+//                 width: 170px;
+//                 @include border(right, 30px, solid, transparent);
+//                 @include border(bottom, 20px, solid, $colorStatus3);
+//             }
+
+//             &:after {
+//                 content: '';
+//                 display: block;
+//                 position: absolute;
+//                 top: 100%;
+//                 width: 170px;
+//                 @include border(right, 30px, solid, transparent);
+//                 @include border(top, 20px, solid, $colorStatus3);
+//                 z-index: 1;
+//             }
+
+//             .intro-name {
+//                 position: absolute;
+//                 margin: -12px 0 2px 10px;
+
+//                 .intro-style {
+//                     padding-left: 10px;
+//                     font-size: 12px;
+//                 }
+//             }
+
+//             .intro-text {
+//                 margin-top: 8px;
+//                 margin-left: 20px;
+//                 font-size: 13px;
+//             }
+
+//             .intro-adv {
+//                 margin-top: 3px;
+//                 font-size: 13px;
+//                 margin-left: 20px;
+//             }
+
+//             .intro-buy {
+//                 width: 100px;
+//                 height: 20px;
+//                 background-color: $colorStatusBuy;
+//                 position: absolute;
+//                 top: 100%;
+//                 right: 30px;
+//                 color: white;
+//                 font-size: 12px;
+//                 text-align: center;
+//                 line-height: 20px;
+//                 z-index: 2;
+//                 cursor: pointer;
+
+//                 &:before,
+//                 &:after {
+//                     content: '';
+//                     display: block;
+//                     position: absolute;
+//                 }
+
+//                 &:before {
+//                     right: 100%;
+//                     @include border(left, 30px, solid, transparent);
+//                     @include border(bottom, 20px, solid, $colorStatusBuy);
+//                 }
+
+//                 &:after {
+//                     top: 0;
+//                     left: 100%;
+//                     @include border(right, 30px, solid, transparent);
+//                     @include border(top, 20px, solid, $colorStatusBuy);
+//                 }
+
+//                 &:hover {
+//                     background-color: lighten($colorStatusBuy, 10%);
+
+//                     &:before {
+//                         @include border(bottom, 20px, solid, lighten($colorStatusBuy, 10%));
+//                     }
+
+//                     &:after {
+//                         @include border(top, 20px, solid, lighten($colorStatusBuy, 10%));
+//                     }
+//                 }
+//             }
+//         }
+
+//         .chart,
+//         .speed {
+//             width: 87px;
+//             height: 50px;
+//             position: absolute;
+//             z-index: 20;
+
+//             &:before,
+//             &:after {
+//                 content: '';
+//                 display: block;
+//                 position: absolute;
+//                 border-left: 43.5px solid transparent;
+//                 border-right: 43.5px solid transparent;
+//             }
+
+//             &:before {
+//                 bottom: 100%;
+//             }
+
+//             &:after {
+//                 top: 100%;
+//             }
+//         }
+
+//         .chart {
+//             top: 30px;
+//             background-color: $colorStatus1;
+//             display: flex;
+//             flex-flow: row nowrap;
+
+//             &:before {
+//                 @include border(bottom, 30px, solid, $colorStatus1);
+//             }
+
+//             &:after {
+//                 @include border(top, 30px, solid, $colorStatus1);
+//             }
+
+//             h3 {
+//                 font-size: $h6;
+//                 flex-basis: 50%;
+//                 text-align: center;
+//                 color: #fff;
+//                 line-height: 50px;
+//                 transition: .3s;
+
+//                 &:first-child {
+//                     background-color: lighten($mainMedium, 10%);
+//                 }
+
+//                 &:last-child {
+//                     background-color: darken($mainMedium, 10%);
+//                 }
+
+//                 &:hover {
+//                     flex-basis: 100%;
+//                 }
+//             }
+//         }
+
+//         .speed {
+//             top: 110px;
+//             left: 43.5px;
+//             background-color: $colorStatus2;
+//             color: $colorStatusText;
+
+//             &:before {
+//                 @include border(bottom, 30px, solid, $colorStatus2);
+//             }
+
+//             &:after {
+//                 @include border(top, 30px, solid, $colorStatus2);
+//             }
+
+//             h5 {
+//                 text-align: center;
+//                 padding-top: 5px;
+
+//                 span {
+//                     font-size: 30px;
+//                     padding-right: 4px;
+//                 }
+//             }
+
+//             h6 {
+//                 text-align: center;
+//                 font-size: 12px;
+//                 padding-top: 2px;
+//             }
+//         }
+//     }
+
+//     .btns {
+//         position: absolute;
+//         left: 0;
+//         right: 0;
+//         bottom: 0;
+//         margin: auto;
+//         width: 920px;
+//         height: 43.5px;
+//         // overflow: hidden;
+//         display: flex;
+//         flex-flow: row nowrap;
+
+//         .eviBtns,
+//         .ctgBtns {
+//             width: 35%;
+//             height: 100%;
+//             text-align: center;
+//             display: flex;
+//             flex-flow: row nowrap;
+//             cursor: pointer;
+
+//             .Btn {
+//                 width: 30%;
+//                 height: 100%;
+//                 background-color: $sub;
+//                 flex-basis: 33.333333%;
+//                 transition: .3s;
+
+//                 &:hover {
+//                     transform-origin: bottom;
+//                     flex-basis: 60%;
+//                     box-shadow: 0 0 10px 0 #fff,
+//                         0 0 0 1px #ccc;
+
+//                     .eviSkew {
+//                         transform: scaleY(.8);
+//                         transform-origin: top center;
+//                         transition: .3s;
+//                         background-color: lighten($colorTitle, 20%);
+//                     }
+//                 }
+
+//                 .eviSkew {
+//                     background-color: $colorTitle;
+//                     z-index: 10;
+
+//                     h6 {
+//                         color: $colorStatusText;
+//                         line-height: 1.4;
+//                         text-align: center;
+//                         font-size: 12px;
+//                     }
+//                 }
+//             }
+//         }
+
+//         .eviBtns {
+
+//             // left: 20px;
+//             .Btn {
+//                 transform: skew(-20deg);
+//                 position: relative;
+//                 z-index: 10;
+//                 overflow: hidden;
+
+//                 h6 {
+//                     transform: skew(20deg);
+//                 }
+
+//                 ;
+
+//                 &:hover {
+//                     transform: skew(-20deg) scaleY(1.5);
+//                 }
+
+//                 &:before {
+//                     transform: skew(20deg) scale(1.3);
+//                     display: block;
+//                     content: '';
+//                     position: absolute;
+//                     top: 0;
+//                     left: 0;
+//                     right: 0;
+//                     bottom: 0;
+//                     margin: auto;
+//                     z-index: -1;
+//                 }
+//             }
+
+//             .Btn:nth-child(1):before {
+//                 @include img(url(../images/evi1.jpg), no-repeat, 50%, 150%)
+//             }
+
+//             .Btn:nth-child(2):before {
+//                 @include img(url(../images/evi2.jpg), no-repeat, 50% 20%, 150%)
+//             }
+
+//             .Btn:nth-child(3):before {
+//                 @include img(url(../images/evi3.jpg), no-repeat, 50% 20%, 150%)
+//             }
+//         }
+
+//         .ctgBtns {
+
+//             // right: -10px;
+//             .Btn {
+//                 transform: skew(20deg);
+//                 overflow: hidden;
+
+//                 &:hover {
+//                     transform: skew(20deg) scaleY(1.5);
+//                 }
+
+//                 h6 {
+//                     transform: skew(-20deg);
+//                 }
+
+//                 ;
+
+//                 &:before {
+//                     transform: skew(-20deg) scale(1.3);
+//                     display: block;
+//                     content: '';
+//                     position: absolute;
+//                     top: 0;
+//                     left: 0;
+//                     right: 0;
+//                     bottom: 0;
+//                     margin: auto;
+//                     z-index: -1;
+//                 }
+//             }
+
+//             .Btn:nth-child(1):before {
+//                 @include img(url(../images/evi1.jpg), no-repeat, 50%, 150%)
+//             }
+
+//             .Btn:nth-child(2):before {
+//                 @include img(url(../images/evi2.jpg), no-repeat, 50% 20%, 150%)
+//             }
+
+//             .Btn:nth-child(3):before {
+//                 @include img(url(../images/evi3.jpg), no-repeat, 50% 20%, 150%)
+//             }
+//         }
+
+//         .msBtns {
+//             width: 30%;
+//             height: 100%;
+//             background-color: $mainMedium;
+//             position: relative;
+//             z-index: 0;
+
+//             &:before,
+//             &:after {
+//                 display: block;
+//                 content: '';
+//                 position: absolute;
+//                 top: 0;
+//                 z-index: -1;
+//             }
+
+//             &:before {
+//                 right: 100%;
+//                 @include border(bottom, 43.5px, solid, $mainMedium);
+//                 @include border(left, 30px, solid, transparent);
+//             }
+
+//             &:after {
+//                 left: 100%;
+//                 @include border(top, 43.5px, solid, transparent);
+//                 @include border(left, 30px, solid, $mainMedium);
+//             }
+
+//             .add {
+//                 margin-left: 10%;
+//             }
+
+//             .add,
+//             .break {
+//                 width: 20%;
+//                 color: #fff;
+//                 float: left;
+//                 text-align: center;
+//                 line-height: 50px;
+//                 position: relative;
+
+//                 &:after {
+//                     content: '';
+//                     display: block;
+//                     width: 42px;
+//                     height: 42px;
+//                     box-shadow: 0 0 0 1px #fff;
+//                     position: absolute;
+//                     top: 0;
+//                     left: 0;
+//                     right: 0;
+//                     bottom: 0;
+//                     margin: auto;
+//                     border-radius: 50%;
+//                 }
+
+//                 &:hover:after {
+//                     opacity: .5;
+//                     background-color: #fff;
+//                 }
+//             }
+
+//             .ms {
+//                 width: 40%;
+//                 height: 100%;
+//                 float: left;
+//                 overflow: hidden;
+//                 position: relative;
+
+//                 .msl,
+//                 .msr {
+//                     width: 50%;
+//                     height: 40px;
+//                     margin-top: 10px;
+//                     background-color: #ccc;
+//                     float: left;
+
+//                     &:hover {
+//                         background-color: #aaa;
+//                     }
+//                 }
+
+//                 .msl {
+//                     border-radius: 30px 0 0 0;
+//                 }
+
+//                 .msr {
+//                     border-radius: 0 30px 0 0;
+//                 }
+
+//                 .mss {
+//                     width: 10%;
+//                     height: 30px;
+//                     background-color: #999;
+//                     position: absolute;
+//                     top: 20px;
+//                     left: 0;
+//                     right: 0;
+//                     margin: auto;
+//                     border-radius: 5px 5px 0 0;
+//                 }
+//             }
+//         }
+
+
+//     }
+// }
 
 
 ////////////////正end///////////////////////
