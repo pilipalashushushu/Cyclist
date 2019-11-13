@@ -16,7 +16,8 @@
  * 執行指令
  * gulp copyImg     (images資料夾搬移)
  * gulp copyModel   (model資料夾搬移)
- * gulp copyBackEnd   (後端資料夾搬移)
+ * gulp copyBackEnd (後端資料夾搬移)
+ * gulp copyPhp     (PHP資料夾搬移)
  * gulp minifyJS    (js資料夾搬移&壓縮)
  * gulp sass        (sass編譯&壓縮&建立css資料夾並傳送)
  * gulp template    (html模板編譯&編譯後html搬移)
@@ -46,6 +47,7 @@
  *      |- images/                  (圖片檔資料夾)
  *      |- js/                      (JavaScript資料夾)
  *      |- model/                   (3D Model資料夾)
+ *      |- php/                     (PHP資料夾)
  *      |- sass/                    (scss資料夾)
  *      |- template/                (html模板資料夾)
  *      |- *.html                   (主要輸出html檔案)
@@ -60,6 +62,7 @@
  * |- images/  (圖片檔資料夾)
  * |- js/      (JavaScript資料夾)
  * |- model/   (3D Model資料夾)
+ * |- php/     (PHP資料夾)
  * |- *.html   (主要輸出html檔案)
  * 
  */
@@ -75,28 +78,33 @@ const reload = browserSync.reload;
 
 
 
-gulp.task('copyImg', () => {
+gulp.task('copyImg', function(){
     return gulp.src('./dev/images/*')
         .pipe(gulp.dest('./dest/images'))
 });
 
-gulp.task('copyModel', () => {
+gulp.task('copyModel', function(){
     return gulp.src('./dev/model/*')
         .pipe(gulp.dest('./dest/model'))
 });
 
-gulp.task('copyBackEnd', () => {
+gulp.task('copyBackEnd', function(){
     return gulp.src(['./dev/admin_template-master/*', './dev/admin_template-master/**/*', './dev/admin_template-master/**/**/*', './dev/admin_template-master/**/**/**/*'])
         .pipe(gulp.dest('./dest/admin_template-master'))
 });
 
-gulp.task('minifyJS', () => {
+gulp.task('copyPhp', function(){
+    return gulp.src('./dev/php/*')
+        .pipe(gulp.dest('./dest/php'))
+});
+
+gulp.task('minifyJS', function(){
     return gulp.src('./dev/js/*.js')
         .pipe(minify())
         .pipe(gulp.dest('./dest/js'))
 });
 
-gulp.task('sass', () => {
+gulp.task('sass', function(){
     return gulp.src('./dev/sass/*.scss')
         .pipe(sass({
             outputStyle: 'compressed'
@@ -104,7 +112,7 @@ gulp.task('sass', () => {
         .pipe(gulp.dest('./dest/css'))
 });
 
-gulp.task('template', () => {
+gulp.task('template', function(){
     return gulp.src('./dev/*.html')
         .pipe(fileinclude({
             prefix: '@@',
@@ -114,7 +122,7 @@ gulp.task('template', () => {
         .pipe(gulp.dest('./dest'))
 });
 
-gulp.task('default', () => {
+gulp.task('default', function(){
     browserSync.init({
         server: {
             baseDir: "./dest",
@@ -125,6 +133,7 @@ gulp.task('default', () => {
     gulp.watch('./dev/img/*', ['copyImg']).on('change', reload);
     gulp.watch('./dev/model/*', ['copyModel']).on('change', reload);
     gulp.watch('./dev/admin_template-master/*', ['copyBackEnd']).on('change', reload);
+    gulp.watch('./dev/php/*', ['copyPhp']).on('change', reload);
     gulp.watch('./dev/sass/*.scss', ['sass']).on('change', reload);
     gulp.watch('./dev/js/*.js', ['minifyJS']).on('change', reload);
     gulp.watch('./dev/*.html', ['template']).on('change', reload);
