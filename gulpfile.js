@@ -3,6 +3,11 @@
 /**使用須知**/
 /***************
  * 
+ * step 0: 執行伺服器環境
+ * (把整包放在伺服器的資料夾並執行)
+ * IIS -> wwwroot
+ * XAMPP -> htdocs
+ * 
  * step 1: 初始化npm
  * (抓取package.json的所有套件"dependencies"&"devDependencies")
  * 執行指令
@@ -27,11 +32,11 @@
  *  3-2. 匯出sql檔
  *  3-3. 使用自己電腦的phpmyadmin匯入(若有舊的資料庫可drop掉在匯入)
  * 
- * step 4: 調整connect.php
+ * step 4: 調整dev/php/connect.php
  *  4-1. 更改 $user 跟 $pw 成自己電腦的資料庫帳號密碼
  * 
  * step 5: 開始Coding
- * (使用gulp指令打開瀏覽器，並且watch資料夾有變更就及時執行指令)
+ * (使用gulp指令)
  * 執行指令
  * gulp
  * 
@@ -81,12 +86,10 @@
  */
 
 const gulp = require('gulp');
-const copy = require('gulp-copy');
 const sass = require('gulp-sass');
 const minify = require('gulp-minify');
 const fileinclude = require('gulp-file-include');
 const watch = require('gulp-watch');
-const connectPhp = require('gulp-connect-php');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
@@ -136,29 +139,15 @@ gulp.task('template', function(){
         .pipe(gulp.dest('./dest'))
 });
 
-gulp.task('server', function(){
-    var options = {
-        base: './dest',
-        open: true,
-        bin: "./php-7.3.9-nts-Win32-VC15-x64/php.exe",
-        ini: "./php-7.3.9-nts-Win32-VC15-x64/php.ini",
-        port: 8000
-    };
-    connectPhp.server(options);
-});
+gulp.task('default', function(){
+    //不需要就可以註解關掉
+    browserSync.init({
+        server: {
+            baseDir: "./dest",
+            index: "index.html"
+        }
+    });
 
-gulp.task('browser', function(){
-    var options = {
-        proxy: '127.0.0.1:8000',
-        port: 3000,
-        watch: true,
-        startPath: "index.html",
-        open: 'external'
-    };
-    return browserSync.init(options);
-});
-
-gulp.task('default', ['browser', 'server'], function(){
     gulp.watch('./dev/img/*', ['copyImg']).on('change', reload);
     gulp.watch('./dev/model/*', ['copyModel']).on('change', reload);
     gulp.watch('./dev/admin_template-master/*', ['copyBackEnd']).on('change', reload);
