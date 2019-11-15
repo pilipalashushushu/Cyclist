@@ -59,9 +59,6 @@
         width: 100%;
     }
 
-    #customize {
-        height: 100vh;
-    }
 
     .customize-area {
         @include flexalign() {
@@ -448,6 +445,10 @@
 
     #customizer {
 
+        h4 {
+            font-size: $h5;
+        }
+
         .customize-area {
 
             flex-flow: column;
@@ -471,8 +472,9 @@
 
                 .mobile {
                     display: flex;
-                    align-items: center;
-                    margin-bottom: 20px;
+                    justify-content: center;
+                    width: 100%;
+                    margin: 20px 0;
                 }
             }
 

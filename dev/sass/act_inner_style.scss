@@ -4,26 +4,27 @@
 @import "mixin";
 
 
-*{
+* {
     list-style: none;
 }
 
 
-body,html{
+body,
+html {
     font-family: "微軟正黑體";
     // font-size: 1.6rem;
     // font-weight: 600;
     // letter-spacing: .3px;
-    
+
 }
 
-.act-inner-bg{
+.act-inner-bg {
     // background-color: #F0D5B7;
     background-color: #F4F5F7;
-   
+
 }
 
-.wrapper.act-inner{
+.wrapper.act-inner {
 
     padding-top: 100px;
     width: 100%;
@@ -33,65 +34,68 @@ body,html{
     font-family: "微軟正黑體";
     font-size: 1.4rem;
     letter-spacing: .3px;
-    
+
 }
 
 
-.act-img{
-    img{
+.act-img {
+    img {
         display: block;
         width: 100%;
         height: 100%;
-        object-fit:cover;
-    }
-    .slider-top{
-        height: 300px;
-        
+        object-fit: cover;
     }
 
-    .slider-bottom{
+    .slider-top {
+        height: 300px;
+
+    }
+
+    .slider-bottom {
         height: 70px;
-        
+
         overflow: hidden;
         position: relative;
 
-        .btn{
+        .btn {
             position: absolute;
             z-index: 10;
             width: 5%;
             height: 100%;
-            background-color: rgba(0,0,0,.6);
+            background-color: rgba(0, 0, 0, .6);
         }
-        .btn:nth-of-type(1){
+
+        .btn:nth-of-type(1) {
             top: 0;
             left: 0;
         }
-        .btn:nth-of-type(2){
+
+        .btn:nth-of-type(2) {
             top: 0;
             right: 0;
         }
-        
-        .pics{
-            
+
+        .pics {
+
             height: 70px;
             position: relative;
-            
-            
-            
-            
-            li{
-                
-                
+
+
+
+
+            li {
+
+
                 height: 70px;
                 float: left;
 
             }
 
-            
-            
-            
-            
-            
+
+
+
+
+
         }
     }
 
@@ -190,43 +194,45 @@ body,html{
 
 
 
-.act-info>div,.title{
+.act-info>div,
+.title {
     box-sizing: border-box;
     padding: 10px 0;
     text-align: center;
 }
 
-.act-info{
+.act-info {
 
-    .organizer{
+    .organizer {
         display: inline-flex;
         align-items: center;
         padding: 1px 0;
-        .name{
+
+        .name {
             font-size: 1.2rem;
             margin-left: .8rem;
         }
     }
 
-    .avatar{
-        
+    .avatar {
+
         width: 40px;
         height: 40px;
         border-radius: 50%;
         overflow: hidden;
         border: 1px solid $main;
-        box-shadow: 0 0 2px rgba(0,0,0,0.24);
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.24);
 
-         img{
-             width: 100%;
-             height: 100%;
-             object-position: 50% 50%;
-             object-fit: cover;
-         }
+        img {
+            width: 100%;
+            height: 100%;
+            object-position: 50% 50%;
+            object-fit: cover;
+        }
     }
 
 
-    .title{
+    .title {
         text-align: center;
         padding: 25px 0;
         margin-bottom: 40px;
@@ -235,24 +241,24 @@ body,html{
         color: $blue-deep;
     }
 
-    .act-time{
+    .act-time {
         font-size: .9rem;
 
     }
 
-    .last-time{
+    .last-time {
         font-size: .6rem;
         padding: 4px 0;
         font-weight: 600;
         color: rgb(177, 173, 173);
     }
 
-    .depart-pos{
+    .depart-pos {
         font-size: 1rem;
         color: rgb(117, 112, 112);
     }
 
-    .submit{
+    .submit {
         display: block;
         width: 200px;
         height: 40px;
@@ -263,7 +269,7 @@ body,html{
         color: #fff;
         border-radius: 10px;
         font-weight: 600;
-        border:0;
+        border: 0;
         background-color: $main;
 
     }
@@ -273,7 +279,7 @@ body,html{
 
 
 
-.intro-row{
+.intro-row {
     width: calc(100% - 20px);
     max-width: 800px;
     margin: 60px auto 40px;
@@ -283,42 +289,43 @@ body,html{
     border-radius: 20px;
 
 
-    .block{
+    .block {
         display: inline-block;
         width: 32%;
-        
+
         border-right: 1px solid #ccc;
 
-        .sub-title{
+        .sub-title {
             font-size: 1rem;
             text-align: center;
             padding: 10px 0;
             color: #999;
 
-            &+div{
+            &+div {
                 padding: 20px 0;
                 font-size: 1.6rem;
                 text-align: center;
-                
+
             }
         }
-        
+
     }
-    
+
 }
 
-.group{
+.group {
 
     margin-bottom: 5%;
 
-    .title{
+    .title {
         padding: 10px 0;
         text-align: left;
         font-size: 1.1rem;
         margin-bottom: 10px;
-        
+
     }
-    .avatar{
+
+    .avatar {
         display: inline-block;
         width: 50px;
         height: 50px;
@@ -326,60 +333,62 @@ body,html{
         border-radius: 50%;
         overflow: hidden;
         border: 1px solid $main;
-        box-shadow: 0 0 2px rgba(0,0,0,0.24);
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.24);
 
-         img{
-             width: 100%;
-             height: 100%;
-             object-position: 50% 50%;
-             object-fit: cover;
-         }
+        img {
+            width: 100%;
+            height: 100%;
+            object-position: 50% 50%;
+            object-fit: cover;
+        }
     }
 
 }
 
-.act-desc{
+.act-desc {
 
-    .title{
+    .title {
         display: inline-block;
         text-align: left;
         font-size: 1.6rem;
-        font-weight: 600;       
-        text-shadow: 0 2px 4px rgba(0,0,0,.3);
+        font-weight: 600;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, .3);
         position: relative;
         z-index: 10;
 
-        &::after{
-            content:'';
-            
+        &::after {
+            content: '';
+
             position: absolute;
             left: 0;
             bottom: 0;
-            z-index:-1;
+            z-index: -1;
             width: 100%;
             height: 10px;
             background-color: $main;
         }
     }
-    .desc-txt{
+
+    .desc-txt {
         padding: 20px;
         font-weight: 400;
         font-size: 1.4rem;
         line-height: 1.5rem;
 
 
-        
+
     }
-    .report{
+
+    .report {
         display: flex;
         justify-content: flex-end;
         font-size: 1.2rem;
         margin-right: 15px;
         margin-bottom: 8%;
         color: $blue-light;
-       
-        #report-btn{
-             cursor: pointer;
+
+        #report-btn {
+            cursor: pointer;
             margin-left: 2px;
             border-bottom: 1px solid #ccc;
 
@@ -388,7 +397,7 @@ body,html{
 }
 
 
-#report-box-wrap{
+#report-box-wrap {
     display: none;
     position: fixed;
     top: 0;
@@ -396,54 +405,54 @@ body,html{
     z-index: 50;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,.6);
-        font-family: "微軟正黑體";
+    background-color: rgba(0, 0, 0, .6);
+    font-family: "微軟正黑體";
 
 
-    .report-box{
+    .report-box {
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         padding: 30px 40px;
-        
-        
+
+
         background-color: $blue-light;
         border-radius: 20px;
-        
-        
+
+
 
     }
 
-    h3{
-      text-align: center;
-      margin-bottom: 20px;
-      color: rgb(170, 79, 58);
-      font-size: 1.8rem;
-      font-weight: 700;   
+    h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: rgb(170, 79, 58);
+        font-size: 1.8rem;
+        font-weight: 700;
     }
 
-    
-    @include phone(){
+
+    @include phone() {
         text-align: center;
     }
 
-    select{
-        
-        margin:20px;
+    select {
+
+        margin: 20px;
         border: 0;
         padding: 10px 0 10px 20px;
-        
+
         border-radius: 10px;
         font-size: 1.2rem;
         font-family: "微軟正黑體";
 
     }
 
-    button{
-        
+    button {
+
         margin: 10px;
-        padding: 15px 25px;        
+        padding: 15px 25px;
         border: 1px solid #ffd934;
         border-radius: 10px;
         color: rgb(163, 100, 47);
@@ -458,65 +467,63 @@ body,html{
     }
 }
 
-.comment{
+.comment {
 
-    .title{
+    .title {
         text-align: left;
     }
-    textarea{
+
+    textarea {
         display: block;
         width: 100%;
         height: 100px;
-        
+
         padding: 10px 0 0 10px;
         box-sizing: border-box;
         border: 1px solid #ffd934;
         border-radius: 4px;
         resize: none;
 
-        @include phone(){
+        @include phone() {
             display: block;
             width: 100%;
-            
-            
+
+
         }
     }
 
-    .input{
-        @include phone{
-            
-            
-        }
+    .input {
+        @include phone {}
     }
 
-    .input-group{
+    .input-group {
         overflow: hidden;
 
-        .counter{
+        .counter {
             display: block;
             padding: 5px;
             float: right;
         }
-        
-        
-        
-        
-        
-            
-        
 
-        
-        
-        
-        &+div{
+
+
+
+
+
+
+
+
+
+
+        &+div {
             overflow: hidden;
             margin-top: 20px;
             margin-bottom: 10%;
         }
     }
 
-    .send{
-        
+    .send {
+
         float: right;
         width: 200px;
         height: 40px;
@@ -524,29 +531,28 @@ body,html{
         color: #fff;
         border-radius: 10px;
         font-weight: 600;
-        border:0;
+        border: 0;
         background-color: $main;
 
-        @include phone(){
+        @include phone() {
             width: 100%;
         }
     }
 
-    .counter{
-        font-size: 11px; 
+    .counter {
+        font-size: 11px;
     }
 
 
-    .comment-list{
+    .comment-list {}
 
-    }
-    .comment-item{
+    .comment-item {
 
         display: flex;
         margin-bottom: 30px;
 
 
-        .avatar{
+        .avatar {
             position: relative;
             top: 10px;
             width: 60px;
@@ -554,26 +560,26 @@ body,html{
             border-radius: 50%;
             overflow: hidden;
             border: 1px solid $main;
-            box-shadow: 0 0 2px rgba(0,0,0,0.24);
-    
-             img{
-                 width: 100%;
-                 height: 100%;
-                 object-position: 50% 50%;
-                 object-fit: cover;
-             }
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.24);
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-position: 50% 50%;
+                object-fit: cover;
+            }
         }
 
-        .content{
+        .content {
             width: 100%;
             margin-left: 40px;
             padding: 20px;
-            
+
             background-color: rgb(240, 247, 169);
             border-radius: 10px;
             position: relative;
 
-            &::before{
+            &::before {
                 content: '';
                 display: block;
                 position: absolute;
@@ -581,24 +587,26 @@ body,html{
                 height: 0;
                 top: 25px;
                 left: -20px;
-                
-                border-right: 20px solid rgb(240, 247, 169);;
+
+                border-right: 20px solid rgb(240, 247, 169);
+                ;
                 border-top: 13px solid transparent;
                 border-bottom: 13px solid transparent;
 
             }
         }
 
-        .comment-name{
+        .comment-name {
             margin-bottom: 20px;
             padding-bottom: 5px;
             border-bottom: 1px solid #ccc;
         }
 
-        .comment-txt{
+        .comment-txt {
             margin-bottom: 20px;
         }
-        .comment-date{
+
+        .comment-date {
             display: flex;
             justify-content: flex-end;
             font-size: 1rem;

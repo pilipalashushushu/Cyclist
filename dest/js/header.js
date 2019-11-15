@@ -12,14 +12,14 @@ $(function () {
             let direction = (after - before > 0) ? "down" : "up"
 
             if (direction == "down") {
-                $("header").animate({
+                $("header").css({
                     "top": "-60px"
                 }, 500)
             }
 
             before = after;
             if (direction == "up") {
-                $("header").animate({
+                $("header").css({
                     "top": "0px"
                 }, 500)
             }

@@ -142,6 +142,8 @@ $(function () {
                 $(".mountain").addClass("active");
                 $(".road").removeClass("active");
                 $(".city").removeClass("active");
+                $(".frame2").removeClass("active");
+                $(".frame1").removeClass("active");
                 $(".mountain").find(".frame1").addClass("active");
                 $(".picture-area").find(".frame").find("img").attr("src", "./images/mountain-frame1-color1.png")
                 $(".picture-area").find(".handle").find("img").attr("src", "./images/mountain-frame1-handle1.png")
@@ -151,6 +153,8 @@ $(function () {
                 $(".road").addClass("active");
                 $(".mountain").removeClass("active");
                 $(".city").removeClass("active");
+                $(".frame2").removeClass("active");
+                $(".frame1").removeClass("active");
                 $(".road").find(".frame1").addClass("active");
                 $(".picture-area").find(".frame").find("img").attr("src", "./images/road-frame1-color1.png")
                 $(".picture-area").find(".handle").find("img").attr("src", "./images/road-frame1-handle1.png")
@@ -161,6 +165,8 @@ $(function () {
                 $(".city").addClass("active");
                 $(".mountain").removeClass("active");
                 $(".road").removeClass("active");
+                $(".frame2").removeClass("active");
+                $(".frame1").removeClass("active");
                 $(".city").find(".frame1").addClass("active");
                 $(".picture-area").find(".frame").find("img").attr("src", "./images/city-frame1-color1.png")
                 $(".picture-area").find(".handle").find("img").attr("src", "./images/city-frame1-handle1.png")

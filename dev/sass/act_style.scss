@@ -15,36 +15,37 @@ html {
 }
 
 body {
-    font-family: "微軟正黑體"; 
+    font-family: "微軟正黑體";
 }
 
-.act-bg{
+.act-bg {
     background-color: #F4F5F7;
     // font-size: 62.5%;
 }
 
-.wrapper.activity,.out{
-    
+.wrapper.activity,
+.out {
+
     font-size: 1.6rem;
     font-weight: 600;
 }
 
 
 .banner {
-    
-    
+
+
     position: relative;
     margin-top: 60px;
     width: 100%;
-    
-    
-    padding-top: 30%;
-    
-    
 
-    
+
+    padding-top: 30%;
+
+
+
+
     ul {
-        
+
         position: absolute;
         top: 0;
         left: 0;
@@ -58,15 +59,15 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        
 
-        
+
+
         background-size: 100% auto;
         background-position: center center;
         opacity: .8;
         background-repeat: no-repeat;
 
-        
+
         &:nth-child(1) {
             background-image: url('../images/act_image/banner-1.jpg');
         }
@@ -76,14 +77,14 @@ body {
             background-position: bottom;
             background-size: cover;
         }
-        
+
         &:nth-child(3) {
             background-image: url("https://picsum.photos/1423/599?random=10") center;
         }
-        
+
     }
 
-    
+
     &::after {
         content: "";
         display: block;
@@ -94,7 +95,7 @@ body {
         height: 0;
         border-bottom: 90px solid #f4f5f7;
         border-left: 1905px solid transparent;
-        
+
 
 
     }
@@ -106,7 +107,7 @@ body {
 
     .filter {
         background-color: rgb(204, 162, 162);
-        
+
 
 
     }
@@ -139,7 +140,7 @@ body {
     left: 21%;
     bottom: -50px;
     z-index: 10;
-    
+
 
     @include phone() {
         left: 10%;
@@ -147,23 +148,23 @@ body {
 
 
     .type {
-        
+
         position: relative;
-        
+
         writing-mode: vertical-lr;
         display: inline-block;
         margin-right: 15px;
         padding: 10px;
         letter-spacing: 10px;
         color: $main;
-        
+
         font-size: 17px;
         font-weight: 800;
         background-color: $main;
-        
+
         clip-path: polygon(50% 0%, 100% 0, 100% 75%, 50% 100%, 0% 75%, 0 0);
         cursor: pointer;
-        
+
 
         @include phone() {
             padding: 5px;
@@ -191,7 +192,7 @@ body {
         }
 
         &::after {
-            
+
             z-index: -1;
             top: 0;
             left: 0;
@@ -208,7 +209,7 @@ body {
         color: #fff;
         top: 15px;
 
-        
+
         &::after {
 
             height: 140%;
@@ -219,10 +220,10 @@ body {
 
 
 .act-action {
-    
-    
-    
-    
+
+
+
+
     float: right;
     margin-right: 8%;
 
@@ -230,8 +231,8 @@ body {
 
     .my-act,
     .create-act {
-        
-        
+
+
         padding: 12px 25px;
 
         border: 0;
@@ -254,14 +255,14 @@ body {
 
             margin-right: 18%;
             margin-top: 10%;
-            
+
         }
 
         .m-filter {
             border: none;
             width: 30px;
             height: 30px;
-            
+
             opacity: .8;
             background: url(../images/act_image/m-filter-1.svg) no-repeat;
             cursor: pointer;
@@ -275,17 +276,17 @@ body {
 
 
 .condition {
-     padding: 70px 15px 0;
+    padding: 70px 15px 0;
 
 
-    
-    
-    @include phone(){
-        &.m-open{
-            transform: translateY(0); 
+
+
+    @include phone() {
+        &.m-open {
+            transform: translateY(0);
         }
     }
-    
+
 
 
     @include phone {
@@ -295,7 +296,7 @@ body {
         padding: 0;
         box-sizing: border-box;
         max-width: 100%;
-        
+
         position: fixed;
         z-index: 100;
         left: 0;
@@ -304,7 +305,7 @@ body {
         z-index: 30;
         transform: translateY(100%);
         transition: all .5s;
-        
+
 
         .condition.m-open {
             transform: translateY(0) !important;
@@ -312,15 +313,15 @@ body {
 
         background-color: $blue-deep;
 
-        
 
-      
+
+
 
     }
 
-    @include phone(){
+    @include phone() {
 
-        .m-close-filter{
+        .m-close-filter {
             position: absolute;
             display: block;
             top: 10px;
@@ -328,33 +329,29 @@ body {
             width: 30px;
             height: 30px;
 
-            &::before,&::after{
+            &::before,
+            &::after {
                 content: '';
                 position: absolute;
                 top: 0;
                 right: 50%;
                 width: 2px;
                 height: 25px;
-                background: lighten($main,10%);
+                background: lighten($main, 10%);
             }
-            &::before{
+
+            &::before {
                 transform: rotate(45deg);
-    
+
             }
-    
-            &::after{
+
+            &::after {
                 transform: rotate(-45deg);
             }
         }
     }
 
-    @include break(375px,767px){
-        
-        
-        
-        
-        
-    }
+    @include break(375px, 767px) {}
 
 
 }
@@ -364,7 +361,7 @@ body {
     margin-bottom: 40px;
 
     input[type="text"] {
-        
+
         display: block;
         padding: 0 10px;
         box-sizing: border-box;
@@ -381,8 +378,8 @@ body {
 .filter {
 
     @include phone() {
-        
-        
+
+
         width: 100%;
 
     }
@@ -392,8 +389,8 @@ body {
         color: #fff;
         font-weight: 600;
         font-size: 1.8rem;
-        
-        
+
+
     }
 
     .time .title {
@@ -414,22 +411,16 @@ body {
         background-color: #fff;
     }
 
-    @include break(375px,767px){
-    .time-area,
-    .zone-list,
-    .hard-list {
-        
-        
+    @include break(375px, 767px) {
 
-    
-    
-    
-    }
+        .time-area,
+        .zone-list,
+        .hard-list {}
     }
 
     label {
         display: block;
-        
+
         padding: 6px 0 6px 14px;
 
         @include phone() {
@@ -444,8 +435,8 @@ body {
     .time {
 
         .time-area {
-            
-            
+
+
             padding: 20px 0;
 
             @include phone() {
@@ -456,7 +447,7 @@ body {
 
             .month-picker,
             .month-picker-end {
-                
+
                 width: 75%;
                 min-width: 120px;
                 margin: 0 auto;
@@ -480,10 +471,10 @@ body {
             }
 
 
-            .ui-datepicker .ui-datepicker-title{
+            .ui-datepicker .ui-datepicker-title {
                 color: brown !important;
                 background-color: bisque !important;
-                
+
             }
 
 
@@ -491,7 +482,7 @@ body {
 
         input[type="text"] {
             display: inline-block;
-            
+
             width: 100%;
             height: 30px;
             padding: 0 10px;
@@ -510,9 +501,7 @@ body {
         padding: 10px 0px 10px 15px;
     }
 
-    .time-area {
-        
-    }
+    .time-area {}
 
     .zone-list {
         color: #D6A67F;
@@ -524,7 +513,7 @@ body {
 
     input[type="checkbox"] {
         display: inline-block;
-        
+
         height: 30px;
         box-sizing: border-box;
         vertical-align: middle;
@@ -533,12 +522,12 @@ body {
     }
 
     .hard {
-        
-        
-        
-        
 
-        
+
+
+
+
+
         span {
             display: inline-block;
             vertical-align: text-top;
@@ -575,8 +564,8 @@ body {
         width: 20px;
         height: 20px;
         margin: 3px 3px 5px;
-        
-        
+
+
         cursor: pointer;
         background: url("../images/act_image/add.svg") no-repeat;
     }
@@ -589,7 +578,7 @@ body {
     &::after {
         display: none;
         content: '';
-        
+
         position: absolute;
         top: 0%;
         left: 0%;
@@ -604,13 +593,13 @@ body {
     .detail.open {
         opacity: 1;
         visibility: visible;
-        
+
         transition: opacity .5s;
-        
-        
-        
-        
-        
+
+
+
+
+
 
         li {
             transform: translate(0);
@@ -640,13 +629,13 @@ body {
         height: 96%;
         box-sizing:border-box;
         border: 2px solid #C86036;
-        
+
         background-color: rgb(255, 255, 255);
         transition:opacity .5s,
         visibility 0s .5s;
-        
-        
-        
+
+
+
 
 
         .close-detail {
@@ -657,12 +646,12 @@ body {
             width: 30px;
             height: 30px;
             cursor: pointer;
-            
+
 
             &:before {
                 content: '';
                 position: absolute;
-                
+
                 top: 0;
                 left: 50%;
                 width: 2px;
@@ -672,11 +661,11 @@ body {
             }
 
             &::after {
-                content:'';
+                content: '';
                 position: absolute;
                 top: 0;
                 left: 50%;
-                
+
                 width: 2px;
                 height: 100%;
                 background: #333;
@@ -693,8 +682,8 @@ body {
             flex-direction: column;
             padding: 15px;
             box-sizing: border-box;
-            
-            
+
+
 
             li {
                 transform: translateX(30%);
@@ -703,8 +692,8 @@ body {
             li:not(:nth-last-of-type(1)) {
                 line-height: 1.2rem;
                 letter-spacing: .2rem;
-                
-                
+
+
                 padding: 5px 0 5px 40px;
                 color: #C86036;
 
@@ -716,19 +705,19 @@ body {
                 line-height: 2rem;
                 letter-spacing: .2rem;
 
-                
+
                 display: -webkit-box;
-                
+
                 -webkit-box-orient: vertical;
                 text-overflow: ellipsis;
                 overflow: hidden;
-                
 
-                
+
+
                 @include phone() {}
             }
 
-            
+
 
 
             li:nth-child(1) {
@@ -747,7 +736,7 @@ body {
                 transition: transform .55s
             }
 
-            
+
 
 
         }
@@ -759,29 +748,29 @@ body {
     min-height: 350px;
     min-width: 275.7px;
     ;
-    
-    
+
+
     margin-bottom: 20%;
     color: $sub;
     font-size: 1.5rem;
     border: 1px solid rgba(245, 230, 230, 0.3);
-    
+
     background-color: #F4F5F7;
     position: relative;
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    
+
+
+
+
+
+
+
+
+
+
     .avatar {
-        
+
         position: absolute;
         top: -27px;
         left: 22px;
@@ -809,14 +798,14 @@ body {
 
 
     .post-img {
-        
+
         width: 100%;
         padding-top: 62.5%;
         position: relative;
     }
 
     img {
-        
+
         position: absolute;
         top: 0;
         left: 0;
@@ -826,16 +815,16 @@ body {
 
     }
 
-    
+
     .post-intro {
         padding: 10px;
-        
+
         background-color: #fff;
-        
 
 
-        
-        
+
+
+
     }
 
     .title {
@@ -849,12 +838,12 @@ body {
         justify-content: space-between;
         height: 100%;
         font-size: 1.7rem;
-        
+
 
 
     }
 
-    
+
     .meta-top {
         padding: 6px 0;
         padding-bottom: 40px;
@@ -871,9 +860,9 @@ body {
     }
 
     .meta-bottom {
-        
-        
-        
+
+
+
 
         span {
             display: inline-block;
@@ -902,7 +891,7 @@ body {
                 padding-left: 20px;
                 margin-right: 5px;
                 background: url("../images/act_image/people.svg") no-repeat 8% 0;
-                
+
             }
 
             .msg {
@@ -918,11 +907,12 @@ body {
 
 
 
-.act-pages{
+.act-pages {
     padding: 10px 0;
     text-align: center;
     margin-bottom: 50px;
-    li{
+
+    li {
         display: inline-block;
         padding: 10px 15px;
         margin: 0 5px;
@@ -930,7 +920,7 @@ body {
         border: 1px solid $blue-light;
         cursor: pointer;
 
-        &:hover{
+        &:hover {
             color: #fff;
             background-color: $main;
         }
