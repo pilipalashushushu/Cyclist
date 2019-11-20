@@ -20,7 +20,7 @@
     h6,
     p {
         text-align: center;
-        font-weight: bold;
+        font-weight: 500;
     }
 
     h1 {
@@ -41,6 +41,7 @@
 
     h5 {
         font-size: $h5;
+        padding: 15px;
     }
 
     h6 {
@@ -49,21 +50,21 @@
 
     img {
         display: block;
-        width: 100%;
+        // width: 100%;
     }
 
     a {
-        color: white;
         display: block;
         width: 100%;
+        text-decoration: none;
     }
 
     background-color: #a3a3a3a3;
 
     .header {
         width: 100%;
-        height: 100px;
-        background-color: $main;
+        height: 60px;
+        background-color: $mainMedium;
         margin-top: 60px;
 
         .showbox {
@@ -99,8 +100,10 @@
     .notice,
     .total,
     .receive,
-    .payment {
-        width: 80%;
+    .payment,
+    .creditCard,
+    .myGold {
+        width: 85%;
         margin-top: 5vh;
         display: column;
         box-sizing: border-box;
@@ -112,11 +115,11 @@
     }
 
     .product {
-        width: 40%
+        width: 30%
     }
 
     .proinfo {
-        width: 60%;
+        width: 70%;
         display: flex;
         justify-content: space-around;
     }
@@ -133,24 +136,40 @@
         align-items: center;
 
         .cus {
-            width: 40%;
+            width: 30%;
+
+            img {
+                height: 100px;
+                margin: auto;
+            }
         }
 
         .amount,
         .subtotal,
+        .count,
         .option {
             flex-grow: 1;
-            width: 20%;
+            width: 17.5%;
         }
 
         .amount {
             text-align: center;
             vertical-align: middle;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 
     .detail {
-        .subtotal {
+
+        .m_d {
+            width: 52.5%;
+            display: flex;
+            align-items: center;
+        }
+
+        .count {
             color: $main;
         }
 
@@ -163,31 +182,35 @@
                 width: 25px;
                 height: 25px;
             }
+
+            img {
+                width: 100%;
+            }
         }
     }
 
     button {
-        width: 30px;
-        height: 30px;
-        color: $main;
+        width: 32px;
+        height: 32px;
+        color: $blue-deep;
         text-align: center;
         line-height: 30px;
         background-color: white;
         border: none;
         font-weight: bold;
         font-size: 20px;
-        border: 1px solid #a3a3a3;
+        border: 1px solid #c2c2c2;
         margin: 0;
+        cursor: pointer;
     }
 
     input {
         width: 60px;
         height: 30px;
-        border: 1px solid #a3a3a3;
-        margin: 0;
-        padding: 0;
+        border: 1px solid #c2c2c2;
+        // margin: 0 3px;
+        padding: 0px;
         text-align: center;
-
     }
 
     .total,
@@ -199,11 +222,14 @@
         align-items: center;
         padding-left: 10px;
 
-        span {
+        img {
+            width: 100%;
+        }
 
+        span {
             width: 22px;
             height: 22px;
-
+            padding: 10px;
         }
 
         h4+span {
@@ -214,38 +240,67 @@
         }
 
         .btn {
-            width: 150px;
-            height: 50px;
-            line-height: 50px;
+            width: 95px;
+            height: 35px;
+            line-height: 35px;
             margin: 0 10px;
-            background-color: $main;
-            color: #fff;
+            color: #1e3449;
+            border: 1px solid #8D99AC;
             transition: all .5s;
             cursor: pointer;
 
+            a {
+                color: #1e3449;
+            }
+
             &:hover {
-                background-color: $sub;
+                background-color: lighten($blue-light, 35%);
+            }
+        }
+
+        .next {
+            width: 95px;
+            height: 35px;
+            line-height: 35px;
+            margin: 0 10px;
+            border: 1px solid $main;
+            background-color: $main;
+            transition: all .5s;
+            cursor: pointer;
+            color: #fff;
+
+            a {
+                color: #fff;
+            }
+
+            &:hover {
+                background-color: lighten($main, 10%);
             }
         }
     }
 
     .receive,
-    .payment {
+    .payment,
+    .creditCard,
+    .myGold{
         height: 0;
         border-radius: 5px;
         transform: scaleY(0);
         transform-origin: top;
-        transition: all 1s;
+        transition: all 1s ;
         margin-bottom: 0;
 
         .recipient,
-        .cashflow {
+        .cashflow,
+        .cardInfo {
             width: 100%;
             box-sizing: border-box;
+            border-radius: 5px;
             background-color: #fff;
             display: flex;
             justify-content: space-between;
             flex-flow: wrap;
+            padding: 10px 10px;
 
             .memName,
             .tel {
@@ -292,7 +347,7 @@
     //自製checckbox
     .payment {
         .cashflow {
-            padding: 5px;
+            // padding: 10px;
             justify-content: flex-start;
 
             .pay {
@@ -355,8 +410,55 @@
 
     }
 
+    .myGold {
+        .goldInfo {
+            display: column;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 5px;
+            background-color: #fff;
+            padding: 10px 10px;
+        }
+
+        .have,
+        .discount {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+
+            h4 {
+                padding: 0 5px;
+            }
+
+            h4:last-child{
+                color: $main;
+            }
+        }
+    }
+
+    .creditCard {
+        .cardInfo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cardNum,
+        .cardDate,
+        .cardCode {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        input {
+            margin: 0 5px;
+        }
+    }
+
     .receive.active,
-    .payment.active {
+    .payment.active,
+    .creditCard.active,
+    .myGold.active {
         height: initial;
         transform: scaleY(1);
     }
@@ -371,6 +473,12 @@
 
 @include respond(small) {
 
+    #shoppingcart {
+        h4 {
+            font-size: 14px;
+        }
+    }
+
     .cartitem {
 
         .customizelist,
@@ -379,49 +487,62 @@
         .notice {
             width: 100%;
 
-            .item {
+            .proinfo {
                 display: none;
             }
 
         }
 
-        .detail {
+        .notice {
+            font-size: 14px;
 
-            flex-wrap: wrap;
-            justify-content: space-between;
+            h4+span {
+                width: 180px;
+            }
+        }
+
+        .detail {
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 15px;
 
             .amount,
             .subtotal,
-            .option {
+            .option,
+            .count {
                 flex-grow: 0;
             }
 
-            .amount,
-            .subtotal {
-                width: 40%;
-                margin-top: 10px;
-            }
-
-            .subtotal {
-                order: 2;
-            }
-
-            .amount {
-                order: 3;
-            }
-
             .cus {
-                width: 70%;
+                width: 40%;
+            }
+
+            .m_d {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .amount,
+            .subtotal,
+            .count {
+                width: 40%;
+                padding: 5px 0;
             }
 
             .option {
-                width: 30%;
+                width: 10%;
             }
         }
 
 
         .receive,
-        .payment {
+        .payment,
+        .creditCard,
+        .myGold {
             width: 100%;
 
             .recipient {
@@ -433,7 +554,55 @@
             }
         }
 
+        .creditCard {
+            .cardInfo {
+                .cardNum {
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    .cardNuminfo {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+
     }
 
+}
 
+//shoppingList CSS
+.shoppingList {
+    .cartitem {
+        .product {
+            width: 40%;
+        }
+
+        .proinfo {
+            width: 60%;
+
+            .subtotal,
+            .amount,
+            .count {
+                width: 20%;
+            }
+        }
+
+        .item,
+        .detail {
+            .cus {
+                width: 40%;
+            }
+
+            .m_d {
+                width: 60%;
+
+                .subtotal,
+                .amount,
+                .count {
+                    width: 20%;
+                }
+            }
+        }
+    }
 }
