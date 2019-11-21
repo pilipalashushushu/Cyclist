@@ -38,11 +38,11 @@ function init(){
                             this.prodAmount = data.length;
                             break;
                         case 1:
-                            this.prodList = order(data, "prodPrice");
+                            this.prodList = order(this.prodList, "prodPrice");
                             this.prodAmount = this.prodList.length;
                             break;
                         case 2:
-                            this.prodList = order(data, "prodPrice", 1);
+                            this.prodList = order(this.prodList, "prodPrice", 1);
                             this.prodAmount = this.prodList.length;
                             break;
                         default:
@@ -489,9 +489,7 @@ function bannerSlider(){
     }).to( '#bannerRow' , 0, {
         x: 0,
         delay: 1.5,
-        success: function(){
-            setTimeout(bannerSlider, 1.5);
-        },
+        onComplete: bannerSlider,
     });
 }
 

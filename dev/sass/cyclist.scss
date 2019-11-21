@@ -22,12 +22,16 @@ section {
     }
 
     #activity {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: relative;
+        height: 100vh;
 
         .addAct {
             display: block;
             position: absolute;
-            top: -7%;
+            top: 12%;
             right: 3%;
             width: 30px;
             height: 30px;
@@ -58,172 +62,174 @@ section {
             }
         }
 
-        #coverflow {
-            margin-top: 10%;
+        .my-flipster {
+            width: 100vw;
+            height: 60vh;
+
+            .hm_title {
+                padding: 5px;
+                font-size: 18px;
+                font-weight: 600;
+                color: $colorStatus2;
+            }
+
+            .hm_txt {
+                font-size: 14px;
+                color: $colorStatus3;
+            }
+
+            .post-intro {
+                box-shadow: 0 0 3px #ccc;
+            }
+
+            .meta-top {
+                padding: 5px;
+
+                i {
+                    padding: 1px 3px;
+                    font-size: 28px;
+                    color: $main;
+                }
+            }
+
+            .meta-bottom {
+                padding: 10px 0 5px;
+                flex-direction: column;
+
+                .social {
+                    padding-left: 3px;
+                    margin-top: 15px;
+                }
+            }
         }
 
-        .hm_title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #678098;
-        }
+        i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 10px;
+            font-size: 40px;
+            color: $main;
 
-        .hm_txt {
-            font-size: 14px;
-            color: #929FB3;
-        }
-
-        .open-detail {
-            margin: 10px 3px;
-        }
-
-        .detail {
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-
-        .hm_deatilText {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .close-detail {
-            position: absolute;
-            top: -9%;
-            right: -35%;
+             &:hover {
+                 color: lighten($main, 10%);
+                 transition: all .3s ease-in;
+                 transform: translateY(10px);
+             }
         }
 
         .more {
             display: inline-block;
             position: absolute;
-            bottom: 25%;
-            left: 46%;
+            bottom: 5%;
+            left: 47%;
             width: 110px;
             height: 35px;
             background-color: #db6437;
-            color: #fff;
-            border-radius: 5px;
             font-size: 14px;
             font-weight: 400;
             cursor: pointer;
+            border: 1px solid $main;
+
+            a {
+                color: #fff;
+            }
 
             &:hover {
-                background-color: #EED0AF;
-                color: #db6437;
+                background-color: lighten($main, 10%);
             }
         }
-    }
 
-    /* @group Flipster Essential Styles */
-    .flipster {
-        display: block;
-        /* overflow-x: hidden; */
-        overflow-y: visible;
-        position: relative;
-    }
+        /* @group Flipster Essential Styles */
+        .flipster {
+            display: block;
+            /* overflow-x: hidden; */
+            overflow-y: visible;
+            position: relative;
+        }
 
-    .flipster:focus {
-        outline: none;
-    }
+        .flipster:focus {
+            outline: none;
+        }
 
-    .flipster__container,
-    .flipster__item {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        position: relative;
-    }
+        .flipster__container,
+        .flipster__item {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            position: relative;
+        }
 
-    .flipster__container {
-        display: block;
-        white-space: nowrap;
-        word-spacing: -0.25em;
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
+        .flipster__container {
+            display: block;
+            white-space: nowrap;
+            word-spacing: -0.25em;
+            transform-origin: 50% 50%;
+            backface-visibility: hidden;
+        }
 
-    .flipster__item {
-        display: inline-block;
-        white-space: normal;
-        word-spacing: normal;
-        vertical-align: bottom;
-    }
+        .flipster__item {
+            display: inline-block;
+            white-space: normal;
+            word-spacing: normal;
+            vertical-align: bottom;
+        }
 
-    .flipster--click .flipster__item--past,
-    .flipster--click .flipster__item--future {
-        cursor: pointer;
-    }
+        .flipster--click .flipster__item--past,
+        .flipster--click .flipster__item--future {
+            cursor: pointer;
+        }
 
-    .flipster__item img {
-        max-width: 100%;
-    }
+        .flipster__item img {
+            max-width: 100%;
+        }
 
-    /* @end */
-    /* @group Flipster Coverflow Theme */
-    .flipster--coverflow .flipster__container,
-    .flipster--coverflow .flipster__item,
-    .flipster--coverflow .flipster__item__content {
-        -webkit-transition: all 350ms ease-in-out;
-        -o-transition: all 350ms ease-in-out;
-        transition: all 350ms ease-in-out;
-        -webkit-transition-timing-function: cubic-bezier(0.56, 0.12, 0.12, 0.98);
-        -o-transition-timing-function: cubic-bezier(0.56, 0.12, 0.12, 0.98);
-        transition-timing-function: cubic-bezier(0.56, 0.12, 0.12, 0.98);
-    }
+        /* @end */
+        /* @group Flipster Coverflow Theme */
+        .flipster--coverflow .flipster__container,
+        .flipster--coverflow .flipster__item,
+        .flipster--coverflow .flipster__item__content {
+            transition: all 350ms ease-in-out;
+            transition-timing-function: cubic-bezier(0.56, 0.12, 0.12, 0.98);
+        }
 
-    .flipster--coverflow .flipster__item {
-        -webkit-perspective: 1000px;
-        perspective: 1000px;
-    }
+        .flipster--coverflow .flipster__item {
+            perspective: 1000px;
+        }
 
-    .flipster--coverflow .flipster__container {
-        padding-bottom: 20%;
-    }
+        .flipster--coverflow .flipster__container {
+            padding-bottom: 20%;
+        }
 
-    .flipster--coverflow .flipster__item__content {
-        -webkit-transform-origin: 50% 100%;
-        -ms-transform-origin: 50% 100%;
-        transform-origin: 50% 100%;
-        -webkit-box-reflect: below 0 -webkit-gradient(linear, left bottom, left top, color-stop(0.05, rgba(255, 255, 255, 0.12)), color-stop(0.2, transparent));
-        -webkit-box-reflect: below 0 -webkit-gradient(linear, left bottom, left top, color-stop(0.05, rgba(255, 255, 255, 0.12)), color-stop(0.2, transparent));
-    }
+        .flipster--coverflow .flipster__item__content {
+            transform-origin: 50% 100%;
+            -webkit-box-reflect: below 0 -webkit-gradient(linear, left bottom, left top, color-stop(0.05, rgba(255, 255, 255, 0.12)), color-stop(0.2, transparent));
+        }
 
-    .flipster--coverflow .flipster__item__content img:only-child {
-        display: block;
-    }
+        .flipster--coverflow .flipster__item__content img:only-child {
+            display: block;
+        }
 
-    .flipster--coverflow .flipster__item--past .flipster__item__content {
-        -webkit-transform-origin: 0% 50%;
-        -ms-transform-origin: 0% 50%;
-        transform-origin: 0% 50%;
-        -webkit-transform: scale(0.75) rotateY(55deg);
-        transform: scale(0.75) rotateY(55deg);
-    }
+        .flipster--coverflow .flipster__item--past .flipster__item__content {
+            transform-origin: 0% 50%;
+            transform: scale(0.75) rotateY(55deg);
+        }
 
-    .flipster--coverflow .flipster__item--future .flipster__item__content {
-        -webkit-transform-origin: 100% 50%;
-        -ms-transform-origin: 100% 50%;
-        transform-origin: 100% 50%;
-        -webkit-transform: scale(0.75) rotateY(-55deg);
-        transform: scale(0.75) rotateY(-55deg);
-    }
+        .flipster--coverflow .flipster__item--future .flipster__item__content {
+            transform-origin: 100% 50%;
+            transform: scale(0.75) rotateY(-55deg);
+        }
 
-    .flipster--coverflow .flip-current .flipster__item__content {
-        -webkit-transform: rotateY(0deg);
-        transform: rotateY(0deg);
+        .flipster--coverflow .flip-current .flipster__item__content {
+            transform: rotateY(0deg);
+        }
     }
 
     /* @end */
 
     #product {
         #silderBoard {
-            height: 70vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -360,17 +366,14 @@ section {
                 }
             }
         }
-        .moreDiv {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            margin: 0 auto;
-        }
 
         .num {
+            width: 100%;
             display: flex;
             align-items: center;
-
+            justify-content: center;
+            position: absolute;
+            bottom: 15%;
 
             li {
                 width: 8px;
@@ -391,11 +394,13 @@ section {
             }
         }
 
+
+
         .more {
             display: inline-block;
-            // position: absolute;
-            // bottom: 5%;
-            // right: 3%;
+            position: absolute;
+            bottom: 5%;
+            right: 3%;
             width: 110px;
             height: 35px;
             background-color: $main;
@@ -421,6 +426,8 @@ section {
             justify-content: center;
 
             #silderBoard {
+                top: -10%;
+
                 .prodContent {
                     .prod-shell {
                         .prod-pic {
@@ -432,17 +439,21 @@ section {
 
             .num {
                 position: absolute;
-                bottom: 150px;
+                bottom: 25%;
             }
 
             .more {
                 display: inline;
+                width: 100px;
+                height: 30px;
                 position: absolute;
-                bottom: 15px;
-                right: 150px;
+                bottom: 30px;
+                right: 155px;
+                font-size: 13px;
             }
         }
     }
+
 
     //---------- hm_mustKnow
     #mustKnow {
