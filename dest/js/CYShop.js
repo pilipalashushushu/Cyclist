@@ -38,11 +38,11 @@ function init(){
                             this.prodAmount = data.length;
                             break;
                         case 1:
-                            this.prodList = order(data, "prodPrice");
+                            this.prodList = order(this.prodList, "prodPrice");
                             this.prodAmount = this.prodList.length;
                             break;
                         case 2:
-                            this.prodList = order(data, "prodPrice", 1);
+                            this.prodList = order(this.prodList, "prodPrice", 1);
                             this.prodAmount = this.prodList.length;
                             break;
                         default:
@@ -59,6 +59,7 @@ function init(){
                     this.prodAmount = this.prodList.length;
                     this.prodListTitle = title;
                     this.isShop = 1;
+                    this.filterOff();
                 },
                 onMoun(){ this.buttonFilter(data, "prodType", 1, "登山車"); }, //1 = 登山車
                 onRoad(){ this.buttonFilter(data, "prodType", 2, "公路車"); }, //2 = 公路車
@@ -71,6 +72,7 @@ function init(){
                 onAll(){
                     this.prodList = data.filter(item=>(item["prodType"] == 1 || item["prodType"] == 2 || item["prodType"] == 3));
                     this.prodAmount = this.prodList.length;
+                    this.prodListTitle = "成車";
                     this.isShop = 1;
                 },
                 //saerch bar
@@ -83,7 +85,26 @@ function init(){
                         this.prodListTitle = `全部商品`;
                     }
                     this.prodAmount = this.prodList.length;
-                    this.isShop = 1;       
+                    this.isShop = 1;
+                    this.filterOff();
+                },
+                //開啟手機篩選器
+                filterOn(){
+                    if( $('#fltr').css('right') == '0px' ){
+                        $('#fltr').css('right', '-100%');
+                    }else{
+                        $('#fltr').css('right', 0);
+                    }
+                },
+                //關閉手機篩選器
+                filterOff(){
+                    $('#fltr').css('right', '-100%');
+                },
+                //滑動頁面
+                slideTo(){
+                    $('html, body').animate({
+                        scrollTop: parseInt( $('#scrollme').offset().top ) - 60,
+                    }, 200);
                 },
                 //進入商品詳細頁
                 showProd(bool){
@@ -129,6 +150,9 @@ function init(){
                     return less
                 },
             },
+            watch: {
+                value(){}
+            },
         });
     }, "json")
 
@@ -152,12 +176,13 @@ function init(){
                 let psn = $(e.target).parent().next().attr('psn');
                 let name = $(e.target).parent().prev().prev().prev().text();
                 let price = $(e.target).parent().prev().text();
+                let src = $(e.target).parent().parent().find('img').attr('src');
                 if( !sessionStorage["cart-list"] ){
                     sessionStorage["cart-list"] = '';
                 }
                 if( sessionStorage["cart-list"].split(',').indexOf(psn) == -1){
                     sessionStorage["cart-list"] += `${psn},`;
-                    sessionStorage[`cart-row-${psn}`] = `${name},${price.slice(1, price.length)},1`;
+                    sessionStorage[`cart-row-${psn}`] = `${name},${price.slice(1, price.length)},1,${src}`;
                     //動畫
                     let target = $(e.target).parents('.prod').clone();
                     let axis = target.offset().left;
@@ -268,7 +293,8 @@ function init(){
                 let psn = $(e.target).parent().prev().prev().prev().attr('psn');
                 let name = $(e.target).parent().prev().prev().prev().text();
                 let price = $(e.target).parent().prev().prev().text();
-                let count = $(e.target).parent().prev().find('.prod-amount-show').text(); //NT$ 35000
+                let count = $(e.target).parent().prev().find('.prod-amount-show').text();
+                let src = $(e.target).parents('.prod-info-m').find('img').attr('src');
                 console.log(psn);
                 if( !sessionStorage["cart-list"] ){
                     sessionStorage["cart-list"] = '';
@@ -276,9 +302,9 @@ function init(){
                 if(count != 0){
                     if( sessionStorage["cart-list"].split(',').indexOf(psn) == -1){
                         sessionStorage["cart-list"] += `${psn},`;
-                        sessionStorage[`cart-row-${psn}`] = `${name},${price.slice(4, price.length)},${count}`;
+                        sessionStorage[`cart-row-${psn}`] = `${name},${price.slice(4, price.length)},${count},${src}`;
                     }else{
-                        sessionStorage[`cart-row-${psn}`] = `${name},${price.slice(4, price.length)},${count}`;
+                        sessionStorage[`cart-row-${psn}`] = `${name},${price.slice(4, price.length)},${count},${src}`;
                     }
                 }else{
                     alert("請填選購買數量");
@@ -489,9 +515,7 @@ function bannerSlider(){
     }).to( '#bannerRow' , 0, {
         x: 0,
         delay: 1.5,
-        success: function(){
-            setTimeout(bannerSlider, 1.5);
-        },
+        onComplete: bannerSlider,
     });
 }
 
