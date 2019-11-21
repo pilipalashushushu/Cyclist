@@ -1,6 +1,9 @@
 <?php
-session_start();
-$_SESSION["date"] = date("Y/m/d");
 require_once('connect.php');
-echo $_SESSION["date"];
+$prodlist = $pdo->query("select * from `products`");
+$arr = [];
+while( $prodRow = $prodlist->fetch(PDO::FETCH_ASSOC) ){
+    array_push($arr, $prodRow);
+};
+echo json_encode($arr);
 ?>

@@ -9,10 +9,13 @@
     <link rel="shortcut icon" href="images/favicon02.ico" type="image/x-icon" />
     <title>CY嚴選</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./js/tadashiScript.js"></script>;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
     <script src="./js/CYShop.js"></script>
 </head>
 
@@ -56,12 +59,16 @@
             </nav>
         </nav>
     </header>
+
+    <!-- Vue -->
+    <div id="prodRender" style="position: relative;">
+
     <!-- search bar -->
     <div class="side-wrap search-wrap wrap">
         <div class="container">
             <div class="row">
                 <div class="search col-11">
-                    <input class="col-8 col-md-8" type="text">
+                    <input class="col-8 col-md-8" type="text" v-model="searchbar" max-length="10" @input="searching">
                     <div class="col-2">
                         <i class="fa fa-search col-md-2" aria-hidden="true"></i>
                     </div>
@@ -84,24 +91,30 @@
                             <div class="col-11">
                                 <h3>車款</h3>
                                 <ul>
-                                    <li class="prodTitle">公路車</li>
-                                    <li class="prodTitle">登山車</li>
-                                    <li class="prodTitle">城市車</li>
+                                    <li class="prodTitle" @click="onRoad">公路車</li>
+                                    <li class="prodTitle" @click="onMoun">登山車</li>
+                                    <li class="prodTitle" @click="onCity">城市車</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="filter-theme col-10">
                             <div class="col-11">
                                 <h3>價格</h3>
-                                <input type="text" maxlength="6">
+                                    <price-slider :top="topPrice" :less="lessPrice"/>
+                                    <!-- <div style="width: 100%;height: 5px;background-color: #fff;border-radius: 2px;position: relative;">
+                                        <div id="priceSwitch" style="width: 20px;height: 20px;background-color: #aaa;position: absolute;left: 0;top: 0;bottom: 0;margin: auto;border-radius: 50%;"></div>
+                                    </div>
+                                    <p style="width: 100%;color: #fff;padding-top: 10px;">{{nowPrice}}</p> -->
+                                    <!-- <div id="priceSlider"></div>
+                                    <p id="priceSliderNum"></p> -->
                             </div>
                         </div>
                         <div class="filter-theme col-10">
                             <div class="col-11">
                                 <h3>種類</h3>
                                 <ul>
-                                    <li class="prodTitle">成車</li>
-                                    <li class="prodTitle">保養品</li>
+                                    <li class="prodTitle" @click="onAll">成車</li>
+                                    <li class="prodTitle" @click="decor">保養品及消耗品</li>
                                 </ul>
                             </div>
                         </div>
@@ -109,10 +122,10 @@
                             <div class="col-11">
                                 <h3>顏色</h3>
                                 <ul>
-                                    <li class="square"></li>
-                                    <li class="square"></li>
-                                    <li class="square"></li>
-                                    <li class="square"></li>
+                                    <li class="square" @click="colorBlack"></li>
+                                    <li class="square" @click="colorWhite"></li>
+                                    <li class="square" @click="colorRed"></li>
+                                    <li class="square" @click="colorBlue"></li>
                                 </ul>
                             </div>
                         </div>
@@ -126,20 +139,23 @@
         </div>
     </div>
 
+    <!-- isShop  start-->
+    <div v-if="isShop === 1" style="overflow: hidden;">
+
     <!-- bannerTag -->
     <div class="main-wrap banner-wrap wrap">
         <div class="container">
             <div class="bannerTag-row row">
                 <div class="banners col-12 col-md11">
-                    <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
-                    <div>
-                        <ul class="banner-row col-12" id="bannerRow">
-                            <li class="banner col-12 col-md-4"></li>
-                            <li class="banner col-12 col-md-4"></li>
-                            <li class="banner col-12 col-md-4"></li>
+                    <span class="col-1" style="visibility: hidden;"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+                    <div class="col-10" style="overflow: hidden;padding: 0;">
+                        <ul class="banner-row col-12" id="bannerRow" style="padding: 0;">
+                            <li class="banner col-12 col-md-3"></li>
+                            <li class="banner col-12 col-md-3"></li>
+                            <li class="banner col-12 col-md-3"></li>
                         </ul>
                     </div>
-                    <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                    <span class="col-1" style="visibility: hidden;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
                 </div>
             </div>
         </div>
@@ -151,14 +167,13 @@
             <div class="prod-row row">
                 <div class="prod-sort col-11 col-md-12">
                     <div>
-                        <h2 id="prodListTitle">全部商品<span>(87)</span></h2>
+                        <h2 id="prodListTitle">{{prodListTitle}}<span>({{prodAmount}})</span></h2>
                     </div>
                     <div>
-                        <select id="order" autofocus="true">
-                            <option value="1">最新</option>
-                            <option value="2">最舊</option>
-                            <option value="3">最低價</option>
-                            <option value="4">最高價</option>
+                        <select id="order" autofocus="true" @change="orderOnChange">
+                            <option value="0">排序</option>
+                            <option value="1">最低價</option>
+                            <option value="2">最高價</option>
                         </select>
                         <label for="order">
                             <i class="fa fa-sort" aria-hidden="true"></i>
@@ -166,162 +181,27 @@
                     </div>
                 </div>
                 <ul class="prod-list col-12">
-                    <li class="prod col-6 col-md-6">
-                        <div class="prod-shell">
-                            <div class="prod-pic">
-                                <img src=./images/TCR_SLR_M01.png> </div> <h3 class="prod-title">TCR SL 2</h3>
-                                <p class="prod-context">TCR 爬坡型公路競賽用車</p>
-                                <p class="prod-money">$28,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
-                                <div class="prodIcon">
-                                    <p class="prod_like"></p>
-                                    <p class="prod_cart"></p>
-                                </div>
-                            </div>
-                    </li>
-                    <li class="prod col-6 col-md-6">
-                        <div class="prod-shell">
-                            <div class="prod-pic">
-                                <img src=./images/TCR_SLR_C02.png> </div> <h3 class="prod-title">城市車</h3>
-                                <p class="prod-context">小心注意的車</p>
-                                <p class="prod-money">$2,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
-                                <div class="prodIcon">
-                                    <p class="prod_like"></p>
-                                    <p class="prod_cart"></p>
-                                </div>
-                            </div>
-                    </li>
-                    <li class="prod col-6 col-md-6">
-                        <div class="prod-shell">
-                            <div class="prod-pic">
-                                <img src=./images/TCR_SLR_R01.png> </div> <h3 class="prod-title">公路車</h3>
-                                <p class="prod-context">超好的車</p>
-                                <p class="prod-money">$2,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
-                                <div class="prodIcon">
-                                    <p class="prod_like"></p>
-                                    <p class="prod_cart"></p>
-                                </div>
-                            </div>
-                    </li>
-                    <li class="prod col-6 col-md-6">
-                        <div class="prod-shell">
-                            <div class="prod-pic">
-                                <img src=./images/TCR_SLR_R02.png> </div> <h3 class="prod-title">公路車</h3>
-                                <p class="prod-context">超好的車</p>
-                                <p class="prod-money">$2,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
-                                <div class="prodIcon">
-                                    <p class="prod_like"></p>
-                                    <p class="prod_cart"></p>
-                                </div>
-                            </div>
-                    </li>
-                    <li class="prod col-6 col-md-6">
-                        <div class="prod-shell">
-                            <div class="prod-pic">
-                                <img src=./images/TCR_SLR_R03.png> </div> <h3 class="prod-title">公路車</h3>
-                                <p class="prod-context">超好的車</p>
-                                <p class="prod-money">$2,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
-                                <div class="prodIcon">
-                                    <p class="prod_like"></p>
-                                    <p class="prod_cart"></p>
-                                </div>
-                            </div>
-                    </li>
-                    <li class="prod col-6 col-md-6">
-                        <div class="prod-shell">
-                            <div class="prod-pic">
-                                <img src=./images/TCR_SLR_R01.png> </div> <h3 class="prod-title">公路車</h3>
-                                <p class="prod-context">超好的車</p>
-                                <p class="prod-money">$2,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
-                                <div class="prodIcon">
-                                    <p class="prod_like"></p>
-                                    <p class="prod_cart"></p>
-                                </div>
-                            </div>
-                    </li>
-                    <li class="prod col-6 col-md-6">
-                        <div class="prod-shell">
-                            <div class="prod-pic">
-                                <img src=./images/TCR_SLR_M02.png> </div> <h3 class="prod-title">TCR SL 2</h3>
-                                <p class="prod-context">TCR 爬坡型公路競賽用車</p>
-                                <p class="prod-money">$28,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
-                                <div class="prodIcon">
-                                    <p class="prod_like"></p>
-                                    <p class="prod_cart"></p>
-                                </div>
-                            </div>
-                    </li>
-                    <li class="prod col-6 col-md-6">
-                        <div class="prod-shell">
-                            <div class="prod-pic">
-                                <img src=./images/TCR_SLR_C03.png> </div> <h3 class="prod-title">城市車</h3>
-                                <p class="prod-context">小心注意的車</p>
-                                <p class="prod-money">$2,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
-                                <div class="prodIcon">
-                                    <p class="prod_like"></p>
-                                    <p class="prod_cart"></p>
-                                </div>
-                            </div>
-                    </li>
-                    <li class="prod col-6 col-md-6">
-                        <div class="prod-shell">
-                            <div class="prod-pic">
-                                <img src=./images/TCR_SLR_R01.png> </div> <h3 class="prod-title">公路車</h3>
-                                <p class="prod-context">超好的車</p>
-                                <p class="prod-money">$2,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
-                                <div class="prodIcon">
-                                    <p class="prod_like"></p>
-                                    <p class="prod_cart"></p>
-                                </div>
-                            </div>
-                    </li>
-                    <li class="prod col-6 col-md-6">
-                        <div class="prod-shell">
-                            <div class="prod-pic">
-                                <img src=./images/TCR_SLR_R03.png> </div> <h3 class="prod-title">公路車</h3>
-                                <p class="prod-context">超好的車</p>
-                                <p class="prod-money">$2,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
-                                <div class="prodIcon">
-                                    <p class="prod_like"></p>
-                                    <p class="prod_cart"></p>
-                                </div>
-                            </div>
-                    </li>
-                    <li class="prod col-6 col-md-6">
-                        <div class="prod-shell">
-                            <div class="prod-pic">
-                                <img src=./images/TCR_SLR_C03.png> </div> <h3 class="prod-title">城市車</h3>
-                                <p class="prod-context">超好的車</p>
-                                <p class="prod-money">$2,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
-                                <div class="prodIcon">
-                                    <p class="prod_like"></p>
-                                    <p class="prod_cart"></p>
-                                </div>
-                            </div>
-                    </li>
-                    <li class="prod col-6 col-md-6">
+                    <prod-component 
+                    v-for="(prod, index) in prodList" 
+                    :key="index" 
+                    :img="prod.prodPic" 
+                    :name="prod.prodName" 
+                    :price="prod.prodPrice" 
+                    :detail="prod.prodDetail.substr(0, 20) + '...'" 
+                    :index="prod.prodNo"
+                    @is-in-shop="showProd"/>
+                    <!-- <li class="prod col-6 col-md-6">
                         <div class="prod-shell">
                             <div class="prod-pic">
                                 <img src=./images/TCR_SLR_M03.png> </div> <h3 class="prod-title">登山車</h3>
                                 <p class="prod-context">超好的車</p>
                                 <p class="prod-money">$2,000</p>
-                                <!-- <p class="prod-buy-directly">直接購買</p> -->
                                 <div class="prodIcon">
                                     <p class="prod_like"></p>
                                     <p class="prod_cart"></p>
                                 </div>
                             </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -334,16 +214,317 @@
                 <div class="pages col-12">
                     <ul>
                         <li>前一頁</li>
-                        <li class="pages_active">1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
+                        <li v-for="n in pagesBtn">{{n}}</li>
                         <li>後一頁</li>
                     </ul>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- isShop 1 end-->
+
+    </div>
+    
+    <!-- isShop 2 start-->
+    <div v-else-if="isShop === 2" style="overflow: hidden;">
+            <!-- prod bread -->
+    <div class="prodInfo-wrap wrap">
+            <div class="container">
+                <div class="prod-bread row">
+                    <div class="col-12 col-md-12">
+                        <a @click="leaveProd">商品列表</a>
+                        <i class="fa" aria-hidden="true"> ▸ </i>
+                        <a>熱門商品</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- prod info -->
+        <div class="prodInfo-wrap wrap">
+            <div class="container">
+                <div class="prod-info row">
+                    <prod-intro 
+                        v-for="(prod, index) in nowProd.slice(0,1)" 
+                        :key="index"
+                        :img="prod.prodPic" 
+                        :price="prod.prodPrice" 
+                        :type="prod.prodType" 
+                        :name="prod.prodName" 
+                        :detail="prod.prodDetail"
+                        :psn="prod.prodNo"
+                        :psn="prodNo"/>
+                    <!-- <div class="prod-info-m col-12 col-md-12">
+                        <div class="prod-pic-group col-12">
+                            <div class="prod-pic-main col-12 col-md-12">
+                                <img class="prod-pic-show" src="./images/TCR_SLR_R01.png">
+                            </div>
+                            <div class="prod-pic-slider col-12">
+                                <div class="prod-pic-arrow col-md-1"></div>
+                                <div class="prod-pic-innerslider col-10">
+                                    <div>
+                                        <div>
+                                            <img src="./images/TCR-SL-2.jpg">
+                                        </div>
+                                        <div>
+                                            <img src="./images/TCR-TCR-SLR.jpg">
+                                        </div>
+                                        <div>
+                                            <img src="./images/TCR-SL-2.jpg">
+                                        </div>
+                                        <div>
+                                            <img src="./images/TCR-TCR-SLR.jpg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="prod-pic-arrow col-1"></div>
+                            </div>
+                        </div>
+                        <div class="prod-intro">
+                            <div class="center col-12">
+                                <div class="prod-intro-text col-12 col-md-7">
+                                    <h2 class="prod-title">公路車</h2>
+                                    <p class="prod-introCont">TCR
+                                        爬坡型公路競賽用車<br>急縱陡坡，急切入彎，更輕量更強騎乘效率，經典傳奇的TCR是你的全能競賽戰駒。多年以來在專業級比賽中屢屢勝出的 TCR Advanced
+                                        SL，是無數個專業自行車選手的最佳選擇。全手工打造的碳纖維複合材質，全面優化的壓縮幾何設計、OverDrive 2 加大車首強化設計、MegaDrive
+                                        加大管件強化設計以及
+                                        PowerCore
+                                        整合式五通下叉動力傳導設計，達到輕量與剛性最完美的平衡，多功整合的一體式座桿，不僅節省了45g的重量更提升了騎乘品質及騎乘的路感，讓動力的傳輸更為直接。長距離、高難度、有著長陡坡與急彎的賽事，TCR
+                                        都是全能型選手心中唯一的選擇。</p>
+                                </div>
+                                <div class="prod-intro-btns col-12 col-md-5">
+                                    <h3 class="prod-name">TCR SL 2</h3>
+                                    <p class="prod-money">NT$ 28,000</p>
+                                    <ul>
+                                        <li class="prod-amount-arrow"><i class="fa fa-minus" aria-hidden="true"></i></i>
+                                        </li>
+                                        <li class="prod-amount-show col-4">0</li>
+                                        <li class="prod-amount-arrow"><i class="fa fa-plus" aria-hidden="true"></i></i>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <input type="button" class="prod-buy-join col-4 col-lg-10" value="加入購物車">
+                                        <input type="button" class="prod-save col-5" value="加入收藏">
+                                    </div>
+                                    <p>付款方式: 信用卡 <i class="fa fa-credit-card" aria-hidden="true"></i></p>
+                                    <p>交貨方式: 貨運宅配 <i class="fa fa-car" aria-hidden="true"></i></p>
+                                    <p>服務承諾: 提供統一發票或免用統一發票收據</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    
+        <!-- prod content -->
+        <div class="prodInfo-wrap wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="prod-cont prod-title col-12">
+                        <h2 @click.self="prodFold" class="prodfolder">商品介紹<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></h2>
+                        <img src="images/prod-cont-01.jpg">
+                        <img src="images/prod-cont-02.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- prod spec -->
+        <div class="prodInfo-wrap wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="prod-spec prod-title col-12 col-md-12">
+                        <h2 @click.self="prodFold" class="prodfolder">詳細規格<i class="fa fa-arrow-circle-o-down" aria-hidden="true" @click.stop></i></h2>
+                        <prod-spec/>
+                        <p class="prod-spec-remind">Cyclist對本網站所刊載之產品資料保留修改權利，恕不另行通知(包括有關設備，規格，型號，重量，顏色和材料等)，請以實際產品為主。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- prod recommand -->
+        <div class="prodInfo-wrap wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="prod-reco prod-title col-12">
+                        <h2 @click.self="prodFold" class="prodfolder">推薦商品<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></h2>
+                        <ul class="prod-list col-12">
+                            <prod-component 
+                            v-for="(prod, index) in prodList.slice(0, 2)" 
+                            :key="index"
+                            :img="prod.prodPic" 
+                            :name="prod.prodName" 
+                            :price="prod.prodPrice" 
+                            :detail="prod.prodDetail.substr(0, 20) + '...'"
+                            :index="prod.prodNo"/>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- prod event -->
+        <div class="prodInfo-wrap wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="prod-event prod-title col-12">
+                        <h2 @click.self="prodFold" class="prodfolder">相關活動<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></h2>
+                        <ul class="prod-list col-12">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <!-- isShop 2 end-->
+
+    </div>
+
+    <!-- isShop 3 start-->
+
+    <div v-else  style="overflow: hidden;">
+        <div class="prodInfo-wrap wrap">
+            <div class="container">
+                <div class="prod-bread row">
+                    <div class="col-12 col-md-12">
+                        <a @click="leaveProd">商品列表</a>
+                        <i class="fa" aria-hidden="true"> ▸ </i>
+                        <a>熱門商品</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- prod info -->
+        <div class="prodInfo-wrap wrap">
+            <div class="container">
+                <div class="prod-info row">
+                    <prod-intro 
+                        v-for="(prod, index) in nowProd.slice(0,1)" 
+                        :key="index" 
+                        :img="prod.prodPic" 
+                        :price="prod.prodPrice" 
+                        :type="prod.prodType" 
+                        :name="prod.prodName" 
+                        :detail="prod.prodDetail"/>
+                    <!-- <div class="prod-info-m col-12 col-md-12">
+                        <div class="prod-pic-group col-12">
+                            <div class="prod-pic-main col-12 col-md-12">
+                                <img class="prod-pic-show" src="./images/TCR_SLR_R01.png">
+                            </div>
+                            <div class="prod-pic-slider col-12">
+                                <div class="prod-pic-arrow col-md-1"></div>
+                                <div class="prod-pic-innerslider col-10">
+                                    <div>
+                                        <div>
+                                            <img src="./images/TCR-SL-2.jpg">
+                                        </div>
+                                        <div>
+                                            <img src="./images/TCR-TCR-SLR.jpg">
+                                        </div>
+                                        <div>
+                                            <img src="./images/TCR-SL-2.jpg">
+                                        </div>
+                                        <div>
+                                            <img src="./images/TCR-TCR-SLR.jpg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="prod-pic-arrow col-1"></div>
+                            </div>
+                        </div>
+                        <div class="prod-intro">
+                            <div class="center col-12">
+                                <div class="prod-intro-text col-12 col-md-7">
+                                    <h2 class="prod-title">公路車</h2>
+                                    <p class="prod-introCont">TCR
+                                        爬坡型公路競賽用車<br>急縱陡坡，急切入彎，更輕量更強騎乘效率，經典傳奇的TCR是你的全能競賽戰駒。多年以來在專業級比賽中屢屢勝出的 TCR Advanced
+                                        SL，是無數個專業自行車選手的最佳選擇。全手工打造的碳纖維複合材質，全面優化的壓縮幾何設計、OverDrive 2 加大車首強化設計、MegaDrive
+                                        加大管件強化設計以及
+                                        PowerCore
+                                        整合式五通下叉動力傳導設計，達到輕量與剛性最完美的平衡，多功整合的一體式座桿，不僅節省了45g的重量更提升了騎乘品質及騎乘的路感，讓動力的傳輸更為直接。長距離、高難度、有著長陡坡與急彎的賽事，TCR
+                                        都是全能型選手心中唯一的選擇。</p>
+                                </div>
+                                <div class="prod-intro-btns col-12 col-md-5">
+                                    <h3 class="prod-name">TCR SL 2</h3>
+                                    <p class="prod-money">NT$ 28,000</p>
+                                    <ul>
+                                        <li class="prod-amount-arrow"><i class="fa fa-minus" aria-hidden="true"></i></i>
+                                        </li>
+                                        <li class="prod-amount-show col-4">0</li>
+                                        <li class="prod-amount-arrow"><i class="fa fa-plus" aria-hidden="true"></i></i>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <input type="button" class="prod-buy-join col-4 col-lg-10" value="加入購物車">
+                                        <input type="button" class="prod-save col-5" value="加入收藏">
+                                    </div>
+                                    <p>付款方式: 信用卡 <i class="fa fa-credit-card" aria-hidden="true"></i></p>
+                                    <p>交貨方式: 貨運宅配 <i class="fa fa-car" aria-hidden="true"></i></p>
+                                    <p>服務承諾: 提供統一發票或免用統一發票收據</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    
+        <!-- prod content -->
+        <div class="prodInfo-wrap wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="prod-cont prod-title col-12">
+                        <h2 @click.self="prodFold" class="prodfolder">商品介紹<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></h2>
+                        <img src="images/prod-cont-01.jpg">
+                        <img src="images/prod-cont-02.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- prod spec -->
+        <div class="prodInfo-wrap wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="prod-spec prod-title col-12 col-md-12">
+                        <h2 @click.self="prodFold" class="prodfolder">詳細規格<i class="fa fa-arrow-circle-o-down" aria-hidden="true" @click.stop></i></h2>
+                        <prod-spec/>
+                        <p class="prod-spec-remind">Cyclist對本網站所刊載之產品資料保留修改權利，恕不另行通知(包括有關設備，規格，型號，重量，顏色和材料等)，請以實際產品為主。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- prod recommand -->
+        <div class="prodInfo-wrap wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="prod-reco prod-title col-12">
+                        <h2 @click.self="prodFold" class="prodfolder">推薦商品<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></h2>
+                        <ul class="prod-list col-12">
+                            <prod-component 
+                            v-for="(prod, index) in prodList.slice(0, 2)" 
+                            :key="index" 
+                            :img="prod.prodPic" 
+                            :name="prod.prodName" 
+                            :price="prod.prodPrice" 
+                            :detail="prod.prodDetail.substr(0, 20) + '...'"/>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- isShop 3 end-->
+
+    </div>
+
+    <!-- Vue -->
     </div>
 
     <!-- footer -->

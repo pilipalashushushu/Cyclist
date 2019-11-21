@@ -59,145 +59,129 @@
             <div class="showbox">
                 <div class="logo"><img src="./images/logo.png" alt=""></div>
                 <div class="title">
-                    <h2>Cy嚴選商城</h2>
+                    <h3>CY嚴選商城</h3>
                 </div>
             </div>
         </div>
-        <form action="">
-            <div class="cartitem">
-
-                <div class="productlist">
-                    <div class="item">
-                        <div class="product">
-                            <h3>一般商品</h3>
-                        </div>
-                        <div class="proinfo">
-                            <div class="subtotal">
-                                <h3>單價</h3>
-                            </div>
-                            <div class="amount">
-                                <h3>數量</h3>
-                            </div>
-                            <div class="option">
-                                <h3>操作</h3>
-                            </div>
-                        </div>
-
+        <!-- <form action=""> -->
+        <div id="app" class="cartitem">
+            <div class="productlist container">
+                <div class="item">
+                    <div class="product item_detail">
+                        <h3>一般商品</h3>
                     </div>
-                    <div class="detail detail1">
-
-                        <div class="cus">
-                            <h3>客製1</h3>
-                        </div>
+                    <div class="proinfo">
                         <div class="subtotal">
-                            <h3>9000</h3>
+                            <h3>單價</h3>
                         </div>
                         <div class="amount">
-                            <button>-</button>
-                            <input type="number" min="1">
-                            <button>+</button>
+                            <h3>數量</h3>
+                        </div>
+                        <div class="count">
+                            <h3>小計</h3>
                         </div>
                         <div class="option">
-                            <span><img src="./images/trash1.png" alt=""></span>
+                            <h3>操作</h3>
                         </div>
-
                     </div>
                 </div>
-                <!-- productlist -->
-
-                <div class="customizelist">
-                    <div class="item">
-                        <div class="product">
-                            <h3>客製商品</h3>
+                <div class="item_container" v-for="(item, index) in productList" :key="item.prodNumber">
+                    <div class="detail detail1 item_header item_body">
+                        <div class="cus item_detail">
+                            <img v-bind:src="item.prodPic" alt="">
+                            <h5 class="name">{{item.prodName}}</h5>
                         </div>
-                        <div class="proinfo">
+                        <div class="m_d">
                             <div class="subtotal">
-                                <h3>單價</h3>
+                                <h3><span>$</span>{{item.prodPrice}}</h3>
                             </div>
                             <div class="amount">
-                                <h3>數量</h3>
+                                <button @click="handleSub(item)">-</button>
+                                <input type="number" min="1" v-model="item.prodAmount">
+                                <button @click="handlePlus(item)">+</button>
                             </div>
-                            <div class="option">
-                                <h3>操作</h3>
+                            <div class="count">
+                                <h3><span>$</span>{{item.prodSum}}</h3>
                             </div>
-                        </div>
-
-                    </div>
-
-                    <div class="detail detail1">
-
-                        <div class="cus">
-                            <h3>客製1</h3>
-                        </div>
-                        <div class="subtotal">
-                            <h3>9000</h3>
-                        </div>
-                        <div class="amount">
-                            <button>-</button>
-                            <input type="number" min="1">
-                            <button>+</button>
                         </div>
                         <div class="option">
-                            <span><img src="./images/trash1.png" alt=""></span>
+                            <span @click="handledelete(index)"><img src="./images/trash1.png" alt=""></span>
                         </div>
 
                     </div>
-
                 </div>
-                <!-- customizelist -->
+            </div>
+            <!-- productlist -->
 
-
-                <div class="notice">
-                    <span><img src="./images/alerticon.png" alt=""></span>
-                    <h4>購物金使用說明:</h4>
-                    <span>請於結帳時選用購物金選項</span>
-                </div>
-
-
-                <div class="receive">
-
-                    <div class="recipient">
-                        <div class="memName">
-                            <h4>收件人:</h4><input type="text" name="" id="memName">
-                        </div>
-                        <div class="tel">
-                            <h4>電話:</h4><input type="text" id="tel">
-                        </div>
-                        <div class="addr">
-                            <h4>地址:</h4><input type="text" id="addr">
-                        </div>
+            <div class="customizelist container">
+                <div class="item">
+                    <div class="product">
+                        <h3>客製商品</h3>
                     </div>
-
-                </div>
-                <div class="payment">
-                    <div class="cashflow">
-                        <div class="title">
-                            <h4>請選擇付款方式:</h4>
+                    <div class="proinfo">
+                        <div class="subtotal">
+                            <h3>單價</h3>
                         </div>
-                        <label class="pay">
-                            <h4>信用卡</h4><input type="checkbox"><span class="checkmark"></span>
-                        </label>
-                        <label class="pay">
-                            <h4>購物金</h4><input type="checkbox"><span class="checkmark"></span>
-                        </label>
+                        <div class="amount">
+                            <h3>數量</h3>
+                        </div>
+                        <div class="count">
+                            <h3>小計</h3>
+                        </div>
+                        <div class="option">
+                            <h3>操作</h3>
+                        </div>
                     </div>
                 </div>
 
-
-                <div class="total">
-
-                    <div class="finalamount">
-                        <h3>$</h3>
+                <div class="item_container" v-for="(item, index) in customizeList" :key="item.prodNumber">
+                    <div class="detail detail1 item_header item_body">
+                        <div class="cus item_detail">
+                            <img v-bind:src="item.prodPic" alt="">
+                            <h5 class="name">{{item.prodName}}</h5>
+                        </div>
+                        <div class="m_d">
+                            <div class="subtotal">
+                                <h3><span>$</span>{{item.prodPrice}}</h3>
+                            </div>
+                            <div class="amount">
+                                <button @click="handleSub(item)">-</button>
+                                <input type="number" min="1" v-model="item.prodAmount">
+                                <button @click="handlePlus(item)">+</button>
+                            </div>
+                            <div class="count">
+                                <h3><span>$</span>{{item.prodSum}}</h3>
+                            </div>
+                        </div>
+                        <div class="option">
+                            <span @click="handledelete(index)"><img src="./images/trash1.png" alt=""></span>
+                        </div>
                     </div>
-                    <div class="btn" data-status="1">
-                        <h3>下一步</h3>
-                    </div>
+                </div>
+            </div>
+            <!-- customizelist -->
 
+
+            <div class="notice">
+                <span><img src="./images/alerticon.png" alt=""></span>
+                <h4>購物金使用說明 :</h4>
+                <span>請於結帳時選用購物金選項</span>
+            </div>
+
+            <div class="total">
+
+                <div class="finalamount">
+                    <h3><span>$</span>{{finalamount}}</h3>
+                </div>
+                <div class="next" data-status="1">
+                    <h4><a href="shoppingList.html">進行結帳</a></h4>
                 </div>
 
             </div>
-            <!-- cartitem -->
-        </form>
+
+        </div>
+        <!-- cartitem -->
+        <!-- </form> -->
 
 
 
@@ -213,44 +197,96 @@
 
     <script>
         $(function () {
-
-            //下一步展開地址 
-            //下一步展開付款方式
-            //確認金額
-            $(".btn").click(function () {
-                switch ($(this).data("status")) {
-                    case 1:
-                        $(".receive").addClass("active");
-                        $(this).data("status", 2);
-                        break;
-                    case 2:
-                        $(".payment").addClass("active");
-                        $(this).find("h3").text("確認金額");
-                        $(this).data("status", 3);
-                        break;
-                    case 3:
-                        break;
-                }
-            })
-
-            //checkbox單選
-            $(".pay input").click(function () {
-                if ($(this).prop("checked")) {
-                    $(".pay input:checkbox").prop("checked", false);
-                    $(this).prop("checked", true);
+            $.ajax({
+                url: "shoppingCart.php",
+                datType: "json",
+                type: "GET",
+                success: function (data) {
+                    console.log(data);
                 }
             });
 
-            //刪除購物單項目
-            $(".option").click(function () {
-                $(this).parent().remove();
-            })
-
-
+            if (sessionStorage["prodNumber"] == null) {
+                sessionStorage["prodNumber"] = "1";
+                sessionStorage["prodName"] = "TCR_SLR_C01";
+                sessionStorage["prodPic"] = "./images/TCR_SLR_C01.png";
+                sessionStorage["prodPrice"] = 2500;
+                sessionStorage["prodAmount"] = "1";
+            }
         });
     </script>
 
-
+    <!-- 購物車vue -->
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var incart = [];
+        var app = new Vue({
+            el: '#app',
+            data: {
+                Psum: 0,
+                Csum: 0,
+                allSum: 0,
+                productList: [{
+                        prodNumber: '1',
+                        prodName: sessionStorage.getItem('prodName'),
+                        prodPic: sessionStorage.getItem('prodPic'),
+                        prodPrice: parseInt(sessionStorage.getItem('prodPrice')),
+                        prodAmount: sessionStorage.getItem('prodAmount'),
+                        prodSum: parseInt(sessionStorage.getItem('prodPrice')),
+                    }, 
+                ],
+                customizeList: [{
+                        prodNumber: '1',
+                        prodName: 'TCR_SLR_M03',
+                        prodPic: './images/TCR_SLR_M03.png',
+                        prodPrice: 3500,
+                        prodAmount: '1',
+                        prodSum: 3500,
+                    },
+                    {
+                        prodNumber: '2',
+                        prodName: 'TCR_SLR_C02',
+                        prodPic: './images/TCR_SLR_C02.png',
+                        prodPrice: 2790,
+                        prodAmount: '1',
+                        prodSum: 2790,
+                    },
+                ]
+            },
+            methods: {
+                handlePlus: function (item) {
+                    item.prodAmount++;
+                    item.prodSum += item.prodPrice;
+                    this.finalamount;
+                },
+                handleSub: function (item) {
+                    if (item.prodAmount > 1) {
+                        item.prodAmount--;
+                        item.prodSum -= item.prodPrice;
+                    }
+                    this.finalamount;
+                },
+                handledelete: function (index) {
+                    console.log(this);
+                    this.productList.splice(index, 1);
+                    this.customizeList.splice(index, 1);
+                },
+            },
+            computed: {
+                finalamount() {
+                    this.Csum = 0;
+                    this.Psum = 0;
+                    for (i in this.productList) {
+                        this.Psum = this.productList[i].prodSum;
+                    }
+                    for (j in this.customizeList) {
+                        this.Csum += this.customizeList[j].prodSum;
+                    }
+                    return this.Csum + this.Psum;
+                },
+            }
+        })
+    </script>
 </body>
 
 </html>
