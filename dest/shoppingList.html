@@ -262,11 +262,11 @@
             $(".next").click(function () {
                 switch ($(this).data("status")) {
                     case 1:
-                        $(".receive").addClass("active");
+                        $(".receive").slideDown();
                         $(this).data("status", 2);
                         break;
                     case 2:
-                        $(".payment").addClass("active");
+                        $(".payment").slideDown();
                         $(this).find("h3").text("下一步");
                         $(this).data("status", 3);
                         break;
@@ -285,30 +285,25 @@
             });
 
             $(".card").click(function () {
-                if ($(".creditCard").hasClass('active')) {
-                    $(".creditCard").removeClass("active");
-                    $(".next").find("h4").text("下一步");
-                } else {
-                    $(".creditCard").addClass("active");
-                    $(".next").find("h4").text("送出訂單");
-                    if ($(".myGold").hasClass('active')) {
-                        $(".myGold").removeClass("active");
-                    }
-                }
 
+                $(".creditCard").slideToggle();
+                $(".myGold").slideUp();
+                if ($(this).prop("checked")) {
+                    $('.next').find("h4").text("送出訂單");
+                } else {
+                    $('.next').find("h4").text("下一步");
+                }
             });
 
             $(".gold").click(function () {
-                if ($(".myGold").hasClass('active')) {
-                    $(".myGold").removeClass("active");
-                    $(".next").find("h4").text("下一步");
+                $(".myGold").slideToggle();
+                $(".creditCard").slideUp();
+                if ($(this).prop("checked")) {
+                    $('.next').find("h4").text("送出訂單");
                 } else {
-                    $(".myGold").addClass("active");
-                    $(".next").find("h4").text("進行結帳");
-                    if ($(".creditCard").hasClass('active')) {
-                        $(".creditCard").removeClass("active");
-                    }
+                    $('.next').find("h4").text("下一步");
                 }
+
             });
         });
     </script>

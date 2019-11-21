@@ -282,12 +282,9 @@
     .receive,
     .payment,
     .creditCard,
-    .myGold{
-        height: 0;
+    .myGold {
+        display: none;
         border-radius: 5px;
-        transform: scaleY(0);
-        transform-origin: top;
-        transition: all 1s ;
         margin-bottom: 0;
 
         .recipient,
@@ -430,7 +427,7 @@
                 padding: 0 5px;
             }
 
-            h4:last-child{
+            h4:last-child {
                 color: $main;
             }
         }
@@ -453,14 +450,6 @@
         input {
             margin: 0 5px;
         }
-    }
-
-    .receive.active,
-    .payment.active,
-    .creditCard.active,
-    .myGold.active {
-        height: initial;
-        transform: scaleY(1);
     }
 
     .total {
