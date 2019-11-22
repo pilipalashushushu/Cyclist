@@ -35,9 +35,9 @@
     <div class="main-wrap banner-wrap wrap">
         <div class="container">
             <div class="bannerTag-row row">
-                <div class="banners col-12 col-md11">
+                <div class="banners col-12 col-md-11">
                     <span class="col-1" style="visibility: hidden;"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
-                    <div class="col-10" style="overflow: hidden;padding: 0;">
+                    <div class="col-12" style="overflow: hidden;">
                         <ul class="banner-row col-12" id="bannerRow" style="padding: 0;">
                             <li class="banner col-12 col-md-3"></li>
                             <li class="banner col-12 col-md-3"></li>
@@ -51,7 +51,7 @@
     </div>
 
     <!-- products -->
-    <div class="main-wrap wrap">
+    <div class="main-wrap wrap" id="scrollme">
         <div class="container">
             <div class="prod-row row">
                 <div class="prod-sort col-11 col-md-12">
@@ -122,9 +122,9 @@
             <div class="container">
                 <div class="prod-bread row">
                     <div class="col-12 col-md-12">
-                        <a @click="leaveProd">商品列表</a>
+                        <a style="cursor: pointer;" @click="leaveProd">商品列表</a>
                         <i class="fa" aria-hidden="true"> ▸ </i>
-                        <a>熱門商品</a>
+                        <a style="cursor: pointer;">熱門商品</a>
                     </div>
                 </div>
             </div>
