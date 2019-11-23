@@ -28,9 +28,9 @@
         </div>
         <!-- <form action=""> -->
         <div id="cart" class="cartitem">
-            <div class="productlist container">
+            <div class="productlist">
                 <div class="item">
-                    <div class="product item_detail">
+                    <div class="product">
                         <h3>一般商品</h3>
                     </div>
                     <div class="proinfo">
@@ -48,7 +48,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="item_container" v-for="(cart, index) in productList" :key="cart.prodNo">
+                <div class="cartEmpty">您尚未選擇商品</div>
+                <!-- <div class="item_container" v-for="(cart, index) in productList">
                     <div class="detail detail1 item_header item_body">
                         <div class="cus item_detail">
                             <img v-bind:src="cart.prodPic" alt="">
@@ -59,9 +60,9 @@
                                 <h3><span>$</span>{{getprodPrice(cart)}}</h3>
                             </div>
                             <div class="amount">
-                                <button @click="handleSub()">-</button>
-                                <input type="number" min="1" v-model="getprodAmount(cart)">
-                                <button @click="handlePlus()">+</button>
+                                <button @click="handleSub(cart)">-</button>
+                                <span>{{getprodAmount(cart)}}</span>
+                                <button @click="handlePlus(cart)">+</button>
                             </div>
                             <div class="count">
                                 <h3><span>$</span>{{getprodPrice(cart)}}</h3>
@@ -72,7 +73,32 @@
                         </div>
 
                     </div>
-                </div>
+                </div> -->
+                <div v-for="item in rows">
+                        <div class="detail">
+                            <div class="cus">
+                                <img :src="item.img" alt="">
+                                <h5 class="name">{{item.name}}</h5>
+                            </div>
+                            <div class="m_d">
+                                <div class="subtotal">
+                                    <h3><span>$</span>{{item.price}}</h3>
+                                </div>
+                                <div class="amount">
+                                    <button @click="item.num > 1 ?item.num-- : item.num">-</button>
+                                    <input type="text" :value="item.num"></input>
+                                    <button @click="item.num++,upData()">+</button>
+                                </div>
+                                <div class="count">
+                                    <h3><span>$</span>{{item.price * item.num}}</h3>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <span><img src="./images/trash1.png" alt=""></span>
+                            </div>
+    
+                        </div>
+                 </div>
             </div>
             <!-- productlist -->
 
@@ -101,18 +127,6 @@
 
     @@include('./template/footer.html')
 
-    <!-- <script>
-        $(function () {
-            $.ajax({
-                url: "shoppingCart.php",
-                datType: "json",
-                type: "GET",
-                success: function (data) {
-                    console.log(data);
-                }
-            });
-        });
-    </script> -->
 
     <!-- 購物車vue -->
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>

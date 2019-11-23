@@ -125,7 +125,8 @@
     }
 
     .item,
-    .detail {
+    .detail,
+    .cartEmpty {
         background-color: #fff;
         border-radius: 5px;
         margin-top: 15px;
@@ -158,10 +159,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            span {
+                width: 60px;
+                height: 30px;
+                border: 1px solid #ccc;
+                line-height: 30px;
+            }
         }
     }
 
+    .cartEmpty {
+        font-size: 18px;
+        font-weight: 500;
+        height: 150px;
+        text-align: center;
+        line-height: 150px;
+        display: none;
+    }
+
     .detail {
+        display: none;
 
         .m_d {
             width: 52.5%;
