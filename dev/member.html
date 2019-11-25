@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="../css/member.min.css" />
+  <link rel="stylesheet" href="../css/col.css" />
+  <link rel="stylesheet" href="../css/core.css" />
+  <link rel="stylesheet" href="../css/daygrid.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/daygrid.js"></script>
+  <title>會員中心</title>
+
+</head>
+<body>
+
+<div class="mem">
+ 
+    <div class="wrap">
+      @@include('./template/header.html')
+      <div class="cloudbox">
+        <img class="cloud1" src="images/cloud1.png" alt="" />
+
+        <img class="cloud2" src="images/cloud2.png" alt="" />
+
+        <!-- <img class="cloud3" src="images/cloud3.png" alt="" /> -->
+
+        <img class="cloud4" src="images/cloud4.png" alt="" />
+        <h2>會員中心</h2>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <!-- <h2>基本資料</h2> -->
+
+      <form action="" method="post" enctype="multipart/form-data">
+        <div class="col-12 col-md-5 mempicp">
+      <form action="pic.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="upFile" id="upFile" style="display:none"><br>
+        <label for="upFile">  
+        <img id="imgPreview" src="http://fakeimg.pl/440x320/282828/EAE0D0/">
+        </label>
+      <input type="submit" value="submit">
+                                          
+      </form> 
+
+          <div class="ifnull">
+            <!-- <p>上傳個人大頭貼</p> -->
+            <p></p>
+            <div class="mempicbox">
+           
+            </div>
+         
+          </div>
+
+          <div class="file"></div>
+        </div>
+
+        <div class="mylist">
+          <div class="col-12 col-md-7 member">
+            <div id="memfeedback"></div>
+
+
+          </div>
+        </div>
+      </form>
+      <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>  
+  
+
+      <div class="clearfix"></div>
+
+      <div id="tab-panel">
+        <div class="tabs">
+          <a class="order">我的訂單</a>
+          <a class="event">我的活動</a>
+        </div>
+
+        <ul class="tab-content">
+          <li class="order">
+            我的訂單
+            <div id="memord-data" class="my-ord"></div>
+            <div id="cus-data" class="my-ord cus-data"></div>
+          </li>
+
+
+          <li class="event">
+            <div class="col-12">
+                <div id="act-master"></div> <!-- 我舉辦的活動 -->          
+                <div id="act-join"></div><!-- 我參加的活動 -->
+   
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- <div class="calendar-wrap">
+              <div id="calendar"></div>
+            </div> -->
+          </li>
+
+        </ul>
+      </div>
+      @@include('./template/footer.html')
+    </div><!-- wrap -->
+  </div><!-- mem -->
+</body>
+
+ 
+</body>
+</html>
