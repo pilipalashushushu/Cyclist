@@ -189,7 +189,7 @@ $(document).ready(function(){
                     // dataType:"JSON",
                     success:function(msg){
 
-                        alert(msg);
+                        // alert(msg);
 
                         // alert("成功");
                         // var msg = JSON.parse(jsonStr)
