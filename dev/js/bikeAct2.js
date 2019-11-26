@@ -31,6 +31,17 @@ function init(){
                     getActNo(){
                         this.$emit('get-asn',this.asn);
                         console.log("組件");
+                    },
+                    openDetail(e){
+                        
+                            // console.log('test');
+                            $(e.target).parent().parent().parent().parent().next().addClass('open');
+                            $('.close-detail').on('click', function () {
+                                $(this).parent().parent().removeClass('open');
+                            })
+                            // $('.detail').css('opacity','1');
+                            // ??同一層找
+                        
                     }
                 },
                 computed:{
@@ -92,7 +103,7 @@ function init(){
                                     <div class="meta-top">
                                         <div class="date">{{getTime}}</div>
                                         <div class="location">{{item.actLoc.substr(0,6)}}</div>
-                                        <span class="open-detail"></span>
+                                        <span class="open-detail" @click="openDetail"></span>
                                     </div>
 
                                     <div class="meta-bottom">
@@ -114,8 +125,7 @@ function init(){
                                     <li>集合地點-{{item.actLoc}}</li>
                                     <li>出發日期-(六){{item.actStartDate}}</li>
                                     <li>報名截止-(六){{item.actDeadLine}}</li>
-                                    <li>五分山的地標是中央氣象局氣象雷達站，也是很多車友想征服的重要山頭，在單車界極負盛名。上到電達站後，往瑞芳和基隆港方向視野極佳，山海景致一覽無遺。
-                                        這次活動我們將水湳洞、黃金瀑布、九份、不厭亭、五分山雷達站等景點結合，１０２＋１０６經典路線，包山包海，一次吃到飽(保證不會吐)。.</li>
+                                    <li>{{item.actContent}}</li>
                                     <span class="close-detail"></span>
                                 </ul>
                             </div>
@@ -160,15 +170,15 @@ function init(){
                     $('.banner-bg li').hide().first().show().addClass('active');
                     $('.tab-bikes li').first().addClass('.active');
 
-                    $('.open-detail').on("click",function () {
-                                console.log('test');
-                                $(this).parent().parent().parent().parent().next().addClass('open');
-                                $('.close-detail').on('click', function () {
-                                    $(this).parent().parent().removeClass('open');
-                                })
-                                // $('.detail').css('opacity','1');
-                                // ??同一層找
-                    })
+                    // $('.open-detail').on("click",function () {
+                    //             console.log('test');
+                    //             $(this).parent().parent().parent().parent().next().addClass('open');
+                    //             $('.close-detail').on('click', function () {
+                    //                 $(this).parent().parent().removeClass('open');
+                    //             })
+                    //             // $('.detail').css('opacity','1');
+                    //             // ??同一層找
+                    // })
 
 
                     // ------------------------手機----------------------------
@@ -337,6 +347,7 @@ function init(){
                          
 
                     },
+                   
                 },
                 computed:{
                     actsFilter(){

@@ -1,7 +1,7 @@
 
 function init(){ 
     
-    var actNo = JSON.parse(localStorage['actNo']);
+    var actNo = JSON.parse(['actNo']);
     {/* <script type="text/x-template" id="comment-input">
         <div class="comment-input">
             <p class="title">留下意見</p>
@@ -100,11 +100,26 @@ function init(){
                     props:['item','itemMsg'],
                     data:function(){
                         return{
-                            
+                            // comArr:this.item,
+                            // newMsg:{},
                         }
                     },
                     methods:{
-                        // 看怎麼放進子主見自己的data
+                        putMsgText:function(){
+
+                            // this.comArr.push(this.itemMsg);
+                            // this.newMsg = Object.assign({},{
+                            //     comDate:"2019/11/26",
+                            //     content:"965755",
+                            //     id:1574762959334,
+                            //     memPic:"",
+                            //     nickName:"視網膜",
+                                
+                            //     // vm.$set(vm.new)
+                            // });
+                            // this.comArr.push(this.newMsg)
+                        }
+
                     },
                     // template:'#comment-list',
                     
@@ -114,7 +129,7 @@ function init(){
                 new Vue({
                     el:'#app',
                     data:{
-                        userMessage:"",
+                        userMessage:{},
                         list:data,
                         // list:[
                         //     {
@@ -150,24 +165,59 @@ function init(){
                             localStorage['memNo']=2;
                             localStorage['memPic']=JSON.stringify("");
                             localStorage['memNickName']=JSON.stringify("視網膜");
+                            
 
                             var dates =new Date();
                             var month = dates.getMonth()+1;
                             var date = dates.getDate();
+                            var hour = dates.getHours();
+                            var min = dates.getMinutes();
+                            var sec = dates.getMinutes();
 
-                            var comDate = dates.getFullYear() + '/' + 
-                            (month<10 ? '0' : '') + month + '/' + 
-                            (date<10 ? '0' : '') + date;
+                            var comDate = dates.getFullYear() + '-' + 
+                            (month<10 ? '0' : '') + month + '-' + 
+                            (date<10 ? '0' : '') + date +" "+ 
+                            (hour<10 ? '0' : '')+hour + ":"+
+                            (min<10 ? '0' : '')+min + ":"+
+                            (sec<10 ? '0' : '')+sec;
+                            
 
 
                             this.list.push({
                                 // memNo:JSON.parse(localStorage['memNo']),
-                                id:timestamp,
-                                memPic:JSON.parse(localStorage['memPic']),
-                                nickName:JSON.parse(localStorage['memNickName']),
-                                content:newMsg,
+                                // id:timestamp,
+                                actNo:JSON.parse(localStorage['actNo']),
+                                comContent:newMsg,
                                 comDate:comDate,
+                                // comNo:"21",
+                                memNickName:JSON.parse(localStorage['memNickName']),
+                                memNo:JSON.parse(localStorage['memNo']),
+                                memPic:JSON.parse(localStorage['memPic']),
                             });
+
+                            // this.userMessage = Object.assign({},{
+                            //     // id:timestamp,
+                            //     memPic:JSON.parse(localStorage['memPic']),
+                            //     nickName:JSON.parse(localStorage['memNickName']),
+                            //     content:newMsg,
+                            //     comDate:comDate,
+
+                            // });
+                            // this.userMessage = {
+                                
+                            // }
+
+                            // actNo:"3"
+                            // comContent:"733"
+                            // comDate:"2019-11-26 19:34:20"
+                            // comNo:"19"
+                            // memNickName:"軒哥"
+                            // memNo:"2"
+                            // memPic:null
+
+
+                            // this.$refs.childMethod.putMsgText();
+                            
                             // https://blog.reh.tw/archives/662 如果是post請求
                             // 機器人管理
                             // =====================

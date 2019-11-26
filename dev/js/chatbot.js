@@ -1,13 +1,15 @@
 var container = $('#chatBot-box'); //外層固定高 捲軸
 var content = $('#chatBot-content'); //內層超出範圍
 
-
+ 
 
 // 捲軸維持跑到最底端
 function chatBotScrollTo(container, content) {
 
-    let content_h = content.outerHeight(true)+60,
-        container_h = container.outerHeight();
+   var content_h = content.scrollHeight,
+     container_h = container.clientHeight;
+    
+    var h = content_h - container_h;
     // container.scrollTo({
     //     top: h,
     //     left: 0,
@@ -15,13 +17,21 @@ function chatBotScrollTo(container, content) {
     // });
     console.log(container_h);
     console.log(content_h);
-    if(content_h > container_h)
-    {
-        container.scrollTop(content_h-container_h);
-    }
-    // container.animate({
+    // if(content_h > container_h){
+    //     // container.scrollTop(content_h-container_h);
+    //     container.animate({
     //     scrollTop: content.offset().top
+    //     }, 2000);
+    // }
+    
+    container.scrollTop = container.scrollHeight - container.clientHeight;
+    console.log("scroll");
+    // box.scrollTop = box.scrollHeight - box.clientHeight;
+
+    // $('html, body').animate({
+    //     scrollTop: $("#wrap2").offset().top
     // }, 2000);
+    // return false;
     
 }
 
@@ -56,7 +66,7 @@ function botReply(reply) {
     `;
     content.append(frag);
     //更新卷軸
-    // chatBotScrollTo(container, content);
+    chatBotScrollTo(container, content);
 
 }
 

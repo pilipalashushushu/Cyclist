@@ -32,7 +32,7 @@
                     <div class="comment col-xl-8 col-md-8 col-sm-12" id="app">
                         <comment-input @input-text="putText"></comment-input>
                         <div class="comment-list">
-                            <comment-list v-for="item in list" :item=item :key=item.id :item-msg="userMessage"></comment-list>
+                            <comment-list v-for="item in list" :item=item :key=item.comNo :item-msg="userMessage"></comment-list>
                         </div>
             
                         <!-- <div class="comment-input">
