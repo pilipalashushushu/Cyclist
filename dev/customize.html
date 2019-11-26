@@ -11,8 +11,8 @@
     <link rel="shortcut icon" href="images/favicon02.ico" type="image/x-icon" />
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js"></script> -->
-    <script src="./js/tadashiScript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+
 </head>
 
 <body>
@@ -153,18 +153,155 @@
     </div>
     <div class="cusCheckOut">
 
-        <div class="list cusName"></div>
-        <div class="list cusFrame"></div>
-        <div class="list cusHandle"></div>
-        <div class="list cusColor"></div>
+        <div id="shoppingcart" class="shoppingList">
+            <div class="header">
+                <div class="showbox">
+                    <div class="logo"><img src="./images/logo.png" alt=""></div>
+                    <div class="title">
+                        <h2>CY專屬騎行 - 訂單明細</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div id="app" class="cartitem">
+
+                <div class="customizelist container">
+                    <div class="item">
+                        <div class="product">
+                            <h3>客製商品</h3>
+                        </div>
+                        <div class="proinfo">
+                            <div class="subtotal">
+                                <h3>單價</h3>
+                            </div>
+                            <div class="amount">
+                                <h3>數量</h3>
+                            </div>
+                            <div class="count">
+                                <h3>小計</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item_container" v-for="(item,index) in cusList">
+                        <div class="detail detail1 item_header item_body cusItem">
+                            <div class="cus item_detail">
+                                <img :src="item.cusItemPic" alt="">
+                                <h5 class="name">{{item.cusItemName}}</h5>
+                            </div>
+                            <div class="m_d">
+                                <div class="subtotal">
+                                    <h3><span>$</span>{{item.cusItemPrice}}</h3>
+                                </div>
+                                <div class="amount">
+                                    <div>{{item.cusItemAmount}}</div>
+                                </div>
+                                <div class="count">
+                                    <h3><span>$</span>{{item.cusItemPrice*item.cusItemAmount}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- customizelist -->
 
 
-    </div>
+                <div class="receive">
+                    <div class="recipient">
+                        <div class="memName">
+                            <h4>收件人:</h4><input type="text" id="memName">
+                        </div>
+                        <div class="tel">
+                            <h4>電話:</h4><input type="text" id="tel">
+                        </div>
+                        <div class="addr">
+                            <h4>地址:</h4><input type="text" id="addr">
+                        </div>
+                    </div>
 
-    @@include('./template/footer.html');
+                </div>
+                <div class="payment">
+                    <div class="cashflow">
+                        <div class="title">
+                            <h4>付款方式:</h4>
+                        </div>
+                        <label class="pay">
+                            <h4>信用卡</h4>
+                            <input class="card" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="pay" @click="memGold">
+                            <h4>購物金</h4>
+                            <input class="gold" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="myGold">
+                    <div class="goldInfo">
+                        <div class="have">
+                            <h4>目前持有的購物金: </h4>
+                            <h4><span>$</span>{{gold}}</h4>
+                        </div>
+                        <div class="discount">
+                            <h4>折抵餘額: $</h4>
+                            <h4>{{gold-subtotal}}</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="creditCard">
+                    <div class="cardInfo">
+                        <div class="cardNum">
+                            <h4>信用卡帳號:</h4>
+                            <div class="cardNuminfo">
+                                <input type="text" maxlength="4"> -
+                                <input type="text" maxlength="4"> -
+                                <input type="text" maxlength="4"> -
+                                <input type="text" maxlength="4">
+                            </div>
+                        </div>
+                        <div class="cardDate">
+                            <h4>有效期限:</h4>
+                            <input type="text" id="cardDate">
+                        </div>
+                        <div class="cardCode">
+                            <h4>安全碼:</h4>
+                            <input type="text" id="cardCode" maxlength="3">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notice">
+                    <span><img src="./images/alerticon.png" alt=""></span>
+                    <h4>購物金使用說明 :</h4>
+                    <span>請於結帳時選用購物金選項</span>
+                </div>
+
+                <div class="total">
+
+                    <div class="finalamount">
+                        <h3><span>$</span>{{subtotal}}</h3>
+                    </div>
+                    <div class="btn prev" data-status="1">
+                        <h3>上一步</h3>
+                    </div>
+                    <div class="next" data-status="1">
+                        <h4>下一步</h4>
+                    </div>
+
+                </div>
+
+            </div>
 
 
-    <script src="./js/customize.js"></script>
+        </div>
+
+        @@include('./template/footer.html')
+
+
+        <script src="./js/customize.js"></script>
 </body>
 
 </html>
