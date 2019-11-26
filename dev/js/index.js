@@ -115,3 +115,13 @@ $(document).ready(function () {
     }
 
 });
+
+
+//會員登入登出顯示bar
+$(document).ready(function(){
+    if(sessionStorage[''] == null ){
+        $('#login').text('登入');
+    }else {
+        $('.memberId').text('');
+    }
+});

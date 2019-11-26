@@ -84,6 +84,17 @@ header {
     align-items: center;
     flex-grow: 1;
 
+    p {
+        font-size: 15px;
+        padding:15px 10px;
+        color: #fff;
+
+        a {
+            padding:0 5px;
+            color: $colorTitle;
+        }
+    }
+
     li {
         background-image: url(../images/icon.png);
         background-repeat: no-repeat;
