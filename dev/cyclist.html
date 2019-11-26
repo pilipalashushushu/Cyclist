@@ -24,6 +24,8 @@
     <script src="./js/threejsmodel.js"></script>
     <script src="https://use.fontawesome.com/5b5301724a.js"></script>
     <script src="js/chatbot.js"></script>
+    <script src="js/getLoginInfo.js"></script>
+    <script src="js/sign_in.js"></script>
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/jquery.easings.min.jss"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.js"></script>
@@ -32,15 +34,17 @@
 </head>
 
 <body>
+    
     @@include('./template/header.html')
-
+    @@include('./template/sign_in.html')
+     
     <div class="fullpage" id="full">
         <!-- 首屏 -->
         <section class="section" id="banner">
             <div id="three" class="col-12" style="margin-left: -15px;"></div>
         </section>
         <!-- 客製化 -->
-        <section class="section" id="customizer">
+        <section class="section fp-auto-height" id="customizer">
 
             <div class="customize-area">
 

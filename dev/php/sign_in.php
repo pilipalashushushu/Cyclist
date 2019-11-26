@@ -26,7 +26,7 @@ try {
         $_SESSION["memPsw"] = $memRow["memPsw"]; //密碼 
 
         
-        echo ("成功登入");
+        echo json_encode($memRow,JSON_UNESCAPED_UNICODE);
      
     }
 } catch (PDOException $e) {

@@ -1,267 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<!-- <link rel="stylesheet" href="css/style.css"> -->
-	<title>css LightBox</title>
+<div class="login-wrap" id="login-wrap">
+    <div class="login-html">
+        <span href="#" id="lightbox" class="lightbox-close"></span>
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">登入</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">註冊</label>
+
+        <div class="login-form">
+            <div class="sign-in-htm">
+                <div class="group">
+                    <span class="">
+                        <label for="user" class="label">帳號</label>
+                        <input type="text" type="text" name="memId" id="memId-in" class="input"
+                            placeholder="請輸入6~10碼英數字">
+                    </span>
 
 
-<style>
-	.memlogin{
-		background: #d16237;
-		color: #fff;
-		padding: 10px;
-		text-decoration: none;
-		border-radius: 10px;
-	}
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">密碼</label>
+                    <input type="password" name="memPsw" class="input" id="memPsw-in" placeholder="請輸入6~10碼英數字">
+                </div>
 
-	#notice h5{
-		margin-bottom: 8%;
-	}
-
-	#notice3 h5{
-		margin-bottom: 15%;
-	}
-
-	.lightbox-target {
-		background: rgba(0,0,0,.7);
-		width: 100%;
-		/* 預設透明度為 0，觸發 :target 後，利用動畫效果調整透明度 */
-		opacity: 0;
-		position: fixed;
-		top: -100%;
-		overflow: hidden;
-		transition: 0.5s ease-in-out;
-	}
-
-	/* 當 :target 觸發後，index-target 的透明度為 1 */
-	.lightbox-target:target {
-		top: 0;
-		bottom: 0;
-		opacity: 1;
-	}	
-
-	.lightbox-close {
-		width: 50px;
-		height: 50px;
-		background: #d16237;
-		color: #fff;
-		position: absolute;
-		top: 3%;
-		right: 3%;
-        border-radius: 50%;
-	}
-	/* 利用偽元素做出 \ 以及 / 的線條 */
-	.lightbox-close:after {
-		width: 30px;
-		height: 2px;
-		content: "";
-		display: block;
-		background: #fff;
-		position: absolute;
-		top: 23px;
-		left: 10px;
-		transform: rotate(45deg);
-	}
-
-	.lightbox-close:before {
-		width: 30px;
-		height: 2px;
-		content: "";
-		display: block;
-		background: #fff;
-		position: absolute;
-		top: 23px;
-		left: 10px;
-		transform: rotate(-45deg);
-	}
-
-	.lightbox-target .content{
-		position: absolute;
-		top: 5%;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		display: inline-block;
-		background-image: url('img/loginbg.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
-		margin: 0 auto;
-        border-radius: 10px;
-		text-align: center;
-		width: 360px;
-		height: 500px;
-		padding-top: 20px;
-		padding-bottom: 40px;
-
-	}
+                <div class="group">
+                    <input id="memsign-in" type="submit" class="button" value="登入">
+                    <div class="sign_logo"></div>
+                </div>
 
 
-	.lightboxinput{
-		border: 1px solid #647d94;
-		padding: 10px;
-		border-radius: 10px;
-	}
+            </div>
+            <div class="sign-up-htm">
+                <div class="group">
+                    <label for="pass" class="label">暱稱</label>
+                    <input type="text" class="input" name="memNickName" id="memNickName0" type="text"
+                        placeholder="請輸入英數字">
+                </div>
+
+                <div class="group">
+                    <label for="user" class="label">帳號</label>
+                    <input type="text" class="input" name="memId" id="memId0" placeholder="請輸入6~10碼英數字">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">密碼</label>
+                    <input type="text" class="input" id="memPsw0" name="memPsw" placeholder="請輸入6~10碼英數字" />
+                </div>
+                <!-- <div class="group">
+                        <label for="pass" class="label">確認密碼</label>
+                        <input type="password" name="memPsw" class="input" placeholder="請再次輸入密碼">
+                    </div> -->
+                <div class="group">
+                    <label for="pass" class="label">電子信箱</label>
+                    <input type="email" class="input" name="memEmail" id="memEmail0" placeholder="請輸入電子信箱">
+                </div>
+
+                <div class="group">
+                    <input class="button" id="sign-up-btn" type="submit" name="submit" value="確認">
+                </div>
 
 
- .lightbox-target h5{
-	background-color: #647d94;
-	color: whitesmoke;
-	padding: 10px;
-	font-size: 24px;
-}
-
-.lightbox-target p{
-	padding: 5%;
-	font-size: 16px;
-}
-
-.lightbox-target input{
-	color: white;
-	font-size: 16px;
-	font-family: "微軟正黑體";
-}
-
-.lightbox-target td{
-	padding: 5% 0%;
-}
-
-.lightbox-target td:first-child{
-	width: 40%;
-	padding-left: 8%;
-}
-
-.lightbox-target td:last-child{
-	width: 60%;
-}
-
-.signup{
-	text-align: left;	
-}
-
-.signupbut{
-	margin-top: 6%;	
-}
-
-.button1{
-  background-color: #d16237;
-  border:0;
-  border-radius: 10px;
-  padding: 10px 40px; 
-  text-decoration: none;
-  color: #FFF;
-  
-}
-
-.button2{
-    background-color: #d16237;
-    border:0;
-    border-radius: 10px;
-    padding: 10px; 
-    
-  }
-
-/* @media all and (max-width: 767px){
-	.lightbox-target .content{
-		position: absolute;
-		top: 2%;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		display: inline-block;
-		background-image: url('img/loginbg.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
-		margin: 0;
-        border-radius: 10px;
-		text-align: center;
-		width: 300px;
-		height: 300px;
-		padding-top: 20px;
-		padding-bottom: 40px;
-	}
-} */
-
-</style>
-
-</head>
-<body>
-
-	<section>
-		<a href="#notice" class="">登入</a>
-    </section>
-	
-	
-	<!--會員登入  --> 	
-	<div class="lightbox-target" id="notice">
-		<div class="content">
-			<h5>會員登入<a href="#" class="lightbox-close"></a></h5>
-			<p>帳號：<input class="lightboxinput" type="text" name="name" placeholder="請輸入英數字" ></p>	
-			<p>密碼：<input class="lightboxinput" type="password" nam="pwd" placeholder="請輸入英數字" /></p>
-			<p>	<input  class="button1" type="button" name="reset" value="登入" /></p>
-			<p>
-				<a href="#notice2" class="memlogin">立即註冊</a>
-				<!-- <input class="button2" type="reset" name="reset" value="立即註冊" /> -->
-				<a href="#notice3" class="memlogin">忘記密碼</a>
-				<!-- <input class="button2" type="reset" name="reset" value="忘記密碼" /> -->
-			</p>
-		</div>
-	</div>     
-	
-	
-
-	<!--註冊  --> 
-	<div class="lightbox-target" id="notice2">
-	<div class="content">
-	<h5>註 冊<a href="#" class="lightbox-close"></a></h5>
-		<table class="signup">
-				<tr>
-						<td>帳號：</td>
-						<td>
-							<input class="lightboxinput" type="text" name="name" placeholder="請輸入英數字" >
-						</td>
-					</tr>
-					<tr>
-						<td>密碼：</td>
-						<td>
-							<input class="lightboxinput" type="password" nam="pwd" placeholder="請輸入英數字" />
-						</td>
-					</tr>
-					<tr>
-						<td>確認密碼：</td>
-						<td>
-							<input class="lightboxinput" type="password" nam="pwd"  placeholder="請重複輸入密碼" />
-						</td>
-					</tr>
-					<tr>
-						<td>暱稱：</td>
-						<td>
-							<input class="lightboxinput" type="text"  placeholder="請輸入姓名" />
-						</td>
-					</tr>	
-	
-					<tr>
-						<td>電子信箱：</td>
-						<td>
-							<input class="lightboxinput"  type="emil"  placeholder="請輸入電子信箱" />
-						</td>
-					</tr>
-		</table>
-		<a href="#notice" class="button1">返回</a>
-		<input class="button1 signupbut" type="reset" name="reset" value="送出" />
-		</div>
-	</div>  
-
-	<!--忘記密碼  -->    
-	<div class="lightbox-target" id="notice3">
-			<div class="content">
-				<h5>忘記密碼<a href="#" class="lightbox-close"></a></h5>
-				<p>電子信箱：<input class="lightboxinput"  type="emil"  placeholder="請輸入電子信箱" /></p>
-				<a href="#notice" class="button1">返回</a>
-				<input class="button1 signupbut" type="reset" name="reset" value="送出" />
-			</div>
-	</div>   
-
-
-</body>
-</html>
+            </div>
+        </div>
+    </div>
+</div>

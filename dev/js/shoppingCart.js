@@ -1,4 +1,5 @@
 $(function () {
+    //判斷剛進頁面時購物車的狀態
     if (sessionStorage['cart-list'] == null) {
         //購物車中沒有東西時，顯示'您尚未選購商品'並且總額不顯示
         $('.cartEmpty').css('display', 'block');
@@ -12,6 +13,9 @@ $(function () {
         $('.all').css('display', 'flex');
     }
 
+
+
+    //處理seesionStorage資料
     var arr = sessionStorage["cart-list"].slice(0, -1).split(',');
     var length = arr.length - 1;
     var rows = []; //[ [], [], [] ]
@@ -26,6 +30,7 @@ $(function () {
         rows.push(obj);
     }
 
+    //撈取會員購物金
     var memGold;
     $.ajax({
         url: "./php/shoppingCart.php",
@@ -34,10 +39,12 @@ $(function () {
         success: function (data) {
             memInfo = JSON.parse(data);
             memGold = memInfo.coupon;
-            console.log(memInfo);
         }
     });
 
+
+
+    //vue動態生成
     var app = new Vue({
         el: '#cart',
         data: {
@@ -74,7 +81,7 @@ $(function () {
                                 type: "get",
                                 success: function (data) {
                                     alert("購買成功")
-                                    console.log(data)
+                                    window.open('cyclist.html', '_self');
                                 }
                             })
                         } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".gold").prop("checked") == true) {
@@ -83,8 +90,18 @@ $(function () {
                                 type: "get",
                                 success: function (data) {
                                     alert("購買成功")
-                                    console.log(data)
+                                    window.open('cyclist.html', '_self');
                                 }
+                            })
+                            $.ajax({
+                                url: `./php/gold.php?memNo=1 & gold=${$(".goldtotal").text()}`,
+                                type: "get",
+                                success: function (data) {
+
+                                },
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                    alert(jqXHR.responseText);
+                                },
                             })
                         }
                         break;
@@ -122,9 +139,11 @@ $(function () {
                 $(".myGold").slideToggle();
                 $(".creditCard").slideUp();
 
+                //獲取資料庫的會員購物金
                 this.Gold = memGold;
 
             },
+            //控制跳頁(購物車->訂單明細)
             get() {
                 this.page = false;
             },
@@ -149,9 +168,9 @@ $(function () {
                 });
                 return this.total
             },
-            getGold() {
-                return this.memGold;
-            },
+            // getGold() {
+            //     return this.memGold;
+            // },
         }
     })
 
