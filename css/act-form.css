@@ -614,12 +614,8 @@ select[data-dkcacheid] {
   display: none;
 }
 
-body {
+#wrapper-form {
   background-color: #5cb8ee;
-  font-family: "微軟正黑體";
-  font-size: 16px;
-  font-weight: 600;
-  color: #525050;
 }
 
 * {
@@ -628,6 +624,10 @@ body {
 }
 
 .act-form {
+  font-family: "微軟正黑體";
+  font-size: 16px;
+  font-weight: 600;
+  color: #525050;
   max-width: 800px;
   margin: 0 auto;
   padding: 0 15px 0 20px;
@@ -835,7 +835,7 @@ body {
   background-color: #2179fc;
 }
 
-.act-form .input-err:hover::after {
+.act-form .input-err.focus::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
