@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="./css/chatbot.css">
 
 
-    
+
 
 </head>
+
 <body>
     @@include('./template/header.html')
     <div class="chat-bot-btn">
@@ -23,65 +24,68 @@
         </a>
 
     </div>
-    <div class="chat-bot">
+    <div id="chat-bot">
         <div class="title">CYCLIST</div>
-        <div class="box">
-            <div class="dialog official">
-                <div class="avatar">
-                    <div class="pic">
-                        <img src="./images/chat_bot/offical-1.jpg" alt="">
+        <div id="chatBot-box">
+            <div id="chatBot-content">
+                <div id="greet" class="dialog official">
+                    <div class="avatar">
+                        <div class="pic">
+                            <img src="./images/chat_bot/offical-1.jpg" alt="">
+                        </div>
+                        <div class="name">官方A</div>
                     </div>
-                    <div class="name">官方A</div>
-                </div>
-                <div class="msg">
-                    歡迎來到cyclist官方網站，請問有什麼需要為您服務的嗎?
-                </div>
-            </div>
-            <div class="dialog customer">
-                <div class="avatar">
-                    <div class="pic">
-                        <img src="./images/chat_bot/customr-1.jpg" alt="">
+                    <div class="msg">
+                        歡迎來到cyclist官方網站，請問有什麼需要為您服務的嗎?
                     </div>
-                    <div class="name">顧客A</div>
                 </div>
-                <div class="msg">
-                    周邊現場劇情客人承受力
-                </div>
-            </div>
-            <div class="dialog official">
-                <div class="avatar">
-                    <div class="pic">
-                        <img src="./images/chat_bot/offical-1.jpg" alt="">
+                <!-- <div class="dialog customer">
+                    <div class="avatar">
+                        <div class="pic">
+                            <img src="./images/chat_bot/customr-1.jpg" alt="">
+                        </div>
+                        <div class="name">顧客A</div>
                     </div>
-                    <div class="name">官方A</div>
-                </div>
-                <div class="msg">
-                    歡迎來到cyclist官方網站，請問有什麼需要為您服務的嗎?
-                </div>
-            </div>
-            <div class="dialog customer">
-                <div class="avatar">
-                    <div class="pic">
-                        <img src="./images/chat_bot/customr-1.jpg" alt="">
+                    <div class="msg">
+                        周邊現場劇情客人承受力
                     </div>
-                    <div class="name">顧客A</div>
                 </div>
-                <div class="msg">
-                    周邊現場劇情客人承受力
+                <div class="dialog official">
+                    <div class="avatar">
+                        <div class="pic">
+                            <img src="./images/chat_bot/offical-1.jpg" alt="">
+                        </div>
+                        <div class="name">官方A</div>
+                    </div>
+                    <div class="msg">
+                        歡迎來到cyclist官方網站，請問有什麼需要為您服務的嗎?
+                    </div>
                 </div>
+                <div class="dialog customer">
+                    <div class="avatar">
+                        <div class="pic">
+                            <img src="./images/chat_bot/customr-1.jpg" alt="">
+                        </div>
+                        <div class="name">顧客A</div>
+                    </div>
+                    <div class="msg">
+                        周邊現場劇情客人承受力
+                    </div>
+                </div> -->
+
             </div>
 
 
         </div>
         <div class="bottom">
-            <div class="QA-group">
-                <div class="QA 1">選項1</div>
+            <ul id="QA-group">
+                <!-- <div class="QA 1">選項1</div>
                 <div class="QA 1">選項2</div>
                 <div class="QA 1">選項3</div>
-                <div class="QA 1">選項4</div>
-            </div>
+                <div class="QA 1">選項4</div> -->
+            </ul>
             <div class="input-bar">
-                <textarea class="input" name="" id="" cols="10" rows="10">請問客製腳踏車</textarea>
+                <textarea class="input" name="" id="input" cols="10" rows="10">請問客製腳踏車</textarea>
                 <!-- <div class="input"></div> -->
                 <div class="send">送出</div>
             </div>
@@ -89,46 +93,46 @@
 
     </div>
 
-
-
     @@include('./template/footer.html')
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+        // $(document).ready(function () {
+        //     $('.chat-bot-btn').click(function () {
+        // $('.chat-bot').slideToggle(500,'easeOutBounce')
+        // ??Animation
+        // $('.chat-bot').animate({'transform':'scale(1)'},1000);
+
+        // $('.chat-bot').css({
+        //     "transform":"scale(1)",
+        //     // "transform":"translate(-70px,-170px)"
+        //     "bottom":"170px",
+        //     "right":"70px"
+        //     })
+
+        // $('.chat-bot').animate({
+        //     "transform":"scale(1)",
+        //     // "transform":"translate(-70px,-170px)"
+        //     "bottom":"170px",
+        //     "right":"70px"
+        // },1000)
+
+        //     $('#chat-bot').toggleClass('open');
+        //     // $('.chat-bot-btn').fadeToggle();
+        // })
+        // })
+    </script>
+
+
 </body>
 
 
 
 
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
-<script>
-    $(document).ready(function () {
-        $('.chat-bot-btn').click(function () {
-            // $('.chat-bot').slideToggle(500,'easeOutBounce')
-            // ??Animation
-            // $('.chat-bot').animate({'transform':'scale(1)'},1000);
 
-            // $('.chat-bot').css({
-            //     "transform":"scale(1)",
-            //     // "transform":"translate(-70px,-170px)"
-            //     "bottom":"170px",
-            //     "right":"70px"
-            //     })
 
-            // $('.chat-bot').animate({
-            //     "transform":"scale(1)",
-            //     // "transform":"translate(-70px,-170px)"
-            //     "bottom":"170px",
-            //     "right":"70px"
-            // },1000)
-
-            $('.chat-bot').toggleClass('open');
-            // $('.chat-bot-btn').fadeToggle();
-        })
-    })
-</script>
-
-<body>
-
-</body>
 
 </html>

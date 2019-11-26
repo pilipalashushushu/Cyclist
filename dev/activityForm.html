@@ -10,24 +10,28 @@
         <!-- <script  src="js/dropkick.js"></script> -->
     <title>Document</title>
     <style>
-        td {
+        /* td {
             border: 1px solid red;
-        }
+        } */
     </style>
 
 </head>
 
 <body>
-    <!-- hover再灰底 -->
-    <!-- btn放div 做before transition: .3s cubic-bezier(.25,.8,.5,1); -->
+    <!-- hover灰底 -->
+    <!-- btn div 做before transition: .3s cubic-bezier(.25,.8,.5,1); -->
     <!-- 燈箱視窗dialog
 transition: .3s ease-in-out;
     width: 100%;
 }
 .dialog {
     box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12); -->
-    <div class="act-form">
-        <form action="">
+    <div  id="wrapper-form" >
+
+
+            <!-- enctype="multipart/form-data" -->
+
+        <form action="" class="act-form" id="act-form" >
             <fieldset>
                 <legend>建立車友活動</legend>
                 <div class="form-content">
@@ -38,7 +42,7 @@ transition: .3s ease-in-out;
                                 <img id="drag-img" src="./images/camera.svg" alt="">
                             </div>
                             <div class="up-file">
-                                <input type="file" id="the-file">
+                                <input type="file" id="the-file" name="theFile">
                                 <span id="file-info"></span>
                             </div>
                         </div>
@@ -51,10 +55,11 @@ transition: .3s ease-in-out;
                         </label>
                         <div class="input-group">
                             <div class="form-text-s box-center">
-                            <input type="text"  class="input-title">
+                                <input type="text"  class="input-title" id="title" name="title">
                             </div>
                             <div class="input-err">
-                                <div>必填選項</div>
+                                <div></div>
+                                <!-- <div>必填選項</div> -->
                             </div>
                         </div>
                         
@@ -68,7 +73,9 @@ transition: .3s ease-in-out;
                                 <option value="2">桃園</option>
                                 <option value="3">新竹</option>
                             </select> -->
-                            <div id="twzipcode">
+
+                            <!-- 鄉鎮04非同步範例 -->
+                            <div id="twzipcode" name="twzipcode">
                                 <span data-role="county" data-style="depart county dk-selected" data-name="county"></span>
                                 <span data-role="district" data-style="depart district dk-selected" data-name="district"></span>
                                 <span data-role="zipcode" style="display: none;"></span>
@@ -87,45 +94,46 @@ transition: .3s ease-in-out;
                         <label for="" class="form-title">詳細地點</label>
                         <div class="input-group">
                             <div class="form-text-s">
-                                <input type="text">
+                                <input type="text" id="loc" name="loc">
                             </div>
                             <div class="input-err">
-                                <div>必填選項</div>
+                                <div></div>
+                                <!-- <div>必填選項</div> -->
                             </div>
                         </div>
 
                     </div>
                     <div class="flex-row">
                         <label for="" class="form-title">活動內容</label>
-                        <textarea  required  class="input-content" name="" id="" cols="30" rows="10"></textarea>
+                        <textarea  required  class="input-content" name="content" id="act-content" cols="30" rows="10"></textarea>
                     </div>
                     <div class="flex-row">
                         <label for="" class="form-title">時間</label>
                         <div class="time-area">
-                            <input type="date" name="" id="">
+                            <input type="date" name="Date" id="date">
                             <!-- <date-picker></date-picker> -->
-                            <input type="time" name="" id="">
+                            <input type="time" name="time" id="time">
                         </div>
                         <label for="" class="form-title">報名截止</label>
                         <div >
-                            <input type="date" name="" id="">
+                            <input type="date" name="DeadLineDate" id="DeadLineDate">
                         </div>
 
-
+                        <!-- jquery checkboxhttps://kknews.cc/zh-tw/code/oax4qxo.html -->
                     </div>
                     <div class="flex-row">
                         <label for="" class="form-title">適合車種</label>
                         <div class="form-text-s type">
                             <label class="control" for="road-check">公路車
-                                <input type="checkbox" name="" id="road-check" >
+                                <input type="checkbox" name="type[]" id="road-check" value="1" >
                                 <div class="control-indicator"><i class="fas fa-check"></i></div>
                             </label>
                             <label class="control" for="mount-check">登山車
-                                <input type="checkbox" name="" id="mount-check" >
+                                <input type="checkbox" name="type[]" id="mount-check" value="2">
                                 <div class="control-indicator"><i class="fas fa-check"></i></div>
                             </label>
                             <label class="control" for="city-check">城市車
-                                <input type="checkbox" name="" id="city-check" >
+                                <input type="checkbox" name="type[]" id="city-check" value="3">
                                 <div class="control-indicator"><i class="fas fa-check"></i></div>
                             </label>
                             
@@ -138,97 +146,99 @@ transition: .3s ease-in-out;
                     <div class="flex-row box-center">
                         <label for="" class="form-title">騎乘強度</label>
                         <div class="level-area">
-                            <select name="" id="level">
-                                <option value="">休閒級</option>
-                                <option value="">運動級</option>
-                                <option value="">挑戰級</option>
+                            <select name="level" id="level">
+                                <option value="休閒級">休閒級</option>
+                                <option value="運動級">運動級</option>
+                                <option value="挑戰級">挑戰級</option>
                             </select>
                         </div>
+                        <!-- <span id="test" style="width:30px;height:30px;background:red;"></span> -->
                         <label for="" class="form-title" >人數限制</label>
                         <div limit-area>
                             <!-- <input type="number" name="" id=""> -->
                             <div class="input-group">
                                     <div class="form-text-s">
-                                        <input type="text" placeholder="輸入人數">
+                                        <input type="text" id="limit" name="limit" placeholder="輸入人數">
                                     </div>
                                     <div class="input-err">
-                                        <div>必填選項</div>
+                                        <div></div>
+                                        <!-- <div>必填選項</div> -->
                                     </div>
                                 </div>
                         </div>
 
                     </div>
                     <div class="flex-row" style="justify-content: center;">
-                        <button type="submit" id="act-submit">送出</button>
+                        <button type="button" id="act-submit">送出</button>
                     </div>
                 </div>
             </fieldset>
         </form>
 
     </div>
-
     <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script> -->
     <script src='js/jquery-3.4.1.min.js'></script>
-    <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+    <!-- 可刪<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script> -->
     <script type="module" src="js/dropkick.js"></script>
     <script src="js/jquery.twzipcode.min.js"></script>
+    <script src="js/activityForm.js"></script>
     <script>
-        $(document).ready(function(){
+        // $(document).ready(function(){
 
-            $('#twzipcode').twzipcode({
-                onCountySelect:function(){
-                    $('.county').addClass("dk-select-open-up");
-                }
-            });
+        //     $('#twzipcode').twzipcode({
+        //         onCountySelect:function(){
+        //             $('.county').addClass("dk-select-open-up");
+        //         }
+        //     });
 
-            document.getElementById("drag-box").ondragover = dragOver;
-            document.getElementById("drag-box").ondrop = dropped;
-            document.getElementById("the-file").onchange = fileChange
+        //     document.getElementById("drag-box").ondragover = dragOver;
+        //     document.getElementById("drag-box").ondrop = dropped;
+        //     document.getElementById("the-file").onchange = fileChange
 
-            function dragOver(e) {
-                e.preventDefault();
+        //     function dragOver(e) {
+        //         e.preventDefault();
 
-            }
+        //     }
 
-            let image = document.getElementById('drag-img');
+        //     let image = document.getElementById('drag-img');
 
-            function dropped(e) {
-                e.preventDefault();
-                let file = e.dataTransfer.files[0];
-                document.getElementById("the-file").innerText = file.name;
+        //     function dropped(e) {
+        //         e.preventDefault();
+        //         let file = e.dataTransfer.files[0];
+        //         document.getElementById("the-file").innerText = file.name;
 
-                let reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.addEventListener('load', function (e) {
-
-
-                    image.src = this.result;
-
-                    // image.style.maxWidth = '500px';
-                    // image.style.maxHeight = '400px';
-
-                })
-            }
-
-            function fileChange() {
-                let file = document.getElementById("the-file").files[0];
-
-                let reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.addEventListener('load', function () {
-                    image.src = this.result;
-                })
-            }
+        //         let reader = new FileReader();
+        //         reader.readAsDataURL(file);
+        //         reader.addEventListener('load', function (e) {
 
 
-            $('#level').dropkick(
-                // initialize(){},
+        //             image.src = this.result;
 
-            );
+        //             // image.style.maxWidth = '500px';
+        //             // image.style.maxHeight = '400px';
 
-            // $('.county').dropkick();
-            // $('.district').dropkick();
-        })
+        //         })
+        //     }
+
+        //     function fileChange() {
+        //         let file = document.getElementById("the-file").files[0];
+
+        //         let reader = new FileReader();
+        //         reader.readAsDataURL(file);
+        //         reader.addEventListener('load', function () {
+        //             image.src = this.result;
+        //         })
+        //     }
+
+
+        //     $('#level').dropkick(
+        //         // initialize(){},
+
+        //     );
+
+        //     // $('.county').dropkick();
+        //     // $('.district').dropkick();
+        // })
     </script>
 </body>
 

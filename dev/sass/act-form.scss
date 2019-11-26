@@ -8,19 +8,36 @@
 @import "dropkick.scss";
 
 body{
-    background-color: rgb(92, 184, 238);
-    font-family: "微軟正黑體";
-    font-size: 16px;
-    font-weight: 600;
-    color: rgb(82, 80, 80);
+
+    // font-family: "微軟正黑體";
+    // font-size: 16px;
+    // font-weight: 600;
+    // color: rgb(82, 80, 80);
+    
 }
 
+#wrapper-form{
+
+    background-color: rgb(92, 184, 238);
+}
 * {
     padding: 0;
     margin: 0;
 }
 
 .act-form {
+    // position: fixed;
+    // left: 30%;
+    // top: 10%;
+    // z-index: 1000;
+
+    font-family: "微軟正黑體";
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(82, 80, 80);
+
+
+
     max-width: 800px;
     margin: 0 auto;
     padding: 0 15px 0 20px;
@@ -211,7 +228,7 @@ body{
             background-color: rgb(33, 121, 252);
         }
 
-        &:hover::after {
+        &.focus::after {
             // left: 0%;
             transform: scaleX(1);
         }
