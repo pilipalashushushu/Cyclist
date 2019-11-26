@@ -55,7 +55,9 @@ function bikeBasicSetting(){
     bikeTire = new Image();
     bikeTire.src= './images/bike01-tire.png';
     bikeBody = new Image();
-    bikeBody.src= './images/bike01-body.png';
+    bikeBody.src= './images/mountain-frame1-color1.png';
+    bikehand = new Image();
+    bikehand.src= './images/mountain-frame1-handle2.png';
 }
 
 function bikeExpAppend(){
@@ -69,11 +71,11 @@ function bikeExpAppend(){
         <canvas id="drawHere" width="${canvasSetting.width}" height="${canvasSetting.height}" oncontextmenu="return false"></canvas>
         <div class="status">
             <div class="intro">
-                <div class="intro-name">公路車
-                    <span class="intro-style">CTX600</span>
+                <div class="intro-name" id="intro-name">公路車
+                    <span class="intro-style" id="intro-style">公路</span>
                 </div>
-                <div class="intro-text">公路車適合追求速度的您</div>
-                <div class="intro-adv">優勢: 速度+20%</div>
+                <div class="intro-text" id="intro-text">公路車適合追求速度的您</div>
+                <div class="intro-adv"></div>
                 <div class="intro-buy" id="canvasToBuy">立即選購</div>
             </div>
             <div class="chart">
@@ -101,9 +103,9 @@ function bikeExpAppend(){
                 <div class="break" id="break">剎車</div>
             </div>
             <div class="ctgBtns">
-                <div class="Btn"><div class="eviSkew"><h6>公路</h6></div></div>
-                <div class="Btn"><div class="eviSkew"><h6>山地</h6></div></div>
-                <div class="Btn"><div class="eviSkew"><h6>城市</h6></div></div>
+                <div class="Btn"><div class="eviSkew"><h6>平面道路</h6></div></div>
+                <div class="Btn"><div class="eviSkew"><h6>野外地形</h6></div></div>
+                <div class="Btn"><div class="eviSkew"><h6>都市環境</h6></div></div>
             </div>
         </div>
     </section>`;
@@ -138,6 +140,9 @@ function bikeExp(){
     //reset canvas
     context.clearRect(0, 0, canvasWidth, canvasHeight);
 
+    //anti
+    context.imageSmoothEnabled = true;
+
     //repeat condition
     if(bikeExpSetting.xSpeed % canvas.width === 0 && bikeExpSetting.isstart !== 0){
         bikeExpSetting.part++;
@@ -161,20 +166,25 @@ function bikeExp(){
     //draw bycicle
     context.save();
     context.translate(0, canvasHeight);
-    context.translate(canvasWidth/2 + 65 + 75, -180);
+    context.translate(canvasWidth/2 + 65 + 75 + 15, -180);
     context.rotate(-Math.PI * (bikeExpSetting.xSpeed)/ 180);
     context.drawImage(bikeTire, -75, -75, 150, 150);
     context.restore();
     context.save();
     context.translate(0, canvasHeight);
-    context.translate(canvasWidth/2 - 135, -180);
+    context.translate(canvasWidth/2 - 135 - 20, -180);
     context.rotate(-Math.PI * (bikeExpSetting.xSpeed)/ 180);
     context.drawImage(bikeTire, -75, -75, 150, 150);
     context.restore();
     context.save();
     context.translate(0, canvasHeight);
-    context.translate(canvasWidth/2 - 150, -340);
-    context.drawImage(bikeBody, 0, 0, 300, 200);
+    context.translate(canvasWidth/2 - 250, -400);
+    context.drawImage(bikeBody, 0, 0, 500, 300);
+    context.restore();
+    context.save();
+    context.translate(0, canvasHeight);
+    context.translate(canvasWidth/2 - 250, -400);
+    context.drawImage(bikehand, 0, 0, 500, 300);
     context.restore();
 
     //feedback
@@ -253,37 +263,64 @@ function bikeExp(){
 
 function originImgUpdate(){
     $('.Btn').click(function(){
-        console.log('click');
+        //change btn color
         $('.Btn div').css({
             backgroundColor: '#1e3449',
         });
         $(this).find('div').css({
             backgroundColor: '#919cb0',
         });
-        switch($(this).find('h6').text()){
+        switch( $(this).find('h6').text() ){
             case "公路車":
-                bikeBody.src = './images/bike01-body.png';
-                bikeTire.src = './images/bike01-tire.png';
+                btnChangeBike('road-frame1-color2.png', 'road-frame1-handle1.png', '公路車');
                 break;
             case "登山車":
-                bikeBody.src = './images/canvas-bg.jpg';
-                bikeTire.src = './images/canvas-bg.jpg';
+                btnChangeBike('mountain-frame1-color1.png', 'mountain-frame1-handle2.png', '登山車');
                 break;
             case "城市車":
-                bikeBody.src = './images/canvas-bg.jpg';
-                bikeTire.src = './images/canvas-bg.jpg';
+                btnChangeBike('city-frame1-color1.png', 'city-frame1-handle1.png', '城市車');
                 break;
-            case "公路":
+            case "平面道路":
                 background.src = './images/canvas-bg.jpg';
+                $('#intro-style').text( "平面道路" );
                 break;
-            case "山地":
-                background.src = './images/canvas-bg.jpg';
+            case "野外地形":
+                background.src = './images/canvas-bg-m.jpg';
+                $('#intro-style').text( "野外地形" );
                 break;
-            case "城市":
-                background.src = './images/canvas-bg.jpg';
+            case "都市環境":
+                background.src = './images/canvas-bg-c.jpg';
+                $('#intro-style').text( "都市環境" );
                 break;
         }
     });
+}
+
+function btnChangeBike(body, hand, type){
+    bikeBody.src = `./images/${body}`;
+    bikehand.src = `./images/${hand}`;
+    origin = $('#intro-name').html();
+    replace = $('#intro-name').text().slice(0, 3);
+    $('#intro-name').html( $('#intro-name').html().replace(replace, type) );
+    switch( type ){
+        case "公路車":
+            $('#intro-text').text( '公路車適合追求速度的您' );
+            $('.chart h3:first-child').css({'flexBasis': '70%'});
+            $('.chart h3:last-child').css({'flexBasis': '30%'});
+            break;
+        case "登山車":
+            $('#intro-text').text( '登山車適合挑戰野外的您' );
+            $('.chart h3:first-child').css({'flexBasis': '30%'});
+            $('.chart h3:last-child').css({'flexBasis': '70%'});
+            break;
+        case "城市車":
+            $('#intro-text').text( '城市車適合暢遊城市的您' );
+            $('.chart h3:first-child').css({'flexBasis': '50%'});
+            $('.chart h3:last-child').css({'flexBasis': '50%'});
+            break;
+        default:
+            console.log('btnChangeBike has error');
+    }
 }
 
 window.addEventListener('load', init, false);
