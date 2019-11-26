@@ -159,11 +159,11 @@ function init(){
                             this.attendArr.push(this.newAttend);
                         },
                         reportAct:function(e){
-                            this.$emit('report-act');
-                            // e.target.click(function(){
-                            //     $('#report-box-wrap').show();
+                            // this.$emit('report-act');
+                            $(e.target).click(function(){
+                                $('#report-box-wrap').show();
                     
-                            // })
+                            })
                         }
                     },
                     computed:{
@@ -218,7 +218,8 @@ function init(){
                                 <div class="intro-row">
                                     <div class="block">
                                         <div class="sub-title">適合車種</div>
-                                        <div class="type">{{inner.typeNo}}</div>
+                                        <div class="type">城市車</div>
+                                        <!--<div class="type">{{inner.typeNo}}</div>-->
                                     </div>
                                     <div class="block">
                                         <div class="sub-title">騎乘性質</div>
@@ -354,13 +355,13 @@ function init(){
 
                             })
                         },
-                        reportThis:function(e){
-                            console.log("test");
-                            $(e.target).click(function(){
-                                $('#report-box-wrap').show();
+                        // reportThis:function(e){
+                        //     console.log("test");
+                        //     $(e.target).click(function(){
+                        //         $('#report-box-wrap').show();
                     
-                            })
-                        }
+                        //     })
+                        // }
                 
                     }
                 })

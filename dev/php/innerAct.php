@@ -57,7 +57,7 @@ try {
         // array_push($arr,$actRow);
         // array_push($arr,$initMem);
         // array_push($arr,$attendMem);
-        echo json_encode($arr);
+        echo json_encode($arr,true);
 
         
   }
