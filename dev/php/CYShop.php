@@ -5,5 +5,5 @@ $arr = [];
 while( $prodRow = $prodlist->fetch(PDO::FETCH_ASSOC) ){
     array_push($arr, $prodRow);
 };
-echo json_encode($arr);
+echo json_encode($arr,JSON_UNESCAPED_UNICODE);
 ?>

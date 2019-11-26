@@ -26,55 +26,32 @@
                 </div>
             </div>
         </div>
-        <!-- <form action=""> -->
+
         <div id="cart" class="cartitem">
             <div class="productlist">
-                <div class="item">
-                    <div class="product">
-                        <h3>一般商品</h3>
-                    </div>
-                    <div class="proinfo">
-                        <div class="subtotal">
-                            <h3>單價</h3>
+                <!-- 購物車內頁 -->
+                <div v-if="page">
+                    <div class="item">
+                        <div class="product">
+                            <h3>一般商品</h3>
                         </div>
-                        <div class="amount">
-                            <h3>數量</h3>
-                        </div>
-                        <div class="count">
-                            <h3>小計</h3>
-                        </div>
-                        <div class="option">
-                            <h3>操作</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="cartEmpty">您尚未選擇商品</div>
-                <!-- <div class="item_container" v-for="(cart, index) in productList">
-                    <div class="detail detail1 item_header item_body">
-                        <div class="cus item_detail">
-                            <img v-bind:src="cart.prodPic" alt="">
-                            <h5 class="name">{{getprodName(cart)}}</h5>
-                        </div>
-                        <div class="m_d">
+                        <div class="proinfo">
                             <div class="subtotal">
-                                <h3><span>$</span>{{getprodPrice(cart)}}</h3>
+                                <h3>單價</h3>
                             </div>
                             <div class="amount">
-                                <button @click="handleSub(cart)">-</button>
-                                <span>{{getprodAmount(cart)}}</span>
-                                <button @click="handlePlus(cart)">+</button>
+                                <h3>數量</h3>
                             </div>
                             <div class="count">
-                                <h3><span>$</span>{{getprodPrice(cart)}}</h3>
+                                <h3>小計</h3>
+                            </div>
+                            <div class="option">
+                                <h3>操作</h3>
                             </div>
                         </div>
-                        <div class="option">
-                            <span @click="handledelete(index)"><img src="./images/trash1.png" alt=""></span>
-                        </div>
-
                     </div>
-                </div> -->
-                <div v-for="item in rows">
+                    <div class="cartEmpty">您尚未選擇商品</div>
+                    <div v-for="(item,index) in rows">
                         <div class="detail">
                             <div class="cus">
                                 <img :src="item.img" alt="">
@@ -87,39 +64,166 @@
                                 <div class="amount">
                                     <button @click="item.num > 1 ?item.num-- : item.num">-</button>
                                     <input type="text" :value="item.num"></input>
-                                    <button @click="item.num++,upData()">+</button>
+                                    <button :class="item.name" @click="item.num++">+</button>
                                 </div>
                                 <div class="count">
                                     <h3><span>$</span>{{item.price * item.num}}</h3>
                                 </div>
                             </div>
-                            <div class="option">
+                            <div class="option" @click="handledelete(index)">
                                 <span><img src="./images/trash1.png" alt=""></span>
                             </div>
-    
+
                         </div>
-                 </div>
-            </div>
-            <!-- productlist -->
+                    </div>
 
-            <div class="notice">
-                <span><img src="./images/alerticon.png" alt=""></span>
-                <h4>購物金使用說明 :</h4>
-                <span>請於結帳時選用購物金選項</span>
-            </div>
+                    <div class="notice">
+                        <span><img src="./images/alerticon.png" alt=""></span>
+                        <h4>購物金使用說明 :</h4>
+                        <span>請於結帳時選用購物金選項</span>
+                    </div>
 
-            <div class="total">
-                <div class="finalamount">
-                    <h3><span>$</span>{{finalamount}}</h3>
+                    <div class="total">
+                        <div class="finalamount">
+                            <h3>總計<span>$</span>{{finalamount}}</h3>
+                        </div>
+                        <div class="nextPage" data-status="1" @click="get">
+                            <h4>進行結帳</h4>
+                        </div>
+                    </div>
                 </div>
-                <div class="next" data-status="1">
-                    <h4><a href="shoppingList.html">進行結帳</a></h4>
+                <!-- 訂單確認頁 -->
+                <div v-else class="all">
+                    <div class="cartitem">
+                        <div class="item">
+                            <div class="product">
+                                <h3>一般商品</h3>
+                            </div>
+                            <div class="proinfo">
+                                <div class="subtotal">
+                                    <h3>單價</h3>
+                                </div>
+                                <div class="amount">
+                                    <h3>數量</h3>
+                                </div>
+                                <div class="count">
+                                    <h3>小計</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="productlist container">
+                            <div v-for="(item,index) in rows">
+                                <div class="detail page">
+                                    <div class="cus">
+                                        <img :src="item.img" alt="">
+                                        <h5 class="name">{{item.name}}</h5>
+                                    </div>
+                                    <div class="m_d">
+                                        <div class="subtotal">
+                                            <h3><span>$</span>{{item.price}}</h3>
+                                        </div>
+                                        <div class="amount">
+                                            <input type="text" :value="item.num"></input>
+                                        </div>
+                                        <div class="count">
+                                            <h3><span>$</span>{{item.price * item.num}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- productlist -->
+
+                        <div class="receive">
+                            <div class="recipient">
+                                <div class="memName">
+                                    <h4>收件人:</h4><input type="text" name="" id="memName">
+                                </div>
+                                <div class="tel">
+                                    <h4>電話:</h4><input type="text" id="tel">
+                                </div>
+                                <div class="addr">
+                                    <h4>地址:</h4><input type="text" id="addr">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="payment">
+                            <div class="cashflow">
+                                <div class="title">
+                                    <h4>付款方式:</h4>
+                                </div>
+                                <label class="pay">
+                                    <h4>信用卡</h4>
+                                    <input class="card" type="checkbox" @click="checkCard">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="pay">
+                                    <h4>購物金</h4>
+                                    <input class="gold" type="checkbox" @click="checkGold">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="myGold">
+                            <div class="goldInfo">
+                                <div class="have">
+                                    <h4>目前持有的購物金: </h4>
+                                    <h4><span>$</span>{{Gold}}</h4>
+                                </div>
+                                <div class="discount">
+                                    <h4>折抵後餘額: $</h4>
+                                    <h4>{{Gold-total}}</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="creditCard">
+                            <div class="cardInfo">
+                                <div class="cardNum">
+                                    <h4>信用卡帳號:</h4>
+                                    <div class="cardNuminfo">
+                                        <input type="text" size=4 value="" maxlength="4" @keyup="keyupVal"> -
+                                        <input type="text" size=4 maxlength="4" @keyup="keyupVal"> -
+                                        <input type="text" size=4 maxlength="4" @keyup="keyupVal"> -
+                                        <input type="text" size=4 maxlength="4" @keyup="keyupVal">
+                                    </div>
+                                </div>
+                                <div class="cardDate">
+                                    <h4>有效期限:</h4>
+                                    <input type="text" id="cardDate" maxlength="4">
+                                </div>
+                                <div class="cardCode">
+                                    <h4>安全碼:</h4>
+                                    <input type="text" id="cardCode" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="total">
+
+                            <div class="finalamount">
+                                <h3>總計<span>$</span>{{total}}</h3>
+                            </div>
+                            <div class="btn" data-status="1">
+                                <h4><a href="shoppingCart.html">上一步</a></h4>
+                            </div>
+                            <div class="next" data-status="1" @click="nextStep">
+                                <h4>下一步</h4>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- cartitem -->
         <!-- </form> -->
+
 
 
 

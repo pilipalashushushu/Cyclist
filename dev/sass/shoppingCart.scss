@@ -50,7 +50,22 @@
 
     img {
         display: block;
-        // width: 100%;
+        width: 60%;
+        padding-top: 15px;
+    }
+
+    .option {
+        img {
+            width: 85%;
+            padding-top: 0px;
+        }
+    }
+
+    .notice {
+        img {
+            width: 85%;
+            padding-top: 0px;
+        }
     }
 
     a {
@@ -79,6 +94,11 @@
             width: 55px;
             height: 42px;
             margin-right: 10px;
+
+            img {
+                width: 100%;
+                padding-top: 5px;
+            }
         }
 
         .title {
@@ -95,10 +115,33 @@
         flex-flow: column;
     }
 
+    .cartitem {
+        .productlist {
+            width: 100%;
+            margin-top: 0vh;
+        }
+
+        .item {
+            width: 100%;
+        }
+
+        .detail {
+            .m_d {
+                width: 70%;
+            }
+        }
+
+        .receive,
+        .payment,
+        .creditCard,
+        .myGold,
+        .total {
+            width: 99%;
+        }
+    }
+
     .customizelist,
     .productlist,
-    .notice,
-    .total,
     .receive,
     .payment,
     .creditCard,
@@ -140,7 +183,7 @@
             width: 30%;
 
             img {
-                height: 100px;
+                // height: 100px;
                 margin: auto;
             }
         }
@@ -179,7 +222,7 @@
     }
 
     .detail {
-        display: none;
+        justify-content: center;
 
         .m_d {
             width: 52.5%;
@@ -197,12 +240,7 @@
 
             span {
                 display: inline-block;
-                width: 25px;
-                height: 25px;
-            }
-
-            img {
-                width: 100%;
+                width: 35px;
             }
         }
 
@@ -247,14 +285,10 @@
         display: flex;
         align-items: center;
         padding-left: 10px;
-
-        img {
-            width: 100%;
-        }
+        margin-top: 3vh;
 
         span {
             width: 22px;
-            height: 22px;
             padding: 10px;
         }
 
@@ -284,7 +318,8 @@
             }
         }
 
-        .next {
+        .next,
+        .nextPage {
             width: 95px;
             height: 35px;
             line-height: 35px;
@@ -490,11 +525,61 @@
 
     #shoppingcart {
         h4 {
-            font-size: 14px;
+            font-size: 16px;
+        }
+        h3 {
+            font-size: 16px;
+        }
+
+        .header {
+            margin-top: 50px;
+        }
+
+        .option img {
+            width: 65%;
+        }
+
+        .header {
+            .title {
+                position: absolute;
+                left: 20px;
+            }
+
+            .logo {
+                display: none;
+            }
+        }
+de
+        h4 {
+            font-size: 12px;
         }
     }
 
     .cartitem {
+
+        .cartitem {
+            .detail {
+                .cus {
+                    width: 50%;
+                }
+
+                .m_d {
+                    width: 50%;
+                }
+            }
+
+            .receive,
+            .payment,
+            .creditCard,
+            .myGold,
+            .total {
+                width: 100%;
+            }
+        }
+
+        .productlist {
+            margin-top: 0vh;
+        }
 
         .customizelist,
         .productlist,
@@ -517,6 +602,7 @@
         }
 
         .detail {
+            display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
@@ -582,42 +668,12 @@
             }
         }
 
+        .total {
+            .nextPage {
+                margin-right: 20px;
+            }
+        }
+
     }
 
-}
-
-//shoppingList CSS
-.shoppingList {
-    .cartitem {
-        .product {
-            width: 40%;
-        }
-
-        .proinfo {
-            width: 60%;
-
-            .subtotal,
-            .amount,
-            .count {
-                width: 20%;
-            }
-        }
-
-        .item,
-        .detail {
-            .cus {
-                width: 40%;
-            }
-
-            .m_d {
-                width: 60%;
-
-                .subtotal,
-                .amount,
-                .count {
-                    width: 20%;
-                }
-            }
-        }
-    }
 }

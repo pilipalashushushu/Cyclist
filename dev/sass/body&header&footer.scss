@@ -70,6 +70,7 @@ header {
     li a {
         text-align: center;
         color: white;
+        width:65px;
     }
 
     li a:hover {
@@ -97,22 +98,12 @@ header {
         }
     }
 
-
-
-    .icon-1 {
-        background-position: 0 0;
-    }
-
     .icon-2 {
         background-position: -22px 0;
     }
 
     .icon-3 {
         background-position: -44px 0;
-    }
-
-    .icon-1:hover {
-        background-position: 0px -22px;
     }
 
     .icon-2:hover {
@@ -138,29 +129,31 @@ header {
                 cursor: pointer;
                 width: 50px;
                 height: 60px;
+                position: absolute;
+                right: 15px;
 
                 span {
                     display: block;
                     transition: ease-in-out .5s;
                     position: absolute;
-                    width: 40px;
-                    height: 5px;
+                    width: 30px;
+                    height: 2px;
                     background-color: #fff;
-                    border-radius: 4px;
-                    left: 10px;
+                    border-radius: 1px;
+                    left: 15px;
                 }
 
                 .ham-1 {
-                    top: 10px;
+                    top: 18px;
                 }
 
                 .ham-2,
                 .ham-3 {
-                    top: 27px;
+                    top: 28px;
                 }
 
                 .ham-4 {
-                    top: 44px;
+                    top: 38px;
                 }
 
                 z-index: 900;
@@ -170,20 +163,25 @@ header {
             .ham {
                 display: block;
                 display: flex;
-
             }
+
 
             .logo {
                 flex-grow: 10;
                 align-items: center;
 
+                img {
+                    width: 70%;
+                    margin-left: 10px
+                }
+
                 a {
                     display: block;
-                    margin-left: 50%;
                 }
             }
 
             .nav-icon {
+                display: none;
                 li {
                     margin: 2px;
                 }
@@ -203,7 +201,11 @@ header {
                 .nav-list {
                     flex-flow: column;
                     align-items: center;
-                    justify-content: space-around;
+                    justify-content: space-evenly;
+
+                    li {
+                        margin: 0 0px;
+                    }
 
                     .logo {
                         order: -1;
@@ -230,9 +232,9 @@ header {
         }
 
         #ham:checked+label .ham-1 {
-            transform: rotate(410deg);
-            height: 4px;
-            top: 22px;
+            transform: rotate(400deg);
+            height: 2px;
+            top: 25px;
         }
 
         #ham:checked+label .ham-2,
@@ -246,9 +248,9 @@ header {
         }
 
         #ham:checked+label .ham-4 {
-            transform: rotate(-410deg);
-            height: 4px;
-            top: 22px;
+            transform: rotate(-400deg);
+            height: 2px;
+            top: 25px;
         }
 
 

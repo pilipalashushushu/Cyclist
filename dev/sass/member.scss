@@ -1,0 +1,390 @@
+@import "rest";
+@import "grid";
+@import "var";
+
+
+/* *{
+  outline: 1px solid red;
+} */
+
+.cloud4{
+    width: 25%;
+    position: absolute;
+    top: 3%;
+    left: 5%;
+    animation-name: cloudfly1;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes cloudfly1{
+    0% {left: 0%;}
+    50%{left: 5%;}
+    100% {left: 0%;}
+  }
+  
+  .cloud1{
+    width: 25%;
+    position: absolute;
+    top: 3%;
+    left: 15%;
+    animation-name: cloudfly2;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    z-index: 1;
+  }
+  
+  @keyframes cloudfly2{
+    0% {left: 10%;}
+    50%{left: 15%;}
+    100% {left: 10%;}
+  }
+  
+  .cloud3{
+    width: 18%;
+    position: absolute;
+    left: 43%;
+    top: 0%;
+    animation-name: cloudfly3;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    z-index:1;
+  }
+  
+  @keyframes cloudfly3{
+    0% {left: 40%;}
+    50%{left: 45%;}
+    100% {left: 40%;}
+  }
+  
+  .cloudbox{
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+  }
+  
+  
+  
+  .cloud2{
+    width: 30%;
+    position: absolute;
+    left: 65%;
+    top:5%;
+    animation-name: cloudfly4;
+    animation-duration: 20s;
+    animation-iteration-count: infinite
+  }
+  
+  @keyframes cloudfly4{
+    0% {left: 65%;}
+    50%{left: 70%;}
+    100% {left: 65%;}
+  }
+  
+  
+  
+  .cloudbox h2{
+    margin-top: 60px;
+    z-index: 10;
+    color: #d16237;
+    font-weight:bold;
+    font-size: 36px;
+  }
+
+  .clearfix{
+    clear:both;
+}
+
+
+.ifnull{
+    text-align: center;
+    margin: 0 auto;
+    overflow: hidden;
+  
+    
+    p{
+       margin-bottom: 5%;
+    }
+
+}
+
+.ifnull img{
+    width: 100%;
+    max-width: 293px;
+    max-height: 367px;
+  }
+
+.mempic{
+  z-index: 2;
+
+}
+
+.mempicbox{
+  position: relative;
+  padding: 10px;
+}
+
+.mylist{
+    padding: 2% 5%;
+}
+.member{
+    overflow: hidden;
+    min-height: 388px;
+}
+
+.baic_txt{
+    width: 100%;
+}
+
+
+.baic_txt .memtd1{
+    width: 20%;
+}
+
+.baic_txt .memtd2{
+    width: 60%;
+}
+
+
+
+
+
+
+body {
+    margin: 0 auto;
+    font-family: "微軟正黑體";
+
+    h2{
+        text-align: center;
+        margin-bottom: 5%;
+    }
+    
+    
+  
+}
+
+
+.item{
+    padding:5%;
+    text-align: center;
+}
+
+#tab-panel {
+    margin: 0 auto;
+    padding-top: 50px;
+}
+#tab-panel .tabs {
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-align: center;
+}
+#tab-panel .tabs a {
+    float: left;
+    display: block;
+    width: 50%;
+    padding: 15px 0;
+    border: 1px solid #CCC;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+    transition: all .3s;
+}
+#tab-panel .tabs a.active {
+    background: #efe8cb;
+    color: #333;
+}
+
+#tab-panel .tab-content > li {
+    display: none;
+    padding: 20px;
+    font-size: 14px;
+    color: #666;
+    line-height: 25px;
+}
+
+.button1{
+  background-color: #d16237;
+  border:0;
+  border-radius: 10px;
+  padding: 10px 40px; 
+  text-decoration: none;
+  color: #FFF;
+  
+}
+
+.button2{
+    background-color: #d16237;
+    border:0;
+    border-radius: 10px;
+    padding: 10px; 
+    
+  }
+  
+
+
+.wrap{
+    background: -webkit-linear-gradient(180deg, rgb(142, 217, 255), rgb(82, 136, 185));
+    background: linear-gradient(180deg, rgb(142, 217, 255), rgb(82, 136, 185));
+    background-size: cover;
+    overflow: hidden;
+}
+
+.mem [class*=col-] {
+  float: left;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.tab-content li{
+    background-color: #efe8cb;
+    ;
+    overflow: hidden;
+}
+
+.mem ul{
+  padding: 0;
+}
+
+.remem .button1{
+  float: right;
+  margin-left: 10px;
+}
+
+.remem{
+  line-height: 40px;
+}
+
+.remem .rebutton{
+  padding: 0 10px;
+}
+
+@media all and (max-width: 768px) {
+  .remem .button1{
+    float: none;
+  }
+
+  .remem .rebutton{
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+  }
+
+}
+
+
+a{
+  text-decoration:none;
+}
+
+.box-s{
+  box-sizing: border-box;
+  float: left;
+}
+
+.mact-box{
+  padding: 10px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+
+.mact{  
+  padding:10px;
+  img{
+    width: 100%;
+  }
+
+  h4{
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  p{
+    font-size: 16px;
+  }
+
+}
+
+.calendar-wrap{
+  margin-top: 60px;
+}
+
+@media screen and (max-width: 768px){
+body{
+  overflow: auto !important;
+}
+}
+
+
+
+.calendar-wrap {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+
+  .baic_txt .memsand{
+    width: 92%;
+    background-color: azure;
+    padding: 10px;
+    border-radius: 10px;
+    /* margin: 2%; */      
+    display: block;  
+    border: none;       
+ }
+  
+
+  .baic_txt p{
+  background-color: azure;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 3px  10px;
+  text-align: center;
+  }
+
+  .order p{
+    display: inline-block;
+  }
+
+  
+.my-act{
+background-color: #DAE9F7;
+width:100%;
+text-align: center;
+font-size: 14px;
+}
+
+.my-act th{
+padding: 10px;
+border-bottom: 2px solid orange;
+}
+.my-act td{
+padding: 10px;
+border-bottom: 1px solid orange;
+}
+
+.my-ord{
+background-color: #DAE9F7;
+ width:100%;
+ text-align: center;
+ overflow: hidden;
+}
+
+
+.ord-bor{
+border-bottom: 1px solid orange;
+}
+
+.textLeft{
+text-align: left;
+}
+.textLeftB{
+border-bottom: 1px solid orange;
+text-align: left;
+}
+
+.ord-head{
+background-color: #EFE8CB;
+line-height: 60px;
+}
+
