@@ -1,5 +1,5 @@
 <?php
-require_once('connect.php');
+require_once('connection.php');
 $prodlist = $pdo->query("select * from `products`");
 $arr = [];
 while( $prodRow = $prodlist->fetch(PDO::FETCH_ASSOC) ){
