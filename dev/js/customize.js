@@ -958,6 +958,21 @@ $(function () {
                                 alert(jqXHR.responseText);
                             },
                         })
+                        $.ajax({
+                            url: `./php/gold.php?memNo=1 & gold=${$(".goldtotal").text()}`,
+
+
+                            type: "get",
+
+                            success: function (data) {
+
+                                alert("購買成功!");
+
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                alert(jqXHR.responseText);
+                            },
+                        })
                     }
                     break;
             }
