@@ -261,6 +261,12 @@ section {
           transform: rotateY(0deg);
 }
 
+@media screen and (max-width: 768px) {
+  .fullpage #activity .more {
+    left: 36%;
+  }
+}
+
 .fullpage #product #silderBoard {
   height: 100vh;
   display: -webkit-box;
@@ -290,7 +296,6 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow: hidden;
   position: relative;
 }
 
@@ -391,30 +396,6 @@ section {
   margin: 30px 10px;
 }
 
-.fullpage #product #silderBoard .prod-icon .prod_like {
-  background-image: url(../images/prod_like.png);
-  background-repeat: no-repeat;
-  width: 21px;
-  height: 18px;
-  background-position: 0px 0;
-}
-
-.fullpage #product #silderBoard .prod-icon .prod_like:hover {
-  background-position: -21px 0;
-}
-
-.fullpage #product #silderBoard .prod-icon .prod_cart {
-  background-image: url(../images/prod_cart.png);
-  background-repeat: no-repeat;
-  width: 21px;
-  height: 18px;
-  background-position: 0px 0;
-}
-
-.fullpage #product #silderBoard .prod-icon .prod_cart:hover {
-  background-position: -21px 0;
-}
-
 .fullpage #product #silderBoard .prod-icon a {
   display: block;
   width: 19px;
@@ -505,11 +486,11 @@ section {
   }
   .fullpage #product .more {
     display: inline;
-    width: 100px;
-    height: 30px;
+    width: 110px;
+    height: 35px;
     position: absolute;
     bottom: 30px;
-    right: 155px;
+    right: 130px;
     font-size: 13px;
   }
 }
@@ -1175,32 +1156,46 @@ section {
 }
 
 #about .hm_about-info .back_square {
-  width: 65vw;
+  width: 60vw;
   height: 65vh;
   background-color: #db6437;
   position: absolute;
   top: 10%;
   left: 0;
   z-index: 0;
-  font-size: 200px;
+  font-size: 12vw;
   color: #f8f8f8;
   font-weight: 800;
   padding: 0 50px;
   line-height: 1.3;
 }
 
-#about .hm_about-info img {
+#about .hm_about-info .bikeInfo {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#about .hm_about-info .bikeInfo img {
   width: 65%;
   position: absolute;
   z-index: 1;
   margin: 0 auto;
 }
 
-#about .hm_about-info .infoT1,
-#about .hm_about-info .infoT2,
-#about .hm_about-info .infoT3,
-#about .hm_about-info .infoT4,
-#about .hm_about-info .infoT5 {
+#about .hm_about-info .bikeInfo .infoT1,
+#about .hm_about-info .bikeInfo .infoT2,
+#about .hm_about-info .bikeInfo .infoT3,
+#about .hm_about-info .bikeInfo .infoT4,
+#about .hm_about-info .bikeInfo .infoT5 {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: absolute;
@@ -1216,7 +1211,7 @@ section {
           justify-content: center;
 }
 
-#about .hm_about-info span {
+#about .hm_about-info .bikeInfo span {
   display: block;
   width: 26px;
   height: 26px;
@@ -1226,27 +1221,27 @@ section {
   cursor: pointer;
 }
 
-#about .hm_about-info .infoT1:hover .p1 {
+#about .hm_about-info .bikeInfo .infoT1:hover .p1 {
   opacity: .9;
 }
 
-#about .hm_about-info .infoT2:hover .p2 {
+#about .hm_about-info .bikeInfo .infoT2:hover .p2 {
   opacity: .9;
 }
 
-#about .hm_about-info .infoT3:hover .p3 {
+#about .hm_about-info .bikeInfo .infoT3:hover .p3 {
   opacity: .9;
 }
 
-#about .hm_about-info .infoT4:hover .p4 {
+#about .hm_about-info .bikeInfo .infoT4:hover .p4 {
   opacity: .9;
 }
 
-#about .hm_about-info .infoT5:hover .p5 {
+#about .hm_about-info .bikeInfo .infoT5:hover .p5 {
   opacity: .9;
 }
 
-#about .hm_about-info p {
+#about .hm_about-info .bikeInfo p {
   color: #666;
   font-size: 13px;
   line-height: 1.5;
@@ -1260,35 +1255,35 @@ section {
           box-shadow: 0px 1px 2px #ccc;
 }
 
-#about .hm_about-info .p1,
-#about .hm_about-info .p2,
-#about .hm_about-info .p3,
-#about .hm_about-info .p4,
-#about .hm_about-info .p5 {
+#about .hm_about-info .bikeInfo .p1,
+#about .hm_about-info .bikeInfo .p2,
+#about .hm_about-info .bikeInfo .p3,
+#about .hm_about-info .bikeInfo .p4,
+#about .hm_about-info .bikeInfo .p5 {
   opacity: 0;
 }
 
-#about .hm_about-info .infoT1 {
+#about .hm_about-info .bikeInfo .infoT1 {
   top: 30%;
   left: 41%;
 }
 
-#about .hm_about-info .infoT2 {
+#about .hm_about-info .bikeInfo .infoT2 {
   top: 73%;
   left: 53%;
 }
 
-#about .hm_about-info .infoT3 {
+#about .hm_about-info .bikeInfo .infoT3 {
   top: 34%;
   left: 50%;
 }
 
-#about .hm_about-info .infoT4 {
+#about .hm_about-info .bikeInfo .infoT4 {
   bottom: 28%;
   left: 17.5%;
 }
 
-#about .hm_about-info .infoT5 {
+#about .hm_about-info .bikeInfo .infoT5 {
   top: 13%;
   left: 61%;
 }
