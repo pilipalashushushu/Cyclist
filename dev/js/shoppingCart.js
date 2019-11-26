@@ -78,7 +78,14 @@ $(function () {
                                 }
                             })
                         } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".gold").prop("checked") == true) {
-                            alert(2)
+                            $.ajax({
+                                url: `./php/shoppingList.php?memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
+                                type: "get",
+                                success: function (data) {
+                                    alert("購買成功")
+                                    console.log(data)
+                                }
+                            })
                         }
                         break;
                 }
@@ -122,12 +129,12 @@ $(function () {
                 this.page = false;
             },
             //信用卡資料自動跳行＆限制只能輸入數字
-            keyupVal(e){
+            keyupVal(e) {
                 if (!/^\d+$/.test(this.value)) {
                     var newValue = /^\d+/.exec(e.currentTarget.value);
                     newValue != null ? $(e.currentTarget).val(newValue) : $(e.currentTarget).val('');
                 }
-                if($(e.currentTarget).val().length==$(e.currentTarget).attr('maxlength')){
+                if ($(e.currentTarget).val().length == $(e.currentTarget).attr('maxlength')) {
                     $(e.currentTarget).next(':input').focus();
                 }
 
