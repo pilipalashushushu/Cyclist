@@ -62,22 +62,22 @@ $(function () {
                         break;
                     case 2:
                         $(".payment").slideDown();
-                        $(e.currentTarget).find("h3").text("下一步");
+                        $(e.currentTarget).find("h4").text("下一步");
                         $(e.currentTarget).data("status", 3);
                         break;
                     case 3:
-
                         if ($(e.currentTarget).find("h4").text() == "下一步") {
                             alert("請選擇付款方式")
-                        } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".creditCard").attr("display") == "block") {
-                            alert(1)
-                            // $.ajax({
-                            //     url: "./php/cusOrder.php",
-                            //     datType: "json",
-                            //     type: "post",
-                            //     success: function (data) {}
-                            // })
-                        } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".mygold").attr("display") == "block") {
+                        } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".card").prop("checked") == true) {
+                            $.ajax({
+                                url: `./php/shoppingList.php?memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
+                                type: "get",
+                                success: function (data) {
+                                    alert("購買成功")
+                                    console.log(data)
+                                }
+                            })
+                        } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".gold").prop("checked") == true) {
                             alert(2)
                         }
                         break;
