@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <style>
+            #loginBox{
+                position:relative;
+                margin:auto;
+                width:330px;
+                height:300px;
+                background-color:#F8F1ED;
+                padding:30px;
+                text-align:center;
+                border-radius:10px;
+                top:150px;
+                box-shadow:0px 10px 50px 10px #B6B6B6;
+                border:1px dashed #999;
+                }
+                p{
+                        font-size: 26px;
+                }
+                input{
+                        font-size: 26px;
+                }
+    </style>
+</head>
+<body>
+        <div id="loginBox">
+                <form action="./php/login.php" method="post">
+                <p>帳號: <input type="text" name="adminId"></p>
+                <p>密碼: <input type="password" name="adminPsw"></p>
+                <p><input type="submit" value="登入"></p>
+                </form>
+        </div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>CYCLIST Admin</title>
+  <!-- Icons-->
+  <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+  <link href="node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+  <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <!-- Main styles for this application-->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+ <!-- top_header -->
+ @@include('layout/top_header.html')
+  <div class="app-body">
+    <div class="sidebar">
+      <!-- sidebar menu-->
+      @@include('layout/sidebar_nav.html')
+      <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    </div>
+    <main class="main">
+      <!-- Breadcrumb-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="blank.html">首頁</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="admin.html">管理員管理</a>
+        </li>
+        <!-- Breadcrumb Menu-->
+      </ol>
+      <div class="container-fluid">
+   
+       <!-- 中間內容 -->
+       <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header justify-content-end d-flex">
+                  <button type="button" class="btn btn-warning mr-1" id="addAdmin">新增管理員</button>
+
+                </div>
+                <div class="card-body">
+                  <table class="table table-responsive-sm table-sm">
+                    <thead>
+                      <tr>
+                        <th>管理員編號</th>
+                        <th>管理員名稱</th>
+                        <th>管理員密碼</th>
+                        <th>管理員姓名</th>
+                        <!-- <th>管理員權限</th> -->
+                        <th>管理員帳號刪除</th>
+                      </tr>
+                    </thead>
+                    <tbody class="admAdd">
+                          
+                    </tbody>  <!---->
+                    
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+       <!-- end -->
+      </div>
+    </main>
+  </div>
+  @@include('layout/footer.html')
+  <!-- CoreUI and necessary plugins-->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/pace-progress/pace.min.js"></script>
+  <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+  <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+ <!-- <script>
+    $('.adminName').text(sessionStorage.getItem('adminId') + ' 您好');
+    if(sessionStorage.getItem('adminNo') == null){
+        window.location.href = "login.html";
+    }
+  </script> -->
+  <script>
+      $('document').ready(function(){
+
+        $('body').on('click', '#addAdmin', function () {
+          // alert('hello');
+        let newAdmin = $("<tr id='newAdmin'></tr>").html(
+                          `
+                          <td><input id="adminNo" type="text"></td>
+                          <td><input id="adminId" type="text"></td>
+                          <td><input id="adminPsw" type="text"></td>
+                          <td><input id="adminName" type="text"></td>
+                          <td>
+                          <button type="button" class="btn btn-pill btn-success btn-xl" id="yesAddAdmin">新增</button>
+                          </td>
+                          <td>    
+                          <button type="button" class="btn btn-pill btn-secondary btn-xl" id="cancelAddAdmin">取消</button>
+                          </td>`);
+              if ($('.newAdmin').length == 0) {
+              $('.admAdd').append(newAdmin);
+              }
+        })
+
+          $('body').on('click', '#cancelAddAdmin', function () {
+                          this.parentElement.parentElement.remove();
+                      })
+
+
+          $('body').on('click', '#yesAddAdmin', function () {
+                          let adminNo = $('#adminNo').val();
+                          let adminId = $('#adminId').val();
+                          let adminPsw = $('#adminPsw').val();
+                          let adminName = $('#adminName').val();
+                          let adminStat = $('#adminStat').val();
+
+                          if ((adminId && adminPsw)) {
+                              $.ajax({
+                                  type: 'POST',
+                                  url: `./php/newAdmin.php`,
+                                  data: {
+                                      adminNo,
+                                      adminId,
+                                      adminPsw,
+                                      adminName,
+                                      adminStat,
+                                      action: 'addAdmin',
+                                  },
+                                  success: function (getNoRows) {
+                                      let getNo = JSON.parse(getNoRows);
+                                      let newAdmin = "";
+                                        newAdmin += `<tr>`;
+                                        newAdmin += `<td>${adminNo}</td>`;
+                                        newAdmin += `<td>${adminId}</td>`;
+                                        newAdmin += `<td>${adminPsw}</td>`;
+                                        newAdmin += `<td>${adminName}</td>`;
+                                        // newAdmin += `<td>${adminStat}</td>`;
+                                        newAdmin += `<td>
+                                                    <button class="btn btn-danger" type="button" data-toggle="modal"
+                                                            data-target="#alertModal" id="delAdmin">刪除
+                                                    </button>
+                                                    </td>`;
+                                        newAdmin += `</tr>`;                               
+                                      $('.admAdd').append(newAdmin);
+                                      $('#newAdmin').remove();
+                                      alert('新增成功');
+                                  },
+                              });
+                          } else {
+                              alert('帳號或密碼不能為空白');
+                          }
+                      })
+          $('body').on('click', '#delAdmin', function () {
+            let adminNo = $(this).parent().parent().children().first().text();
+            let dead = this;
+            //  alert(adminNo);
+                  $.ajax({
+                          type: "POST",
+                          url: `./php/delAdmin.php`,
+                          data:{
+                            adminNo:adminNo
+                          },
+                          success: function (deleteBack) {
+                            alert('刪除成功');
+                            $(dead.parentElement.parentElement).remove();
+                          },
+                          error: function () {
+                              alert('fail');
+                          }
+                      })
+            })             
+    
+
+
+      //-------------------------------------------------------------------------------------------
+      let storage = sessionStorage;
+      let url = "./backphp/admin.php";
+        function admManage(){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+          if(xhr.status == 200){ //server OK
+            let dataString = JSON.parse(xhr.responseText);
+            let htmlStr = '';
+            for (i = 0; i < dataString.length; i++) {
+                      htmlStr += `<tr>`;
+                      htmlStr += `<td class="admNoChange">${dataString[i].adminNo}</td>`;
+                      htmlStr += `<td>${dataString[i].adminId}</td>`;
+                      htmlStr += `<td>${dataString[i].adminPsw}</td>`;
+                      htmlStr += `<td>${dataString[i].adminName}</td>`;
+                      // htmlStr += `<td>${dataString[i].adminStat}</td>`;
+                      htmlStr += `<td>
+                                  <button class="btn btn-danger" type="button" data-toggle="modal"
+                                          data-target="#alertModal" data-whatever="@delete" id="delAdmin">刪除
+                                  </button>
+                                  </td>`;
+                      htmlStr += `</tr>`;
+                      // $('.memAdd').append(htmlStr);
+                      document.querySelector(".admAdd").innerHTML= htmlStr;
+            }  
+          }else{ //error
+            alert(xhr.status);
+          }
+        } //xhr function end
+        xhr.open("get", "./php/admin.php", true);
+        // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhr.send( null );
+        }
+        admManage();
+      })    
+    </script>
+    <script>
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>CYCLIST 客製管理</title>
+  <!-- Icons-->
+  <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+  <link href="node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+  <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <!-- Main styles for this application-->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+ <!-- top_header -->
+ @@include('layout/top_header.html')
+  <div class="app-body">
+    <div class="sidebar">
+      <!-- sidebar menu-->
+      @@include('layout/sidebar_nav.html')
+      <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    </div>
+    <main class="main">
+      <!-- Breadcrumb-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="blank.html">首頁</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="cusomizeManage.html">客製管理</a>
+        </li>
+        <!-- Breadcrumb Menu-->
+      </ol>
+      <div class="container-fluid">
+       <!-- 中間內容 -->
+       
+       <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+      
+            </div>
+            <div class="card-body">
+              <table class="table table-responsive-lg table-lg">
+                <thead>
+                  <tr>
+                    <th>客製編號</th>
+                    <th>會員編號</th>
+                    <th>價格</th>
+                    <th>客製產品圖</th>
+                    <th>腳踏車型號</th>
+                    <th>車架編號</th>
+                    <th>把手編號</th>
+                    <th>車架顏色編號</th>
+                    <th>速度</th>
+                    <th>避震</th>
+                    <th>狀態</th>
+                  </tr>
+                </thead>
+                <tbody class="cusAdd">
+                </tbody>
+              </table>           
+            </div>
+          </div>
+        </div>
+       </div>
+       <!-- end -->
+      </div>
+    </main>
+  </div>
+  @@include('layout/footer.html')
+  <!-- CoreUI and necessary plugins-->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/pace-progress/pace.min.js"></script>
+  <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+  <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+   <!-- <script>
+    $('.adminName').text(sessionStorage.getItem('adminId') + ' 您好');
+    if(sessionStorage.getItem('adminNo') == null){
+        window.location.href = "login.html";
+    }
+  </script> -->
+  <script>
+      $('document').ready(function(){
+      let storage = sessionStorage;
+      let url = "customize.php";
+        function cusManage(){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+          if(xhr.status == 200){ //server OK
+            let dataString = JSON.parse(xhr.responseText);
+            let htmlStr = '';
+            for (i = 0; i < dataString.length; i++) {
+                      htmlStr += `<tr>`;
+                      htmlStr += `<td class="actNoChange">${dataString[i].cusNo}</td>`;
+                      htmlStr += `<td>${dataString[i].memNo}</td>`;
+                      htmlStr += `<td>${dataString[i].price}</td>`;
+                      htmlStr += `<td>${dataString[i].cusPic}</td>`;
+                      htmlStr += `<td>${dataString[i].typeNo}</td>`;
+                      htmlStr += `<td>${dataString[i].frameNo}</td>`;
+                      htmlStr += `<td>${dataString[i].handleNo}</td>`;
+                      htmlStr += `<td>${dataString[i].colorNo}</td>`;
+                      htmlStr += `<td>${dataString[i].speed}</td>`;
+                      htmlStr += `<td>${dataString[i].avoid}</td>`;
+                      // htmlStr += `<td>
+                      //                 <label class="switch switch-3d switch-success">
+                      //                   <input class="switch-input actStatus" type="checkbox" checked>
+                      //                   <span class="switch-slider"></span>
+                      //                 </label>
+                      //             </td`;
+                      htmlStr += `<td>
+                                  <button class="btn btn-danger cusDelete" type="button" data-toggle="modal"
+                                          data-target="#alertModal" data-whatever="@delete">刪除
+                                  </button>
+                                  </td>`;
+                      htmlStr += `</tr>`;
+                      // $('.memAdd').append(htmlStr);
+                      document.querySelector(".cusAdd").innerHTML= htmlStr;
+            }  
+          }else{ //error
+            alert(xhr.status);
+          }
+        } //xhr function end
+        xhr.open("get", "./php/customize.php", true);
+        // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhr.send( null );
+        }
+        cusManage();
+      })    
+      
+    </script>
+</body>
+</html>

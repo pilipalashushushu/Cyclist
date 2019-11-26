@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>CYCLIST 機器人管理</title>
+  <!-- Icons-->
+  <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+  <link href="node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+  <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <!-- Main styles for this application-->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+ <!-- top_header -->
+ @@include('layout/top_header.html')
+  <div class="app-body">
+    <div class="sidebar">
+      <!-- sidebar menu-->
+      @@include('layout/sidebar_nav.html')
+      <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    </div>
+    <main class="main">
+      <!-- Breadcrumb-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="blank.html">首頁</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="chatbotManage.html">機器人管理</a>
+        </li>
+        <!-- Breadcrumb Menu-->
+      </ol>
+      <div class="container-fluid">
+       <!-- 中間內容 -->
+     <div class="col-md-12">
+       <div class="row chatRow">
+          <div class="col-lg-4 ">  
+              <div class="card">
+                  <div class="card-header">問題編號1</div>
+                  <div class="card-body">
+                      <form action="" method="get" enctype="multipart/form-data">
+                      <table class="table table-responsive-sm table-sm">
+                          <tr>
+                              <th>問題關鍵字</th>
+                              <td>
+                                  <input class="form-control qnaQ" type="text">
+                              </td>
+                          </tr>
+                          <tr>
+                              <th>問題的回答</th>
+                              <td>
+                                  <textarea class="form-control qnaA" rows="3" value=""></textarea>
+                              </td>
+                          </tr>
+                         
+                      </table>
+                      <div class="row">
+                          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                              <button class="btn btn-pill btn-block btn-primary" type="button">確認新增</button>
+                          </div>
+                          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                              <button class="btn btn-pill btn-block btn-secondary" type="reset">取消清除</button>
+                          </div>
+                      </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-4 ">  
+            <div class="card">
+                <div class="card-header">問題編號2</div>
+                <div class="card-body">
+                    <form action="" method="get" enctype="multipart/form-data">
+                    <table class="table table-responsive-sm table-sm">
+                        <tr>
+                            <th>問題關鍵字</th>
+                            <td>
+                                <input class="form-control qnaQ" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>問題的回答</th>
+                            <td>
+                                <textarea class="form-control qnaA" rows="3" value=""></textarea>
+                            </td>
+                        </tr>
+                       
+                    </table>
+                    <div class="row">
+                        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                            <button class="btn btn-pill btn-block btn-primary" type="button">確認新增</button>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                            <button class="btn btn-pill btn-block btn-secondary" type="reset">取消清除</button>
+                        </div>
+                    </div>
+                    </form>
+                  </div>
+            </div>
+          </div>
+          <div class="col-lg-4 ">  
+            <div class="card">
+                <div class="card-header">問題編號3</div>
+                <div class="card-body">
+                    <form action="" method="get" enctype="multipart/form-data">
+                    <table class="table table-responsive-sm table-sm">
+                        <tr>
+                            <th>問題關鍵字</th>
+                            <td>
+                                <input class="form-control qnaQ" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>問題的回答</th>
+                            <td>
+                                <textarea class="form-control qnaA" rows="3" value=""></textarea>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                    <div class="row">
+                        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                            <button class="btn btn-pill btn-block btn-primary" type="button">確認新增</button>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                            <button class="btn btn-pill btn-block btn-secondary" type="reset">取消清除</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+       <!-- end -->
+      </div>
+    </main>
+  </div>
+  @@include('layout/footer.html')
+  <!-- CoreUI and necessary plugins-->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/pace-progress/pace.min.js"></script>
+  <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+  <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+   <!-- <script>
+    $('.adminName').text(sessionStorage.getItem('adminId') + ' 您好');
+    if(sessionStorage.getItem('adminNo') == null){
+        window.location.href = "login.html";
+    }
+  </script> -->
+</body>
+</html>

@@ -9,7 +9,7 @@ function init(){
         let countPagesBtn = [];
         (function(){ //計算頁數->Math.round(總數量/每頁顯示數量)
             let len = data.length;
-            let show = 2;
+            let show = 4;
             let pages = Math.floor(len/show) + 1;
             countPagesBtn = pages;
             amountPages = show;
@@ -63,6 +63,7 @@ function init(){
                     this.prodAmount = this.prodList.length;
                     this.prodListTitle = title;
                     this.isShop = 1;
+                    this.pagesCount = 0;
                     this.filterOff();
                 },
                 onMoun(){ this.buttonFilter(data, "prodType", 1, "登山車"); }, //1 = 登山車
@@ -78,6 +79,7 @@ function init(){
                     this.prodAmount = this.prodList.length;
                     this.prodListTitle = "成車";
                     this.isShop = 1;
+                    this.pagesCount = 0;
                 },
                 //saerch bar
                 searching(){
