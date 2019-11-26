@@ -3,9 +3,14 @@ function init(){
     three("three");
     //ctrl-btn
     let ctrl = `
-        <div style="position: absolute;right: 30px;bottom: 30px;">
-            <div class="threeInOut"><i class="fa fa-minus-circle" aria-hidden="true"></i></div>
-            <div class="threeInOut"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+        <div style="position: absolute;left: 50px;bottom: 30px;">
+            <div style="display: block;">
+                <span id="zoomStyle" style="margin: 0 auto;text-align: center;display: inline-block;font-size: 30px;width: 100px;padding-bottom: 3px;">100%</span>
+            </div>
+            <div>
+                <div class="threeInOut"><i class="fa fa-minus-circle" aria-hidden="true"></i></div>
+                <div class="threeInOut"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+            </div>
         </div>
     `;
     $('#three').append(ctrl);
@@ -14,7 +19,7 @@ function init(){
         width: "50px",
         height: "50px",
         borderRadius: '50%',
-        textAlign: 'center',
+        'text-align': 'center',
         fontSize: '50px',
         lineHeight: '50px',
         cursor: 'pointer',
@@ -24,6 +29,8 @@ function init(){
     },function(){
         $(this).css('color', 'white');
     });
+
+
 }
 
 function three(Id){
@@ -108,15 +115,17 @@ function three(Id){
                 console.log(camera.zoom);
                 camera.zoom = (camera.zoom * 10 - 1) / 10;
                 camera.updateProjectionMatrix();
+                $('#zoomStyle').text( `${Math.floor( camera.zoom * 100 )}%` );
                 // console.log(camera.fov);
             });
         }
         if( $('.threeInOut:last-child') ){
             $('.threeInOut:last-child').off('click').on('click', function(){
-                // console.log(camera.fov);
+                console.log(camera.fov);
                 console.log(camera.zoom);
                 camera.zoom = (camera.zoom * 10 + 1) / 10;
                 camera.updateProjectionMatrix();
+                $('#zoomStyle').text( `${Math.floor( camera.zoom * 100 )}%` );
                 // console.log(camera.fov);
             });
         }

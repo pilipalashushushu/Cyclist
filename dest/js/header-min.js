@@ -1,1 +1,0 @@
-$(function(){$(window).scroll(function(o){var n=parseInt($(window).scrollTop());$(window).scroll(o=>{var s=parseInt($(window).scrollTop());let w=s-n>0?"down":"up";"down"==w&&$("header").css({top:"-60px"},500),n=s,"up"==w&&$("header").css({top:"0px"},500),n=s,console.log(w)})}),$(window).mousemove(function(o){})});
