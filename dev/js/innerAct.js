@@ -107,6 +107,7 @@ function init(){
     </script> */}
   
         var data={};
+        localStorage['actNo']=3;
         var actNo=JSON.parse(localStorage['actNo']);
         // localStorage['memNickName']=JSON.stringify("啊哈");
         // localStorage['memPic']=JSON.stringify("");
