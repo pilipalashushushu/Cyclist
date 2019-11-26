@@ -6,7 +6,7 @@ $errMsg="";
 
 
 
-    require_once("localhost.php");
+    require_once("../connection.php");
     
     //撈我舉辦的所有活動
     //$sql = "select * from `activity` where memNo='$_SESSION[memNo]'";

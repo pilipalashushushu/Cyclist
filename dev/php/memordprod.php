@@ -9,7 +9,7 @@ $errMsg="";
 try{
 
 
-  require_once("localhost.php");
+  require_once("../connection.php");
 
   //我訂購的明細資料
    $sql="select i.ordNo,i.prodNo,p.prodName,i.amount,p.prodPrice 

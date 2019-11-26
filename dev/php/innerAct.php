@@ -12,7 +12,7 @@ try {
 	// $password = "no512seed851";
 	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_CASE=>PDO::CASE_NATURAL);
 	// $pdo = new PDO($dsn, $user, $password, $options);
-    require_once("connect.php");
+    require_once("../connection.php");
     
     $sql = "select * from `activity` where actNo={$actNo}";
     $sql2 = "SELECT m.memNickName , m.memPic FROM `member`m JOIN `activity` a ON m.memNo = a.memNo WHERE a.actNo = {$actNo}";

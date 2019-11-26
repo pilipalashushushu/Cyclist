@@ -17,7 +17,42 @@
 </head>
 
 <body>
-    @@include('./template/header.html')
+    <header>
+        <nav class="phone">
+            <input type="checkbox" name="" id="ham">
+            <label for="ham">
+
+                <span class="ham-1"></span>
+                <span class="ham-2"></span>
+                <span class="ham-3"></span>
+                <span class="ham-4"></span>
+            </label>
+
+            <div class="logo ham"><a href="./index.html"><img src="./images/logo.png" alt=""></a></div>
+
+            <ul class="nav-icon ham">
+                <li class="icon-2"><a href="../shoppingCart.html"></a></li>
+                <li class="icon-3"><a href="#"></a></li>
+            </ul>
+
+            <nav class="pc">
+
+                <ul class=" nav-list">
+                    <li><a href="./customize.html">專屬騎行</a></li>
+                    <li><a href="./CYShop.html">CY嚴選</a></li>
+                    <li><a href="./activity.html">活動專區</a></li>
+                    <li class="logo"><a href="./cyclist.html"><img src="./images/logo.png" alt=""></a></li>
+                    <li><a href="./question.html">不可不知</a></li>
+                    <li><a href="./aboutCY.html">關於CY</a></li>
+                </ul>
+
+                <ul class="nav-icon">
+                    <li class="icon-2"><a href="shoppingCart.html"></a></li>
+                    <li class="icon-3"><a href="../sign_in.html"></a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
    
     <div class="qawrap">
 
@@ -70,34 +105,34 @@
     
     <!-- scoreWindow -->
         <div class="scoreWindow" style="opacity: 0;">
-            <h2>得分:100</h2>
+            <h2>恭喜通關</h2>
 
             <div class="levelBox">
                 <div class="levelItem">
                     <a href="#">
                         <div class="img">
-                            <img src="./images/item1.png">
+                            <img src="./images/TCR_SLR.png">
                         </div>
-                        <p>CTB101</p>
-                        <p>NT.5500</p>
+                        <p>TCR_SLR</p>
+                        <p>NT.16000</p>
                     </a>
                 </div> 
 
                 <div class="levelItem">
-                    <a href=" #">
+                    <a href="#">
                         <div class="img">
-                            <img src="./images/item2.png">
+                            <img src="./images/TCR_SLR02.png">
                         </div>
-                        <p>公路車專用安全帽</p>
-                        <p>NT.1500</p>
+                        <p>TCR_SLR02</p>
+                        <p>NT.15000</p>
                     </a>
                 </div>
 
                 <div class="levelItem">
-                    <a href=" #">
-                        <img src="./images/item2.png">
-                        <p>去污除鏽劑</p>
-                        <p>NT.700</p>
+                    <a href="#">
+                        <img src="./images/TCR_SLR03.png">
+                        <p>TCR_SLR03</p>
+                        <p>NT.17000</p>
                     </a>
                 </div>
 
@@ -106,8 +141,8 @@
 
                 <!-- linkButton -->
                 <div class=" linkButton">
-                    <a href="#">
-                        登入或註冊，領取購物金
+                    <a href="CYShop.html">
+                        點選此處,前往選購商品
                     </a>
                 </div> 
                 <!-- linkButton end -->
@@ -118,7 +153,13 @@
     </div> 
 <!-- qawrap end -->
 
-    @@include('./template/footer.html')
+    <footer class="section">
+        <ul>
+            <li><img src="./images/facebook.png"></li>
+            <li><img src="./images/ig.png"></li>
+            <li><img src="./images/tw.png"></li>
+        </ul>
+    </footer>
 </body>
 
 </html>

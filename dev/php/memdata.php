@@ -3,7 +3,7 @@ session_start();
 $errMsg = "";
 try{
 
-    require_once("localhost.php");
+    require_once("../connection.php");
     
     $sql = "select * from `member` where memNo='$_SESSION[memNo]'"; 
 

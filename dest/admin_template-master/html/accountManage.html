@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>CYCLIST_BS</title>
+  <title>CYCLIST 會員管理</title>
   <!-- Icons-->
   <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
   <link href="node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
@@ -26,15 +26,44 @@
     <main class="main">
       <!-- Breadcrumb-->
       <ol class="breadcrumb">
-        <li class="breadcrumb-item">CYCLIST</li>
         <li class="breadcrumb-item">
-          <a href="#">會員管理</a>
+            <a href="blank.html">首頁</a>
         </li>
+        <li class="breadcrumb-item">
+            <a href="accountManage.html">會員管理</a>
+        </li>
+        <!-- Breadcrumb Menu-->
       </ol>
       <div class="container-fluid">
    
        <!-- 中間內容 -->
-       @@include('layout/accountManage_content.html')
+       <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+
+                </div>
+                <div class="card-body">
+                  <table class="table table-responsive-sm table-sm">
+                    <thead>
+                      <tr>
+                        <th>會員編號</th>
+                        <th>會員名稱</th>
+                        <th>會員帳號</th>
+                        <th>購物金</th>
+                        <th>會員信箱</th>
+                        <th>會員電話</th>
+                        <th>會員狀態</th>
+                      </tr>
+                    </thead>
+                    <tbody class="memAdd"> 
+                    </tbody>
+                  </table>
+                  
+                </div>
+              </div>
+            </div>
+       </div>
        <!-- end -->
       </div>
     </main>
@@ -47,5 +76,87 @@
   <script src="node_modules/pace-progress/pace.min.js"></script>
   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+  <!-- <script>
+    $('.adminName').text(sessionStorage.getItem('adminId') + ' 您好');
+    if(sessionStorage.getItem('adminNo') == null){
+        window.location.href = "login.html";
+    }
+  </script> -->
+  <script>
+    $('document').ready(function () {
+    let storage = sessionStorage;
+    let level = storage.getItem('memStat');
+    let url = "memberManage.php";
+    function memberManage() {
+      //------------------------------------------------------------
+      let xhr = new XMLHttpRequest();
+      xhr.onload = function(){
+        if(xhr.status == 200){ //server OK
+          let dataString = JSON.parse(xhr.responseText);
+          let htmlStr = '';
+          for (i = 0; i < dataString.length; i++) {
+                    htmlStr += `<tr>`;
+                    htmlStr += `<td class="memChange">${dataString[i].memNo}</td>`;
+                    htmlStr += `<td>${dataString[i].memName}</td>`;
+                    htmlStr += `<td>${dataString[i].memId}</td>`;
+                    htmlStr += `<td>${dataString[i].coupon}</td>`;
+                    htmlStr += `<td>${dataString[i].memEmail}</td>`;
+                    htmlStr += `<td>${dataString[i].tel}</td>`;
+                    htmlStr += `<td><label class="switch switch-3d switch-success">`;
+                    if(`${dataString[i].memStat}`== 1){
+                          htmlStr +=`<input class="switch-input memStatBox" type="checkbox" checked>`;
+                        }else{
+                          htmlStr +=`<input class="switch-input memStatBox" type="checkbox">`; 
+                        }
+                    htmlStr +=`<span class="switch-slider"></span></label></td`;                 
+                    htmlStr += `</tr>`;
+                    // $('.memAdd').append(htmlStr);
+                    document.querySelector(".memAdd").innerHTML= htmlStr;
+          }
+        }else{ //error
+          alert(xhr.status);
+        }
+      }
+      xhr.open("get", "./php/memberManage.php", true);
+      // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+      xhr.send( null );
+      //------------------------------------------------------------      
+    }
+    memberManage();
+
+    $('body').on('change', '.memStatBox', function (){
+        let memNo = $(this).parent().parent().parent().children('.memChange').text();
+        // alert( $(this).attr('checked') == "checked" );
+
+      let value;
+        if( $(this).attr('checked') == 'checked' ){
+                $(this).attr('checked', false);
+                value = 0;
+            }else{
+                $(this).attr('checked', true);
+                value = 1;
+            }
+    
+        $.ajax({
+            type: 'POST',
+            url: `./php/accountManage.php`,
+            data: {
+                memNo,
+                action: 'changeStat',
+                value,
+            },
+            success: function (data) {
+                  if(value==false){
+                        alert("會員停權成功");
+                      }else{
+                        alert("會員復權成功");
+                      }
+                    
+                },  
+        })
+    });     
+   
+})
+  </script>
 </body>
 </html>

@@ -8,7 +8,7 @@ $errMsg = '';
 
 
 try{
-    require_once('connection.php');
+    require_once('../connection.php');
     $prodlist = $pdo->prepare("insert into  `ordermaster` (memNo,ordTotal,ordStat,ordName,ordTel,ordAddr) values ('$memNo',:ordTotal,'1',:memName,:memTel,:memAddr)");
     $prodlist -> bindValue(":memNo",$memNo);
     $prodlist -> bindValue(":ordTotal",$ordTotal);

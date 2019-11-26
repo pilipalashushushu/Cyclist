@@ -3,7 +3,7 @@
 $errMsg="";
 try{
 
-  require_once("connect.php");
+  require_once("../connection.php");
 
 	$sql = "select * from `chatbot`";
   $tags = $pdo->query($sql);

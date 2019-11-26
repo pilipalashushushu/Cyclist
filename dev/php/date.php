@@ -12,7 +12,7 @@ $actEndDate= $_POST['endDate'];
 $errMsg = "";
 try {
 	
-    require_once("connect.php");
+    require_once("../connection.php");
 
     $sql = "SELECT * 
             FROM `activity` 

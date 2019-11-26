@@ -5,7 +5,7 @@ $actNo=$_REQUEST["actNo"];
 $memNo=$_SESSION["memNo"];
 
 try{
-    require_once("localhost.php");   
+    require_once("../connection.php");   
     //取消報名的活動
     //$sql="delete from `member` where memNO ='$_SESSION[memNo]'";
     //$sql="delete from `member` where memNO ='8'";

@@ -6,7 +6,7 @@ $actNo=$_REQUEST["actNo"];
 
 try{
 
-    require_once("localhost.php");
+    require_once("../connection.php");
     //註銷我舉辦的活動 0未註銷 1=註銷
     $sql ="UPDATE `activity` SET actCancelStat='1' WHERE actNo=$actNo";
     

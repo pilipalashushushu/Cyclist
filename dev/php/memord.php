@@ -5,7 +5,7 @@ $memNo=$_SESSION["memNo"];
 
 
 try{
-    require_once("localhost.php");
+    require_once("../connection.php");
 
    //撈我的訂單 ok
    $sql= "select * from `ordermaster` where memNo='3'";

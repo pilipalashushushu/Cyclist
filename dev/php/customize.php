@@ -3,7 +3,7 @@ $errMsg="";
 
 try{
 
-    require_once("connection.php");
+    require_once("../connection.php");
     
     $sql="select b.typeName,b.typeNo,f.frameName,f.frameNo,f.framePic,f.framePrice,h.handleName,h.handleNo,h.handlePic,h.handlePrice,c.colorNo,c.colorName,c.colorPic from handle h join color c on h.frameNo = c.frameNo join frame f on f.frameNo = h.frameNo join biketype b on b.typeNo = f.typeNo ";
 

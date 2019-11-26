@@ -1,7 +1,7 @@
 <?php
 $memNo = 3;
 try{
-    require_once('connection.php');
+    require_once('../connection.php');
     $prodlist = $pdo->prepare("select * from `member` where memNo =:memNo");
     $prodlist -> bindValue(":memNo",$memNo);
     $prodlist -> execute();

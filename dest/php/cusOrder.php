@@ -12,7 +12,7 @@ $price=$_GET["price"];
 
 try{
 
-    require_once("connection.php");
+    require_once("../connection.php");
 
     $sql="INSERT INTO `customize` (memNo,`price`,typeNo,frameNo,handleNo,colorNo,cusName,cusAddr,cusTel) VALUES (:memNo,:price,:type,:frame,:handle,:color,:cusName,:addr,:tel";
 

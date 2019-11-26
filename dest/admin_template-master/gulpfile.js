@@ -84,7 +84,7 @@ gulp.task('default', function () {
             //根目錄
             baseDir: "./",
             //首頁檔案
-            index: "index.html"
+            index: "adminManage.html"
         }
     });
     //監看目標
@@ -93,3 +93,4 @@ gulp.task('default', function () {
     gulp.watch(web.sass, ['sass']).on('change', reload);
     // gulp.watch("img/*").on('change', reload);
 });
+

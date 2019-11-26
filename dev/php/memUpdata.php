@@ -3,7 +3,7 @@ ob_start();
 session_start();
 $errMsg ="";
 try {
-	require_once("localhost.php");
+	require_once("../connection.php");
 
 	//$sql ="UPDATE `member` SET memNickName='$_REQUEST[memNickName]',memId='$_REQUEST[memId]',memPsw='$_REQUEST[memPsw]',memName='$_REQUEST[memName]',memEmail='$_REQUEST[memEmail]',memAddr='$_REQUEST[memAddr]',tel='$_REQUEST[tel]' WHERE memNo='$_SESSION[memNo]'";
 	//$sql ="UPDATE `member` SET memNickName='$_REQUEST[memNickName]',memId='$_REQUEST[memId]',memPsw='$_REQUEST[memPsw]',memName='$_REQUEST[memName]',memEmail='$_REQUEST[memEmail]',memAddr='$_REQUEST[memAddr]',tel='$_REQUEST[tel]' WHERE memNo='$_SESSION[memNo]'";
