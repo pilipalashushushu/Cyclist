@@ -71,7 +71,7 @@
                 </div>
                 <ul class="prod-list col-12">
                     <prod-component 
-                    v-for="(prod, index) in prodList" 
+                    v-for="(prod, index) in prodList.slice(this.pagesCount, this.pagesCount + this.pagesAomunt)" 
                     :key="index" 
                     :img="prod.prodPic" 
                     :name="prod.prodName" 
@@ -103,7 +103,7 @@
                 <div class="pages col-12">
                     <ul>
                         <li>前一頁</li>
-                        <li v-for="n in pagesBtn">{{n}}</li>
+                        <li v-for="n in pagesBtn" @click="changePage(n)">{{n}}</li>
                         <li>後一頁</li>
                     </ul>
                 </div>

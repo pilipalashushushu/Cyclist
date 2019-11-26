@@ -9,9 +9,10 @@ function init(){
         let countPagesBtn = [];
         (function(){ //計算頁數->Math.round(總數量/每頁顯示數量)
             let len = data.length;
-            let show = 8;
-            let pages = Math.round(len/show) + 1;
+            let show = 2;
+            let pages = Math.floor(len/show) + 1;
             countPagesBtn = pages;
+            amountPages = show;
         })();
 
         //價格篩選器
@@ -21,10 +22,13 @@ function init(){
             el: '#prodRender',
             data: {
                 searchbar: '',
+                // prodAll: data,
                 prodList: data, //商品json [{obj1}, {obj2}, ...]
                 prodAmount: data.length, //商品個數
                 prodListTitle: "全部商品",
                 pagesBtn: countPagesBtn, //頁數
+                pagesCount: 0, //第1頁
+                pagesAomunt: amountPages, //每頁數量
                 pagesBtnIsFirst: true,
                 isShop: 1, //v-if判斷 1=商品列表 2=腳踏車類 3=配件&保養品
                 nowPsn: 0,
@@ -129,29 +133,34 @@ function init(){
                         target.find('i').addClass('fa-arrow-circle-o-down');
                     }
                 },
+                //換頁
+                changePage(n){
+                    this.pagesCount = (n - 1) * this.pagesAomunt;
+                    console.log(this.pagesCount);
+                },
             },
             computed: {
-                topPrice(){
-                    let top = 0;
-                    for(var i=0; i<this.prodAmount; i++){
-                        if(parseInt(this.prodList[i]["prodPrice"]) > top){
-                            top = parseInt(this.prodList[i]["prodPrice"]);
-                        }
-                    }
-                    return top
-                },
-                lessPrice(){
-                    let less = 999999;
-                    for(var i=0; i<this.prodAmount; i++){
-                        if(parseInt(this.prodList[i]["prodPrice"]) < less){
-                            less = parseInt(this.prodList[i]["prodPrice"]);
-                        }
-                    }
-                    return less
-                },
-            },
-            watch: {
-                value(){}
+                // topPrice(){
+                //     let top = 0;
+                //     for(var i=0; i<this.prodAmount; i++){
+                //         if(parseInt(this.prodList[i]["prodPrice"]) > top){
+                //             top = parseInt(this.prodList[i]["prodPrice"]);
+                //         }
+                //     }
+                //     return top
+                // },
+                // lessPrice(){
+                //     let less = 999999;
+                //     for(var i=0; i<this.prodAmount; i++){
+                //         if(parseInt(this.prodList[i]["prodPrice"]) < less){
+                //             less = parseInt(this.prodList[i]["prodPrice"]);
+                //         }
+                //     }
+                //     return less
+                // },
+                // prodList(){
+                //     return this.prodAll.slice(this.pagesCount, this.pagesCount + this.pagesAomunt);
+                // },
             },
         });
     }, "json")

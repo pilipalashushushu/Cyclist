@@ -1,5 +1,29 @@
 function init(){
+    let camera;
     three("three");
+    //ctrl-btn
+    let ctrl = `
+        <div style="position: absolute;right: 30px;bottom: 30px;">
+            <div class="threeInOut"><i class="fa fa-minus-circle" aria-hidden="true"></i></div>
+            <div class="threeInOut"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+        </div>
+    `;
+    $('#three').append(ctrl);
+    $('.threeInOut').css({
+        display: "inline-block",
+        width: "50px",
+        height: "50px",
+        borderRadius: '50%',
+        textAlign: 'center',
+        fontSize: '50px',
+        lineHeight: '50px',
+        cursor: 'pointer',
+        color: 'white',
+    }).hover(function(){
+        $(this).css('color', 'green');
+    },function(){
+        $(this).css('color', 'white');
+    });
 }
 
 function three(Id){
@@ -10,28 +34,48 @@ function three(Id){
     $(Id).attr("height", height);
     //scene&camera
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, parseInt(width)/parseInt(height), 0.1, 1000);
-    camera.position.set(10, 0, 0);
+    camera = new THREE.PerspectiveCamera(75, parseInt(width)/parseInt(height), 100, 1000);
+    camera.position.set(100, 0, 0);
 
     //Light
     var spotLight = new THREE.SpotLight(0xffffff, 1);
-    spotLight.position.set(20, 20, 5);
-    scene.add(spotLight);        
+    spotLight.position.set(180, 60, 100);
+    scene.add(spotLight);    
+    var spotLightBack = new THREE.SpotLight(0xffffff, 1);
+    spotLightBack.position.set(-120, -20, 100);
+    scene.add(spotLightBack);           
 
     //3D Model
-    var mtlLoader = new THREE.MTLLoader().setPath('./model/');
+
     var objLoader = new THREE.OBJLoader().setPath('./model/');
-    mtlLoader.load('./11717_bicycle_v2_L1.mtl', (materials)=>{
-        materials.preload();
-        console.log('pnginside');
-        objLoader.setMaterials(materials);
-        objLoader.load('./11717_bicycle_v2_L1.obj',function(obj){
-            obj.position.set(0, -20, 0);
+
+    function loadMulti(target, col, mat = THREE.MeshPhongMaterial){
+        objLoader.load(target,function(obj){
+            var material = new mat({color: col});
+            obj.children.forEach(function(child){
+                child.material = material;
+            });
+            obj.position.set(-80, -120, 30);
             obj.rotation.x = Math.PI * 1.5;
+            obj.rotation.z = Math.PI * 0.5;
+            obj.scale.set(0.4, 0.4, 0.4);
             scene.add(obj);
             animate();
-        })
-    });
+        })        
+    }
+
+    loadMulti('./body.obj', '#dde4ea');
+    loadMulti('./chair.obj', '#505256');
+    loadMulti('./chairSet.obj', '#323134');
+    loadMulti('./foot.obj', '#63676c');
+    loadMulti('./front.obj', '#373c41');
+    loadMulti('./hand.obj', '#24282d');
+    loadMulti('./line.obj', 'black');
+    loadMulti('./rubber.obj', 'black');
+    loadMulti('./tireIn.obj', '#3c3f40');
+    loadMulti('./tireOut.obj', '#38383a');
+    loadMulti('./tooth.obj', '#bfbfbc');
+    loadMulti('./toothcenter.obj', '#07070b');
 
     //background
     var textureLoader = new THREE.TextureLoader().setPath('./images/');
@@ -46,10 +90,11 @@ function three(Id){
     renderer.setSize(parseInt(width), parseInt(height));
     renderer.setClearColor("#a3ddce");
     document.getElementById('three').appendChild(renderer.domElement);
+
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.minDistance = 50;
-    controls.maxDistance = 90;
-    controls.autoRotate = true;
+    // controls.maxDistance = 50;
+    controls.minDistance = 200;
+    controls.autoRotate = false;
     controls.autoRotateSpeed = 5.0;
 
     $(window).resize(onWindowResize);
@@ -57,6 +102,24 @@ function three(Id){
     function animate(){
         requestAnimationFrame(animate);
         controls.update();
+        if( $('.threeInOut:first-child') ){
+            $('.threeInOut:first-child').off('click').on('click', function(){
+                // console.log(camera.fov);
+                console.log(camera.zoom);
+                camera.zoom = (camera.zoom * 10 - 1) / 10;
+                camera.updateProjectionMatrix();
+                // console.log(camera.fov);
+            });
+        }
+        if( $('.threeInOut:last-child') ){
+            $('.threeInOut:last-child').off('click').on('click', function(){
+                // console.log(camera.fov);
+                console.log(camera.zoom);
+                camera.zoom = (camera.zoom * 10 + 1) / 10;
+                camera.updateProjectionMatrix();
+                // console.log(camera.fov);
+            });
+        }
         renderer.render(scene, camera);
     }
 
