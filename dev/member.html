@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="../css/member.min.css" />
-  <link rel="stylesheet" href="../css/col.css" />
-  <link rel="stylesheet" href="../css/core.css" />
-  <link rel="stylesheet" href="../css/daygrid.css" />
+  <link rel="stylesheet" href="./css/member.min.css" />
+  <link rel="stylesheet" href="./css/col.css" />
+  <link rel="stylesheet" href="./css/core.css" />
+  <link rel="stylesheet" href="./css/daygrid.css" />
   <link rel="stylesheet" href="./css/style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
   <script src="js/jquery-3.4.1.min.js"></script>
@@ -352,7 +352,7 @@
       url: "./php/memord.php",
       dataType: "json",
       success: function(data){                        
-      let apiData = '<h3>客製訂單</h3><div class="baic_txt" style="border-bottom:2px solid orange;"><span class="col-md-3 col-3">訂單編號</span><span class="col-md-3 col-3">訂購日期</span><span class="col-md-3 col-3>總金額</span><span class="col-md-3 col-3">備註</span></div>';
+      let apiData = '<h3>客製訂單</h3><div class="baic_txt" style="border-bottom:2px solid orange;"><span class="col-md-3 col-3">訂單編號</span><span class="col-md-3 col-3">訂購日期</span><span class="col-md-3 col-3">總金額</span><span class="col-md-3 col-3">備註</span></div>';
           for(let i=0; i<data.length; i++){
           apiData +=
           `<div class="ord-bor">
@@ -453,6 +453,7 @@
       <form action="./php/pic.php" method="post" enctype="multipart/form-data">
         <input type="file" name="upFile" id="upFile" style="display:none"><br>
         <label for="upFile">  
+
         <img id="imgPreview" src="http://fakeimg.pl/440x320/282828/EAE0D0/">
         </label>
       <input type="submit" value="submit">
