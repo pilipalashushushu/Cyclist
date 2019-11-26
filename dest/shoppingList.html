@@ -29,7 +29,6 @@
             <div class="logo ham"><a href="./index.html"><img src="./images/logo.png" alt=""></a></div>
 
             <ul class="nav-icon ham">
-                <li class="icon-1"><a href="#"></a></li>
                 <li class="icon-2"><a href="../shoppingCart.html"></a></li>
                 <li class="icon-3"><a href="#"></a></li>
             </ul>
@@ -46,7 +45,6 @@
                 </ul>
 
                 <ul class="nav-icon">
-                    <li class="icon-1"><a href="#"></a></li>
                     <li class="icon-2"><a href="shoppingCart.html"></a></li>
                     <li class="icon-3"><a href="../sign_in.html"></a></li>
                 </ul>
@@ -103,47 +101,6 @@
                 </div>
             </div>
             <!-- productlist -->
-
-            <div class="customizelist container">
-                <div class="item">
-                    <div class="product">
-                        <h3>客製商品</h3>
-                    </div>
-                    <div class="proinfo">
-                        <div class="subtotal">
-                            <h3>單價</h3>
-                        </div>
-                        <div class="amount">
-                            <h3>數量</h3>
-                        </div>
-                        <div class="count">
-                            <h3>小計</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item_container" v-for="(item, index) in customizeList" :key="item.id">
-                    <div class="detail detail1 item_header item_body">
-                        <div class="cus item_detail">
-                            <img v-bind:src="item.prodPic" alt="">
-                            <h5 class="name">{{item.prodName}}</h5>
-                        </div>
-                        <div class="m_d">
-                            <div class="subtotal">
-                                <h3><span>$</span>{{item.prodPrice}}</h3>
-                            </div>
-                            <div class="amount">
-                                <input type="number" min="1" v-model="item.prodAmount">
-                            </div>
-                            <div class="count">
-                                <h3><span>$</span>{{item.prodSum}}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- customizelist -->
-
 
             <div class="receive">
                 <div class="recipient">
@@ -243,72 +200,9 @@
         </ul>
     </footer>
 
-    <script>
-        $(function () {
-
-            $.ajax({
-                url: "shoppingCart.php",
-                datType: "json",
-                type: "GET",
-                success: function (data) {
-                    console.log(data);
-                }
-            });
-
-            //下一步展開地址 
-            //下一步展開付款方式
-            //確認金額
-            $(".next").click(function () {
-                switch ($(this).data("status")) {
-                    case 1:
-                        $(".receive").slideDown();
-                        $(this).data("status", 2);
-                        break;
-                    case 2:
-                        $(".payment").slideDown();
-                        $(this).find("h3").text("下一步");
-                        $(this).data("status", 3);
-                        break;
-                    case 3:
-                        break;
-                }
-            })
-
-            //checkbox單選進行
-            $(".pay input").click(function () {
-
-                if ($(this).prop("checked")) {
-                    $(".pay input:checkbox").prop("checked", false);
-                    $(this).prop("checked", true);
-                }
-            });
-
-            $(".card").click(function () {
-
-                $(".creditCard").slideToggle();
-                $(".myGold").slideUp();
-                if ($(this).prop("checked")) {
-                    $('.next').find("h4").text("送出訂單");
-                } else {
-                    $('.next').find("h4").text("下一步");
-                }
-            });
-
-            $(".gold").click(function () {
-                $(".myGold").slideToggle();
-                $(".creditCard").slideUp();
-                if ($(this).prop("checked")) {
-                    $('.next').find("h4").text("送出訂單");
-                } else {
-                    $('.next').find("h4").text("下一步");
-                }
-
-            });
-        });
-    </script>
-
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
-    <script>
+    <script src="./js/shoppingList.js"></script>
+    <!-- <script>
         var incart = [];
         var app = new Vue({
             el: '#app',
@@ -375,7 +269,7 @@
                 },
             }
         })
-    </script>
+    </script> -->
 </body>
 
 </html>
