@@ -96,7 +96,7 @@ const reload = browserSync.reload;
 
 
 gulp.task('copyImg', function(){
-    return gulp.src('./dev/images/*')
+    return gulp.src(['./dev/images/*', './dev/images/**/*', './dev/images/**/**/*'])
         .pipe(gulp.dest('./dest/images'))
 });
 
