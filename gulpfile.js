@@ -117,7 +117,6 @@ gulp.task('copyPhp', function(){
 
 gulp.task('minifyJS', function(){
     return gulp.src('./dev/js/*.js')
-        .pipe(minify())
         .pipe(gulp.dest('./dest/js'))
 });
 
@@ -141,12 +140,12 @@ gulp.task('template', function(){
 
 gulp.task('default', function(){
     //不需要就可以註解關掉
-    browserSync.init({
-        server: {
-            baseDir: "./dest",
-            index: "index.html"
-        }
-    });
+    // browserSync.init({
+    //     server: {
+    //         baseDir: "./dest",
+    //         index: "index.html"
+    //     }
+    // });
 
     gulp.watch('./dev/img/*', ['copyImg']).on('change', reload);
     gulp.watch('./dev/model/*', ['copyModel']).on('change', reload);

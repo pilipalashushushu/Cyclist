@@ -17,7 +17,7 @@ $comContent = $_POST['comContent'];
 // $obj = json_decode($_POST['msgStr']);
 // $obj = json_decode($str,true);
 // echo $comDate;
-echo $comContent;
+// echo $comContent;
 // echo $obj;
 // echo $str["actNo"];
 
