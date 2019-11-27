@@ -1,6 +1,6 @@
 <?php
 try{
-    require_once("../../connection.php");
+    require_once("connect.php");
     
     $sql="select * from `customize`";
     $cust=$pdo->query($sql);

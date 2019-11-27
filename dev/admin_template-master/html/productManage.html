@@ -145,12 +145,6 @@
   <script src="node_modules/pace-progress/pace.min.js"></script>
   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
-   <!-- <script>
-    $('.adminName').text(sessionStorage.getItem('adminId') + ' 您好');
-    if(sessionStorage.getItem('adminNo') == null){
-        window.location.href = "login.html";
-    }
-  </script> -->
   <script>
         //從資料庫撈取資料append到網頁
         $('document').ready(function(){
@@ -231,10 +225,13 @@
                 cache: false,
                 processData:false,
                 success: function(data){
-                    alert(data);
+                    alert("新增商品成功");
+                    location.reload();
+                    // window.load("productManage.html", "_self");
+                    
                 },
                 error: function(data){
-                    alert(data);
+                    alert("新增商品失敗");
                 }               
             });
         }));

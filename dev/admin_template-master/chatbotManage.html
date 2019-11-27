@@ -42,7 +42,7 @@
     <ul class="nav">
       <li class="nav-title" style="font-size:22px;">後台管理</li>
       <li class="nav-item">
-          <a class="nav-link" href="admin.html">
+          <a class="nav-link" href="adminManage.html">
             <i class="nav-icon icon-settings"></i>管理員管理</a>
       </li>
       <li class="nav-item">
@@ -51,7 +51,7 @@
         </li>
       <li class="nav-item">
           <a class="nav-link" href="productManage.html">
-            <i class="nav-icon icon-people"></i>商品管理</a>
+            <i class="nav-icon icon-heart"></i>商品管理</a>
         </li>
       <li class="nav-item">
           <a class="nav-link" href="orderManage.html">
@@ -64,6 +64,10 @@
       <li class="nav-item">
           <a class="nav-link" href="activityManage.html">
             <i class="nav-icon icon-calendar"></i>活動管理</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="activityReport.html">
+            <i class="nav-icon icon-calendar"></i>活動檢舉</a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="chatbotManage.html">
@@ -90,100 +94,38 @@
        <div class="row chatRow">
           <div class="col-lg-4 ">  
               <div class="card">
-                  <div class="card-header">問題編號1</div>
+                  <div class="card-header">問題編號</div>
                   <div class="card-body">
-                      <form action="" method="get" enctype="multipart/form-data">
-                      <table class="table table-responsive-sm table-sm">
-                          <tr>
-                              <th>問題關鍵字</th>
-                              <td>
-                                  <input class="form-control qnaQ" type="text">
-                              </td>
-                          </tr>
-                          <tr>
-                              <th>問題的回答</th>
-                              <td>
-                                  <textarea class="form-control qnaA" rows="3" value=""></textarea>
-                              </td>
-                          </tr>
-                         
-                      </table>
-                      <div class="row">
-                          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-                              <button class="btn btn-pill btn-block btn-primary" type="button">確認新增</button>
-                          </div>
-                          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-                              <button class="btn btn-pill btn-block btn-secondary" type="reset">取消清除</button>
-                          </div>
-                      </div>
+                      <form action="" method="POST" enctype="multipart/form-data" id="chatAdd">
+                        <table class="table table-responsive-sm table-sm">
+                            <tr>
+                                <th>問題關鍵字</th>
+                                <td>
+                                    <input class="form-control cskey" type="text" name="csKey">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>問題的回答</th>
+                                <td>
+                                    <textarea class="form-control csAns" rows="3" name="csAns"></textarea>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                        <div class="row">
+                            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                                <button class="btn btn-pill btn-block btn-primary csAdd" type="submit"">確認新增</button>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                                <button class="btn btn-pill btn-block btn-secondary" type="reset">清除內容</button>
+                            </div>
+                        </div>
                       </form>
                   </div>
               </div>
           </div>
-          <div class="col-lg-4 ">  
-            <div class="card">
-                <div class="card-header">問題編號2</div>
-                <div class="card-body">
-                    <form action="" method="get" enctype="multipart/form-data">
-                    <table class="table table-responsive-sm table-sm">
-                        <tr>
-                            <th>問題關鍵字</th>
-                            <td>
-                                <input class="form-control qnaQ" type="text">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>問題的回答</th>
-                            <td>
-                                <textarea class="form-control qnaA" rows="3" value=""></textarea>
-                            </td>
-                        </tr>
-                       
-                    </table>
-                    <div class="row">
-                        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-                            <button class="btn btn-pill btn-block btn-primary" type="button">確認新增</button>
-                        </div>
-                        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-                            <button class="btn btn-pill btn-block btn-secondary" type="reset">取消清除</button>
-                        </div>
-                    </div>
-                    </form>
-                  </div>
-            </div>
-          </div>
-          <div class="col-lg-4 ">  
-            <div class="card">
-                <div class="card-header">問題編號3</div>
-                <div class="card-body">
-                    <form action="" method="get" enctype="multipart/form-data">
-                    <table class="table table-responsive-sm table-sm">
-                        <tr>
-                            <th>問題關鍵字</th>
-                            <td>
-                                <input class="form-control qnaQ" type="text">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>問題的回答</th>
-                            <td>
-                                <textarea class="form-control qnaA" rows="3" value=""></textarea>
-                            </td>
-                        </tr>
-                        
-                    </table>
-                    <div class="row">
-                        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-                            <button class="btn btn-pill btn-block btn-primary" type="button">確認新增</button>
-                        </div>
-                        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-                            <button class="btn btn-pill btn-block btn-secondary" type="reset">取消清除</button>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+          
+         
         </div>
     </div>
 
@@ -204,11 +146,87 @@
   <script src="node_modules/pace-progress/pace.min.js"></script>
   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
-   <!-- <script>
-    $('.adminName').text(sessionStorage.getItem('adminId') + ' 您好');
-    if(sessionStorage.getItem('adminNo') == null){
-        window.location.href = "login.html";
-    }
-  </script> -->
+  <script>
+    $('document').ready(function(){
+            function chatManage(){
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+            if(xhr.status == 200){ //server OK
+                let dataString = JSON.parse(xhr.responseText);
+                let htmlStr = '';
+                for (i = 0; i < dataString.length; i++) {
+                        htmlStr = '';
+                        htmlStr += `<div class="col-lg-4">`;
+                        htmlStr += `<div class="card">`;
+                        htmlStr += `<div class="card-header">問題編號<span class="chatChange">${dataString[i].csNo}</span></div>`;
+                        htmlStr += `<div class="card-body">`;
+                        htmlStr += `<form action="" method="get" enctype="multipart/form-data" id="chatAdd" >`;
+                        htmlStr += `<table class="table table-responsive-sm table-sm">`;
+                        htmlStr += `<tr><th>問題關鍵字</th><td>${dataString[i].csKey}</td></tr>`;
+                        htmlStr += `<tr><th>問題的回答</th><td>${dataString[i].csAns}</td></tr>`;
+                        htmlStr += `</table>`;
+                        htmlStr +=`<div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                                        <button class="btn btn-pill btn-block btn-primary delChat" type="button">刪除</button>
+                                   </div>`                    
+                        htmlStr += `</form></div></div></div>`;  
+                        $('.chatRow').append(htmlStr);                    
+                }  
+            }else{ //error
+                alert(xhr.status);
+            }
+            } //xhr function end
+            xhr.open("get", "./php/chatManage.php", true);
+            // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xhr.send( null );
+            }
+            chatManage();
+
+    //-----------------------------------
+                //del -- start --
+            $('body').on('click', '.delChat', function (){
+                let csNo =$(this).parent().parent().parent().parent().find('.chatChange').text();
+                let delColumn = this;
+                // alert(csNo);
+                // $(this).parents().find('.chatDelete').remove();
+                $.ajax({
+                    type:'POST',
+                    url:`./php/chatDelete.php`,
+                    data:{
+                        csNo:csNo,
+                    },
+                    success:function(deleteBack){
+                        alert('刪除成功');
+                        $(delColumn.parentElement.parentElement.parentElement.parentElement).remove();
+                    },
+                    error: function () {
+                        alert('fail');
+                    }
+                })
+            });  //del -- end --
+    //--------------------------------------
+                //add -- start --
+                $("#chatAdd").on('submit',(function(e){
+                    e.preventDefault();
+                    $.ajax({
+                        url: "./php/chatAdd.php",
+                        type: "POST",
+                        data:  new FormData(this),
+                        contentType: false,
+                        cache: false,
+                        processData:false,
+                        success: function(data){
+                            alert("新增成功");
+                            location.reload();   
+                        },
+                        error: function(data){
+                            alert("新增失敗");
+                        }               
+                    });
+                }));
+
+
+
+    }); //function ready-end        
+</script>
 </body>
 </html>

@@ -54,6 +54,7 @@
                       <th>活動強度</th>
                       <th>人數限制</th>
                       <th>報名人數</th>
+                      <th>檢舉狀態</th>
                       <th>活動狀態</th>
                     </tr>
                   </thead>
@@ -92,6 +93,13 @@
       xhr.onload = function(){
         if(xhr.status == 200){ //server OK
           let dataString = JSON.parse(xhr.responseText);
+
+          for(var i=0; i<dataString.length; i++){
+            if( !dataString[i].repStat ){
+              dataString[i].repStat = 0;
+            }
+          }
+
           let htmlStr = '';
           for (i = 0; i < dataString.length; i++) {
                     htmlStr += `<tr>`;
@@ -103,6 +111,11 @@
                     htmlStr += `<td>${dataString[i].actStren}</td>`;
                     htmlStr += `<td>${dataString[i].actLimit}</td>`;
                     htmlStr += `<td>${dataString[i].actTotal}</td>`;
+                    if(`${dataString[i].repStat}`== 1){
+                      htmlStr += `<td>收到檢舉</td>`;
+                    }else{
+                      htmlStr += `<td>未有檢舉</td>`;
+                    }
                     htmlStr += `<td><label class="switch switch-3d switch-success">`;
                     if(`${dataString[i].actCancelStat}`== 0){
                           htmlStr +=`<input class="switch-input actStatus" type="checkbox" checked>`;
@@ -138,7 +151,7 @@ $('body').on('change', '.actStatus', function (){
             }  
         $.ajax({
             type: 'POST',
-            url: `./backphp/activityManage.php`,
+            url: `./php/activityManage.php`,
             data: {
                 actNo,
                 action: 'changeStat',

@@ -42,7 +42,7 @@
     <ul class="nav">
       <li class="nav-title" style="font-size:22px;">後台管理</li>
       <li class="nav-item">
-          <a class="nav-link" href="admin.html">
+          <a class="nav-link" href="adminManage.html">
             <i class="nav-icon icon-settings"></i>管理員管理</a>
       </li>
       <li class="nav-item">
@@ -51,7 +51,7 @@
         </li>
       <li class="nav-item">
           <a class="nav-link" href="productManage.html">
-            <i class="nav-icon icon-people"></i>商品管理</a>
+            <i class="nav-icon icon-heart"></i>商品管理</a>
         </li>
       <li class="nav-item">
           <a class="nav-link" href="orderManage.html">
@@ -64,6 +64,10 @@
       <li class="nav-item">
           <a class="nav-link" href="activityManage.html">
             <i class="nav-icon icon-calendar"></i>活動管理</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="activityReport.html">
+            <i class="nav-icon icon-calendar"></i>活動檢舉</a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="chatbotManage.html">
@@ -105,8 +109,6 @@
                     <th>車架編號</th>
                     <th>把手編號</th>
                     <th>車架顏色編號</th>
-                    <th>速度</th>
-                    <th>避震</th>
                     <th>狀態</th>
                   </tr>
                 </thead>
@@ -160,8 +162,6 @@
                       htmlStr += `<td>${dataString[i].frameNo}</td>`;
                       htmlStr += `<td>${dataString[i].handleNo}</td>`;
                       htmlStr += `<td>${dataString[i].colorNo}</td>`;
-                      htmlStr += `<td>${dataString[i].speed}</td>`;
-                      htmlStr += `<td>${dataString[i].avoid}</td>`;
                       // htmlStr += `<td>
                       //                 <label class="switch switch-3d switch-success">
                       //                   <input class="switch-input actStatus" type="checkbox" checked>

@@ -48,7 +48,7 @@
     <ul class="nav">
       <li class="nav-title" style="font-size:22px;">後台管理</li>
       <li class="nav-item">
-          <a class="nav-link" href="admin.html">
+          <a class="nav-link" href="adminManage.html">
             <i class="nav-icon icon-settings"></i>管理員管理</a>
       </li>
       <li class="nav-item">
@@ -57,7 +57,7 @@
         </li>
       <li class="nav-item">
           <a class="nav-link" href="productManage.html">
-            <i class="nav-icon icon-people"></i>商品管理</a>
+            <i class="nav-icon icon-heart"></i>商品管理</a>
         </li>
       <li class="nav-item">
           <a class="nav-link" href="orderManage.html">
@@ -70,6 +70,10 @@
       <li class="nav-item">
           <a class="nav-link" href="activityManage.html">
             <i class="nav-icon icon-calendar"></i>活動管理</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="activityReport.html">
+            <i class="nav-icon icon-calendar"></i>活動檢舉</a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="chatbotManage.html">
@@ -200,12 +204,6 @@
   <script src="node_modules/pace-progress/pace.min.js"></script>
   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
-   <!-- <script>
-    $('.adminName').text(sessionStorage.getItem('adminId') + ' 您好');
-    if(sessionStorage.getItem('adminNo') == null){
-        window.location.href = "login.html";
-    }
-  </script> -->
   <script>
         //從資料庫撈取資料append到網頁
         $('document').ready(function(){
@@ -286,10 +284,13 @@
                 cache: false,
                 processData:false,
                 success: function(data){
-                    alert(data);
+                    alert("新增商品成功");
+                    location.reload();
+                    // window.load("productManage.html", "_self");
+                    
                 },
                 error: function(data){
-                    alert(data);
+                    alert("新增商品失敗");
                 }               
             });
         }));

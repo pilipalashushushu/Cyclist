@@ -1,39 +1,204 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-    <style>
-            #loginBox{
-                position:relative;
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>後台登入</title>
+<style>
+        *,:after,:before{box-sizing:border-box}
+        .clearfix:after,.clearfix:before{content:'';display:table}
+        .clearfix:after{clear:both;display:block}
+        a{color:inherit;text-decoration:none}
+
+        .lightbox-close {
+                                width: 40px;
+                                height: 40px;
+                                background: #d16237;
+                                color: #fff;
+                                position: absolute;
+                                top: 2%;
+                                right: 2%;
+                                border-radius: 50%;
+                                cursor: pointer;
+                                border: 0;
+                        }
+
+        /* 利用偽元素做出 \ 以及 / 的線條 */
+        .lightbox-close:after {
+                width: 30px;
+                height: 2px;
+                content: "";
+                display: block;
+                background: #fff;
+                position: absolute;
+                top: 18px;
+                left: 5px;
+                transform: rotate(45deg);
+        }
+
+        .lightbox-close:before {
+                width: 30px;
+                height: 2px;
+                content: "";
+                display: block;
+                background: #fff;
+                position: absolute;
+                top: 18px;
+                left: 5px;
+                transform: rotate(-45deg);
+        }
+
+
+        .login-html{
+                position: relative;
+        }
+
+        .bgwap{
+                background-image: url("./images/backSVG.png");
+                width: 1910px;
+                height: 920px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                overflow: hidden;
+        }
+
+        .login-wrap{
+                background:rgba(30,52,73,.8);
+                width:100%;
+                max-width:360px;
+                max-height: 500px;
+                /* max-height:100vh; */
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0; 
                 margin:auto;
-                width:330px;
-                height:300px;
-                background-color:#F8F1ED;
-                padding:30px;
-                text-align:center;
-                border-radius:10px;
-                top:150px;
-                box-shadow:0px 10px 50px 10px #B6B6B6;
-                border:1px dashed #999;
-                }
-                p{
-                        font-size: 26px;
-                }
-                input{
-                        font-size: 26px;
-                }
-    </style>
+                font-family: "微軟正黑體";
+                border-radius: 10px;
+        }
+
+
+
+        .sign-in-htm{
+        margin-top: 5%;
+        }
+
+        .sign_logo{
+        width: 100%;
+        display: inline-block;
+        background-image: url("./images/LOGO_PPT.png");
+        background-position:center;
+        width: 200px;
+        height: 150px;
+        background-repeat:no-repeat;
+        background-size: contain;
+        background-position:center;
+        margin: 0 20%;
+        margin-top: 35px;
+        }
+        h2{
+                font-size: 32px;
+                color: #fff;
+                margin: 10% 10%;
+        }
+
+        .label{
+
+                color: #fff;
+                font-family: "微軟正黑體";
+                margin: 0 2% 0 5%;
+                font-weight: 500;
+                font-size: 26px;
+        }
+        input{
+                font-size: 20px;
+        }
+        .button{
+                background-color: rgb(209,98,55);
+                width: 100px;
+                height: 50px;
+                font-family: "微軟正黑體";
+                font-weight: 700;
+                font-size: 26px;
+                display: inline-block;
+                margin: auto;
+                margin: 0 35%;
+                margin-top: 35px;
+                color: #fff;
+                border: 0;
+                border-radius: 3px;
+        }
+
+
+</style>
+
 </head>
 <body>
-        <div id="loginBox">
-                <form action="./php/login.php" method="post">
-                <p>帳號: <input type="text" name="adminId"></p>
-                <p>密碼: <input type="password" name="adminPsw"></p>
-                <p><input type="submit" value="登入"></p>
+        <div class="bgwap">
+                <div class="login-wrap" id="login-wrap">
+                        
+                        <div class="login-html">
+                                <button id="lightbox" class="lightbox-close"></button>
+                                <h2>CYCLIST後台登入</h2>   
+                <form action="">                 
+                        <div class="login-form">
+                                <div class="sign-in-htm">
+                                <div class="group">
+                                        <label for="user" class="label">帳號</label>                             
+                                        <input type="text" type="text" name="adminId" id="adminId-in" class="input" placeholder="請輸入4~10碼英數字">      
+                                </div>
+                                <div class="group">
+                                                <label for="pass" class="label">密碼</label>
+                                                <input type="password" name="adminPsw" class="input" id="adminPsw-in" placeholder="請輸入4~10碼英數字">
+                                </div>
+
+                                <div class="group">
+                                        <button id="memsign-in" type="button" class="button" >確認</button>
+                                        <div class="sign_logo"></div>
+                                </div>
+                                </div>
+                        </div>
                 </form>
+                        </div>
+                </div>
         </div>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+                $(document).ready(function(){
+                        $("#memsign-in").click(function(){
+                                $.ajax({
+                                url: `./php/login.php`,
+                                type: 'POST',
+                                data: {
+                                        adminId: $("#adminId-in").val(),
+                                        adminPsw: $("#adminPsw-in").val(),
+                                },
+                                success:function(response){
+                                        let clean = response.replace(/\n|([\s]*$)/g, '');
+                                        // console.log( clean == 'error' );
+
+                                        if(clean == 'error'){
+                                        	alert("登入失敗");
+                                        }else{
+											alert("登入成功");
+                                            window.open('adminManage.html', '_self');                                                
+                                        }
+                                   },
+                                
+                                });
+                        }); //memsign-in end
+
+                        //-------------------------
+
+                        $("#lightbox").click(function(){
+                                window.location.replace("http://140.115.236.71/demo-projects/DD103/DD103G4/");     
+                        });
+                })
+        </script>
+    
 </body>
 </html>
