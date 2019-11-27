@@ -12,7 +12,7 @@ $(function () {
             //解析json物件
             let result = JSON.parse(data);
 
-            console.log(result)
+            //console.log(result)
 
             //建立車種板模
             let option = `<div class="option-extend active">`;
@@ -869,9 +869,16 @@ $(function () {
                     this.gold = memGold
                 },
 
-                // checkName() {
-                //     if () {}
-                // }
+                keyupVal(e) {
+                    if (!/^\d+$/.test(this.value)) {
+                        var newValue = /^\d+/.exec(e.currentTarget.value);
+                        newValue != null ? $(e.currentTarget).val(newValue) : $(e.currentTarget).val('');
+                    }
+                    if ($(e.currentTarget).val().length == $(e.currentTarget).attr('maxlength')) {
+                        $(e.currentTarget).next(':input').focus();
+                    }
+
+                }
 
             },
 
@@ -935,14 +942,48 @@ $(function () {
                     if ($(this).find("h4").text() == "下一步") {
                         alert("請選擇付款方式")
                     } else if ($(this).find("h4").text() == "送出訂單" && $(".creditCard").css("display") == "block") {
-                        alert(1)
-                        // $.ajax({
-                        //     url: "./php/cusOrder.php",
-                        //     datType: "json",
-                        //     type: "post",
-                        //     success: function (data) {}
-                        // })
+                        //輸入客制訂單
+
+                        $.ajax({
+                            url: `./php/cusOrder.php?memNo=1 & cusName=${$("#memName").val()} & cusTel=${$("#tel").val()} & addr=${$("#addr").val()} & type=${sessionStorage["cusType"]} & frameNo=${sessionStorage["frameInfo"].split("|")[0]} & handleNo=${sessionStorage["handleInfo"].split("|")[0]} & colorNo=${sessionStorage["colorInfo"].split("|")[0]} & price=${$(".finalamount").find("h3").text().substr(1)}`,
+
+
+                            type: "get",
+
+                            success: function (data) {
+
+
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                alert(jqXHR.responseText);
+                            },
+                        })
+                        //輸入信用卡號
+                        $.ajax({
+                            url: "./php/card.php",
+
+                            type: "post",
+
+                            data: {
+
+                                memNo: 1,
+                                card: `${$(".cardNo1").val()}${$(".cardNo2").val()}${$(".cardNo3").val()}${$(".cardNo4").val()}`,
+
+
+                            },
+
+                            success: function (data) {
+
+                                alert("購買成功")
+                                document.location.href = "./cyclist.html"
+
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                alert(jqXHR.responseText);
+                            },
+                        })
                     } else if ($(this).find("h4").text() == "送出訂單" && $(".myGold").css("display") == "block") {
+                        //輸入客制訂單
                         $.ajax({
                             url: `./php/cusOrder.php?cusName=${$("#memName").val()} & cusTel=${$("#tel").val()} & addr=${$("#addr").val()} & type=${sessionStorage["cusType"]} & frameNo=${sessionStorage["frameInfo"].split("|")[0]} & handleNo=${sessionStorage["handleInfo"].split("|")[0]} & colorNo=${sessionStorage["colorInfo"].split("|")[0]} & price=${$(".finalamount").find("h3").text().substr(1)}`,
 
@@ -951,13 +992,12 @@ $(function () {
 
                             success: function (data) {
 
-                                alert("購買成功!");
-
                             },
                             error: function (jqXHR, textStatus, errorThrown) {
                                 alert(jqXHR.responseText);
                             },
                         })
+                        //扣除購物金
                         $.ajax({
                             url: `./php/gold.php?memNo=1 & gold=${$(".goldtotal").text()}`,
 
@@ -966,8 +1006,8 @@ $(function () {
 
                             success: function (data) {
 
-                                alert("購買成功!");
-
+                                alert("購買成功")
+                                window.location.href = "./cyclist.html"
                             },
                             error: function (jqXHR, textStatus, errorThrown) {
                                 alert(jqXHR.responseText);

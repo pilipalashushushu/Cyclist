@@ -64,6 +64,21 @@ function init(){
                         return actDate;
 
                     },
+                    getStartDay(){
+                        var actStartDate = this.item.actStartDate;
+                        var weekDay = ["日", "一", "二", "三", "四", "五", "六"];
+                        var startDay = new Date(actStartDate).getDay();
+                        var actStartDay = "("+weekDay[startDay]+")";
+                        return actStartDay;
+                    },
+                    getEndDay(){
+                        var actEndDate = this.item.actDeadLine;
+                        var weekDay = ["日", "一", "二", "三", "四", "五", "六"];
+                        var endDay = new Date(actEndDate).getDay();
+                        var actEndDay = "("+weekDay[endDay]+")";
+                        console.log(actEndDay);
+                        return actEndDay;
+                    },
                     getStrenCircle(){
 
                         switch (this.stren) {
@@ -120,11 +135,11 @@ function init(){
                         </div>
                     
                         <div class="detail">
-                            <div class="title"></div>
+                            <div class="title">{{item.actName}}</div>
                                 <ul>
-                                    <li>集合地點-{{item.actLoc}}</li>
-                                    <li>出發日期-(六){{item.actStartDate}}</li>
-                                    <li>報名截止-(六){{item.actDeadLine}}</li>
+                                    <li>{{"集合地點-"+item.actLoc}}</li>
+                                    <li>{{"出發日期-"+item.actStartDate+getStartDay}}</li>
+                                    <li>{{"報名截止-"+item.actDeadLine+getEndDay}}</li>
                                     <li>{{item.actContent}}</li>
                                     <span class="close-detail"></span>
                                 </ul>
@@ -149,6 +164,9 @@ function init(){
                     type:'1',
                     actNo:1,
                     filterText:"",
+                },
+                created(){
+                    
                 },
                 mounted(){
                     // document.getElementById("date-picker-start").datepicker();

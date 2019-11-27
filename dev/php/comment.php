@@ -35,7 +35,7 @@ try {
 	// $password = "no512seed851";
 	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_CASE=>PDO::CASE_NATURAL);
     // $pdo = new PDO($dsn, $user, $password, $options);
-    require_once("../connection.php");
+    require_once("connect.php");
     
 	$sql = "INSERT INTO `comment`(`actNo`,`memNo`,`comContent`) VALUES (:actNo,:memNo,:comContent)";
     $innerAct = $pdo->prepare($sql);

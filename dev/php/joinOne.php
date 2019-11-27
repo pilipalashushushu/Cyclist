@@ -16,7 +16,7 @@ try {
 	// $password = "no512seed851";
 	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_CASE=>PDO::CASE_NATURAL);
     // $pdo = new PDO($dsn, $user, $password, $options);
-    require_once("../connection.php");
+    require_once("connect.php");
     
     // $innerAct = $pdo->prepare($sql);
     // $innerAct2 = $pdo->prepare($sql2);

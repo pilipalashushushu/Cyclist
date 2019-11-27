@@ -1,7 +1,9 @@
 
 function init(){ 
     
-    var actNo = JSON.parse(['actNo']);
+    var actNo = JSON.parse(localStorage['actNo']);
+    console.log(actNo);
+    
     {/* <script type="text/x-template" id="comment-input">
         <div class="comment-input">
             <p class="title">留下意見</p>
@@ -159,8 +161,8 @@ function init(){
                         putText:function(newMsg){
                             // this.userMessage=newMsg;
 
-                            var timestamp = Math.floor(Date.now());
-                            console.log(timestamp);
+                            // var timestamp = Math.floor(Date.now());
+                            // console.log(timestamp);
                             
                             localStorage['memNo']=2;
                             localStorage['memPic']=JSON.stringify("");
@@ -177,9 +179,9 @@ function init(){
                             var comDate = dates.getFullYear() + '-' + 
                             (month<10 ? '0' : '') + month + '-' + 
                             (date<10 ? '0' : '') + date +" "+ 
-                            (hour<10 ? '0' : '')+hour + ":"+
-                            (min<10 ? '0' : '')+min + ":"+
-                            (sec<10 ? '0' : '')+sec;
+                            (hour<10 ? '0' : '')+ hour + ":"+
+                            (min<10 ? '0' : '')+ min + ":"+
+                            (sec<10 ? '0' : '')+ sec;
                             
 
 

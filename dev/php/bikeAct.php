@@ -3,7 +3,7 @@
 
 $errMsg = "";
 try {
-  require_once("../connection.php");
+  require_once("connect.php");
 
 	$sql = "select * from `activity`";
     // $activitys = $pdo->prepare($sql);

@@ -35,6 +35,10 @@ html {
     font-size: 1.4rem;
     letter-spacing: .3px;
 
+    .row{
+        margin-bottom: 20px;
+    }
+
 }
 
 
@@ -47,149 +51,59 @@ html {
     }
 
     .slider-top {
-        height: 300px;
+        height: 90%;
 
     }
 
-    .slider-bottom {
-        height: 70px;
+    // .slider-bottom {
+    //     height: 70px;
 
-        overflow: hidden;
-        position: relative;
+    //     overflow: hidden;
+    //     position: relative;
 
-        .btn {
-            position: absolute;
-            z-index: 10;
-            width: 5%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, .6);
-        }
+    //     .btn {
+    //         position: absolute;
+    //         z-index: 10;
+    //         width: 5%;
+    //         height: 100%;
+    //         background-color: rgba(0, 0, 0, .6);
+    //     }
 
-        .btn:nth-of-type(1) {
-            top: 0;
-            left: 0;
-        }
+    //     .btn:nth-of-type(1) {
+    //         top: 0;
+    //         left: 0;
+    //     }
 
-        .btn:nth-of-type(2) {
-            top: 0;
-            right: 0;
-        }
+    //     .btn:nth-of-type(2) {
+    //         top: 0;
+    //         right: 0;
+    //     }
 
-        .pics {
+    //     .pics {
 
-            height: 70px;
-            position: relative;
-
-
-
-
-            li {
-
-
-                height: 70px;
-                float: left;
-
-            }
+    //         height: 70px;
+    //         position: relative;
 
 
 
 
+    //         li {
 
 
-        }
-    }
+    //             height: 70px;
+    //             float: left;
+
+    //         }
+
+
+
+
+
+
+    //     }
+    // }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -271,6 +185,7 @@ html {
         font-weight: 600;
         border: 0;
         background-color: $main;
+        cursor: pointer;
 
     }
 }
@@ -287,24 +202,42 @@ html {
     padding: 20px 10px;
     border: 2px solid #ccc;
     border-radius: 20px;
+    display: flex;
 
-
+    &>.block:not(:last-child){
+                border-right:1px solid #ccc;
+    }
     .block {
-        display: inline-block;
-        width: 32%;
-
-        border-right: 1px solid #ccc;
+        // display: inline-block;
+        // width: 32%;
+        flex: 1 1 auto;
+        display: flex;
+        // flex wrap no
+        flex-direction: column;
+        align-items: center;
+        // justify-content: center;
+      
+        
+        
 
         .sub-title {
             font-size: 1rem;
             text-align: center;
             padding: 10px 0;
             color: #999;
+            // display: flex;
 
             &+div {
                 padding: 20px 0;
-                font-size: 1.6rem;
+                font-size: 20px;
                 text-align: center;
+                // height: calc(100%-36px);
+                flex: 1;
+                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               
 
             }
         }
@@ -415,56 +348,97 @@ html {
         top: 50%;
         transform: translate(-50%, -50%);
         padding: 30px 40px;
-
-
         background-color: $blue-light;
         border-radius: 20px;
 
+        .left-btn{
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 10px;
+            border-radius: 50%;
+            // color: rgba(0,0,0,.87);
+            background: rgb(126, 109, 109);
+            opacity: .2;
+            width: 33px;
+            height: 33px;
+            cursor: pointer;
+            
+            // z-index: 10;
 
+            &:before{
+                content: '';
+                position: absolute;
+                z-index: 10;
+                top: 3px;
+                left: 45%;
+                width: 3px;
+                height: 80%;
+                background:rgb(0,0,0);
+                transform: rotate(45deg);
+            }
+
+            &:after{
+                content: '';
+                position: absolute;
+                z-index: 10;
+                top: 3px;
+                left: 45%;
+                width: 3px;
+                height: 80%;
+                background: rgb(0,0,0);
+                transform: rotate(-45deg);
+            }
+
+
+        } 
+
+        
+        h3 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: rgb(170, 79, 58);
+                font-size: 1.8rem;
+                font-weight: 700;
+            }
+
+
+            @include phone() {
+                text-align: center;
+            }
+
+            select {
+
+                margin: 20px;
+                border: 0;
+                padding: 10px 0 10px 20px;
+
+                border-radius: 10px;
+                font-size: 1.2rem;
+                font-family: "微軟正黑體";
+
+            }
+
+            button {
+
+                margin: 10px;
+                padding: 15px 25px;
+                border: 1px solid #ffd934;
+                border-radius: 10px;
+                color: rgb(163, 100, 47);
+                font-size: 1rem;
+                font-weight: 600;
+                letter-spacing: .3rem;
+                font-family: "微軟正黑體";
+                cursor: pointer;
+
+
+
+            }
 
     }
 
-    h3 {
-        text-align: center;
-        margin-bottom: 20px;
-        color: rgb(170, 79, 58);
-        font-size: 1.8rem;
-        font-weight: 700;
-    }
-
-
-    @include phone() {
-        text-align: center;
-    }
-
-    select {
-
-        margin: 20px;
-        border: 0;
-        padding: 10px 0 10px 20px;
-
-        border-radius: 10px;
-        font-size: 1.2rem;
-        font-family: "微軟正黑體";
-
-    }
-
-    button {
-
-        margin: 10px;
-        padding: 15px 25px;
-        border: 1px solid #ffd934;
-        border-radius: 10px;
-        color: rgb(163, 100, 47);
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: .3rem;
-        font-family: "微軟正黑體";
-        cursor: pointer;
-
-
-
-    }
+    
 }
 
 .comment {

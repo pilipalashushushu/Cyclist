@@ -1,5 +1,6 @@
 
 
+
 function init(){
 
 
@@ -107,7 +108,6 @@ function init(){
     </script> */}
   
         var data={};
-        localStorage['actNo']=3;
         var actNo=JSON.parse(localStorage['actNo']);
         // localStorage['memNickName']=JSON.stringify("啊哈");
         // localStorage['memPic']=JSON.stringify("");
@@ -160,11 +160,20 @@ function init(){
                             this.attendArr.push(this.newAttend);
                         },
                         reportAct:function(e){
-                            // this.$emit('report-act');
-                            $(e.target).click(function(){
-                                $('#report-box-wrap').show();
-                    
-                            })
+                   
+                            // $('#report-box-wrap').show();
+                            $(e.target).parent().next("#report-box-wrap").fadeIn(300);
+                           
+                            console.log("fade");
+                        },
+                        closeReport:function(e){
+                             $(e.target).parents("#report-box-wrap").fadeOut(200);
+                        },
+                        sendReport:function(e){
+                            $(e.target).parents("#report-box-wrap").fadeOut(200,function(){
+                                alert("檢舉已送出");
+                            });
+
                         }
                     },
                     computed:{
@@ -175,6 +184,30 @@ function init(){
                         // attNum(){
                         //     return this.attendNum;
                         // },
+                        getType(){
+                            var type = this.inner.typeNo.split('');
+                            var typeArr = type.map(function(item){
+                                 switch (item) {
+                                     case "1":
+                                         return "公路車";
+                                         break;
+                                 
+                                     case "2":
+                                         return "登山車";
+                                         break;
+                                 
+                                     case "3":
+                                         return "城市車";
+                                         break;
+                                 
+                                     default:
+                                         break;
+                                 }
+                                 
+                            })
+
+                            return typeArr;
+                        },
                         getTime(){
 
                             var arr = this.actTime.slice(0,6).split(":");
@@ -219,7 +252,7 @@ function init(){
                                 <div class="intro-row">
                                     <div class="block">
                                         <div class="sub-title">適合車種</div>
-                                        <div class="type">城市車</div>
+                                        <div class="type"><div v-for="item in getType">{{item}}\n\r</div><br></div>
                                         <!--<div class="type">{{inner.typeNo}}</div>-->
                                     </div>
                                     <div class="block">
@@ -236,7 +269,7 @@ function init(){
                         </div>
                         <div class="row">
                             <div class="group col-12">
-                                <div class="title">參加成員{{attendNum}}</div>
+                                <div class="title">{{"參加成員("+attendNum+")"}}</div>
                                 <div class="avatar">
                                     <img src="https://picsum.photos/60/60?random=10" alt=""></img>
                                 </div>
@@ -257,12 +290,13 @@ function init(){
                                 <div class="report">
                                 
                                     <i class="fas fa-exclamation-triangle"></i>
-                                    <span id="report-btn" @click="reportAct">檢舉活動</span>
+                                    <span id="report-btn"  @click="reportAct">檢舉活動</span>
                                 
             
                                 </div>
                                 <div id="report-box-wrap">
                                     <div class="report-box">
+                                        <div class="left-btn" @click="closeReport"></div>   
                                         <h3>檢舉活動</h3>
                                         <select name="reportMessage" id="">
                                             <option value="">請選擇原因</option>
@@ -270,7 +304,7 @@ function init(){
                                             <option value="2">2.外部商品廣告</option>
                                             <option value="3">3.活動內文不當</option>
                                         </select>
-                                        <button id="report-send-btn">確認</button>
+                                        <button id="report-send-btn" @click="sendReport">確認</button>
                                     </div>
                                 </div>
                             </div>
