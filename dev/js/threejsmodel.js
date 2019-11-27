@@ -64,7 +64,7 @@ function three(Id){
     //scene&camera
     var scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, parseInt(width)/parseInt(height), 100, 1000);
-    camera.position.set(300, 0, 0);
+    camera.position.set(0, 0, -300);
 
     //RGBELoader
     new THREE.RGBELoader()
@@ -81,11 +81,11 @@ function three(Id){
 
 
     //Light
-    var spotLight = new THREE.SpotLight(0xffffff, 1);
-    spotLight.position.set(270, 60, 100);
+    var spotLight = new THREE.SpotLight(0xffffff, 1.2);
+    spotLight.position.set(130, 350, 0);
     scene.add(spotLight);    
-    var spotLightBack = new THREE.SpotLight(0xffffff, 1);
-    spotLightBack.position.set(-120, -20, 100);
+    var spotLightBack = new THREE.SpotLight(0xffffff, .3);
+    spotLightBack.position.set(-120, 300, 0);
     scene.add(spotLightBack);           
 
     //3D Model
@@ -99,9 +99,9 @@ function three(Id){
                 child.material = material;
             });
             // obj.position.set(-80, -120, 30);
-            obj.position.set(100, -120, 30);
+            obj.position.set(50, -120, 0);
             obj.rotation.x = Math.PI * 1.5;
-            obj.rotation.z = Math.PI * 0.5;
+            obj.rotation.z = Math.PI;
             a = obj;
             // obj.rotation.z = Math.PI * 1.5;
             obj.scale.set(0.4, 0.4, 0.4);
