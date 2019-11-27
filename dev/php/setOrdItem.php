@@ -15,7 +15,7 @@ try{
     $checkout->execute();
 
 
-    if($mem->rowCount()==0){
+    if($checkout->rowCount()==0){
           echo "找不到資料";
     }else{
         
