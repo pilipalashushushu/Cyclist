@@ -7,69 +7,32 @@
   <link rel="stylesheet" href="./css/member.min.css" />
   <link rel="stylesheet" href="./css/col.css" />
   <link rel="stylesheet" href="./css/core.css" />
-  <link rel="stylesheet" href="./css/daygrid.css" />
   <link rel="stylesheet" href="./css/style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/core.js"></script>
-  <script src="js/daygrid.js"></script>
   <title>會員中心</title>
 
 
-    <script>
-      //頁籤&月曆
-      $(function() {
-        var $tabPanel = $("#tab-panel"),
-          $tabs = $tabPanel.find(".tabs"),
-          $tab = $tabs.find("a"),
-          $tabContent = $tabPanel.find(".tab-content"),
-          $content = $tabContent.find("> li");
+  <script>
+      $(function(){
+   var $tabPanel = $('#tab-panel') ,
+       $tabs = $tabPanel.find('.tabs') ,
+       $tab = $tabs.find('a') ,
+       $tabContent = $tabPanel.find('.tab-content') ,
+       $content = $tabContent.find('> li');
+    
+   $tab.eq(0).addClass('active');
+   $content.eq(0).show();
+    
+   $tab.on('click',function(){
+       var $tabIndex = $(this).index();
+       $(this).addClass('active').siblings().removeClass('active');
+       $content.eq($tabIndex).show().siblings().hide();
+   });
+ });
+     </script>
 
-        $tab.eq(0).addClass("active");
-        $content.eq(0).show();
-        let isCalendarInit = false;
-        
-        let calendarInit = function(params) {
-          var calendarEl = document.getElementById("calendar");
-          var calendar = new FullCalendar.Calendar(calendarEl, {
-            plugins: ["dayGrid",'interaction' ],
-            events: 
-              [{
-                title: '五分不厭征風遊',
-                start: '2019-11-26',
-              }]
-
-          });
-          calendar.render();
-
-          isCalendarInit = true;
-        };
-        
-        $tab.on("click", function(ev) {
-          let targetClass = ev.target.className;
-          var $tabIndex = $(this).index();
-
-          $(this)
-            .addClass("active")
-            .siblings()
-            .removeClass("active");
-
-          $content.each(function(id, item) {
-            console.log(item);
-            if (item.className == targetClass) {
-              $(item).show(function (params) {
-                setTimeout(() => {
-                  if (isCalendarInit) return;
-                  calendarInit();
-                }, 100);
-              });
-            } else {
-              $(item).hide();
-            }
-          });
-        });
-      });
-    </script>
     
 
     <script>
@@ -148,8 +111,8 @@
               </tr>
               <tr>
                 <td class="mem-time" colspan="2">
-                  最後修改時間:<span class="memDate">${data[i].memDate}</span>
-                <input id="re-mem" type="submit" class="button1" name="submit" value="修改"/>            
+                  <span class="mem-t">最後修改時間:  ${data[i].memDate}</span>     
+                  <input id="re-mem" type="submit" class="button1 mem-tt" name="submit" value="修改"/>          
                 </td>
               </tr>`                       
               ;}
@@ -180,7 +143,7 @@
 
 
 <script>
-  //我舉辦的活動
+  //----------------------------------------------------------------我舉辦的活動
     $(document).ready(function(){     
            $.ajax({
               type:"post",  
@@ -221,7 +184,7 @@
   </script>
 
 <script>
- //我參加的活動 
+ //------------------------------------------------------我參加的活動 
     $(document).ready(function(){      
            $.ajax({
               type:"post",  
@@ -263,7 +226,7 @@
 
 
 <script>
-  //我的訂單撈取
+  //----------------------------------------------我的訂單撈取
  $(document).ready(function(){     
      $.ajax({
      type:"post",  
@@ -446,39 +409,27 @@
 
       <div class="clearfix"></div>
 
-      <!-- <h2>基本資料</h2> -->
+<!-- ====================================== 會員大頭貼 -->
 
-      <form action="" method="post" enctype="multipart/form-data">
-        <div class="col-12 col-md-5 mempicp">
-          <div class="row picAdd">
-            <form action="" method="POST" enctype="multipart/form-data" id="uploadForm">
-            <table class="table table-responsive-sm table-sm">                  
-            <tr>
-               <td>
-                  <input class="form-control memSrc" type="file" id="imgSrc" name="upFile">
-                <img id="imgPreview">
-               </td> 
-            </tr>
-            </table>
-                <div class="row">
-                <div class="col-6  col-md-6 ">
-                <button class="btn btn-pill btn-block btn-primary" type="submit" id="saveImg">確認</button>
-                </div>
-             </div>
-             </form>
-        </div>
 
-    
-        </div>
-
-        <div class="mylist">
-          <div class="col-12 col-md-7 member">
-            <div id="memfeedback"></div> 
-            <!-- 會員資料撈取 -->
-          </div>
-        </div>
-      </form>
-      <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>  
+<div class="picAdd">
+  <div class="row">
+      <div class="col-12  col-md-5">
+  <form action="" method="POST" enctype="multipart/form-data" id="uploadForm">
+      <input class="form-control memSrc" type="file" id="upFile" name="upFile" style="display:none">
+      <div class="mempicbox">
+          <label for="upFile">
+            <img id="imgPreview" class="imgPreview" src="images/orangecat.jpg">
+          </label>
+      </div>       
+       <button class="btn btn-pill btn-block btn-primary button1" type="submit" id="saveImg">上傳圖片</button>
+      </div>
+  </form>
+    <div class="col-12 col-md-7 member">
+       <div id="memfeedback"></div>
+    </div><!-- 會員資料撈取 -->
+</div>
+</div>
   
 
       <div class="clearfix"></div>
@@ -488,35 +439,36 @@
           <a class="order">我的訂單</a>
           <a class="event">我的活動</a>
         </div>
-
+<!-- -------------------------------------------------------------------   我的訂單 -->
         <ul class="tab-content">
-          <li class="order">
-            我的訂單
-            <div id="memord-data" class="my-ord"></div>
-            <div id="cus-data" class="my-ord cus-data"></div>
-          </li>
+          <li class="order orderbox">
+            <div class="demo">
+                <div id="o">
+                    <div class="phone">
+                        <h3 class="myact-tex">商品訂單</h3>
+                        <div id="memord-data" class="my-ord"></div>
+                        <h3 class="myact-tex">客製訂單</h3>
+                        <div id="cus-data" class="my-ord cus-data"></div>
+                    </div>          
+             </div>
+          </li><!-- 我的訂單結束 -->
 
-
-
-
-
-
+<!-- -------------------------------------------------------------------   我的活動 -->
           <li class="event">
             <div class="col-12">
-                <div id="act-master"></div> <!-- 我舉辦的活動 -->          
-                <div id="act-join"></div><!-- 我參加的活動 -->
-   
+                <h3 class="myact-tex">我舉辦的活動</h3>
+                <div id="act-master"></div> 
+                <div class="clearfix"></div>          
+                <h3 class="myact-tex">我參加的活動</h3>
+                <!-- 我舉辦的活動 -->                      
+                <div id="act-join"></div>
+                <!-- 我參加的活動 -->            
             </div>
-
             <div class="clearfix"></div>
-
-            <div class="calendar-wrap">
-              <div id="calendar"></div>
-            </div>
           </li>
 
         </ul>
-      </div>
+    
       <footer class="section">
           <ul>
               <li><img src="./images/facebook.png"></li>
@@ -529,43 +481,56 @@
 
 
   <script>
-    $(document).ready(function(){
-     $('.picAdd').on('change','.memSrc',function(){
-             let memSrc = this;
-             filememSrc = this.files[0];
-             let readFile = new FileReader();
-             readFile.readAsDataURL(filememSrc);
-             readFile.addEventListener('load',function(){
-                 let image = document.getElementById('imgPreview');
-                 image.src = this.result;
-                 imgPreview.style.maxWidth = '400px';
-                 imgPreview.style.maxHeight = '300px';
+    // 大頭貼換圖
+    window.addEventListener("load", function(){
+      //.................upFile.onchange
+      document.getElementById("upFile").onchange = function(e){
+        let file = e.target.files[0];
+        let reader = new FileReader();
+        reader.onload = function(e){
+          document.getElementById("imgPreview").src= reader.result;
+        }
+        reader.readAsDataURL( file );
+      };
+           
+    })
+  </script> 
+    <script>
+        $(document).ready(function(){
+         $('.picAdd').on('change','.memSrc',function(){
+                 let memSrc = this;
+                 filememSrc = this.files[0];
+                 let readFile = new FileReader();
+                 readFile.readAsDataURL(filememSrc);
+                 readFile.addEventListener('load',function(){
+                     let image = document.getElementById('imgPreview');
+                     image.src = this.result;
+                     imgPreview.style.maxWidth = '280px';
+                     imgPreview.style.maxHeight = '350px';
+                 });
              });
-         });
- 
- //----------------------------------------------
-         //利用ajax form上傳資料 
-         $("#uploadForm").on('submit',(function(e){
-             e.preventDefault();
-             $.ajax({
-                 url: "picup.php",
-                 type: "POST",
-                 data:  new FormData(this),
-                 contentType: false,
-                 cache: false,
-                 processData:false,
-                 success: function(data){
-                     alert(data);
-                 },
-                 error: function(data){
-                     alert(data);
-                 }               
-             });
-         }));
-    });
- 
- 
- </script>
+     
+     //----------------------------------------------
+             //利用ajax form上傳資料 
+             $("#uploadForm").on('submit',(function(e){
+                 e.preventDefault();
+                 $.ajax({
+                     url: "picup.php",
+                     type: "POST",
+                     data:  new FormData(this),
+                     contentType: false,
+                     cache: false,
+                     processData:false,
+                     success: function(data){
+                         alert(data);
+                     },
+                     error: function(data){
+                         alert(data);
+                     }               
+                 });
+             }));
+        });
+     </script>
  
 
  
