@@ -8,7 +8,7 @@ try{
 
     require_once("../connection.php");
 
-    $sql="UPDATE `member` SET `coupon`=:cuopon  WHERE memNo=:memNo  ;";
+    $sql="UPDATE `member` SET `coupon`=:cuopon  WHERE `memNo`=:memNo";
 
     $checkout=$pdo->prepare($sql);
 

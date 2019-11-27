@@ -84,6 +84,30 @@ $(function () {
                                     window.open('cyclist.html', '_self');
                                 }
                             })
+
+                            $.ajax({
+                                url: "./php/card.php",
+
+                                type: "post",
+
+                                data: {
+
+                                    memNo: 1,
+                                    card: `${$(".cardNo1").val()}${$(".cardNo2").val()}${$(".cardNo3").val()}${$(".cardNo4").val()}`,
+
+
+                                },
+
+                                success: function (data) {
+
+                                    alert("購買成功")
+                                    document.location.href = "./cyclist.html"
+
+                                },
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                    alert(jqXHR.responseText);
+                                },
+                            })
                         } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".gold").prop("checked") == true) {
                             $.ajax({
                                 url: `./php/shoppingList.php?memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
