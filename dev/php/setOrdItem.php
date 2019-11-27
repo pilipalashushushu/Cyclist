@@ -1,25 +1,25 @@
 <?php
 $errMsg="";
-$memNo=$_POST["memNo"];
+$ordNo=$_GET["ordNo"];
 
 try{
 
     require_once("../connection.php");
     
-    $sql="select * from `member` where memNo=:memNo";
-    $mem=$pdo->prepare($sql);
-    $mem->bindValue(":memNo",$memNo);
-    $mem->execute();
+    $sql="INSERT INTO `orderitem` (ordNo,prodNo,amount,price) VALUES (:ordNo,1,1,16000)";
+
+    $checkout=$pdo->prepare($sql);
+
+    $checkout->bindValue(":ordNo",$ordNo);
     
+    $checkout->execute();
+
 
     if($mem->rowCount()==0){
           echo "找不到資料";
     }else{
         
-      $result = $mem->fetch(PDO::FETCH_ASSOC);
-
-      echo json_encode( $result,JSON_UNESCAPED_UNICODE);
-
+  
     }
 
 }catch(PDOEexception $e){

@@ -1,16 +1,13 @@
 <?php
 $errMsg="";
-$memNo=$_POST["memNo"];
 
 try{
 
     require_once("../connection.php");
     
-    $sql="select * from `member` where memNo=:memNo";
-    $mem=$pdo->prepare($sql);
-    $mem->bindValue(":memNo",$memNo);
-    $mem->execute();
-    
+    $sql="select ordNo from ordermaster order by ordNo DESC LIMIT 1";
+    $mem=$pdo->query($sql);
+
 
     if($mem->rowCount()==0){
           echo "找不到資料";

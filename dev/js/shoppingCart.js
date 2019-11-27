@@ -103,32 +103,112 @@ $(function () {
                                     card: `${$(".cardNo1").val()}${$(".cardNo2").val()}${$(".cardNo3").val()}${$(".cardNo4").val()}`,
                                 },
                                 success: function (data) {
-                                    // document.location.href = "./cyclist.html"
+                                    document.location.href = "./cyclist.html"
                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {
                                     alert(jqXHR.responseText);
                                 },
                             })
+                            $.ajax({
+                                url: "./php/getOrderNo.php",
+
+                                type: "get",
+
+                                success: function (data) {
+
+                                    let result = JSON.parse(data);
+
+                                    sessionStorage["orderNo"] = parseInt(result.ordNo) + 1;
+
+                                    if (sessionStorage["orderNo"] != null) {
+                                        $.ajax({
+                                            url: `./php/setOrdItem.php?ordNo=${sessionStorage["orderNo"]}`,
+
+                                            type: "get",
+
+                                            success: function (data) {
+
+                                                let result = JSON.parse(data);
+
+
+
+
+                                                $('#alert-wrap').find('h3').text('購買成功');
+                                                $('#alert-wrap').fadeIn('slow');
+                                                $('#closeAlert').click(function () {
+                                                    $('#alert-wrap').fadeOut('slow');
+                                                    sessionStorage.removeItem('cart-list');
+                                                    window.open('cyclist.html', '_self');
+                                                });
+
+
+                                            }
+
+
+                                        });
+                                    }
+
+                                }
+
+
+                            });
                         } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".gold").prop("checked") == true) {
                             //購物金付款寫入後台
                             $.ajax({
                                 url: `./php/shoppingList.php?memNo=${sessionStorage["memNo"]} & memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
                                 type: "get",
                                 success: function (data) {
-                                    $('#alert-wrap').find('h3').text('購買成功');
-                                    $('#alert-wrap').fadeIn('slow');
-                                    $('#closeAlert').click(function () {
-                                        $('#alert-wrap').fadeOut('slow');
-                                        sessionStorage.removeItem('cart-list');
-                                        window.open('cyclist.html', '_self');
-                                    });
+
                                 }
                             })
                             $.ajax({
+                                url: "./php/getOrderNo.php",
+
+                                type: "get",
+
+                                success: function (data) {
+
+                                    let result = JSON.parse(data);
+
+                                    sessionStorage["orderNo"] = parseInt(result.ordNo) + 1;
+
+                                    if (sessionStorage["orderNo"] != null) {
+                                        $.ajax({
+                                            url: `./php/setOrdItem.php?ordNo=${sessionStorage["orderNo"]}`,
+
+                                            type: "get",
+
+                                            success: function (data) {
+
+                                                let result = JSON.parse(data);
+
+
+
+
+                                                $('#alert-wrap').find('h3').text('購買成功');
+                                                $('#alert-wrap').fadeIn('slow');
+                                                $('#closeAlert').click(function () {
+                                                    $('#alert-wrap').fadeOut('slow');
+                                                    sessionStorage.removeItem('cart-list');
+                                                    window.open('cyclist.html', '_self');
+                                                });
+
+
+                                            }
+
+
+                                        });
+                                    }
+
+                                }
+
+
+                            });
+
+                            $.ajax({
                                 url: `./php/gold.php?memNo=${sessionStorage["memNo"]} & gold=${$(".goldtotal").text()}`,
                                 type: "get",
-                                success: function (data) {
-                                },
+                                success: function (data) {},
                                 error: function (jqXHR, textStatus, errorThrown) {
                                     alert(jqXHR.responseText);
                                 },

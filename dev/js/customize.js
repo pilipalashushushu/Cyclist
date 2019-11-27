@@ -834,22 +834,35 @@ $(function () {
 
     $(".cusCheckout").click(function () {
 
-        $(".cusCheckOut").slideDown();
-        $("#customize").slideUp();
+        if (sessionStorage['memId'] == null) {
+            $('#login-wrap').fadeToggle('slow')
 
-        $.ajax({
+        } else if (sessionStorage['memId'] != null) {
 
-            url: "./php/cusmemId.php",
-            type: "post",
-            datType: "json",
-            success: function (data) {
+            $(".cusCheckOut").slideDown();
+            $("#customize").slideUp();
 
-                memInfo = JSON.parse(data);
-                memGold = memInfo.coupon;
+            $.ajax({
 
-            }
+                url: "./php/cusmemId.php",
+                type: "post",
+                data: {
+                    memNo: `${sessionStorage["memNo"]}`
+                },
+                datType: "json",
+                success: function (data) {
 
-        })
+                    memInfo = JSON.parse(data);
+                    memGold = memInfo.coupon;
+
+                }
+
+            })
+        }
+
+
+
+
 
 
         new Vue({
@@ -940,7 +953,11 @@ $(function () {
                 case 3:
 
                     if ($(this).find("h4").text() == "下一步") {
-                        alert("請選擇付款方式")
+                        $('#alert-wrap').find('h3').text('請選擇付款方式');
+                        $('#alert-wrap').fadeIn('slow');
+                        $('#closeAlert').click(function () {
+                            $('#alert-wrap').fadeOut('slow');
+                        });
                     } else if ($(this).find("h4").text() == "送出訂單" && $(".creditCard").css("display") == "block") {
                         //輸入客制訂單
 
@@ -973,9 +990,18 @@ $(function () {
                             },
 
                             success: function (data) {
-
-                                alert("購買成功")
-                                document.location.href = "./cyclist.html"
+                                $('#alert-wrap').find('h3').text('購買成功');
+                                $('#alert-wrap').fadeIn('slow');
+                                $('#closeAlert').click(function () {
+                                    $('#alert-wrap').fadeOut('slow');
+                                    sessionStorage.removeItem('colorInfo');
+                                    sessionStorage.removeItem('handleInfo');
+                                    sessionStorage.removeItem('frameInfo');
+                                    sessionStorage.removeItem('handleprice');
+                                    sessionStorage.removeItem('frameprice');
+                                    sessionStorage.removeItem('cusprice');
+                                    window.open('cyclist.html', '_self');
+                                });
 
                             },
                             error: function (jqXHR, textStatus, errorThrown) {
@@ -1006,8 +1032,18 @@ $(function () {
 
                             success: function (data) {
 
-                                alert("購買成功")
-                                window.location.href = "./cyclist.html"
+                                $('#alert-wrap').find('h3').text('購買成功');
+                                $('#alert-wrap').fadeIn('slow');
+                                $('#closeAlert').click(function () {
+                                    $('#alert-wrap').fadeOut('slow');
+                                    sessionStorage.removeItem('colorInfo');
+                                    sessionStorage.removeItem('handleInfo');
+                                    sessionStorage.removeItem('frameInfo');
+                                    sessionStorage.removeItem('handleprice');
+                                    sessionStorage.removeItem('frameprice');
+                                    sessionStorage.removeItem('cusprice');
+                                    window.open('cyclist.html', '_self');
+                                });
                             },
                             error: function (jqXHR, textStatus, errorThrown) {
                                 alert(jqXHR.responseText);
