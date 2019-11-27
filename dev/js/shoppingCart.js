@@ -74,34 +74,34 @@ $(function () {
                         break;
                     case 3:
                         if ($(e.currentTarget).find("h4").text() == "下一步") {
-                            alert("請選擇付款方式")
+                            $('#alert-wrap').find('h3').text('請選擇付款方式');
+                            $('#alert-wrap').fadeToggle('slow');
+                            $('#closeAlert').click(function () {
+                                $('#alert-wrap').fadeToggle('slow');
+                            });
                         } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".card").prop("checked") == true) {
                             $.ajax({
                                 url: `./php/shoppingList.php?memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
                                 type: "get",
                                 success: function (data) {
-                                    alert("購買成功")
-                                    window.open('cyclist.html', '_self');
+                                    $('#alert-wrap').find('h3').text('購買成功');
+                                    $('#alert-wrap').fadeToggle('slow');
+                                    $('#closeAlert').click(function () {
+                                        $('#alert-wrap').fadeToggle('slow');
+                                        sessionStorage.removeItem('cart-list');
+                                        window.open('cyclist.html', '_self');
+                                    });
                                 }
                             })
 
                             $.ajax({
                                 url: "./php/card.php",
-
                                 type: "post",
-
                                 data: {
-
                                     memNo: 1,
                                     card: `${$(".cardNo1").val()}${$(".cardNo2").val()}${$(".cardNo3").val()}${$(".cardNo4").val()}`,
-
-
                                 },
-
                                 success: function (data) {
-
-                                    alert("購買成功")
-                                    document.location.href = "./cyclist.html"
 
                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {
@@ -113,8 +113,14 @@ $(function () {
                                 url: `./php/shoppingList.php?memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
                                 type: "get",
                                 success: function (data) {
-                                    alert("購買成功")
-                                    window.open('cyclist.html', '_self');
+                                    $('#alert-wrap').find('h3').text('購買成功');
+                                    $('#alert-wrap').fadeToggle('slow');
+                                    $('#closeAlert').click(function () {
+                                        $('#alert-wrap').fadeToggle('slow');
+                                        sessionStorage.removeItem('cart-list');
+                                        window.open('cyclist.html', '_self');
+
+                                    });
                                 }
                             })
                             $.ajax({
@@ -167,9 +173,12 @@ $(function () {
                 this.Gold = memGold;
 
             },
-            //控制跳頁(購物車->訂單明細)
+            //控制跳頁(購物車->訂單明細),判斷沒有登入跳登入窗
             get() {
                 this.page = false;
+                if (sessionStorage['memId'] == null) {
+                    $('#login-wrap').fadeToggle('slow')
+                }
             },
             //信用卡資料自動跳行＆限制只能輸入數字
             keyupVal(e) {

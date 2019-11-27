@@ -18,7 +18,7 @@ $(document).ready(function () {
                     sessionStorage['memNickName'] = meminfo.memNickName;
                     sessionStorage['memPic'] = meminfo.memPic;
                 }
-                window.open('./cyclist.html','_self');
+                location.reload();
             },
         });
     });
