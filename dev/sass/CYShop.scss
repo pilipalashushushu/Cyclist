@@ -784,7 +784,7 @@ select:focus {
         .prod-title {
             text-align: left;
             line-height: 1.6;
-            font-size: 18px;
+            font-size: 20px;
             padding: 20px;
         }
 
@@ -794,9 +794,10 @@ select:focus {
         }
 
         .prod-introCont {
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 16px;
+            line-height: 1.7;
             padding: 20px;
+            letter-spacing: 1px;
         }
 
         .prod-intro-btns {
@@ -828,6 +829,7 @@ select:focus {
                     box-shadow: 0 0 1px $mainDark;
                     color: $blue-deep;
                     cursor: pointer;
+                    border-radius: 2px;
 
                     &:hover {
                         background-color: lighten($blue-light, 35%);
@@ -841,6 +843,7 @@ select:focus {
                     background-color: #fff;
                     box-shadow: 0 0 1px #666;
                     margin: 0 10px;
+                    border-radius: 2px;
                 }
 
                 input {
@@ -881,6 +884,7 @@ select:focus {
                 line-height: 45px;
                 font-size: $h3;
                 cursor: pointer;
+                border-radius: 3px;
 
                 &:first-child {
                     color: #fff;

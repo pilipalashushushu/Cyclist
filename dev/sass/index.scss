@@ -432,6 +432,16 @@ svg {
     }
 }
 
+@media screen and (max-width: 1201px){
+    #skywheelCycle {
+        height: 38%;
+        position: absolute;
+        right: 3.5%;
+        bottom: 25%;
+    }
+}
+
+
 // CYCLIST霓虹效果
 $colors: rgb(247, 29, 69),
 rgb(255, 166, 0),
@@ -486,6 +496,7 @@ $time-step: $time/$max;
         stroke-dashoffset: -($dash + $dash-gap) * $max;
     }
 }
+
 
 .mb {
     display: none;
