@@ -20,19 +20,19 @@ $(document).ready(function () {
         });
     } else {
 
-        //點擊會員鈕，顯示登入畫面
+        //未登入，點擊會員鈕，顯示登入畫面
         $('.icon-3').click(function () {
-            $('#login-wrap').fadeToggle('slow')
+            $('#login-wrap').fadeIn('slow')
         });
 
-        //點擊關閉
+        //點擊叉叉關閉燈箱
         $('#lightbox').click(function () {
-            $('#login-wrap').fadeToggle('slow')
+            $('#login-wrap').fadeOut('slow')
         });
 
         //點擊'進行結帳'跳登入窗
         $('.total .nextPage').click(function(){
-            $('#login-wrap').fadeToggle('slow')
+            $('#login-wrap').fadeIn('slow')
         });
     }
 });

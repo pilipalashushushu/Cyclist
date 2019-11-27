@@ -74,70 +74,60 @@ $(function () {
                         break;
                     case 3:
                         if ($(e.currentTarget).find("h4").text() == "下一步") {
+                            //沒有選擇付款方式時跳窗提醒
                             $('#alert-wrap').find('h3').text('請選擇付款方式');
-                            $('#alert-wrap').fadeToggle('slow');
+                            $('#alert-wrap').fadeIn();
                             $('#closeAlert').click(function () {
-                                $('#alert-wrap').fadeToggle('slow');
+                                $('#alert-wrap').fadeOut();
                             });
                         } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".card").prop("checked") == true) {
-
+                            //信用卡付款寫入後台
                             $.ajax({
                                 url: `./php/shoppingList.php?memNo=${sessionStorage["memNo"]} & memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
                                 type: "get",
                                 success: function (data) {
                                     $('#alert-wrap').find('h3').text('購買成功');
-                                    $('#alert-wrap').fadeToggle('slow');
+                                    $('#alert-wrap').fadeIn('slow');
                                     $('#closeAlert').click(function () {
-                                        $('#alert-wrap').fadeToggle('slow');
+                                        $('#alert-wrap').fadeOut('slow');
                                         sessionStorage.removeItem('cart-list');
                                         window.open('cyclist.html', '_self');
                                     });
                                 }
                             })
-
                             $.ajax({
                                 url: "./php/card.php",
-
                                 type: "post",
-
                                 data: {
-
                                     memNo: `${sessionStorage["memNo"]}`,
                                     card: `${$(".cardNo1").val()}${$(".cardNo2").val()}${$(".cardNo3").val()}${$(".cardNo4").val()}`,
-
-
                                 },
-
                                 success: function (data) {
-
-
-                                    document.location.href = "./cyclist.html"
-
+                                    // document.location.href = "./cyclist.html"
                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {
                                     alert(jqXHR.responseText);
                                 },
                             })
                         } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".gold").prop("checked") == true) {
+                            //購物金付款寫入後台
                             $.ajax({
                                 url: `./php/shoppingList.php?memNo=${sessionStorage["memNo"]} & memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
                                 type: "get",
                                 success: function (data) {
                                     $('#alert-wrap').find('h3').text('購買成功');
-                                    $('#alert-wrap').fadeToggle('slow');
+                                    $('#alert-wrap').fadeIn('slow');
                                     $('#closeAlert').click(function () {
-                                        $('#alert-wrap').fadeToggle('slow');
+                                        $('#alert-wrap').fadeOut('slow');
                                         sessionStorage.removeItem('cart-list');
                                         window.open('cyclist.html', '_self');
                                     });
-
                                 }
                             })
                             $.ajax({
                                 url: `./php/gold.php?memNo=${sessionStorage["memNo"]} & gold=${$(".goldtotal").text()}`,
                                 type: "get",
                                 success: function (data) {
-
                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {
                                     alert(jqXHR.responseText);
@@ -147,7 +137,7 @@ $(function () {
                         break;
                 }
             },
-            //選擇信用卡
+            //選擇信用卡付款
             checkCard(e) {
                 if ($(e.currentTarget).prop("checked")) {
                     $(".pay input:checkbox").prop("checked", false);
@@ -163,7 +153,7 @@ $(function () {
                 $(".creditCard").slideToggle();
                 $(".myGold").slideUp();
             },
-            //選擇購物金
+            //選擇購物金付款
             checkGold(e) {
                 if ($(e.currentTarget).prop("checked")) {
                     $(".pay input:checkbox").prop("checked", false);
@@ -211,7 +201,6 @@ $(function () {
                 });
                 return this.total
             },
-
         }
     })
 

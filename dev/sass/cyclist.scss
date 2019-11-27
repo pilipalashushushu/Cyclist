@@ -237,32 +237,26 @@ section {
     }
 
     @media screen and (max-width: 768px) {
-        .fullpage {
-            #activity {
-                .accAct {
-                    width: 20px;
-                    height: 20px;
-
-                    &:after {
-                        width: 3px;
-                    }
-
-                    &:before {
-                        width: 3px;
-                    }
-                }
-            }
-        }
-
         #activity {
             .more {
                 bottom: 5%;
                 left: 36%;
             }
+
+            .addAct {
+                width: 20px;
+                height: 20px;
+
+                &:after {
+                    width: 3px;
+                }
+
+                &:before {
+                    width: 3px;
+                }
+            }
         }
     }
-
-    /* @end */
 
     #product {
         #silderBoard {
