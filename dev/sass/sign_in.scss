@@ -4,6 +4,16 @@
     box-sizing: border-box
 }
 
+#login-wrap {
+    position: absolute;
+    z-index: 999;
+    background-color: rgba(30,52,73,.6);
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+}
+
 .clearfix:after,
 .clearfix:before {
     content: '';
@@ -63,8 +73,8 @@ a {
 .login-wrap {
     width: 100%;
     margin: auto;
-    max-width: 360px;
-    max-height: 500px;
+    // max-width: 360px;
+    // max-height: 500px;
     /* max-height:100vh; */
     position: absolute;
     top: 0;
@@ -75,9 +85,8 @@ a {
 }
 
 .login-html {
-    width: 100%;
+    width: 360px;
     height: 550px;
-    /* max-height:100vh; */
     padding: 30px 15px;
     background: rgb(30, 52, 73);
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
@@ -142,17 +151,13 @@ a {
     margin-top: 15px;
 }
 
-#tab-1,#tab-2 {
-    margin-top: 50px;
-}
-
 input::-webkit-input-placeholder {
     color: #666;
 }
 
 
 .login-form .group {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .login-form .group .button {
@@ -181,13 +186,13 @@ input::-webkit-input-placeholder {
 .login-form .group .label {
     color: #aaa;
     font-size: 16px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .login-form .group .button {
     /* background:#1161ee; */
     background-color: rgb(209, 98, 55);
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .login-form .group label .icon {
@@ -261,13 +266,6 @@ input::-webkit-input-placeholder {
     margin-top: 5%;
 }
 
-#login-wrap {
-    position: absolute;
-    z-index: 999;
-
-    // display: none;
-}
-
 .sign_logo{
     width: 100%;
     display: inline-block;
@@ -279,5 +277,9 @@ input::-webkit-input-placeholder {
     background-size: contain;
     background-position:center;
     margin: 0 25%;
-    margin-top: 50px;
+    margin-top: 45px;
+}
+
+.userName {
+    margin-bottom: 20px;
 }
