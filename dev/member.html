@@ -32,507 +32,535 @@
    });
  });
      </script>
-
+ 
     
-
-    <script>
-       //會員資料撈取
-      $(document).ready(function(){     
-          $.ajax({
-          type:"post",  
-          url: "./php/memdata.php",
-          dataType: "json",
-          success: function(data){                        
-          let apiData = '<table class="baic_txt">';
-              for(let i=0; i<data.length; i++){
-              apiData +=
-              `<tr>
-                  <td>
-                    <p class="p_title">暱  稱</p>
-                  </td>                            
-                  <td>
-                  <input  id="re-memNickName" class="memsand" type="text" value="${data[i].memNickName}">
-                  </td></tr>
-              <tr>
-                  <td>
-                    <p class="p_title">帳  號</p>
-                  </td>
-                  <td>
-                  <input id="re-memId" class="memsand" type="text" value="${data[i].memId}">    
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                    <p class="p_title">密  碼</p>
-                  </td>
-                  <td>
-                  <input id="re-memPsw" class="memsand" type="text" value="${data[i].memPsw}">    
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                    <p class="p_title">信  箱</p>
-                  </td>
-                  <td>
-                  <input id="re-memEmail" class="memsand" type="text" value="${data[i].memEmail}">    
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                    <p class="p_title">姓  名</p>
-                  </td>
-                  <td>
-                  <input id="re-memName" class="memsand" type="text" value="${data[i].memName}">    
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                    <p class="p_title">電  話</p>
-                  </td>
-                  <td>
-                  <input id="re-tel" class="memsand" type="text" value="${data[i].tel}">    
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                    <p class="p_title">地  址</p>
-                  </td>
-                  <td>
-                  <input id="re-memAddr"  class="memsand" type="text" value="${data[i].memAddr}">    
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                    <p class="p_title">購物金</p>
-                  </td>
-                  <td>
-                    <input disabled="disabled" class="memsand" type="text" value="$ ${data[i].coupon}"            
-                  </td>
-              </tr>
-              <tr>
-                <td class="mem-time" colspan="2">
-                  <span class="mem-t">最後修改時間:  ${data[i].memDate}</span>     
-                  <input id="re-mem" type="submit" class="button1 mem-tt" name="submit" value="修改"/>          
-                </td>
-              </tr>`                       
-              ;}
-                                                 
-          apiData += '</table>';
-                        
-        $('#memfeedback').append(apiData);
-        $("#re-mem").click(function(){
-          memNickName=$("#re-memNickName").val();
-          memId= $("#re-memId").val();
-          memPsw= $("#re-memPsw").val();
-          memName= $("#re-memName").val();
-          memEmail= $("#re-memEmail").val();
-          memAddr= $("#re-memAddr").val();
-          tel= $("#re-tel").val();
-         $.post("./php/memUpdata.php",{memNickName:memNickName,memId:memId,memPsw:memPsw,memName:memName,memEmail:memEmail,memAddr:memAddr,tel:tel},function(result){
-          location.reload();  
-          alert("成功");
-            });
-                           
-        });
-
-   
-        },
-        });       
-      });        
-  </script>
-
-
-<script>
-  //----------------------------------------------------------------我舉辦的活動
-    $(document).ready(function(){     
+ 
+     <script>
+        //會員資料撈取
+       $(document).ready(function(){     
            $.ajax({
-              type:"post",  
-              url: "./php/memact.php",
-              dataType: "json",
-              success: function(data){
-               let apiData = '<table class="my-act"><h3>我舉辦的活動</h3><tr><th>活動日期</th><th>活動名稱</th><th>活動地點</th><th>備註</th></tr>';                            
-                   for(let i=0; i<data.length; i++){
-                   apiData +=
-                   `<tr>                       
-                       <td>${data[i].actStartDate}</td>
-                       <td>${data[i].actName}</td>
-                       <td>${data[i].actLoc}</td>
-                       <td>
-                           <a href="#">
-                           <button class="button">編輯</button>
-                          </a>
-                           <button class="cancel-btn" name="actNo" type="button" id="cancel-${data[i].actNo}" value="${data[i].actNo}">
-                           取消
-                           </button>                    
-                       </td>                         
-                   </tr>`;}
+           type:"post",  
+           url: "memdata.php",
+           dataType: "json",
+           success: function(data){                        
+           let apiData = '<table class="baic_txt">';
+               for(let i=0; i<data.length; i++){
+               apiData +=
+               `<tr>
+                   <td>
+                     <p class="p_title">暱  稱</p>
+                   </td>                            
+                   <td>
+                   <input  id="re-memNickName" class="memsand" type="text" value="${data[i].memNickName}">
+                   </td></tr>
+               <tr>
+                   <td>
+                     <p class="p_title">帳  號</p>
+                   </td>
+                   <td>
+                   <input id="re-memId" class="memsand" type="text" value="${data[i].memId}">    
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                     <p class="p_title">密  碼</p>
+                   </td>
+                   <td>
+                   <input id="re-memPsw" class="memsand" type="text" value="${data[i].memPsw}">    
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                     <p class="p_title">信  箱</p>
+                   </td>
+                   <td>
+                   <input id="re-memEmail" class="memsand" type="text" value="${data[i].memEmail}">    
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                     <p class="p_title">姓  名</p>
+                   </td>
+                   <td>
+                   <input id="re-memName" class="memsand" type="text" value="${data[i].memName}">    
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                     <p class="p_title">電  話</p>
+                   </td>
+                   <td>
+                   <input id="re-tel" class="memsand" type="text" value="${data[i].tel}">    
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                     <p class="p_title">地  址</p>
+                   </td>
+                   <td>
+                   <input id="re-memAddr"  class="memsand" type="text" value="${data[i].memAddr}">    
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                     <p class="p_title">購物金</p>
+                   </td>
+                   <td>
+                     <input disabled="disabled" class="memsand" type="text" value="$ ${data[i].coupon}"            
+                   </td>
+               </tr>
+               <tr>
+                 <td class="mem-time" colspan="2">
+                   <span class="mem-t">最後修改時間:  ${data[i].memDate}</span>     
+                   <input id="re-mem" type="submit" class="button1 mem-tt" name="submit" value="修改"/>                      
+                 </td>
+               </tr>`                       
+               ;}
                                                   
-                   apiData += '</table>';
+           apiData += '</table>';
                          
-                   $('#act-master').append(apiData);
-                      $(".cancel-btn").click(function(){
-                      txt=$(this).val();
-                       $.post("./php/actCancelStat.php",{actNo:txt},function(result){
-                       alert("txt");
-                       });
-                           
-                       });
-                                           
-               },                    
-           }); //$.ajax                       
-    });
-  </script>
-
-<script>
- //------------------------------------------------------我參加的活動 
-    $(document).ready(function(){      
-           $.ajax({
-              type:"post",  
-              url: "./php/act-join.php",
-              dataType: "json",
-              success: function(data){
-               let apiData = '<h3>我參加的活動</h3><table class="my-act"><tr><th>活動日期</th><th>活動名稱</th><th>活動地點</th><th>備註</th></tr>';         
-                   
-                   for(let i=0; i<data.length; i++){
-                   apiData +=
-                   `<tr>                       
-                       <td>${data[i].actStartDate}</td>
-                       <td>${data[i].actName}</td>
-                       <td>${data[i].actLoc}</td>
-                       <td>                      
-                           <button class="nojoin-btn" name="actNo" type="button" id="nojoin-${data[i].actNo}" value="${data[i].actNo}">
-                           取消
-                           </button>
-                       </td>                            
-                   </tr>`;}
-                                                  
-                   apiData += '</table>';
-                         
-                   $('#act-master').append(apiData);
-                     $(".nojoin-btn").click(function(){
-                       let actcancel=$(this).parent().parent()                    
-                      txt=$(this).val();
-                     $.post("./php/cancel-join.php",{actNo:txt},function(result){
-                      actcancel.remove();  
-                      alert("已取消報名");  
-                        });                          
-                     });                                          
-               },                    
-           }); //$.ajax                       
-      
-   
-    });
+         $('#memfeedback').append(apiData);
+ 
+         $("#re-mem").click(function(){
+           memNickName=$("#re-memNickName").val();
+           memId= $("#re-memId").val();
+           memPsw= $("#re-memPsw").val();
+           memName= $("#re-memName").val();
+           memEmail= $("#re-memEmail").val();
+           memAddr= $("#re-memAddr").val();
+           tel= $("#re-tel").val();
+          $.post("memUpdata.php",{memNickName:memNickName,memId:memId,memPsw:memPsw,memName:memName,memEmail:memEmail,memAddr:memAddr,tel:tel},function(result){
+           location.reload();  
+           alert("成功");
+             });
+                            
+         });
+ 
+    
+         },
+         });       
+       });        
    </script>
-
-
-<script>
-  //----------------------------------------------我的訂單撈取
- $(document).ready(function(){     
-     $.ajax({
-     type:"post",  
-     url: "./php/memord.php",
-     dataType: "json",
-     success: function(data){                         
-     let apiData = '<h3>商品訂單</h3><div class="baic_txt my-ord" style="border-bottom:2px solid orange;"><span class="col-md-3 col-3">訂單編號</span><span class="col-md-3 col-3">訂購日期</span><span class="col-md-3 col-3">總金額</span><span class="clo-md-3 col-3">備註</span></div>';
-         for(let i=0; i<data.length; i++){
-         apiData +=
-         
-
-         `<div class="my-ord">
-             <span class="col-md-3 col-3">${data[i].ordNo}</span> 
-             <span class="col-md-3 col-3">${data[i].ordDate}</span> 
-             <span class="col-md-3 col-3">${data[i].ordTotal}</span>                           
-             <span class="col-md-3 col-3">
-              <button class="ord-btn" name="ordNo" type="button" id="ord-btn" value="${data[i].ordNo}">
-              展開</button>          
-             </span>     
-         </div>
-         <div id="ord${data[i].ordNo}" class="my-ord" style="display:none;">
-            <div id="box"></div>
-            <div class="col-12">收件者:${data[i].ordName}</div> 
-            <div class="col-12">電話:${data[i].ordTel}</div> 
-            <div class="col-12">地址:${data[i].ordAddr}</div>          
-          </div>`   
-                             
-         ;}
+ 
+ <script>
+   //我舉辦的活動
+     $(document).ready(function(){     
+            $.ajax({
+               type:"post",  
+               url: "memact.php",
+               dataType: "json",
+               success: function(data){
+                let apiData = '<div class="my-act">';                            
+                    for(let i=0; i<data.length; i++){
+                    apiData +=
+                    `<div>  
+                       <div class="col-12 col-md-4">
+                         <div class="act-card-bg">
+                             <div>
+                             <img class="pic-style" src="./images/bikeBanner.png">${data[i].actPic}
+                             </div>
+                         <h4>${data[i].actName}</h4>
+                         <p>${data[i].actLoc}</p>
+                         <p>${data[i].actStartDate}</p>
+                            <button class="cancel-btn" name="actNo" type="button" id="cancel-${data[i].actNo}" value="${data[i].actNo}">
+                            取消活動
+                            </button>
+                           </div> 
+                         </div>    
+                       </div>                      
+                    </dvi>`;}
+                                                   
+                    apiData += '</div>';
+                          
+                    $('#act-master').append(apiData);
+                       $(".cancel-btn").click(function(){
+                       txt=$(this).val();
+                        $.post("actCancelStat.php",{actNo:txt},function(result){
+                        alert("txt");
+                        });
+                            
+                        });
                                             
-     apiData += '</div>';
-                   
-   $('#memord-data').append(apiData);
-
-     $(".ord-btn").one("click",function(){
-
-      //let pos = $(this).parent().parent();
-      let ordaddr = $(this).parent().parent().next();      
-      let position = $(this).parent().parent();
-     
-      txt=$(this).val();
-      $.post("./php/memordprod.php",{ordNo:txt},function(ord){
-
-        let proData = '<div id="prodname"><span class="col-md-3 col-3">商品名稱</span><span class="col-md-3  col-3">數量</span><span class="col-md-3  col-3">單價</span><span class="col-md-3  col-3"></span>';
-        
-        for(let i=0; i<ord.length; i++){
-          proData +=
-         `<div>
-          <span class="col-md-3 col-3">${ord[i].prodName}</span>
-          <span class="col-md-3 col-3">${ord[i].amount}</span>
-          <span class="col-md-3 col-3">${ord[i].prodPrice}</span>
-          <span class="col-md-3 col-3"></span>
-          </div>`
-        ;}
-        proData += '</div>';
-        
-        ordaddr.css({"display":"block"});
+                },                    
+            }); //$.ajax                       
+     });
+   </script>
+ 
+ <script>
+  //我參加的活動 
+     $(document).ready(function(){      
+            $.ajax({
+               type:"post",  
+               url: "act-join.php",
+               dataType: "json",
+               success: function(data){
+                let apiData = '<div>';         
+                    
+                    for(let i=0; i<data.length; i++){
+                    apiData +=
+ 
+                    `<div>  
+                       <div class="col-12 col-md-4">
+                       <div class="act-card-bg">
+                           <div>
+                             <img class="pic-style" src="./images/bikeBanner.png">${data[i].actPic}
+                           </div>                    
+                           <h4>${data[i].actName}</h4>
+                           <p>${data[i].actLoc}</p>
+                           <p>${data[i].actStartDate}</p>
+                             <button class="cancel-btn" name="actNo" type="button" id="cancel-${data[i].actNo}" value="${data[i].actNo}">
+                             取消報名
+                             </button>  
+                         </div>   
+                       </div>                     
+                    </dvi>`;}
+                                                   
+                    apiData += '</table>';
+                          
+                    $('#act-join').append(apiData);
+                      $(".nojoin-btn").click(function(){
+                        let actcancel=$(this).parent();                    
+                       txt=$(this).val();
+                      $.post("cancel-join.php",{actNo:txt},function(result){
+                       actcancel.remove();  
+                       alert("已取消報名");  
+                         });                          
+                      });                                          
+                },                    
+            }); //$.ajax                       
        
-        position.append(proData);
-          
-
-        
-       // pos.css({"background-color":"blue"});
-        console.log(pos);
-        
-        //postiion.slideToggle(1000);
-        //return false;
-         //tex=${data[i].ordNo};
-      // $('#ord-btn').append(proData);
-        //$("div[id='']").append(proData);
-        },"json");                   
-        });
-     },
-     });       
-   });        
-</script>
-
-
-
-
-
-
-<script>//客製訂單
+    
+     });
+    </script>
+ 
+ 
+ <script>
+   //我的訂單撈取
   $(document).ready(function(){     
       $.ajax({
       type:"post",  
-      url: "./php/memord.php",
+      url: "memord.php",
       dataType: "json",
-      success: function(data){                        
-      let apiData = '<h3>客製訂單</h3><div class="baic_txt" style="border-bottom:2px solid orange;"><span class="col-md-3 col-3">訂單編號</span><span class="col-md-3 col-3">訂購日期</span><span class="col-md-3 col-3">總金額</span><span class="col-md-3 col-3">備註</span></div>';
+      success: function(data){                         
+      let apiData = '<div class="baic_txt my-ord" style=";"></div>';
           for(let i=0; i<data.length; i++){
           apiData +=
-          `<div class="ord-bor">
-              <span class="col-md-3 col-3">${data[i].cusNo}</span> 
-              <span class="col-md-3 col-3">${data[i].ordNo}</span>  
+          
+ 
+          `<div class="my-ord">
+              <span class="col-md-3 col-3">訂單編號</span>
+              <span class="col-md-3 col-3">訂購日期</span>
+              <span class="col-md-3 col-3">總金額</span>
+              <span class="col-md-3 col-3">備註</span>
+              <span class="col-md-3 col-3">${data[i].ordNo}</span> 
+              <span class="col-md-3 col-3">${data[i].ordDate}</span> 
               <span class="col-md-3 col-3">${data[i].ordTotal}</span>                           
               <span class="col-md-3 col-3">
-               <button class="cus-btn" name="ordNo" type="button" id="cus-btn">
-               展開</button>          
+               <button class="ord-btn button-oc" name="ordNo" type="button" id="ord-btn" value="${data[i].ordNo}">
+               +</button>    
+               <button class="ordClose button-oc" name="ordNo" type="button" id="ord-close${i}" style="display:none">
+               -</button> 
               </span>     
           </div>
-          <div id="cus-Addr" style="display:none" class="textLeft">
-             <div class="col-md-12 col-12">收件者:${data[i].ordName}</div> 
-             <div class="col-md-12 col-12">電話:${data[i].ordTel}</div> 
-             <div class="col-md-12 col-12">地址:${data[i].ordAddr}</div> 
-          </div>`                       
+          <div id="ord${data[i].ordNo}" class="my-ord  ord" style="display:none;">
+             <div id="box"></div>
+             <div class="col-6 col-md-6 textLeft">收件者:${data[i].ordName}</div> 
+             <div class="col-6 col-md-6 textLeft">電話:${data[i].ordTel}</div> 
+             <div class="col-12 col-md-12 textLeftB">地址:${data[i].ordAddr}</div>          
+           </div>`   
+                              
           ;}
                                              
       apiData += '</div>';
                     
-    $('#cus-data').append(apiData);
-      $('.cus-btn').click(function(){
-       let cusdata= $(this).parent().parent().next();  
-       console.log(cusdata);
-       cusdata.css({
-         display: "block",
-         backgroundColor: "#DAE9F7",
-         overflow: 'hidden',
-        });
-
-      });   
-      },
-      });       
-    });        
- </script>
-
-</head>
-<body>
-
-<div class="mem">
+    $('#memord-data').append(apiData);
  
-    <div class="wrap">
-      <header>
-          <nav class="phone">
-              <input type="checkbox" name="" id="ham">
-              <label for="ham">
-
-                  <span class="ham-1"></span>
-                  <span class="ham-2"></span>
-                  <span class="ham-3"></span>
-                  <span class="ham-4"></span>
-              </label>
-
-              <div class="logo ham"><a href="./index.html"><img src="./images/logo.png" alt=""></a></div>
-
-              <ul class="nav-icon ham">
-                  <li class="icon-1"></li>
-                  <li class="icon-2"></li>
-                  <li class="icon-3"></li>
-              </ul>
-
-              <nav class="pc">
-
-                  <ul class=" nav-list">
-                      <li><a href="./customize.html">專屬騎行</a></li>
-                      <li><a href="./CYShop.html">CY嚴選</a></li>
-                      <li><a href="./activity.html">活動專區</a></li>
-                      <li class="logo"><a href="./index.html"><img src="./images/logo.png" alt=""></a></li>
-                      <li><a href="./question.html">不可不知</a></li>
-                      <li><a href="./aboutCY.html">關於CY</a></li>
-                  </ul>
-
-                  <ul class="nav-icon">
-                      <li class="icon-1"></li>
-                      <li class="icon-2"></li>
-                      <li class="icon-3"></li>
-                  </ul>
-              </nav>
-          </nav>
-      </header>
-      <div class="cloudbox">
-        <img class="cloud1" src="images/cloud1.png" alt="" />
-
-        <img class="cloud2" src="images/cloud2.png" alt="" />
-
-        <!-- <img class="cloud3" src="images/cloud3.png" alt="" /> -->
-
-        <img class="cloud4" src="images/cloud4.png" alt="" />
-        <h2>會員中心</h2>
-      </div>
-
-      <div class="clearfix"></div>
-
-<!-- ====================================== 會員大頭貼 -->
-
-
-<div class="picAdd">
-  <div class="row">
-      <div class="col-12  col-md-5">
-  <form action="" method="POST" enctype="multipart/form-data" id="uploadForm">
-      <input class="form-control memSrc" type="file" id="upFile" name="upFile" style="display:none">
-      <div class="mempicbox">
-          <label for="upFile">
-            <img id="imgPreview" class="imgPreview" src="images/orangecat.jpg">
-          </label>
-      </div>       
-       <button class="btn btn-pill btn-block btn-primary button1" type="submit" id="saveImg">上傳圖片</button>
-      </div>
-  </form>
-    <div class="col-12 col-md-7 member">
-       <div id="memfeedback"></div>
-    </div><!-- 會員資料撈取 -->
-</div>
-</div>
-  
-
-      <div class="clearfix"></div>
-
-      <div id="tab-panel">
-        <div class="tabs">
-          <a class="order">我的訂單</a>
-          <a class="event">我的活動</a>
-        </div>
-<!-- -------------------------------------------------------------------   我的訂單 -->
-        <ul class="tab-content">
-          <li class="order orderbox">
-            <div class="demo">
-                <div id="o">
-                    <div class="phone">
-                        <h3 class="myact-tex">商品訂單</h3>
-                        <div id="memord-data" class="my-ord"></div>
-                        <h3 class="myact-tex">客製訂單</h3>
-                        <div id="cus-data" class="my-ord cus-data"></div>
-                    </div>          
-             </div>
-          </li><!-- 我的訂單結束 -->
-
-<!-- -------------------------------------------------------------------   我的活動 -->
-          <li class="event">
-            <div class="col-12">
-                <h3 class="myact-tex">我舉辦的活動</h3>
-                <div id="act-master"></div> 
-                <div class="clearfix"></div>          
-                <h3 class="myact-tex">我參加的活動</h3>
-                <!-- 我舉辦的活動 -->                      
-                <div id="act-join"></div>
-                <!-- 我參加的活動 -->            
-            </div>
-            <div class="clearfix"></div>
-          </li>
-
-        </ul>
-    
-      <footer class="section">
-          <ul>
-              <li><img src="./images/facebook.png"></li>
-              <li><img src="./images/ig.png"></li>
-              <li><img src="./images/tw.png"></li>
-          </ul>
-      </footer>
-    </div><!-- wrap -->
-  </div><!-- mem -->
-
-
-  <script>
-    // 大頭貼換圖
-    window.addEventListener("load", function(){
-      //.................upFile.onchange
-      document.getElementById("upFile").onchange = function(e){
-        let file = e.target.files[0];
-        let reader = new FileReader();
-        reader.onload = function(e){
-          document.getElementById("imgPreview").src= reader.result;
-        }
-        reader.readAsDataURL( file );
-      };
+      $(".ord-btn").click(function(){
+       let ordaddr = $(this).parent().parent().next();      
+       let position = $(this).parent().parent();
+      
+       txt=$(this).val();
+       $.post("memordprod.php",{ordNo:txt},function(ord){
+       //${ord[i].prodPic} 商品照片
+         let proData = '<div id="prodname"><span class="col-md-3 col-3">商品名稱</span><span class="col-md-3  col-3">單價</span><span class="col-md-3  col-3">數量</span><span class="col-md-3  col-3">小計</span><button style="visibility: hidden;""></button></span>';
+         
+         for(let i=0; i<ord.length; i++){
+           proData +=
+          `<div>
+           <span class="col-md-3 col-3">${ord[i].prodName} </span>
+           <span class="col-md-3 col-3">${ord[i].prodPrice}</span>
+           <span class="col-md-3 col-3">${ord[i].amount}</span>
+           <span class="col-md-3 col-3">${ord[i].amount*ord[i].prodPrice}</span>
+           </div>`
+         ;}
+         proData += '</div>';
+         $(".ord-btn").css({"display":"none"});
+         $(".ordClose").css({"display":"inline-block"});
+         ordaddr.css({"display":"block"});
            
-    })
-  </script> 
-    <script>
-        $(document).ready(function(){
-         $('.picAdd').on('change','.memSrc',function(){
-                 let memSrc = this;
-                 filememSrc = this.files[0];
-                 let readFile = new FileReader();
-                 readFile.readAsDataURL(filememSrc);
-                 readFile.addEventListener('load',function(){
-                     let image = document.getElementById('imgPreview');
-                     image.src = this.result;
-                     imgPreview.style.maxWidth = '280px';
-                     imgPreview.style.maxHeight = '350px';
-                 });
-             });
+ 
+         position.append(proData);
+           
+ 
+         
+        // pos.css({"background-color":"blue"});
+         //console.log(pos);
+         
+         //postiion.slideToggle(1000);
+         //return false;
+          //tex=${data[i].ordNo};
+       // $('#ord-btn').append(proData);
+         //$("div[id='']").append(proData);
+         },"json");                   
+         });   //商品資料撈取end
+ 
+             $('.ordClose').click(function(e){
+               let ordaddr = $(this).parent().parent().next();   
+             // alert('oK');
+             $(".ord-btn").css({"display":"inline-block"});
+             $(e.target).parents().find('#prodname').remove();
+             $('.ordClose').css({"display":"none"});
+ 
+ 
+             ordaddr .css({"display":"none"});
+             // console.log(pos);
+         });
+      },
+      });   
      
-     //----------------------------------------------
-             //利用ajax form上傳資料 
-             $("#uploadForm").on('submit',(function(e){
-                 e.preventDefault();
-                 $.ajax({
-                     url: "picup.php",
-                     type: "POST",
-                     data:  new FormData(this),
-                     contentType: false,
-                     cache: false,
-                     processData:false,
-                     success: function(data){
-                         alert(data);
-                     },
-                     error: function(data){
-                         alert(data);
-                     }               
-                 });
-             }));
-        });
-     </script>
+        
+     
+    });     
+     
+   
+        
+ </script>
  
-
  
-</body>
-</html>
+ 
+ 
+ 
+ 
+ 
+ <script>//客製訂單
+   $(document).ready(function(){     
+       $.ajax({
+       type:"post",  
+       url: "memord.php",
+       dataType: "json",
+       success: function(data){                        
+       let apiData = '';
+           for(let i=0; i<data.length; i++){
+           apiData +=
+           `<div class="ord-bor">
+             <span class="col-md-3 col-3">訂單編號</span>
+             <span class="col-md-3 col-3">訂購日期</span>
+             <span class="col-md-3 col-3">總金額</span>
+             <span class="col-md-3 col-3">備註</span>
+               <span class="col-md-3 col-3">${data[i].cusNo}</span> 
+               <span class="col-md-3 col-3">${data[i].ordNo}</span>  
+               <span class="col-md-3 col-3">${data[i].ordTotal}</span>                           
+               <span class="col-md-3 col-3">
+                 <button class="cus-btn button-oc" name="ordNo" type="button" id="cus-btn">
+                 +</button>  
+                 <button class="cusClose button-oc" name="ordNo" type="button" id="ord-close${i}" style="display:none">
+                -</button>         
+               </span>     
+           </div>
+           <div id="cus-Addr" style="display:none" class="textLeft col-12 col-md-12">
+              <div class="col-md-12 col-12">收件者:${data[i].ordName}</div> 
+              <div class="col-md-12 col-12">電話:${data[i].ordTel}</div> 
+              <div class="col-md-12 col-12">地址:${data[i].ordAddr}</div> 
+           </div>`                       
+           ;}
+                                              
+       apiData += '</div>';
+                     
+     $('#cus-data').append(apiData);
+       $('.cus-btn').click(function(){
+        let cusdata= $(this).parent().parent().next();  
+        console.log(cusdata);
+        cusdata.css({
+          display: "block",
+          backgroundColor: "#FFF",
+          overflow: 'hidden',
+         });
+        $(".cus-btn").css({"display":"none"});
+         $(".cusClose").css({"display":"inline-block"});
+         $('.cusClose').click(function(){
+           $(".cus-btn").css({"display":"inline-block"});
+           cusdata.css({
+          display: "none",
+          backgroundColor: "#fff",
+          overflow: 'hidden',
+         });
+         $(".cusClose").css({"display":"none"});
+ 
+         //  $(".cus-btn").css({"display":"block"});
+ 
+         }); 
+       });   
+       },
+       });       
+     });        
+  </script>
+ 
+ </head>
+ <body>
+ 
+ <div class="mem">
+  
+     <div class="wrap">
+       @@include('./template/header.html')
+       <div class="cloudbox">
+         <img class="cloud1" src="images/cloud1.png" alt="" />
+ 
+         <img class="cloud2" src="images/cloud2.png" alt="" />
+ 
+         <!-- <img class="cloud3" src="images/cloud3.png" alt="" /> -->
+ 
+         <img class="cloud4" src="images/cloud4.png" alt="" />
+         <h2>會員中心</h2>
+       </div>
+ 
+       <div class="clearfix"></div>
+ 
+       <!-- <h2>基本資料</h2> -->
+ 
+     
+ <!-- ====================================== 會員大頭貼 -->
+ 
+ <div class="picAdd">
+     <div class="row">
+         <div class="col-12  col-md-5">
+     <form action="" method="POST" enctype="multipart/form-data" id="uploadForm">
+         <input class="form-control memSrc" type="file" id="upFile" name="upFile" style="display:none">
+         <div class="mempicbox">
+             <label for="upFile">
+               <img id="imgPreview" class="imgPreview" src="images/orangecat.jpg">
+             </label>
+         </div>       
+          <button class="btn btn-pill btn-block btn-primary button1" type="submit" id="saveImg">上傳圖片</button>
+         </div>
+     </form>
+       <div class="col-12 col-md-7 member">
+          <div id="memfeedback"></div>
+       </div><!-- 會員資料撈取 -->
+   </div>
+ </div>
+ 
+ 
+ 
+ <!-- ================================================================= -->
+ 
+       
+   
+ 
+ 
+ 
+       <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>  
+   
+ 
+       <div class="clearfix"></div>
+ 
+       <div id="tab-panel">
+         <div class="tabs">
+           <a class="order">我的訂單</a>
+           <a class="event">我的活動</a>
+         </div>
+ 
+         <ul class="tab-content">
+           <li class="order orderbox">
+             <div class="demo">
+                 <div id="o">
+                     <div class="phone">
+                         <h3 class="myact-tex">商品訂單</h3>
+                         <div id="memord-data" class="my-ord"></div>
+                         <h3 class="myact-tex">客製訂單</h3>
+                         <div id="cus-data" class="my-ord cus-data"></div>
+                     </div>          
+              </div>
+           </li>
+ 
+ 
+            
+           </li><!-- 我的訂單結束 -->
+ 
+ 
+ 
+ 
+ 
+           <li class="event">
+             <div class="col-12">
+                 <h3 class="myact-tex">我舉辦的活動</h3>
+                 <div id="act-master"></div> 
+                 <div class="clearfix"></div>          
+                 <h3 class="myact-tex">我參加的活動</h3>
+                 <!-- 我舉辦的活動 -->                      
+                 <div id="act-join"></div>
+                 <!-- 我參加的活動 -->            
+             </div>
+             <div class="clearfix"></div>
+           </li>
+ 
+ 
+ 
+         </ul>
+       </div>
+       @@include('./template/footer.html')
+     </div><!-- wrap -->
+   </div><!-- mem -->
+ 
+   
+   <script>
+   window.addEventListener("load", function(){
+     //.................upFile.onchange
+     document.getElementById("upFile").onchange = function(e){
+       let file = e.target.files[0];
+       let reader = new FileReader();
+       reader.onload = function(e){
+         document.getElementById("imgPreview").src= reader.result;
+       }
+       reader.readAsDataURL( file );
+     };
+          
+   })
+ </script> 
+   <script>
+       $(document).ready(function(){
+        $('.picAdd').on('change','.memSrc',function(){
+                let memSrc = this;
+                filememSrc = this.files[0];
+                let readFile = new FileReader();
+                readFile.readAsDataURL(filememSrc);
+                readFile.addEventListener('load',function(){
+                    let image = document.getElementById('imgPreview');
+                    image.src = this.result;
+                    imgPreview.style.maxWidth = '280px';
+                    imgPreview.style.maxHeight = '350px';
+                });
+            });
+    
+    //----------------------------------------------
+            //利用ajax form上傳資料 
+            $("#uploadForm").on('submit',(function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: "picup.php",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data){
+                        alert(data);
+                    },
+                    error: function(data){
+                        alert(data);
+                    }               
+                });
+            }));
+       });
+    </script> 
+ </body>
+ </html>
