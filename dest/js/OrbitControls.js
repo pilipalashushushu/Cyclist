@@ -87,6 +87,17 @@ THREE.OrbitControls = function ( object, domElement ) {
 	this.position0 = this.object.position.clone();
 	this.zoom0 = this.object.zoom;
 
+	//** */ for my set **//
+	this.rotateLeft = function (degrees) {
+		rotateLeft(degrees);
+		this.update();
+	}
+
+	this.rotateUp = function (degrees) {
+		rotateUp(degrees);
+		this.update();
+	}
+
 	//
 	// public methods
 	//
