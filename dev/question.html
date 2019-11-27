@@ -14,48 +14,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="js/question.js"></script>
+    <script src="js/getLoginInfo.js"></script>
+    <script src="js/sign_in.js"></script>
 </head>
 
 <body>
-    <header>
-        <nav class="phone">
-            <input type="checkbox" name="" id="ham">
-            <label for="ham">
-
-                <span class="ham-1"></span>
-                <span class="ham-2"></span>
-                <span class="ham-3"></span>
-                <span class="ham-4"></span>
-            </label>
-
-            <div class="logo ham"><a href="./index.html"><img src="./images/logo.png" alt=""></a></div>
-
-            <ul class="nav-icon ham">
-                <li class="icon-2"><a href="../shoppingCart.html"></a></li>
-                <li class="icon-3"><a href="#"></a></li>
-            </ul>
-
-            <nav class="pc">
-
-                <ul class=" nav-list">
-                    <li><a href="./customize.html">專屬騎行</a></li>
-                    <li><a href="./CYShop.html">CY嚴選</a></li>
-                    <li><a href="./activity.html">活動專區</a></li>
-                    <li class="logo"><a href="./cyclist.html"><img src="./images/logo.png" alt=""></a></li>
-                    <li><a href="./question.html">不可不知</a></li>
-                    <li><a href="./aboutCY.html">關於CY</a></li>
-                </ul>
-
-                <ul class="nav-icon">
-                    <li class="icon-2"><a href="shoppingCart.html"></a></li>
-                    <li class="icon-3"><a href="../sign_in.html"></a></li>
-                </ul>
-            </nav>
-        </nav>
-    </header>
+    @@include('./template/header.html')
+    @@include('./template/sign_in.html')
+    
    
     <div class="qawrap">
-
         <!-- qa -->
         <div class="qa" style="opacity:0;">
             <h2 id="question">

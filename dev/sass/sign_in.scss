@@ -32,8 +32,8 @@ a {
 
 
 .lightbox-close {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background: #d16237;
     color: #fff;
     position: absolute;
@@ -45,26 +45,26 @@ a {
 
 /* 利用偽元素做出 \ 以及 / 的線條 */
 .lightbox-close:after {
-    width: 30px;
+    width: 20px;
     height: 2px;
     content: "";
     display: block;
     background: #fff;
     position: absolute;
-    top: 18px;
+    top: 13px;
     left: 5px;
     transform: rotate(45deg);
 }
 
 .lightbox-close:before {
-    width: 30px;
+    width: 20px;
     height: 2px;
     content: "";
     display: block;
     background: #fff;
     position: absolute;
-    top: 18px;
-    left: 5px;
+    top: 13px;
+    left: 4px;
     transform: rotate(-45deg);
 }
 
@@ -193,6 +193,7 @@ input::-webkit-input-placeholder {
     /* background:#1161ee; */
     background-color: rgb(209, 98, 55);
     margin-top: 50px;
+    cursor: pointer;
 }
 
 .login-form .group label .icon {
