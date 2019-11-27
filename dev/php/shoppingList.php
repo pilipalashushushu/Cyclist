@@ -1,5 +1,5 @@
 <?php
-$memNo = 3;
+$memNo = $_GET["memNo"];
 $ordTotal = $_GET["ordTotal"];
 $memName = $_GET["memName"];
 $memTel = $_GET["memTel"];

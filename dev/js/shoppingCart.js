@@ -33,7 +33,7 @@ $(function () {
     //撈取會員購物金
     var memGold;
     $.ajax({
-        url: "./php/shoppingCart.php",
+        url: `./php/shoppingCart.php?memNo=${sessionStorage["memNo"]}`,
         datType: "json",
         type: "get",
         success: function (data) {
@@ -80,8 +80,9 @@ $(function () {
                                 $('#alert-wrap').fadeToggle('slow');
                             });
                         } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".card").prop("checked") == true) {
+
                             $.ajax({
-                                url: `./php/shoppingList.php?memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
+                                url: `./php/shoppingList.php?memNo=${sessionStorage["memNo"]} & memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
                                 type: "get",
                                 success: function (data) {
                                     $('#alert-wrap').find('h3').text('購買成功');
@@ -96,12 +97,21 @@ $(function () {
 
                             $.ajax({
                                 url: "./php/card.php",
+
                                 type: "post",
+
                                 data: {
-                                    memNo: 1,
+
+                                    memNo: `${sessionStorage["memNo"]}`,
                                     card: `${$(".cardNo1").val()}${$(".cardNo2").val()}${$(".cardNo3").val()}${$(".cardNo4").val()}`,
+
+
                                 },
+
                                 success: function (data) {
+
+
+                                    document.location.href = "./cyclist.html"
 
                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {
@@ -110,7 +120,7 @@ $(function () {
                             })
                         } else if ($(e.currentTarget).find("h4").text() == "送出訂單" && $(".gold").prop("checked") == true) {
                             $.ajax({
-                                url: `./php/shoppingList.php?memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
+                                url: `./php/shoppingList.php?memNo=${sessionStorage["memNo"]} & memName=${$('#memName').val()} & memTel=${$('#tel').val()} & memAddr=${$('#addr').val()} & ordTotal=${$('.finalamount h3').text().split('$')[1]}`,
                                 type: "get",
                                 success: function (data) {
                                     $('#alert-wrap').find('h3').text('購買成功');
@@ -119,12 +129,12 @@ $(function () {
                                         $('#alert-wrap').fadeToggle('slow');
                                         sessionStorage.removeItem('cart-list');
                                         window.open('cyclist.html', '_self');
-
                                     });
+
                                 }
                             })
                             $.ajax({
-                                url: `./php/gold.php?memNo=1 & gold=${$(".goldtotal").text()}`,
+                                url: `./php/gold.php?memNo=${sessionStorage["memNo"]} & gold=${$(".goldtotal").text()}`,
                                 type: "get",
                                 success: function (data) {
 
@@ -173,7 +183,7 @@ $(function () {
                 this.Gold = memGold;
 
             },
-            //控制跳頁(購物車->訂單明細),判斷沒有登入跳登入窗
+            //控制跳頁(購物車->訂單明細)
             get() {
                 this.page = false;
                 if (sessionStorage['memId'] == null) {
@@ -201,9 +211,7 @@ $(function () {
                 });
                 return this.total
             },
-            // getGold() {
-            //     return this.memGold;
-            // },
+
         }
     })
 

@@ -945,7 +945,7 @@ $(function () {
                         //輸入客制訂單
 
                         $.ajax({
-                            url: `./php/cusOrder.php?memNo=1 & cusName=${$("#memName").val()} & cusTel=${$("#tel").val()} & addr=${$("#addr").val()} & type=${sessionStorage["cusType"]} & frameNo=${sessionStorage["frameInfo"].split("|")[0]} & handleNo=${sessionStorage["handleInfo"].split("|")[0]} & colorNo=${sessionStorage["colorInfo"].split("|")[0]} & price=${$(".finalamount").find("h3").text().substr(1)}`,
+                            url: `./php/cusOrder.php?memNo=${sessionStorage["memNo"]} & cusName=${$("#memName").val()} & cusTel=${$("#tel").val()} & addr=${$("#addr").val()} & type=${sessionStorage["cusType"]} & frameNo=${sessionStorage["frameInfo"].split("|")[0]} & handleNo=${sessionStorage["handleInfo"].split("|")[0]} & colorNo=${sessionStorage["colorInfo"].split("|")[0]} & price=${$(".finalamount").find("h3").text().substr(1)}`,
 
 
                             type: "get",
@@ -966,7 +966,7 @@ $(function () {
 
                             data: {
 
-                                memNo: 1,
+                                memNo: `${sessionStorage["memNo"]}`,
                                 card: `${$(".cardNo1").val()}${$(".cardNo2").val()}${$(".cardNo3").val()}${$(".cardNo4").val()}`,
 
 
@@ -985,7 +985,7 @@ $(function () {
                     } else if ($(this).find("h4").text() == "送出訂單" && $(".myGold").css("display") == "block") {
                         //輸入客制訂單
                         $.ajax({
-                            url: `./php/cusOrder.php?cusName=${$("#memName").val()} & cusTel=${$("#tel").val()} & addr=${$("#addr").val()} & type=${sessionStorage["cusType"]} & frameNo=${sessionStorage["frameInfo"].split("|")[0]} & handleNo=${sessionStorage["handleInfo"].split("|")[0]} & colorNo=${sessionStorage["colorInfo"].split("|")[0]} & price=${$(".finalamount").find("h3").text().substr(1)}`,
+                            url: `./php/cusOrder.php?memNo=${sessionStorage["memNo"]} & cusName=${$("#memName").val()} & cusTel=${$("#tel").val()} & addr=${$("#addr").val()} & type=${sessionStorage["cusType"]} & frameNo=${sessionStorage["frameInfo"].split("|")[0]} & handleNo=${sessionStorage["handleInfo"].split("|")[0]} & colorNo=${sessionStorage["colorInfo"].split("|")[0]} & price=${$(".finalamount").find("h3").text().substr(1)}`,
 
 
                             type: "get",
@@ -999,7 +999,7 @@ $(function () {
                         })
                         //扣除購物金
                         $.ajax({
-                            url: `./php/gold.php?memNo=1 & gold=${$(".goldtotal").text()}`,
+                            url: `./php/gold.php?memNo=${sessionStorage["memNo"]} & gold=${$(".goldtotal").text()}`,
 
 
                             type: "get",
