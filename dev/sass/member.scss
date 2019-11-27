@@ -388,3 +388,198 @@ background-color: #EFE8CB;
 line-height: 60px;
 }
 
+
+
+.order p{
+  font-size: 20px;
+}
+.orderbox{
+padding: 0px!important;
+
+}
+
+
+
+
+.orderbox span{
+line-height: 2;
+}
+
+
+
+.act-card-bg{
+background-color: #FFF;
+border-radius: 5px;
+padding: 10px;
+}
+
+.myact-tex{
+font-size: 20px;
+background-color: #3c566d;
+color: white;
+padding: 10px;
+text-align: center;
+margin: 20px 0;
+border-radius: 5px;
+line-height: 24px;
+}
+
+.pic-style{
+width:90%;
+display: inline-block;
+text-align: center;
+}
+.act-card-bg{
+text-align: center;
+} 
+
+.memord-data{
+min-width: 500px !important;
+width:100%;
+}
+
+.button-oc{
+background-color: #D16237;
+padding: 0  20px;
+font-size: 24px;
+border: 0;
+text-decoration: none;
+color: #FFF;
+display: inline-block;
+text-align: center;
+}
+
+.cancel-btn{
+background-color: #D16237;
+padding: 10px;
+border: 0;
+text-decoration: none;
+color: #FFF;
+}
+
+
+
+
+#cus-Addr{
+padding: 0px;
+}
+
+
+
+.demo{
+background:#EFE8CB;
+margin:5px auto;
+padding:5px;
+position:relative;
+width: 1140px;
+height:100%;
+overflow:auto;
+} 
+
+#o{ margin:0px;padding:5px;width:1130px;height:100%; } 
+
+
+.mem-t{
+display: inline-block;
+text-align: center;
+margin: 6px;
+margin-left: 5%;
+}
+
+.mem-tt{
+margin:10px;
+margin-right: 5%;
+float: right;
+}
+
+.mempicbox{
+max-width: 293px;
+max-height: 367px;
+margin: 0 auto;
+padding-bottom: 10px;
+}
+
+.mempicbox img{
+max-width: 293px;
+max-height: 367px;
+}
+
+
+.btn-pill{
+line-height: 1,5;
+text-align: center;
+margin:0 auto;
+display: block;
+margin-bottom: 10px;
+}
+
+.imgPreview{
+display: block;
+text-align: center;
+}
+
+
+
+@media screen and (max-width: 768px){
+body{
+overflow: auto !important;
+}
+input[type="text"]
+{
+font-size:16px;
+}
+
+.phone{
+width: 500px;
+white-space: nowrap;
+overflow-x: auto;
+overflow: hidden;
+margin: 0 auto;
+}
+
+.demo{
+background:#EFE8CB none repeat scroll 0 0;
+margin:5px auto;
+padding:5px;
+position:relative;
+width: 100%;
+height:100%;
+overflow:auto;
+} 
+
+#o{ margin:0 auto;padding:5px;width:600px;height:100%; } 
+
+.member{
+padding: 0;
+}
+
+.mem-t{
+display: inline-block;
+text-align: center;
+margin: 10px;
+}
+
+.mem-tt{
+display: inline-block;
+text-align: center;
+margin:10px;
+}
+.act-card-bg{
+text-align: center;
+margin-bottom: 15px;
+} 
+
+
+.btn-pill{
+width: 30%;
+padding: 10px 10px;
+line-height: 1,5;
+text-align: center;
+display: block;
+margin-bottom: 10px;
+
+}
+
+
+
+}
