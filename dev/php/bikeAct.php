@@ -5,7 +5,7 @@ $errMsg = "";
 try {
   require_once("../connection.php");
 
-	$sql = "select * from `activity` ORDER BY `actStartDate` DESC";
+	$sql = "select * from `activity` where actCancelStat = '0' ORDER BY `actStartDate` DESC";
     // $activitys = $pdo->prepare($sql);
     // $activitys ->bindValue($sql);
     // $activitys ->execute();
