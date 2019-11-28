@@ -18,19 +18,20 @@ try {
      //將檔案copy到要放的路徑
      $fileName = $_FILES["upFile"]["name"];
      $from = $_FILES["upFile"]["tmp_name"];
-     $to = "./images/$fileName";
+     $to = "../images/$fileName";
      $memPic = "./images/$fileName"; 
  
      if(copy( $from, $to)===true){
          //將檔案名稱寫回資料庫
-         $picAdd -> bindValue(":picName", $to);
+         $picAdd -> bindValue(":picName", $memPic);
          $picAdd -> execute();
-         echo "新增成功~";
+         $pdo->commit();
+         echo $memPic;
          //echo '<img id="imgPreview" src="./image/$fileName">';
-         echo json_encode("$memPic");
-         $pdo->commit();     
+        //  echo json_encode("$memPic");
      }else{
          $pdo->rollBack();
+         echo "新增失敗~";
      }
         			
 }catch (PDOException $e) {

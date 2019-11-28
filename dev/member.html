@@ -137,7 +137,8 @@
              });
                             
          });
- 
+
+         $('#imgPreview').attr('src', data[0].memPic);
     
          },
          });       
@@ -431,7 +432,7 @@
          <input class="form-control memSrc" type="file" id="upFile" name="upFile" style="display:none">
          <div class="mempicbox">
              <label for="upFile">
-               <img id="imgPreview" class="imgPreview" src="images/orangecat.jpg">
+               <img id="imgPreview" class="imgPreview" src="images/mempic.png">
              </label>
          </div>       
           <button class="btn btn-pill btn-block btn-primary button1" type="submit" id="saveImg">上傳圖片</button>
@@ -547,10 +548,11 @@
                     cache: false,
                     processData:false,
                     success: function(data){
-                        alert(data);
+                        alert('修改成功');
+                        $('#imgPreview').attr('src', data);
                     },
                     error: function(data){
-                        alert(data);
+                      alert(data);
                     }               
                 });
             }));
