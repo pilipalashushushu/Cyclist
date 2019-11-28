@@ -32,12 +32,12 @@ function init(){
         </div>
     </script> */}
     var data=[];
-    var actNo=JSON.parse(localStorage['actNo']);
+    var actNo= localStorage['actNo'];
     var memNo,memNickName,memPic;
     if(sessionStorage['memNo']!= null || sessionStorage['memNo']!=undefined){
-        memNo=JSON.parse(sessionStorage['memNo']);
+        memNo= sessionStorage['memNo'];
         memNickName = sessionStorage['memNickName'];
-        memPic = JSON.parse(sessionStorage['memPic']);
+        memPic = sessionStorage['memPic'];
     }
 
     $.ajax({

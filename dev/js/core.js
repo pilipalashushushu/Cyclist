@@ -4592,7 +4592,7 @@ Docs & License: https://fullcalendar.io/
             prevYear: 'prev year',
             nextYear: 'next year',
             year: 'year',
-            today: 'today',
+            today: '今日',
             month: 'month',
             week: 'week',
             day: 'day',

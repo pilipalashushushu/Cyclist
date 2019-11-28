@@ -8,24 +8,12 @@
         <link rel="stylesheet" href="css/act-form.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         <!-- <script  src="js/dropkick.js"></script> -->
-    <title>Document</title>
-    <style>
-        /* td {
-            border: 1px solid red;
-        } */
-    </style>
-
+        <script src="js/getLoginInfo.js"></script>
+        <script src="js/sign_in.js"></script>
 </head>
 
 <body>
-    <!-- hover灰底 -->
-    <!-- btn div 做before transition: .3s cubic-bezier(.25,.8,.5,1); -->
-    <!-- 燈箱視窗dialog
-transition: .3s ease-in-out;
-    width: 100%;
-}
-.dialog {
-    box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12); -->
+
     <div  id="wrapper-form" >
 
 
@@ -36,21 +24,40 @@ transition: .3s ease-in-out;
                 <legend>建立車友活動</legend>
                 <div class="form-content">
                     <div class="flex-row">
-                        <label for="" class="form-title">活動相片</label>
+                        <label for="" class="form-title fix">活動相片</label>
                         <div class="form-text photo">
                             <div id="drag-box">
-                                <img id="drag-img" src="./images/camera.svg" alt="">
+                                <img id="drag-img" src="./images/act_image/camera.svg" alt="">
                             </div>
-                            <div class="up-file">
+                            <!-- <div class="up-file">
                                 <input type="file" id="the-file" name="theFile">
                                 <span id="file-info"></span>
+                            </div> -->
+                            <div class="up-file">
+                                <label class="file-btn" >
+                                    <input id="the-file" style="display:none;" type="file">
+                                    <i class="far fa-image"></i>上傳圖片
+                                </label>
+                                <div id="file-info"></div>
                             </div>
+                            
                         </div>
+                        
+                        <form method="post" accept-charset="utf-8" id="form1" enctype="multipart/form-data">
+                                <input name="hidden_data" id='hidden_data' type="text"/>
+                        </form>
+                        
+                        <!-- <input name="hidden_data" id='hidden_data' type="hidden"/> -->
+
+                        <!-- <form action="uploadAct.php" method="post" enctype="multipart/form-data">
+                            大頭貼 <input type="file" name="upFile"><br>
+                            <input type="submit" value="OK">
+                        </form> -->
 
                     </div>
 
                     <div class="flex-row ">
-                        <label for="" class="form-title">活動標題
+                        <label for="" class="form-title fix">活動標題
                             <!-- <span class="required">*</span> -->
                         </label>
                         <div class="input-group">
@@ -65,7 +72,7 @@ transition: .3s ease-in-out;
                         
                     </div>
                     <div class="flex-row" class="form-title">
-                        <label for="twzipcode" class="form-title">出發地</label>
+                        <label for="twzipcode" class="form-title fix">出發地</label>
                         <div class="form-text-s">
                             <!-- <label for="" visibility='hidden'>xx</label> -->
                             <!-- <select data-role="county" name="" id="county" class="county">
@@ -104,11 +111,11 @@ transition: .3s ease-in-out;
 
                     </div>
                     <div class="flex-row">
-                        <label for="" class="form-title">活動內容</label>
+                        <label for="" class="form-title fix">活動內容</label>
                         <textarea  required  class="input-content" name="content" id="act-content" cols="30" rows="10"></textarea>
                     </div>
                     <div class="flex-row">
-                        <label for="" class="form-title">時間</label>
+                        <label for="" class="form-title fix">時間</label>
                         <div class="time-area">
                             <input type="date" name="Date" id="date">
                             <!-- <date-picker></date-picker> -->
@@ -123,7 +130,7 @@ transition: .3s ease-in-out;
                     </div>
                     <div class="flex-row">
                         <label for="" class="form-title">適合車種</label>
-                        <div class="form-text-s type">
+                        <div class="form-text-s type type-area">
                             <label class="control" for="road-check">公路車
                                 <input type="checkbox" name="type[]" id="road-check" value="1" >
                                 <div class="control-indicator"><i class="fas fa-check"></i></div>
@@ -144,7 +151,7 @@ transition: .3s ease-in-out;
                         <!-- <input type="range" name="" id=""> -->
                     </div>
                     <div class="flex-row box-center">
-                        <label for="" class="form-title">騎乘強度</label>
+                        <label for="" class="form-title fix">騎乘強度</label>
                         <div class="level-area">
                             <select name="level" id="level">
                                 <option value="休閒級">休閒級</option>
@@ -235,6 +242,8 @@ transition: .3s ease-in-out;
         //         // initialize(){},
 
         //     );
+
+        
 
         //     // $('.county').dropkick();
         //     // $('.district').dropkick();

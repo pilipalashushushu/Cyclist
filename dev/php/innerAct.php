@@ -16,8 +16,8 @@ try {
     require_once("../connection.php");
     
     $sql = "select * from `activity` where actNo={$actNo}";
-    $sql2 = "SELECT m.memNickName , m.memPic FROM `member`m JOIN `activity` a ON m.memNo = a.memNo WHERE a.actNo = {$actNo}";
-    $sql3= "SELECT m.memNickName , m.memPic FROM `member`m JOIN `joinlist` a ON m.memNo = a.memNo WHERE a.actNo = {$actNo}";
+    $sql2 = "SELECT m.memNickName , m.memPic FROM `member` m JOIN `activity` a ON m.memNo = a.memNo WHERE a.actNo = {$actNo}";
+    $sql3= "SELECT m.memNickName , m.memPic FROM `member` m JOIN `joinlist` a ON m.memNo = a.memNo WHERE a.actNo = {$actNo}";
 
     // $innerAct = $pdo->prepare($sql);
     // $innerAct ->bindValue($sql);
@@ -26,12 +26,6 @@ try {
     $initiator = $pdo->query($sql2);
     $attendee = $pdo->query($sql3);
     // echo $nickName;
-
-}catch(PDOException $e){
-    $errMsg .= "錯誤訊息: ". $e->getMessage(). "<br>";
-	$errMsg .= "錯誤行號: ". $e->getLine(). "<br>";
-	
-}
 
   if($errMsg!==""){
       echo $errMsg;
@@ -59,9 +53,13 @@ try {
         // array_push($arr,$initMem);
         // array_push($arr,$attendMem);
         echo json_encode($arr,true);
-
-        
   }
+
+}catch(PDOException $e){
+    $errMsg .= "錯誤訊息: ". $e->getMessage(). "<br>";
+	$errMsg .= "錯誤行號: ". $e->getLine(). "<br>";
+	
+}
 
 
 

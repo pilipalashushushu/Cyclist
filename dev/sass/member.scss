@@ -3,18 +3,16 @@
 @import "var";
 
 
-/* *{
-  outline: 1px solid red;
-} */
-
 .cloud4{
     width: 25%;
     position: absolute;
-    top: 3%;
+    top: 1%;
     left: 5%;
     animation-name: cloudfly1;
     animation-duration: 20s;
     animation-iteration-count: infinite;
+    z-index: 4;
+    min-width: 244px;
   }
   
   @keyframes cloudfly1{
@@ -31,7 +29,7 @@
     animation-name: cloudfly2;
     animation-duration: 20s;
     animation-iteration-count: infinite;
-    z-index: 1;
+    z-index: 4;
   }
   
   @keyframes cloudfly2{
@@ -309,277 +307,20 @@ a{
   margin-top: 60px;
 }
 
-@media screen and (max-width: 768px){
-body{
-  overflow: auto !important;
-}
-}
+
+// @media screen and (min-width: 768px){
+//   .baic_txt p{
+//    font-size: 20px;
+//   }
+//   input[type="text"]
+//     {
+//         font-size:20px;
+//     }
 
 
 
-.calendar-wrap {
-    width: 95%;
-    margin: 0 auto;
-  }
-
-
-  .baic_txt .memsand{
-    width: 92%;
-    background-color: azure;
-    padding: 10px;
-    border-radius: 10px;
-    /* margin: 2%; */      
-    display: block;  
-    border: none;       
- }
-  
-
-  .baic_txt p{
-  background-color: azure;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 3px  10px;
-  text-align: center;
-  }
-
-  .order p{
-    display: inline-block;
-  }
+//   }
 
   
-.my-act{
-background-color: #DAE9F7;
-width:100%;
-text-align: center;
-font-size: 14px;
-}
-
-.my-act th{
-padding: 10px;
-border-bottom: 2px solid orange;
-}
-.my-act td{
-padding: 10px;
-border-bottom: 1px solid orange;
-}
-
-.my-ord{
-background-color: #DAE9F7;
- width:100%;
- text-align: center;
- overflow: hidden;
-}
 
 
-.ord-bor{
-border-bottom: 1px solid orange;
-}
-
-.textLeft{
-text-align: left;
-}
-.textLeftB{
-border-bottom: 1px solid orange;
-text-align: left;
-}
-
-.ord-head{
-background-color: #EFE8CB;
-line-height: 60px;
-}
-
-
-
-.order p{
-  font-size: 20px;
-}
-.orderbox{
-padding: 0px!important;
-
-}
-
-
-
-
-.orderbox span{
-line-height: 2;
-}
-
-
-
-.act-card-bg{
-background-color: #FFF;
-border-radius: 5px;
-padding: 10px;
-}
-
-.myact-tex{
-font-size: 20px;
-background-color: #3c566d;
-color: white;
-padding: 10px;
-text-align: center;
-margin: 20px 0;
-border-radius: 5px;
-line-height: 24px;
-}
-
-.pic-style{
-width:90%;
-display: inline-block;
-text-align: center;
-}
-.act-card-bg{
-text-align: center;
-} 
-
-.memord-data{
-min-width: 500px !important;
-width:100%;
-}
-
-.button-oc{
-background-color: #D16237;
-padding: 0  20px;
-font-size: 24px;
-border: 0;
-text-decoration: none;
-color: #FFF;
-display: inline-block;
-text-align: center;
-}
-
-.cancel-btn{
-background-color: #D16237;
-padding: 10px;
-border: 0;
-text-decoration: none;
-color: #FFF;
-}
-
-
-
-
-#cus-Addr{
-padding: 0px;
-}
-
-
-
-.demo{
-background:#EFE8CB;
-margin:5px auto;
-padding:5px;
-position:relative;
-width: 1140px;
-height:100%;
-overflow:auto;
-} 
-
-#o{ margin:0px;padding:5px;width:1130px;height:100%; } 
-
-
-.mem-t{
-display: inline-block;
-text-align: center;
-margin: 6px;
-margin-left: 5%;
-}
-
-.mem-tt{
-margin:10px;
-margin-right: 5%;
-float: right;
-}
-
-.mempicbox{
-max-width: 293px;
-max-height: 367px;
-margin: 0 auto;
-padding-bottom: 10px;
-}
-
-.mempicbox img{
-max-width: 293px;
-max-height: 367px;
-}
-
-
-.btn-pill{
-line-height: 1,5;
-text-align: center;
-margin:0 auto;
-display: block;
-margin-bottom: 10px;
-}
-
-.imgPreview{
-display: block;
-text-align: center;
-}
-
-
-
-@media screen and (max-width: 768px){
-body{
-overflow: auto !important;
-}
-input[type="text"]
-{
-font-size:16px;
-}
-
-.phone{
-width: 500px;
-white-space: nowrap;
-overflow-x: auto;
-overflow: hidden;
-margin: 0 auto;
-}
-
-.demo{
-background:#EFE8CB none repeat scroll 0 0;
-margin:5px auto;
-padding:5px;
-position:relative;
-width: 100%;
-height:100%;
-overflow:auto;
-} 
-
-#o{ margin:0 auto;padding:5px;width:600px;height:100%; } 
-
-.member{
-padding: 0;
-}
-
-.mem-t{
-display: inline-block;
-text-align: center;
-margin: 10px;
-}
-
-.mem-tt{
-display: inline-block;
-text-align: center;
-margin:10px;
-}
-.act-card-bg{
-text-align: center;
-margin-bottom: 15px;
-} 
-
-
-.btn-pill{
-width: 30%;
-padding: 10px 10px;
-line-height: 1,5;
-text-align: center;
-display: block;
-margin-bottom: 10px;
-
-}
-
-
-
-}

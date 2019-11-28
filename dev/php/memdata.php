@@ -1,12 +1,11 @@
 <?php
 session_start();
-$memNo=$_SESSION["memNo"];
 $errMsg = "";
 try{
 
-    require_once("../connection.php");
-    //memStat 0下架 1上架
-    $sql = "select * from `member` where memNo=$memNo and memStat='1'"; 
+    require_once("localhost.php");
+    
+    $sql = "select * from `member` where memNo='$_SESSION[memNo]'"; 
 
     $member=$pdo->query($sql);
 

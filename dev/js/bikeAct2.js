@@ -7,7 +7,7 @@ function init(){
         if(sessionStorage['memNo']!= null || sessionStorage['memNo']!=undefined){
             memNo=JSON.parse(sessionStorage['memNo']);
             memNickName = sessionStorage['memNickName'];
-            memPic = JSON.parse(sessionStorage['memPic']);
+            memPic = sessionStorage['memPic'];
     }
 
     $.ajax({

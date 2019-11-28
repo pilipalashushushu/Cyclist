@@ -5,10 +5,10 @@ $memNo=$_SESSION["memNo"];
 
 
 try{
-    require_once("../connection.php");
+    require_once("localhost.php");
 
    //撈我的訂單 ok
-   $sql= "select * from `ordermaster` where memNo=$memNo order by ordNo desc";
+   $sql= "select * from `ordermaster` where memNo='$memNo' ORDER BY Sales DESC";
 
     $ordermaster=$pdo->query($sql);
 
