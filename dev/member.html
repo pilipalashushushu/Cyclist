@@ -41,7 +41,7 @@
        $(document).ready(function(){     
            $.ajax({
            type:"post",  
-           url: "memdata.php",
+           url: "../memdata.php",
            dataType: "json",
            success: function(data){                        
            let apiData = '<table class="baic_txt">';
@@ -130,7 +130,7 @@
            memEmail= $("#re-memEmail").val();
            memAddr= $("#re-memAddr").val();
            tel= $("#re-tel").val();
-          $.post("memUpdata.php",{memNickName:memNickName,memId:memId,memPsw:memPsw,memName:memName,memEmail:memEmail,memAddr:memAddr,tel:tel},function(result){
+          $.post("../memUpdata.php",{memNickName:memNickName,memId:memId,memPsw:memPsw,memName:memName,memEmail:memEmail,memAddr:memAddr,tel:tel},function(result){
            location.reload();  
            alert("成功");
              });
@@ -148,7 +148,7 @@
      $(document).ready(function(){     
             $.ajax({
                type:"post",  
-               url: "memact.php",
+               url: "../memact.php",
                dataType: "json",
                success: function(data){
                 let apiData = '<div class="my-act">';                            
@@ -176,7 +176,7 @@
                     $('#act-master').append(apiData);
                        $(".cancel-btn").click(function(){
                        txt=$(this).val();
-                        $.post("actCancelStat.php",{actNo:txt},function(result){
+                        $.post("../actCancelStat.php",{actNo:txt},function(result){
                         alert("txt");
                         });
                             
@@ -192,7 +192,7 @@
      $(document).ready(function(){      
             $.ajax({
                type:"post",  
-               url: "act-join.php",
+               url: "../act-join.php",
                dataType: "json",
                success: function(data){
                 let apiData = '<div>';         
@@ -204,7 +204,7 @@
                        <div class="col-12 col-md-4">
                        <div class="act-card-bg">
                            <div>
-                             <img class="pic-style" src="./images/bikeBanner.png">${data[i].actPic}
+                             <img class="pic-style" src="${data[i].actPic}">
                            </div>                    
                            <h4>${data[i].actName}</h4>
                            <p>${data[i].actLoc}</p>
@@ -222,7 +222,7 @@
                       $(".nojoin-btn").click(function(){
                         let actcancel=$(this).parent();                    
                        txt=$(this).val();
-                      $.post("cancel-join.php",{actNo:txt},function(result){
+                      $.post("../cancel-join.php",{actNo:txt},function(result){
                        actcancel.remove();  
                        alert("已取消報名");  
                          });                          
@@ -240,7 +240,7 @@
   $(document).ready(function(){     
       $.ajax({
       type:"post",  
-      url: "memord.php",
+      url: "../memord.php",
       dataType: "json",
       success: function(data){                         
       let apiData = '<div class="baic_txt my-ord" style=";"></div>';
@@ -281,8 +281,8 @@
        let position = $(this).parent().parent();
       
        txt=$(this).val();
-       $.post("memordprod.php",{ordNo:txt},function(ord){
-       //${ord[i].prodPic} 商品照片
+       $.post("../memordprod.php",{ordNo:txt},function(ord){
+  
          let proData = '<div id="prodname"><span class="col-md-3 col-3">商品名稱</span><span class="col-md-3  col-3">單價</span><span class="col-md-3  col-3">數量</span><span class="col-md-3  col-3">小計</span><button style="visibility: hidden;""></button></span>';
          
          for(let i=0; i<ord.length; i++){
@@ -299,19 +299,9 @@
          $(".ordClose").css({"display":"inline-block"});
          ordaddr.css({"display":"block"});
            
- 
          position.append(proData);
            
  
-         
-        // pos.css({"background-color":"blue"});
-         //console.log(pos);
-         
-         //postiion.slideToggle(1000);
-         //return false;
-          //tex=${data[i].ordNo};
-       // $('#ord-btn').append(proData);
-         //$("div[id='']").append(proData);
          },"json");                   
          });   //商品資料撈取end
  
@@ -347,7 +337,7 @@
    $(document).ready(function(){     
        $.ajax({
        type:"post",  
-       url: "memord.php",
+       url: "../memord.php",
        dataType: "json",
        success: function(data){                        
        let apiData = '';
@@ -547,7 +537,7 @@
             $("#uploadForm").on('submit',(function(e){
                 e.preventDefault();
                 $.ajax({
-                    url: "picup.php",
+                    url: "../picup.php",
                     type: "POST",
                     data:  new FormData(this),
                     contentType: false,
