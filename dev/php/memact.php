@@ -1,5 +1,6 @@
 <?php
 session_start();
+$memNo=$_SESSION["memNo"];
 $errMsg="";
 
 try{
@@ -8,7 +9,7 @@ try{
     
     //撈我舉辦的所有活動
     //$sql = "select * from `activity` where memNo='$_SESSION[memNo]'";
-    $sql = "select * from `activity` where memNo='3'";
+    $sql = "select * from `activity` where memNo=$memNo";
 
     //我報名的活動
     //$sql="select * from `member` m join `activity` a ON a.memNo= m.memNo join `joinlist` j on  a.actNo = j.actNo";
