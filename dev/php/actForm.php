@@ -14,6 +14,7 @@ echo "<pre>"; print_r($_POST); echo "</pre>";
         $typeNo=$_POST["act_type"];
         $actStren=$_POST["act_stren"];
         $actLimit=$_POST["act_limit"];
+        $memNo=$_POST["memNo"];
 
 
 
@@ -41,11 +42,12 @@ echo "<pre>"; print_r($_POST); echo "</pre>";
            `actFoundDate`, 
            `actDeadLine`, 
            `actCancelStat`)
-            VALUES (:typeNo,NULL,:actName,:actLoc,:actZone,:actStren,:actLimit,:actContent,:actStartDate,:actTime,NULL,NULL,:actDeadLine,NULL)";
+            VALUES (:typeNo,:memNo,:actName,:actLoc,:actZone,:actStren,:actLimit,:actContent,:actStartDate,:actTime,NULL,NULL,:actDeadLine,NULL)";
         
         $bikeAct = $pdo->prepare($sql);
         // $bikeAct->bindValue(":actPic",$_POST['act_img']);
         $bikeAct->bindValue(":actName",$actName);
+        $bikeAct->bindValue(":memNo",$memNo);
         $bikeAct->bindValue(":actLoc",$actLoc);
         $bikeAct->bindValue(":actZone",$actZone);
         $bikeAct->bindValue(":actContent",$actContent);

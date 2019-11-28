@@ -109,12 +109,27 @@ function init(){
   
         var data={};
         var actNo=JSON.parse(localStorage['actNo']);
-        // localStorage['memNickName']=JSON.stringify("啊哈");
-        // localStorage['memPic']=JSON.stringify("");
-        localStorage['memNo']=2;
-        localStorage['memPic']=JSON.stringify("");
-        localStorage['memNickName']=JSON.stringify("視網膜");
-        // console.log(actNo);
+        var memNo,memNickName,memPic;
+        if(sessionStorage['memNo']!= null || sessionStorage['memNo']!=undefined){
+            memNo=JSON.parse(sessionStorage['memNo']);
+            memNickName = sessionStorage['memNickName'];
+            memPic = JSON.parse(sessionStorage['memPic']);
+        }
+       
+        $(function(){ 
+            pushHistory(); 
+            window.addEventListener("popstate", function(e) { 
+             parent.location.href="activity.html";//根据自己的需求实现自己的功能 
+            }, false); 
+            function pushHistory() { 
+            var state = { 
+            title: "車友活動", 
+            url: "#" 
+            }; 
+            window.history.pushState(state, "title", "#"); 
+            } 
+        });
+      
         
         $.ajax({
             url:"php/innerAct.php?actNo="+actNo,
@@ -148,11 +163,12 @@ function init(){
                         actJoin:function(){
                             // this.$emit('actJoin');
                             // var vm = this;
+                            alert("報名成功");
                             this.$emit('act-join');
                             this.attendNum++;
                             this.newAttend = Object.assign({},{
-                                    memNickName:JSON.parse(localStorage['memNickName']),
-                                    memPic:JSON.parse(localStorage['memPic']),
+                                    memNickName:memNickName,
+                                    memPic:memPic,
                                     // vm.$set(vm.new)
                             });
                             // this.$set(this.newAttend,memNickName,JSON.parse(localStorage['memNickName']));
@@ -252,7 +268,11 @@ function init(){
                                 <div class="intro-row">
                                     <div class="block">
                                         <div class="sub-title">適合車種</div>
-                                        <div class="type"><div v-for="item in getType">{{item}}\n\r</div><br></div>
+                                            <div class="type">
+                                                <div v-for="item in getType">
+                                                        {{item}}
+                                                </div>
+                                            </div>
                                         <!--<div class="type">{{inner.typeNo}}</div>-->
                                     </div>
                                     <div class="block">
@@ -370,13 +390,13 @@ function init(){
                         //     })
                         // }
                         joinOne:function(){
-                            localStorage['memNo']=2;
+                           
                             $.ajax({
                                 url:"php/joinOne.php",
                                 type:"POST",
                                 data:{
-                                    actNo:JSON.parse(localStorage['actNo']),
-                                    memNo:JSON.parse(localStorage['memNo']),
+                                    actNo:actNo,
+                                    memNo:memNo,
                                 },
                                 success:function(res){
                                     // console.log("傳了");
