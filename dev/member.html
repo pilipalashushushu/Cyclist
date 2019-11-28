@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="shortcut icon" href="images/favicon02.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="./css/member.min.css" />
+  <link rel="stylesheet" href="./css/member.css" />
   <link rel="stylesheet" href="./css/col.css" />
   <link rel="stylesheet" href="./css/core.css" />
   <link rel="stylesheet" href="./css/style.css" />
@@ -175,10 +175,11 @@
                     apiData += '</div>';
                           
                     $('#act-master').append(apiData);
+
                        $(".cancel-btn").click(function(){
-                       txt=$(this).val();
-                        $.post("php/actCancelStat.php",{actNo:txt},function(result){
-                        alert("txt");
+                        $.post("php/actCancelStat.php",{actNo: $(this).attr('value') },function(result){
+                          alert("取消成功");
+                          window.open('member.html', '_self');
                         });
                             
                         });
@@ -196,7 +197,8 @@
                url: "php/act-join.php",
                dataType: "json",
                success: function(data){
-                let apiData = '<div>';         
+                  console.log( data );
+                  let apiData = '<div>';         
                     
                     for(let i=0; i<data.length; i++){
                     apiData +=
@@ -258,7 +260,7 @@
               <span class="col-md-3 col-3">${data[i].ordDate}</span> 
               <span class="col-md-3 col-3">${data[i].ordTotal}</span>                           
               <span class="col-md-3 col-3">
-               <button class="ord-btn button-oc" name="ordNo" type="button" id="ord-btn" value="${data[i].ordNo}">
+               <button class="ord-btn button-oc" name="ordNo" type="button" value="${data[i].ordNo}">
                +</button>    
                <button class="ordClose button-oc" name="ordNo" type="button" id="ord-close${i}" style="display:none">
                -</button> 
@@ -338,20 +340,20 @@
    $(document).ready(function(){     
        $.ajax({
        type:"post",  
-       url: "php/memord.php",
+       url: "php/memcus.php",
        dataType: "json",
        success: function(data){                        
        let apiData = '';
            for(let i=0; i<data.length; i++){
            apiData +=
-           `<div class="ord-bor">
+           `<div class="ord-bor" style="border-bottom: none;">
              <span class="col-md-3 col-3">訂單編號</span>
              <span class="col-md-3 col-3">訂購日期</span>
              <span class="col-md-3 col-3">總金額</span>
              <span class="col-md-3 col-3">備註</span>
                <span class="col-md-3 col-3">${data[i].cusNo}</span> 
-               <span class="col-md-3 col-3">${data[i].ordNo}</span>  
-               <span class="col-md-3 col-3">${data[i].ordTotal}</span>                           
+               <span class="col-md-3 col-3">${data[i].setDate}</span>  
+               <span class="col-md-3 col-3">${data[i].price}</span>                           
                <span class="col-md-3 col-3">
                  <button class="cus-btn button-oc" name="ordNo" type="button" id="cus-btn">
                  +</button>  
@@ -360,9 +362,9 @@
                </span>     
            </div>
            <div id="cus-Addr" style="display:none" class="textLeft col-12 col-md-12">
-              <div class="col-md-12 col-12">收件者:${data[i].ordName}</div> 
-              <div class="col-md-12 col-12">電話:${data[i].ordTel}</div> 
-              <div class="col-md-12 col-12">地址:${data[i].ordAddr}</div> 
+              <div class="col-md-12 col-12">收件者:${data[i].cusName}</div> 
+              <div class="col-md-12 col-12">電話:${data[i].cusTel}</div> 
+              <div class="col-md-12 col-12">地址:${data[i].cusAddr}</div> 
            </div>`                       
            ;}
                                               

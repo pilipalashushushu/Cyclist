@@ -8,7 +8,7 @@ try{
     require_once("../connection.php");
 
    //撈我的訂單 ok
-   $sql= "select * from `ordermaster` where memNo=$memNo ORDER BY ordNo DESC";
+   $sql= "select * from `customize` where memNo=$memNo ORDER BY cusNo DESC";
 
     $ordermaster=$pdo->query($sql);
 

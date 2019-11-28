@@ -2,7 +2,7 @@
 session_start();
 $errMsg="";
 
-$actNo=$_REQUEST["actNo"];
+$actNo=$_POST["actNo"];
 
 try{
 
