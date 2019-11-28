@@ -7,7 +7,7 @@ $errMsg = "";
 try {
     require_once("../connection.php");
     
-    $sql = "select * from `member` where memId=:memId and memPsw=:memPsw"; //''
+    $sql = "select * from `member` where memId=:memId and memPsw=:memPsw and memStat='1'"; //''
 
     $member = $pdo->prepare( $sql ); //先編譯好
     $member->bindValue(":memId", $memId); //代入資料

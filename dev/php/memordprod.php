@@ -2,8 +2,8 @@
 session_start();
 $errMsg="";
 
-//$ordNo=$_REQUEST["ordNo"];
-// $memNo=$_SESSION["memNo"];
+$ordNo=$_REQUEST["ordNo"];
+$memNo=$_SESSION["memNo"];
 //echo "ok $ordNo";
 
 try{
@@ -17,7 +17,7 @@ try{
    join `ordermaster` o ON m.memNo=o.memNo
    join `orderitem` i ON o.ordNo=i.ordNo 
    join `product` p ON i.prodNo=p.prodNo 
-   WHERE m.memNo='3'";
+   WHERE m.memNo=$memNo and o.ordNo=$ordNo";
 
     $ordermaster=$pdo->query($sql);
  

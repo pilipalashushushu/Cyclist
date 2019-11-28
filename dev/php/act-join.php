@@ -1,5 +1,6 @@
 <?php
 session_start();
+$memNo=$_SESSION["memNo"];
 $errMsg="";
 
 try{
@@ -10,7 +11,7 @@ try{
 
     //我報名的活動
     //$sql="select a.actStartDate,a.actName,a.actLoc,j.actNo from `member` m join `activity` a ON a.memNo= m.memNo join `joinlist` j on  a.actNo = j.actNo";
-    $sql="select a.actStartDate,a.actName,a.actLoc,j.actNo,m.memNo from `member` m join `activity` a ON a.memNo= m.memNo join `joinlist` j on  a.actNo = j.actNo";
+    $sql="select a.actStartDate,a.actName,a.actLoc,j.actNo,m.memNo from `member` m join `activity` a ON a.memNo= m.memNo join `joinlist` j on  a.actNo = j.actNo where memNo=$memNo";
 
     $activity=$pdo->query($sql);
 
