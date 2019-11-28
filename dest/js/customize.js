@@ -834,22 +834,35 @@ $(function () {
 
     $(".cusCheckout").click(function () {
 
-        $(".cusCheckOut").slideDown();
-        $("#customize").slideUp();
+        if (sessionStorage['memId'] == null) {
+            $('#login-wrap').fadeToggle('slow')
 
-        $.ajax({
+        } else if (sessionStorage['memId'] != null) {
 
-            url: "./php/cusmemId.php",
-            type: "post",
-            datType: "json",
-            success: function (data) {
+            $(".cusCheckOut").slideDown();
+            $("#customize").slideUp();
 
-                memInfo = JSON.parse(data);
-                memGold = memInfo.coupon;
+            $.ajax({
 
-            }
+                url: "./php/cusmemId.php",
+                type: "post",
+                data: {
+                    memNo: `${sessionStorage["memNo"]}`
+                },
+                dataType: "json",
+                success: function (data) {
 
-        })
+                    memInfo = JSON.parse(data);
+                    memGold = memInfo.coupon;
+
+                }
+
+            })
+        }
+
+
+
+
 
 
         new Vue({
@@ -940,12 +953,16 @@ $(function () {
                 case 3:
 
                     if ($(this).find("h4").text() == "下一步") {
-                        alert("請選擇付款方式")
+                        $('#alert-wrap').find('h3').text('請選擇付款方式');
+                        $('#alert-wrap').fadeIn('slow');
+                        $('#closeAlert').click(function () {
+                            $('#alert-wrap').fadeOut('slow');
+                        });
                     } else if ($(this).find("h4").text() == "送出訂單" && $(".creditCard").css("display") == "block") {
                         //輸入客制訂單
 
                         $.ajax({
-                            url: `./php/cusOrder.php?memNo=1 & cusName=${$("#memName").val()} & cusTel=${$("#tel").val()} & addr=${$("#addr").val()} & type=${sessionStorage["cusType"]} & frameNo=${sessionStorage["frameInfo"].split("|")[0]} & handleNo=${sessionStorage["handleInfo"].split("|")[0]} & colorNo=${sessionStorage["colorInfo"].split("|")[0]} & price=${$(".finalamount").find("h3").text().substr(1)}`,
+                            url: `./php/cusOrder.php?memNo=${sessionStorage["memNo"]} & cusName=${$("#memName").val()} & cusTel=${$("#tel").val()} & addr=${$("#addr").val()} & type=${sessionStorage["cusType"]} & frameNo=${sessionStorage["frameInfo"].split("|")[0]} & handleNo=${sessionStorage["handleInfo"].split("|")[0]} & colorNo=${sessionStorage["colorInfo"].split("|")[0]} & price=${$(".finalamount").find("h3").text().substr(1)}`,
 
 
                             type: "get",
@@ -966,16 +983,25 @@ $(function () {
 
                             data: {
 
-                                memNo: 1,
+                                memNo: `${sessionStorage["memNo"]}`,
                                 card: `${$(".cardNo1").val()}${$(".cardNo2").val()}${$(".cardNo3").val()}${$(".cardNo4").val()}`,
 
 
                             },
 
                             success: function (data) {
-
-                                alert("購買成功")
-                                document.location.href = "./cyclist.html"
+                                $('#alert-wrap').find('h3').text('購買成功');
+                                $('#alert-wrap').fadeIn('slow');
+                                $('#closeAlert').click(function () {
+                                    $('#alert-wrap').fadeOut('slow');
+                                    sessionStorage.removeItem('colorInfo');
+                                    sessionStorage.removeItem('handleInfo');
+                                    sessionStorage.removeItem('frameInfo');
+                                    sessionStorage.removeItem('handleprice');
+                                    sessionStorage.removeItem('frameprice');
+                                    sessionStorage.removeItem('cusprice');
+                                    window.open('cyclist.html', '_self');
+                                });
 
                             },
                             error: function (jqXHR, textStatus, errorThrown) {
@@ -985,7 +1011,7 @@ $(function () {
                     } else if ($(this).find("h4").text() == "送出訂單" && $(".myGold").css("display") == "block") {
                         //輸入客制訂單
                         $.ajax({
-                            url: `./php/cusOrder.php?cusName=${$("#memName").val()} & cusTel=${$("#tel").val()} & addr=${$("#addr").val()} & type=${sessionStorage["cusType"]} & frameNo=${sessionStorage["frameInfo"].split("|")[0]} & handleNo=${sessionStorage["handleInfo"].split("|")[0]} & colorNo=${sessionStorage["colorInfo"].split("|")[0]} & price=${$(".finalamount").find("h3").text().substr(1)}`,
+                            url: `./php/cusOrder.php?memNo=${sessionStorage["memNo"]} & cusName=${$("#memName").val()} & cusTel=${$("#tel").val()} & addr=${$("#addr").val()} & type=${sessionStorage["cusType"]} & frameNo=${sessionStorage["frameInfo"].split("|")[0]} & handleNo=${sessionStorage["handleInfo"].split("|")[0]} & colorNo=${sessionStorage["colorInfo"].split("|")[0]} & price=${$(".finalamount").find("h3").text().substr(1)}`,
 
 
                             type: "get",
@@ -999,15 +1025,25 @@ $(function () {
                         })
                         //扣除購物金
                         $.ajax({
-                            url: `./php/gold.php?memNo=1 & gold=${$(".goldtotal").text()}`,
+                            url: `./php/gold.php?memNo=${sessionStorage["memNo"]} & gold=${$(".goldtotal").text()}`,
 
 
                             type: "get",
 
                             success: function (data) {
 
-                                alert("購買成功")
-                                window.location.href = "./cyclist.html"
+                                $('#alert-wrap').find('h3').text('購買成功');
+                                $('#alert-wrap').fadeIn('slow');
+                                $('#closeAlert').click(function () {
+                                    $('#alert-wrap').fadeOut('slow');
+                                    sessionStorage.removeItem('colorInfo');
+                                    sessionStorage.removeItem('handleInfo');
+                                    sessionStorage.removeItem('frameInfo');
+                                    sessionStorage.removeItem('handleprice');
+                                    sessionStorage.removeItem('frameprice');
+                                    sessionStorage.removeItem('cusprice');
+                                    window.open('cyclist.html', '_self');
+                                });
                             },
                             error: function (jqXHR, textStatus, errorThrown) {
                                 alert(jqXHR.responseText);

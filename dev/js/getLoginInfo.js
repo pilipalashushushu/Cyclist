@@ -16,7 +16,7 @@ $(document).ready(function () {
         //點擊登出鈕，清除sessionStorage
         $('#logout').click(function () {
             sessionStorage.clear();
-            location.reload([true]);s
+            location.reload([true]);
         });
     } else {
 

@@ -3,11 +3,11 @@
 @import "mixin";
 @import "rest";
 
-*,
-:after,
-:before {
-    box-sizing: border-box
-}
+// *,
+// :after,
+// :before {
+//     box-sizing: border-box
+// }
 
 #login-wrap,#alert-wrap {
     position: absolute;

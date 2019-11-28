@@ -849,7 +849,7 @@ $(function () {
                 data: {
                     memNo: `${sessionStorage["memNo"]}`
                 },
-                datType: "json",
+                dataType: "json",
                 success: function (data) {
 
                     memInfo = JSON.parse(data);
