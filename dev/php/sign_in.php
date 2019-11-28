@@ -5,7 +5,7 @@ $memId = $_POST["memId"];
 $memPsw = $_POST["memPsw"];
 $errMsg = "";
 try {
-    require_once("../connection.php");
+    require_once("connect.php");
     
     $sql = "select * from `member` where memId=:memId and memPsw=:memPsw"; //''
 

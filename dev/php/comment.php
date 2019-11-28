@@ -37,7 +37,8 @@ try {
     // $pdo = new PDO($dsn, $user, $password, $options);
     require_once("connect.php");
     
-	$sql = "INSERT INTO `comment`(`actNo`,`memNo`,`comContent`) VALUES (:actNo,:memNo,:comContent)";
+    $sql = "INSERT INTO `comment`(`actNo`,`memNo`,`comContent`) VALUES (:actNo,:memNo,:comContent)";
+    $sql2 = "UPDATE `activity` SET `comNum` = `comNum`+1 WHERE `actNo` = {$actNo}";
     $innerAct = $pdo->prepare($sql);
     $innerAct ->bindValue(":actNo",$actNo);
     $innerAct ->bindValue(":memNo",$memNo);
@@ -47,6 +48,7 @@ try {
     // $innerAct ->bindValue(":memNickName",$_POST['memNickName']);
     // $innerAct ->bindValue(":comContent",$_POST['comContent']);
     $innerAct ->execute();
+    $pdo->exec($sql2);
     // echo "hello";
     // $innerAct = $pdo->exec($sql);
 

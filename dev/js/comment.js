@@ -1,9 +1,9 @@
 
 function init(){ 
     
-    var actNo = JSON.parse(localStorage['actNo']);
-    console.log(actNo);
     
+    
+
     {/* <script type="text/x-template" id="comment-input">
         <div class="comment-input">
             <p class="title">留下意見</p>
@@ -32,6 +32,13 @@ function init(){
         </div>
     </script> */}
     var data=[];
+    var actNo=JSON.parse(localStorage['actNo']);
+    var memNo,memNickName,memPic;
+    if(sessionStorage['memNo']!= null || sessionStorage['memNo']!=undefined){
+        memNo=JSON.parse(sessionStorage['memNo']);
+        memNickName = sessionStorage['memNickName'];
+        memPic = JSON.parse(sessionStorage['memPic']);
+    }
 
     $.ajax({
         url:"php/getComment.php?actNo="+actNo,
@@ -164,9 +171,7 @@ function init(){
                             // var timestamp = Math.floor(Date.now());
                             // console.log(timestamp);
                             
-                            localStorage['memNo']=2;
-                            localStorage['memPic']=JSON.stringify("");
-                            localStorage['memNickName']=JSON.stringify("視網膜");
+                            
                             
 
                             var dates =new Date();
@@ -192,9 +197,9 @@ function init(){
                                 comContent:newMsg,
                                 comDate:comDate,
                                 // comNo:"21",
-                                memNickName:JSON.parse(localStorage['memNickName']),
-                                memNo:JSON.parse(localStorage['memNo']),
-                                memPic:JSON.parse(localStorage['memPic']),
+                                memNickName:memNickName,
+                                memNo:memNo,
+                                memPic:memPic,
                             });
 
                             // this.userMessage = Object.assign({},{
@@ -238,7 +243,7 @@ function init(){
                                     // memNickName:msg.memNickName,
                                     // comContent:msg.comContent
                                     actNo:JSON.parse(localStorage['actNo']),
-                                    memNo:JSON.parse(localStorage['memNo']),
+                                    memNo:memNo,
                                     comContent:newMsg,
                                     // comDate:dates,
                                 },
@@ -247,9 +252,12 @@ function init(){
                                     console.log(res);
                                     // console.log("狀況");
                                     
+                                    
                                     // this.inner=data;
-                                },error:function(){
+                                },error:function(res){
                                     console.log("前台傳送失敗");
+                                    console.log(res);
+                                    
                                     
                                 }
                     

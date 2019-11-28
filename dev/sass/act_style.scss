@@ -23,9 +23,16 @@ body {
 .act-bg {
     background-color: #F4F5F7;
     max-width: 100%;
+    overflow: hidden;
     // font-size: 62.5%;
 
 
+}
+
+@include phone(){
+    [class*=col-]{
+        padding: 0 15px;
+    }
 }
 
 .wrapper.activity,
@@ -301,7 +308,7 @@ body {
 
         padding: 0;
         box-sizing: border-box;
-        max-width: 100%;
+        width: 100%;
 
         position: fixed;
         z-index: 100;
@@ -426,8 +433,12 @@ body {
 
     label {
         display: block;
-
         padding: 6px 0 6px 14px;
+        cursor: pointer;
+        &:hover{
+            background-color: antiquewhite;
+            transition: .3s ease-in-out;
+        }
 
         @include phone() {
             display: inline-block;
@@ -505,6 +516,13 @@ body {
     .zone-list,
     .hard-list {
         padding: 10px 0px 10px 15px;
+
+        
+        @media screen and (max-width: 1280px){
+                padding-left:0px!important;
+        }
+            
+        
     }
 
     .time-area {}
@@ -551,10 +569,10 @@ body {
 
 
 .main-content {
-    padding-top: 100px;
+    padding-top: 115px;
 
     @include phone() {
-        padding-top: 50px;
+        padding-top: 100px;
     }
 
     .col-md-4 {
@@ -578,7 +596,7 @@ body {
 }
 
 .post-detail {
-    padding: 0 30px;
+    // padding: 0 30px;
     position: relative;
 
     &::after {
@@ -764,7 +782,8 @@ body {
     width: 100%;
     min-height: 350px;
     min-width: 275.7px;
-    ;
+    
+   
 
 
     margin-bottom: 20%;
