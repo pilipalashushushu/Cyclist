@@ -8,7 +8,7 @@ $errMsg = "";
 try {
 
 
-    require_once("connect.php");
+    require_once("../connection.php");
     
     // $sql = "select * from `comment` where actNo={$actNo}";
     // $sql2 = "SELECT m.memNickName , m.memPic FROM `member`m JOIN `comment` a ON m.memNo = a.memNo WHERE a.actNo = {$actNo}";

@@ -18,7 +18,7 @@ try{
 
     $checkout=$pdo->prepare($sql);
 
-    $checkout->bindValue(":memNo",1);
+    $checkout->bindValue(":memNo",$_GET["memNo"]);
     $checkout->bindValue(":price",$price);
     $checkout->bindValue(":type",$type);
     $checkout->bindValue(":frame",$frame);

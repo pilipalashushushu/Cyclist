@@ -157,10 +157,9 @@
                       htmlStr += `<td>${dataString[i].ordDate}</td>`;
                       if(`${dataString[i].prodStat}`== 1){}
                       htmlStr += `<td>
-                                    <select id="">
-                                      <option value="${dataString[i].ordStat}">0</option>
-                                      <option value="${dataString[i].ordStat}">1</option>
-                                      <option value="${dataString[i].ordStat}">2</option>
+                                    <select id="" class="sale">
+                                      <option value="${dataString[i].ordStat}">已付款</option>
+                                      <option value="${dataString[i].ordStat}">已出貨</option>
                                     </select>
                                   </td>`;
                       htmlStr += `<td>${dataString[i].ordName}</td>`;
@@ -176,6 +175,11 @@
                       // $('.memAdd').append(htmlStr);
                       document.querySelector(".ordAdd").innerHTML= htmlStr;
             }  
+
+            $('.sale').change(function(){
+              alert('修改成功');
+            });
+
           }else{ //error
             alert(xhr.status);
           }

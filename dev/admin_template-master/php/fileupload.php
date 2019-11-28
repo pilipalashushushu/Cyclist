@@ -2,7 +2,7 @@
 $errMsg = '';
 try {
     // echo "start";
-    require_once("connect.php");
+    require_once("../../connection.php");
 
     $pdo->beginTransaction();
     $sql="INSERT INTO `product` (`prodType`, `prodName`, `prodPrice`, `prodSpec`, `prodColor`, `prodDetail`, `prodPic`, `prodStat`, `prodLv`, `prodSpeed`, `prodAvoid`) VALUES (:prodType, :prodName, :prodPrice, :prodSpec, :prodColor, :prodDetail, :picName, '1', :prodLv, :prodSpeed, :prodAvoid)";
@@ -21,11 +21,11 @@ try {
      //將檔案copy到要放的路徑
      $fileName = $_FILES["upFile"]["name"];
      $from = $_FILES["upFile"]["tmp_name"];
-     $to = "../images/$fileName";
+     $to = "../../images/$fileName";
  
      if(copy( $from, $to)===true){
          //將檔案名稱寫回資料庫
-         $prodAdd -> bindValue(":picName", $fileName);
+         $prodAdd -> bindValue(":picName", "images/" . $fileName);
          $prodAdd -> bindValue(":prodLv" , $_POST["prodLv"]);
          $prodAdd -> bindValue(":prodSpeed" , $_POST["prodSpeed"]);
          $prodAdd -> bindValue(":prodAvoid" , $_POST["prodAvoid"]);

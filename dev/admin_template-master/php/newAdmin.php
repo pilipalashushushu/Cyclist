@@ -7,7 +7,7 @@ $adminName = $_POST["adminName"];
 
 
 try{
-    require_once("connect.php");  
+    require_once("../../connection.php");  
     $sql="INSERT INTO `adminster` (`adminNo`, `adminId`, `adminPsw`, `adminName`, `adminDate`, `adminStat`) VALUES ('$adminNo', '$adminId', '$adminPsw', '$adminName', now(), '0');";
     $addAdmin =$pdo->prepare($sql);
     $adminRows = $addAdmin->fetchAll(PDO::FETCH_ASSOC);

@@ -1,6 +1,6 @@
 <?php
 try{
-    require_once("connect.php");
+    require_once("../../connection.php");
     
     $sql="SELECT activity.actNo, activity.typeNo, activity.memNo,activity.actName ,activity.actLoc, activity.actStren,activity.actLimit, activity.actTotal,activity.actCancelStat,report.repStat FROM `activity`, `report` WHERE activity.memNo = report.memNo";
     $activity=$pdo->query("select * from `activity`");
