@@ -6,7 +6,7 @@ $adminId = $_POST["adminId"];
 $adminPsw = $_POST["adminPsw"];
 
 try {
-    require_once("connect.php"); //連線資料庫
+    require_once("../../connection.php"); //連線資料庫
     $sql = "select * from `adminster` where adminId=:adminId and adminPsw=:adminPsw"; //sql指令查詢管理員帳密
     $adminster = $pdo->prepare( $sql ); //先編譯好
     $adminster->bindValue(":adminId", $adminId); //代入資料

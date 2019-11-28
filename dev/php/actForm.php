@@ -22,7 +22,7 @@ echo "<pre>"; print_r($_POST); echo "</pre>";
         // $password = "no512seed851";
         // $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_CASE=>PDO::CASE_NATURAL);
         // $pdo = new PDO($dsn, $user, $password, $options);
-        require_once("connect.php");
+        require_once("../connection.php");
 
         // $sql="insert into `activity` actName=:actName,actLoc=:actLoc";
         $sql="INSERT INTO `activity` ( 

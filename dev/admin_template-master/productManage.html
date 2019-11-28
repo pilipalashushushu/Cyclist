@@ -236,7 +236,7 @@
                         htmlStr += `<tr><th>速度</th><td>${dataString[i].prodSpeed}</td></tr>`;
                         htmlStr += `<tr><th>避震</th><td>${dataString[i].prodAvoid}</td></tr>`;
                         htmlStr += `<tr><th>商品說明</th><td><textarea  rows="5" cols="20">${dataString[i].prodDetail}</textarea></td></tr>`;
-                        htmlStr += `<tr><th>商品圖片</th><td id="imgShow"><img src="./images/${dataString[i].prodPic}"></td></tr>`;
+                        htmlStr += `<tr><th>商品圖片</th><td id="imgShow"><img src="../${dataString[i].prodPic}"></td></tr>`;
                         htmlStr += `<tr><th>上下架狀態</th><td><label class="switch switch-3d switch-success">`;
                                     if(`${dataString[i].prodStat}`== 1){
                                     htmlStr +=`<input class="switch-input prodStatus" type="checkbox" checked>`;

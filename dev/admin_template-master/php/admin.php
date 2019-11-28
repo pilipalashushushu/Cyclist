@@ -1,6 +1,6 @@
 <?php
 try{
-    require_once("connect.php");
+    require_once("../../connection.php");
     
     $sql="select * from `adminster`";
     $admin=$pdo->query($sql);

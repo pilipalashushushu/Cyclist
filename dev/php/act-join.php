@@ -4,7 +4,7 @@ $errMsg="";
 
 try{
 
-    require_once("connect.php");
+    require_once("../connection.php");
     
  
 
