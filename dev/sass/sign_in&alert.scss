@@ -209,6 +209,7 @@ input::-webkit-input-placeholder {
     padding: 10px;
     border-radius: 3px;
     background: rgb(232, 240, 254);
+    box-sizing: border-box;
 }
 
 .login-form .group input[data-type="password"] {
