@@ -41,7 +41,7 @@
        $(document).ready(function(){     
            $.ajax({
            type:"post",  
-           url: "memdata.php",
+           url: "php/memdata.php",
            dataType: "json",
            success: function(data){                        
            let apiData = '<table class="baic_txt">';
@@ -130,7 +130,7 @@
            memEmail= $("#re-memEmail").val();
            memAddr= $("#re-memAddr").val();
            tel= $("#re-tel").val();
-          $.post("memUpdata.php",{memNickName:memNickName,memId:memId,memPsw:memPsw,memName:memName,memEmail:memEmail,memAddr:memAddr,tel:tel},function(result){
+          $.post("php/memUpdata.php",{memNickName:memNickName,memId:memId,memPsw:memPsw,memName:memName,memEmail:memEmail,memAddr:memAddr,tel:tel},function(result){
            location.reload();  
            alert("成功");
              });
@@ -148,7 +148,7 @@
      $(document).ready(function(){     
             $.ajax({
                type:"post",  
-               url: "memact.php",
+               url: "php/memact.php",
                dataType: "json",
                success: function(data){
                 let apiData = '<div class="my-act">';                            
@@ -176,7 +176,7 @@
                     $('#act-master').append(apiData);
                        $(".cancel-btn").click(function(){
                        txt=$(this).val();
-                        $.post("actCancelStat.php",{actNo:txt},function(result){
+                        $.post("php/actCancelStat.php",{actNo:txt},function(result){
                         alert("txt");
                         });
                             
@@ -192,7 +192,7 @@
      $(document).ready(function(){      
             $.ajax({
                type:"post",  
-               url: "act-join.php",
+               url: "php/act-join.php",
                dataType: "json",
                success: function(data){
                 let apiData = '<div>';         
@@ -222,7 +222,7 @@
                       $(".nojoin-btn").click(function(){
                         let actcancel=$(this).parent();                    
                        txt=$(this).val();
-                      $.post("cancel-join.php",{actNo:txt},function(result){
+                      $.post("php/cancel-join.php",{actNo:txt},function(result){
                        actcancel.remove();  
                        alert("已取消報名");  
                          });                          
@@ -240,7 +240,7 @@
   $(document).ready(function(){     
       $.ajax({
       type:"post",  
-      url: "memord.php",
+      url: "php/memord.php",
       dataType: "json",
       success: function(data){                         
       let apiData = '<div class="baic_txt my-ord" style=";"></div>';
@@ -281,7 +281,7 @@
        let position = $(this).parent().parent();
       
        txt=$(this).val();
-       $.post("memordprod.php",{ordNo:txt},function(ord){
+       $.post("php/memordprod.php",{ordNo:txt},function(ord){
        //${ord[i].prodPic} 商品照片
          let proData = '<div id="prodname"><span class="col-md-3 col-3">商品名稱</span><span class="col-md-3  col-3">單價</span><span class="col-md-3  col-3">數量</span><span class="col-md-3  col-3">小計</span><button style="visibility: hidden;""></button></span>';
          
@@ -347,7 +347,7 @@
    $(document).ready(function(){     
        $.ajax({
        type:"post",  
-       url: "memord.php",
+       url: "php/memord.php",
        dataType: "json",
        success: function(data){                        
        let apiData = '';
@@ -547,7 +547,7 @@
             $("#uploadForm").on('submit',(function(e){
                 e.preventDefault();
                 $.ajax({
-                    url: "picup.php",
+                    url: "php/picup.php",
                     type: "POST",
                     data:  new FormData(this),
                     contentType: false,
