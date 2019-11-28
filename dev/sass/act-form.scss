@@ -31,7 +31,7 @@ body{
     // top: 10%;
     // z-index: 1000;
 
-    font-family: "微軟正黑體";
+    font-family: "微軟正黑體" !important;
     font-size: 16px;
     font-weight: 600;
     color: rgb(82, 80, 80);
@@ -50,11 +50,14 @@ body{
         max-width: 100vh;
         height: 100vh;
         overflow-y: auto;
+        padding: 0 15px 0 15px;
     }
 
     legend {
         padding: 20px;
         text-align: center;
+        font-size: $h3;
+        margin-bottom: 20px;
     }
 
       // backdrop 拖曳上傳照片
@@ -67,11 +70,13 @@ body{
 
         @include phone() {
             flex-basis: 100%;
+            display: content !important;
+            margin: 0 auto;
         }
 
         #drag-box {
-            width: 80%;
-            height: 180px;
+            width: 73%;
+            height: 237px;
             padding: 5px;
             border: 2px dashed #ccc;
 
@@ -89,11 +94,53 @@ body{
         }
 
         .up-file {
-            width: 60%;
-            // align-self: flex-start;
+            width: 90%;
 
+            // align-self: flex-start;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 10px;
+
+            .file-btn {
+            display: inline-block;
+            padding: 6px 10px;
+            // margin-top: 10px;
+            margin-left: 10px;
+            // margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            border-radius: 5px;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            color: #fff;
+            background-color: #90c7d8;
+            border-color: #46b8da;
+
+
+               .fa-image{
+                   font-size: 20px;
+                   margin-right: 5px;
+                    vertical-align: text-bottom;
+                    opacity: .9;
+               }
+            }
+
+            #file-info{
+                // display: inline-block;
+                padding-top: 3px;
+                margin-left:15px;
+                
+            }
         }
+
+        
     }
+
 
     // =====================================
     .flex-row {
@@ -101,10 +148,10 @@ body{
         flex-wrap: wrap;
         flex: 1 1 auto;
         // margin-bottom: 3%;
-        margin-bottom: 20px;
+        margin-bottom: 28px;
 
         @include phone() {
-            margin-bottom: 3%;
+            margin-bottom: 5% !important;
         }
     }
 
@@ -128,8 +175,18 @@ body{
             line-height: 35px;
             // padding: 0 5px;
             font-size: 15px;
+            margin-right: 10px;
+        }
+
+        &.fix{
+
+            @include phone(){
+                margin-bottom: 15px;
+            }
         }
     }
+
+    
 
 
     // ===========================================
@@ -156,9 +213,25 @@ body{
         align-items: center;
         // flex: 1 0 100%;
         // align-items: flex-start;
+        @include phone(){
+            flex-basis: 70%;
+        }
     }
 
-    
+    @include phone(){
+        // margin-right: 10px;
+    }
+
+    .dk-selected{
+        color: rgb(102, 94, 94) !important;
+        font-size: 16px;
+        font-family: "微軟正黑體" !important;
+        font-weight: 600;
+    }
+
+    .dk-select, .dk-select-multi{
+        line-height: 1.8em !important;
+    }
 
     input {
         // border: 0;
@@ -187,6 +260,7 @@ body{
         display: flex;
         flex: 1 0 100%;
         position: relative;
+        bottom: 5px;
         display: block;
         width: 100%;
 
@@ -195,7 +269,7 @@ body{
             display: flex;
             font-size: 10px;
             color: rgb(235, 61, 61);
-            min-height: 26px;
+            // min-height: 26px;
             padding-top: 4px;
             box-sizing: border-box;
         }
@@ -208,7 +282,7 @@ body{
             z-index: 0;
             width: 80%;
             height: 1px;
-            background-color: #000;
+            background-color: rgb(116, 80, 80);
 
         }
 
@@ -220,12 +294,12 @@ body{
             top: 0;
             // top: 100%;
             width: 80%;
-            height: 2px;
+            height: 1.5px;
             z-index: 1;
             transform: scaleX(0);
             transform-origin: center center 0;
-            transition: all .5s cubic-bezier(.4, 0, .2, 1);
-            background-color: rgb(33, 121, 252);
+            transition: all .4s cubic-bezier(.4, 0, .2, 1);
+            background-color: rgb(62, 132, 165);
         }
 
         &.focus::after {
@@ -253,7 +327,14 @@ body{
      } 
      span{
          margin-right: 15px;
+         @include phone(){
+            margin-right: 6px;
+         }
      }
+  }
+
+  .dk-selected{
+    padding: 0 1em 0 1em;
   }
 
 
@@ -278,17 +359,46 @@ body{
         // flex-grow: 1;
         display: flex;
         align-items: center;
+        @include phone(){
+            width: 70%;
+            margin-bottom: 20px;
+        }
+
+
+
+        #date,#time{
+
+            color: rgb(75, 67, 67) !important;
+            font-family: "微軟正黑體" !important;
+            font-weight: 600;
+            text-align: center !important;
+        }
+
+        &+label{
+            margin-left: 10px;
+            margin-right: 10px;
+
+            @include phone(){
+                margin-left: 0;
+            }
+        }
 
         input{
-            height: 30px;
+            height: 32px;
             border: 1px solid #ccc;
             border-radius: 10px;
             font-weight: 500;
             font-family: $ff;
+            box-sizing: border-box;
+            padding: 4px 5px 3px;
         }
+        #time{
+            margin-left: 10px;
+        }
+        
 
         @include phone() {
-            flex-basis: 80%;
+            flex-basis: 70%;
             // flex-grow: 1;
 
         }
@@ -305,14 +415,31 @@ body{
             }
         }
     }
+
+    #DeadLineDate{
+        height: 33px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-weight: 500;
+        padding: 3.5px 0px 3px;
+        // padding: 5px;
+        box-sizing: border-box;
+        color: rgb(75, 67, 67) !important;
+        font-family: "微軟正黑體" !important;
+        font-weight: 600;
+        text-align: center !important;
+    }
 // ----------------適合車種-----------------
 
-    .type{
-       
+    .type-area{
+        @include phone(){
+            width: 60% !important;
+        }
     }
     .control{
         // display: flex;
         // align-items: center;
+        margin-right: 6px;
         
 
         input[type="checkbox"]{
@@ -325,10 +452,14 @@ body{
             position:relative;
             width: 60px;
             height: 20px;
-            padding-left:30px;
+            padding-left:26px;
             // margin-bottom:15px;
             cursor:pointer;
             font-size:18px;
+            @include phone(){
+                font-size: 17px;
+                padding-left: 25px;
+            }
 
             .control-indicator{
                 display: inline-block;
@@ -344,6 +475,10 @@ body{
                 & .fas{
                     display: none;
                     color: #fff;
+                    position: relative;
+                    top: 1px;
+                    left: 2px;
+                    font-size: 17px;
                 }
             }
 
@@ -368,6 +503,7 @@ body{
 
     .level-area {
         flex: 1;
+        flex-basis: 10%;
 
         display: flex;
         align-items: center;
@@ -392,6 +528,14 @@ body{
        
     }
 
+    #limit{
+        margin-bottom: -4px;
+        background-color:none !important;
+        &>div{
+
+        }
+    }
+
     .box-center{
         align-items: center;
         @include phone(){
@@ -400,13 +544,18 @@ body{
     }
 
     #act-submit{
-        padding: 12px 30px;
+    display: inline-block;
+    padding: 12px 28px 12px 32px;
+    margin-top: 20px;
     border: 0;
     color: #fff;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
+    letter-spacing: 10px;
+    text-align: center !important;
     border-radius: 15px;
     background-color: #d16237;
     cursor: pointer;
+    font-family: "微軟正黑體" !important;
     }
 }

@@ -204,7 +204,7 @@
                        <div class="col-12 col-md-4">
                        <div class="act-card-bg">
                            <div>
-                             <img class="pic-style" src="./images/bikeBanner.png">${data[i].actPic}
+                             <img class="pic-style" src="${data[i].actPic}">
                            </div>                    
                            <h4>${data[i].actName}</h4>
                            <p>${data[i].actLoc}</p>
@@ -299,19 +299,9 @@
          $(".ordClose").css({"display":"inline-block"});
          ordaddr.css({"display":"block"});
            
- 
          position.append(proData);
            
  
-         
-        // pos.css({"background-color":"blue"});
-         //console.log(pos);
-         
-         //postiion.slideToggle(1000);
-         //return false;
-          //tex=${data[i].ordNo};
-       // $('#ord-btn').append(proData);
-         //$("div[id='']").append(proData);
          },"json");                   
          });   //商品資料撈取end
  

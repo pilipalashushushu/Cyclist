@@ -5,7 +5,7 @@ $errMsg = "";
 try {
   require_once("../connection.php");
 
-	$sql = "select * from `activity`";
+	$sql = "select * from `activity` ORDER BY `actStartDate` DESC";
     // $activitys = $pdo->prepare($sql);
     // $activitys ->bindValue($sql);
     // $activitys ->execute();

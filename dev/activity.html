@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/body&header&footer.css">
     <link rel="stylesheet" href="./css/act_style.css">
+    <link rel="stylesheet" href="./css/sign_in.css">
     <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/act-form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
@@ -16,9 +17,8 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
     <script src="js/bikeAct.js"></script> -->
-    <script src="js/getLoginInfo.js"></script>
-    <script src="js/sign_in.js"></script>
-    @@include('./template/sign_in.html')
+    
+    
 
 
 
@@ -29,6 +29,7 @@
 
 <body>
     @@include('./template/header.html')
+    @@include('./template/sign_in.html')
     <!-- <div class="banner">
 
     </div> -->
@@ -81,9 +82,9 @@
             <div class="wrapper activity">
 
                 <div class="act-action">
-                    <a href="activityForm.html"><button type="button" class="my-act m-none">我的活動</button></a>
+                    <a href="member.html"><button type="button" class="my-act m-none">我的活動</button></a>
                     <!-- <a href="activityForm.html" style=""></button></a> -->
-                    <button type="button" class="create-act m-none">建立活動</button>
+                    <a href="activityForm.html"><button type="button" class="create-act m-none">建立活動</button></a>
                     <button type="button" class="m-filter"></button>
                 </div>
 
@@ -279,9 +280,13 @@
         if (typeof module === 'object') {window.module = module; module = undefined;}
     </script>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+
+    <script src="./js/jquery-3.4.1.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js'></script>
     <script src="js/bikeAct2.js"></script>
+    <script src="js/getLoginInfo.js"></script>
+    <script src="js/sign_in.js"></script>
+    
 
     <!-- <script type="module" src="js/dropkick.js"></script>
     <script src="js/jquery.twzipcode.min.js"></script>

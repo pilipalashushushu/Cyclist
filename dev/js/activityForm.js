@@ -1,17 +1,20 @@
-{/* <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script> */}
+{/* <script src='https://cdnjs.cloudflarmemNoe.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script> */}
 {/* <script type="module" src="js/dropkick.js"></script> */}
 
 $(document).ready(function(){
 
-
-    // $('#title').focus(function(){
-    //     console.log("test");
-        
-    //     $(this).parent().next().addClass('focus');
-    // }).blur(function(){
-    //     $(this).parent().next().removeClass('focus');
-    // })
-
+   
+    // var actNo=JSON.parse(localStorage['actNo']);
+    var memNo,memNickName,memPic;
+    if(sessionStorage['memNo']!= null || sessionStorage['memNo']!=undefined){
+        //  memNo=sessionStorage['memNo'];
+        //  console.log(typeof(memNo));
+         memNo = JSON.parse(sessionStorage['memNo']);
+         console.log(typeof(memNo));
+         memNickName = sessionStorage['memNickName'];
+         memPic = JSON.parse(sessionStorage['memPic']);
+    }
+    
     
 
     $('#twzipcode').twzipcode({
@@ -19,9 +22,11 @@ $(document).ready(function(){
             $('.county').addClass("dk-select-open-up");
         }
     });
+    var info= document.getElementById("file-info");
     document.getElementById("drag-box").ondragover = dragOver;
     document.getElementById("drag-box").ondrop = dropped;
-    document.getElementById("the-file").onchange = fileChange
+    document.getElementById("the-file").onchange = fileChange;
+    // document.getElementById("theFile").onchange = fileChange;
 
     function dragOver(e) {
         e.preventDefault();
@@ -29,33 +34,85 @@ $(document).ready(function(){
     }
 
     let image = document.getElementById('drag-img');
+    var aa;
 
     function dropped(e) {
         e.preventDefault();
         let file = e.dataTransfer.files[0];
-        document.getElementById("the-file").innerText = file.name;
+        // document.getElementById("the-file").innerText = file.name;
+        info.innerText= file.name;
 
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.addEventListener('load', function (e) {
-
-
+        console.log(file);
+    
         image.src = this.result;
-
+        aa = this.result;
             // image.style.maxWidth = '500px';
             // image.style.maxHeight = '400px';
 
         });
     }
 
+    
+
     function fileChange() {
         let file = document.getElementById("the-file").files[0];
+        console.log(file);
+        
+        let message = '';
+        message += file.name;
+        info.innerText= file.name;
 
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.addEventListener('load', function () {
             image.src = this.result;
+
+            aa = this.result;
+            console.log(aa);  
+            // setTimeout(saveImage(aa), 10000);
+            document.getElementById('hidden_data').value = aa;
+            setTimeout(saveImage(aa), 10000);
         })
+
+
+    }
+
+    // var sendBtn = document.getElementById("act-submit");
+    // function initSendBtn(){
+    //     sendBtn.addEventListener("load", saveImage(), false);
+    // }
+
+    // window.addEventListener("load", initSendBtn, false);
+
+
+    function saveImage(){
+        console.log(document.getElementById("form1"));
+        
+        var formData = new FormData(document.getElementById("form1")[0]);
+
+        console.log(formData.toString());
+        console.log(formData);
+
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            if( xhr.status == 200){
+            if(xhr.responseText == "error"){
+                alert("Error");
+            }else{
+                alert('Succesfully uploaded');  
+                console.log(xhr.responseText);
+            }
+            }else{
+            alert(xhr.status)
+            }
+        }
+        
+        xhr.open('POST', 'uploadAct.php', true);
+        xhr.send(formData);
+
     }
 
 
@@ -171,7 +228,8 @@ $(document).ready(function(){
                     type:"POST",
                     data:{
                         
-                        act_img:$('#the-file').val(),
+                        // act_img:$('#the-file').val(),
+                        // act_img:$('#the-file').va,
                         act_title:$('#title').val(),
                         // act_twzip:$('#twzipcode').val(),
                         act_location:actLoc,
@@ -182,7 +240,8 @@ $(document).ready(function(){
                         act_DeadLineDate:$('#DeadLineDate').val(),
                         act_type:typeStr,
                         act_stren:$('#level').val(),
-                        act_limit:$('#limit').val() //下拉取值
+                        act_limit:$('#limit').val(), //下拉取值
+                        memNo:memNo,
 
                         
                     },
@@ -199,7 +258,8 @@ $(document).ready(function(){
                         // }else{
                         //     alert("半成功");
                         //     // $("#result").text(msg.json_msg);
-        
+                        alert("成功建立活動");
+                        location.href="activity.html";
 
                         // }
                     },err:function(res){
@@ -209,14 +269,23 @@ $(document).ready(function(){
 
                 })
 
-                alert("成功建立活動");
-                location.href="activity.html";
+            
+            
+
+                
 
 
     });
    
         
+    // $('#title').focus(function(){
+    $(document).on('focus','#title,#loc,#limit',function(){
+        console.log("test");
 
+        $(this).parent().next().addClass('focus');
+    }).on('blur','#title,#loc,#limit',function(){
+        $(this).parent().next().removeClass('focus');
+    })
         
 
 

@@ -1,7 +1,14 @@
 
 function init(){
-
+    // window.location.reload();
     var data =[];
+    
+    var memNo,memNickName,memPic;
+        if(sessionStorage['memNo']!= null || sessionStorage['memNo']!=undefined){
+            memNo=JSON.parse(sessionStorage['memNo']);
+            memNickName = sessionStorage['memNickName'];
+            memPic = JSON.parse(sessionStorage['memPic']);
+    }
 
     $.ajax({
         url:"php/bikeAct.php",
@@ -125,7 +132,7 @@ function init(){
                                         <span class="hard">{{item.actStren}}<span class="circle" v-for="item in getStrenCircle"></span></span>
                                         <div class="social">
                                             <span class="people">{{item.actTotal+"/"+item.actLimit}}</span>
-                                            <span class="msg">5</span>
+                                            <span class="msg">{{item.comNum}}</span>
                                         </div>
 
                                     </div>
