@@ -18,7 +18,7 @@ try{
         
       $result = $mem->fetch(PDO::FETCH_ASSOC);
 
-      echo json_encode( $result,JSON_UNESCAPED_UNICODE);
+      echo json_encode( $result, JSON_UNESCAPED_UNICODE );
 
     }
 

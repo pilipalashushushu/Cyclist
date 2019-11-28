@@ -847,12 +847,11 @@ $(function () {
                 url: "./php/cusmemId.php",
                 type: "post",
                 data: {
-                    memNo: `${sessionStorage["memNo"]}`
+                    memNo: sessionStorage["memNo"]
                 },
                 dataType: "json",
                 success: function (data) {
-
-                    memInfo = JSON.parse(data);
+                    memInfo = data;
                     memGold = memInfo.coupon;
 
                 }

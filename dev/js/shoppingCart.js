@@ -34,10 +34,10 @@ $(function () {
     var memGold;
     $.ajax({
         url: `./php/shoppingCart.php?memNo=${sessionStorage["memNo"]}`,
-        datType: "json",
+        dataType: "json",
         type: "get",
         success: function (data) {
-            memInfo = JSON.parse(data);
+            memInfo = data;
             memGold = memInfo.coupon;
         }
     });
@@ -180,10 +180,7 @@ $(function () {
 
                                             success: function (data) {
 
-                                                let result = JSON.parse(data);
-
-
-
+                                                let result = data;
 
                                                 $('#alert-wrap').find('h3').text('購買成功');
                                                 $('#alert-wrap').fadeIn('slow');
